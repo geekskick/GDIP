@@ -1,3 +1,5 @@
+Robot Arm using a PSoC-5LP running a FreeRTOS port.
+
 Directories:
 
 + FreeRTOS/source contains the FreeRTOS real time kernel source code.
