@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
    7:..\..\Common\Minimal/flop.c ****     This file is part of the FreeRTOS distribution.
    8:..\..\Common\Minimal/flop.c **** 
    9:..\..\Common\Minimal/flop.c ****     FreeRTOS is free software; you can redistribute it and/or modify it under
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 2
 
 
   10:..\..\Common\Minimal/flop.c ****     the terms of the GNU General Public License (version 2) as published by the
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
   64:..\..\Common\Minimal/flop.c ****     engineered and independently SIL3 certified version for use in safety and
   65:..\..\Common\Minimal/flop.c ****     mission critical applications that require provable dependability.
   66:..\..\Common\Minimal/flop.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 3
 
 
   67:..\..\Common\Minimal/flop.c ****     1 tab == 4 spaces!
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
   50              		.cfi_offset 7, -8
   51              		.cfi_offset 14, -4
   52 0002 84B0     		sub	sp, sp, #16
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 4
 
 
   53              		.cfi_def_cfa_offset 24
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  102              		@ sp needed
  103 005c 80BD     		pop	{r7, pc}
  104              	.L3:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 5
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 5
 
 
  105 005e 00BF     		.align	2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  128:..\..\Common\Minimal/flop.c **** 
  129:..\..\Common\Minimal/flop.c **** 	/* Some ports require that tasks that use a hardware floating point unit
  130:..\..\Common\Minimal/flop.c **** 	tell the kernel that they require a floating point context before any
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 6
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 6
 
 
  131:..\..\Common\Minimal/flop.c **** 	floating point instructions are executed. */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  187 0062 C7E90823 		strd	r2, [r7, #32]
  149:..\..\Common\Minimal/flop.c **** 		d3 = -918.222;
  188              		.loc 1 149 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 7
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 7
 
 
  189 0066 20A3     		adr	r3, .L10+16
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  228 00c8 02D1     		bne	.L7
  165:..\..\Common\Minimal/flop.c **** 		{
  166:..\..\Common\Minimal/flop.c **** 			/* If the calculation has always been correct then set set the check
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 8
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 8
 
 
  167:..\..\Common\Minimal/flop.c **** 			variable.  The check variable will get set to pdFALSE each time
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  267              		.cfi_offset 14, -4
  268 0002 8EB0     		sub	sp, sp, #56
  269              		.cfi_def_cfa_offset 72
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 9
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 9
 
 
  270 0004 00AF     		add	r7, sp, #0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  304              	.L16:
  202:..\..\Common\Minimal/flop.c **** 
  203:..\..\Common\Minimal/flop.c **** 	/* Keep performing a calculation and checking the result against a constant. */
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 10
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 10
 
 
  204:..\..\Common\Minimal/flop.c **** 	for( ;; )
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  344 00ba 002B     		cmp	r3, #0
  345 00bc 01D0     		beq	.L13
  219:..\..\Common\Minimal/flop.c **** 		{
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 11
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 11
 
 
  220:..\..\Common\Minimal/flop.c **** 			sError = pdTRUE;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  236:..\..\Common\Minimal/flop.c **** /*-----------------------------------------------------------*/
  237:..\..\Common\Minimal/flop.c **** 
  238:..\..\Common\Minimal/flop.c **** static portTASK_FUNCTION( vCompetingMathTask3, pvParameters )
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 12
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 12
 
 
  239:..\..\Common\Minimal/flop.c **** {
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  261:..\..\Common\Minimal/flop.c **** 	{
  262:..\..\Common\Minimal/flop.c **** 		dTotal1 = 0.0;
  415              		.loc 1 262 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 13
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 13
 
 
  416 0020 4FF00002 		mov	r2, #0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  265:..\..\Common\Minimal/flop.c **** 		{
  464              		.loc 1 265 0 discriminator 3
  465 0096 7B6B     		ldr	r3, [r7, #52]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 14
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 14
 
 
  466 0098 0133     		adds	r3, r3, #1
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  505 00e2 0B46     		mov	r3, r1
  506 00e4 C7E90223 		strd	r2, [r7, #8]
  281:..\..\Common\Minimal/flop.c **** 		if( fabs( dDifference ) > 0.001 )
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 15
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 15
 
 
  507              		.loc 1 281 0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  544              		.align	2
  545              		.thumb
  546              		.thumb_func
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 16
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 16
 
 
  547              		.type	vCompetingMathTask4, %function
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  580 001e 7862     		str	r0, [r7, #36]
  581              	.L40:
  319:..\..\Common\Minimal/flop.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 17
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 17
 
 
  320:..\..\Common\Minimal/flop.c **** 	/* Keep filling an array, keeping a running total of the values placed in the
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  624 0082 1046     		mov	r0, r2
  625 0084 1946     		mov	r1, r3
  626 0086 D7E90623 		ldrd	r2, [r7, #24]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 18
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 18
 
 
  627 008a FFF7FEFF 		bl	__aeabi_dadd
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  342:..\..\Common\Minimal/flop.c **** 
  343:..\..\Common\Minimal/flop.c **** 		dDifference = dTotal1 - dTotal2;
  667              		.loc 1 343 0 is_stmt 1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 19
 
 
  668 00d4 D7E90601 		ldrd	r0, [r7, #24]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  704 0120 E5D022DB 		.word	-618475291
  705 0124 F93E2840 		.word	1076379385
  706 0128 FCA9F1D2 		.word	-755914244
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 20
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 20
 
 
  707 012c 4D62503F 		.word	1062232653
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  376:..\..\Common\Minimal/flop.c **** 			stalled or detected an error. */
  377:..\..\Common\Minimal/flop.c **** 			xReturn = pdFAIL;
  746              		.loc 1 377 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 21
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 21
 
 
  747 001e 0023     		movs	r3, #0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  788              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
  789              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
  790              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 22
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 22
 
 
  791              		.file 5 "../../../Source/portable/GCC/ARM_CM3/portmacro.h"
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  845 006c 70000000 		.4byte	0x70
  846 0070 03       		.uleb128 0x3
  847 0071 04       		.byte	0x4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 23
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 23
 
 
  848 0072 05       		.byte	0x5
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  902 00d8 04030000 		.4byte	.LASF20
  903 00dc 05       		.byte	0x5
  904 00dd 63       		.byte	0x63
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 24
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 24
 
 
  905 00de 77000000 		.4byte	0x77
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  959 0148 01       		.byte	0x1
  960 0149 7C       		.byte	0x7c
  961 014a 89010000 		.4byte	0x189
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 25
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 25
 
 
  962 014e 02       		.uleb128 0x2
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1016 01b0 93000000 		.4byte	0x93
  1017 01b4 03       		.uleb128 0x3
  1018 01b5 91       		.byte	0x91
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 26
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 26
 
 
  1019 01b6 BC7F     		.sleb128 -68
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1073 0213 02       		.uleb128 0x2
  1074 0214 91       		.byte	0x91
  1075 0215 6E       		.sleb128 -18
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 27
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 27
 
 
  1076 0216 00       		.byte	0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1130 027b 8E010000 		.4byte	0x18e
  1131 027f 02       		.uleb128 0x2
  1132 0280 91       		.byte	0x91
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 28
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 28
 
 
  1133 0281 58       		.sleb128 -40
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1187 02eb 91       		.byte	0x91
  1188 02ec 54       		.sleb128 -44
  1189 02ed 10       		.uleb128 0x10
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 29
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 29
 
 
  1190 02ee F5000000 		.4byte	.LASF30
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1244 0356 62       		.sleb128 -30
  1245 0357 00       		.byte	0
  1246 0358 11       		.uleb128 0x11
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 30
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 30
 
 
  1247 0359 68020000 		.4byte	.LASF43
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1301 0001 11       		.uleb128 0x11
  1302 0002 01       		.byte	0x1
  1303 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 31
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 31
 
 
  1304 0004 0E       		.uleb128 0xe
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1358 003a 0B       		.uleb128 0xb
  1359 003b 00       		.byte	0
  1360 003c 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 32
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 32
 
 
  1361 003d 06       		.uleb128 0x6
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1415 0074 3B       		.uleb128 0x3b
  1416 0075 0B       		.uleb128 0xb
  1417 0076 27       		.uleb128 0x27
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 33
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 33
 
 
  1418 0077 19       		.uleb128 0x19
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1472 00ae 00       		.byte	0
  1473 00af 49       		.uleb128 0x49
  1474 00b0 13       		.uleb128 0x13
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 34
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 34
 
 
  1475 00b1 00       		.byte	0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1529 00e8 00       		.byte	0
  1530 00e9 11       		.uleb128 0x11
  1531 00ea 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 35
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 35
 
 
  1532 00eb 01       		.byte	0x1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1586 0122 3F       		.uleb128 0x3f
  1587 0123 19       		.uleb128 0x19
  1588 0124 3C       		.uleb128 0x3c
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 36
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 36
 
 
  1589 0125 19       		.uleb128 0x19
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1637      5F7400
  1638              	.LASF7:
  1639 000d 5F5F696E 		.ascii	"__int32_t\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 37
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 37
 
 
  1639      7433325F 
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1660              	.LASF34:
  1661 0113 78506F73 		.ascii	"xPosition\000"
  1661      6974696F 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 38
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 38
 
 
  1661      6E00
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1686 01ca 6552544F 		.ascii	"eRTOS\\Demo\\CORTEX_CY8C5588_PSoC_Creator_GCC\\Free"
  1686      535C4465 
  1686      6D6F5C43 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 39
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 39
 
 
  1686      4F525445 
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 1
  1709      31365F74 
  1709      00
  1710              	.LASF42:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccUV3ZaF.s 			page 40
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccuJLLgf.s 			page 40
 
 
  1711 02a7 76537461 		.ascii	"vStartMathTasks\000"

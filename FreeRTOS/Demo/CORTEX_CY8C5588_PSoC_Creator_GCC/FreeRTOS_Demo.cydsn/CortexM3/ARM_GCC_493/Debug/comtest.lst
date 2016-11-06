@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
   10:..\..\Common\Minimal/comtest.c ****     the terms of the GNU General Public License (version 2) as published by the
   11:..\..\Common\Minimal/comtest.c ****     Free Software Foundation >>>> AND MODIFIED BY <<<< the FreeRTOS exception.
   12:..\..\Common\Minimal/comtest.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 2
 
 
   13:..\..\Common\Minimal/comtest.c ****     ***************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
   67:..\..\Common\Minimal/comtest.c ****     1 tab == 4 spaces!
   68:..\..\Common\Minimal/comtest.c **** */
   69:..\..\Common\Minimal/comtest.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 3
 
 
   70:..\..\Common\Minimal/comtest.c **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  124:..\..\Common\Minimal/comtest.c **** don't have to block to send. */
  125:..\..\Common\Minimal/comtest.c **** #define comNO_BLOCK					( ( TickType_t ) 0 )
  126:..\..\Common\Minimal/comtest.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 4
 
 
  127:..\..\Common\Minimal/comtest.c **** /* The Rx task will block on the Rx queue for a long period. */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  162:..\..\Common\Minimal/comtest.c **** 	xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
   63              		.loc 1 162 0
   64 0012 B868     		ldr	r0, [r7, #8]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 5
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 5
 
 
   65 0014 1821     		movs	r1, #24
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  169:..\..\Common\Minimal/comtest.c **** 
  170:..\..\Common\Minimal/comtest.c **** static portTASK_FUNCTION( vComTxTask, pvParameters )
  171:..\..\Common\Minimal/comtest.c **** {
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 6
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 6
 
 
  113              		.loc 1 171 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  151 0030 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
  152 0032 0133     		adds	r3, r3, #1
  153 0034 FB73     		strb	r3, [r7, #15]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 7
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 7
 
 
  154              	.L5:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  207:..\..\Common\Minimal/comtest.c **** 		vTaskDelay( xTimeToWait );
  187              		.loc 1 207 0
  188 0070 B868     		ldr	r0, [r7, #8]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 8
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 8
 
 
  189 0072 FFF7FEFF 		bl	vTaskDelay
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  224:..\..\Common\Minimal/comtest.c **** 		for( cExpectedByte = comFIRST_BYTE; cExpectedByte <= comLAST_BYTE; cExpectedByte++ )
  227              		.loc 1 224 0
  228 0010 4123     		movs	r3, #65
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 9
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 9
 
 
  229 0012 FB75     		strb	r3, [r7, #23]
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  266 0054 0133     		adds	r3, r3, #1
  267 0056 DBB2     		uxtb	r3, r3
  268 0058 FB75     		strb	r3, [r7, #23]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 10
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 10
 
 
  269              	.L13:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  259:..\..\Common\Minimal/comtest.c **** 			/* Note that an error occurred which caused us to have to resync.
  260:..\..\Common\Minimal/comtest.c **** 			We use this to stop incrementing the loop counter so
  261:..\..\Common\Minimal/comtest.c **** 			sAreComTestTasksStillRunning() will return false - indicating an
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 11
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 11
 
 
  262:..\..\Common\Minimal/comtest.c **** 			error. */
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  337              		.thumb
  338              		.thumb_func
  339              		.type	xAreComTestTasksStillRunning, %function
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 12
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 12
 
 
  340              	xAreComTestTasksStillRunning:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  304:..\..\Common\Minimal/comtest.c **** 
  305:..\..\Common\Minimal/comtest.c **** 	return xReturn;
  372              		.loc 1 305 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 13
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 13
 
 
  373 001e 7B68     		ldr	r3, [r7, #4]
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  426 003a 02       		.uleb128 0x2
  427 003b 01       		.byte	0x1
  428 003c 08       		.byte	0x8
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 14
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 14
 
 
  429 003d D6000000 		.4byte	.LASF2
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  483 00a3 61000000 		.4byte	0x61
  484 00a7 02       		.uleb128 0x2
  485 00a8 04       		.byte	0x4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 15
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 15
 
 
  486 00a9 04       		.byte	0x4
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  540 011b 91       		.byte	0x91
  541 011c 70       		.sleb128 -16
  542 011d 07       		.uleb128 0x7
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 16
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 16
 
 
  543 011e 0B000000 		.4byte	.LASF24
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  597 0187 D4       		.byte	0xd4
  598 0188 88000000 		.4byte	0x88
  599 018c 02       		.uleb128 0x2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 17
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 17
 
 
  600 018d 91       		.byte	0x91
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  654 01f2 09       		.uleb128 0x9
  655 01f3 96010000 		.4byte	.LASF35
  656 01f7 01       		.byte	0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 18
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 18
 
 
  657 01f8 8A       		.byte	0x8a
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  711 0015 00       		.byte	0
  712 0016 0B       		.uleb128 0xb
  713 0017 0B       		.uleb128 0xb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 19
 
 
  714 0018 3E       		.uleb128 0x3e
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  768 004e 40       		.uleb128 0x40
  769 004f 18       		.uleb128 0x18
  770 0050 9642     		.uleb128 0x2116
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 20
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 20
 
 
  771 0052 19       		.uleb128 0x19
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  825 0089 02       		.uleb128 0x2
  826 008a 18       		.uleb128 0x18
  827 008b 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 21
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 21
 
 
  828 008c 00       		.byte	0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  882 00c3 0E       		.uleb128 0xe
  883 00c4 3A       		.uleb128 0x3a
  884 00c5 0B       		.uleb128 0xb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 22
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 22
 
 
  885 00c6 3B       		.uleb128 0x3b
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  932      4400
  933              	.LASF6:
  934 0011 5F5F696E 		.ascii	"__int32_t\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 23
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 23
 
 
  934      7433325F 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  954      65642069 
  954      6E7400
  955              	.LASF43:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 24
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 24
 
 
  956 0113 49544D5F 		.ascii	"ITM_RxBuffer\000"
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  980      5C4E4747 
  980      4D4C474D 
  980      5C446F63 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 25
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 25
 
 
  981 01e0 6552544F 		.ascii	"eRTOS\\Demo\\CORTEX_CY8C5588_PSoC_Creator_GCC\\Free"
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 1
  1003              	.LASF3:
  1004 02aa 73686F72 		.ascii	"short int\000"
  1004      7420696E 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccA4StXE.s 			page 26
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccEl072n.s 			page 26
 
 
  1004      7400

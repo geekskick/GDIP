@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
   29:..\..\..\Source/list.c ****      *    platform software that is more than just the market leader, it     *
   30:..\..\..\Source/list.c ****      *    is the industry's de facto standard.                               *
   31:..\..\..\Source/list.c ****      *                                                                       *
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 2
 
 
   32:..\..\..\Source/list.c ****      *    Help yourself get started quickly while simultaneously helping     *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
   32 0000 80B4     		push	{r7}
   33              		.cfi_def_cfa_offset 4
   34              		.cfi_offset 7, -4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 3
 
 
   35 0002 83B0     		sub	sp, sp, #12
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
   68              		@ sp needed
   69 0038 5DF8047B 		ldr	r7, [sp], #4
   70              		.cfi_restore 7
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 4
 
 
   71              		.cfi_def_cfa_offset 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  113              		.size	vListInitialiseItem, .-vListInitialiseItem
  114              		.section	.text.vListInsertEnd,"ax",%progbits
  115              		.align	2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 5
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 5
 
 
  116              		.global	vListInsertEnd
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  135:..\..\..\Source/list.c **** 	pxIndex->pxPrevious->pxNext = pxNewListItem;
  149              		.loc 1 135 0
  150 001e FB68     		ldr	r3, [r7, #12]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 6
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 6
 
 
  151 0020 9B68     		ldr	r3, [r3, #8]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  194 0000 80B4     		push	{r7}
  195              		.cfi_def_cfa_offset 4
  196              		.cfi_offset 7, -4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 7
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 7
 
 
  197 0002 85B0     		sub	sp, sp, #20
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  181:..\..\..\Source/list.c **** 			   http://www.freertos.org/RTOS-Cortex-M3-M4.html and the definition
  182:..\..\..\Source/list.c **** 			   of configMAX_SYSCALL_INTERRUPT_PRIORITY on
  183:..\..\..\Source/list.c **** 			   http://www.freertos.org/a00110.html
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 8
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 8
 
 
  184:..\..\..\Source/list.c **** 			3) Calling an API function from within a critical section or when
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  252 0052 3A68     		ldr	r2, [r7]
  253 0054 5A60     		str	r2, [r3, #4]
  203:..\..\..\Source/list.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 9
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 9
 
 
  204:..\..\..\Source/list.c **** 	/* Remember which list the item is in.  This allows fast removal of the
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  214:..\..\..\Source/list.c **** /* The list item knows which list it is in.  Obtain the list from the list
  215:..\..\..\Source/list.c **** item. */
  216:..\..\..\Source/list.c **** List_t * const pxList = ( List_t * ) pxItemToRemove->pvContainer;
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 10
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 10
 
 
  298              		.loc 1 216 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  333 003e 5A1E     		subs	r2, r3, #1
  334 0040 FB68     		ldr	r3, [r7, #12]
  335 0042 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 11
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 11
 
 
  236:..\..\..\Source/list.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  387 003b 01       		.byte	0x1
  388 003c 08       		.byte	0x8
  389 003d 1A010000 		.4byte	.LASF2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 12
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 12
 
 
  390 0041 02       		.uleb128 0x2
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  444 00a7 02       		.uleb128 0x2
  445 00a8 04       		.byte	0x4
  446 00a9 04       		.byte	0x4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 13
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 13
 
 
  447 00aa 14010000 		.4byte	.LASF15
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  501 0116 CB000000 		.4byte	0xcb
  502 011a 04       		.uleb128 0x4
  503 011b 5D020000 		.4byte	.LASF24
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 14
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 14
 
 
  504 011f 05       		.byte	0x5
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  558 018b D2       		.byte	0xd2
  559 018c 56010000 		.4byte	0x156
  560 0190 08       		.byte	0x8
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 15
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 15
 
 
  561 0191 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  615 0200 01       		.byte	0x1
  616 0201 74       		.byte	0x74
  617 0202 00000000 		.4byte	.LFB70
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 16
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 16
 
 
  618 0206 46000000 		.4byte	.LFE70-.LFB70
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  672 026c 0C       		.uleb128 0xc
  673 026d 9F020000 		.4byte	.LASF40
  674 0271 01       		.byte	0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 17
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 17
 
 
  675 0272 93       		.byte	0x93
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  729 0001 11       		.uleb128 0x11
  730 0002 01       		.byte	0x1
  731 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 18
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 18
 
 
  732 0004 0E       		.uleb128 0xe
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  786 003a 0B       		.uleb128 0xb
  787 003b 00       		.byte	0
  788 003c 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 19
 
 
  789 003d 06       		.uleb128 0x6
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  843 0073 12       		.uleb128 0x12
  844 0074 06       		.uleb128 0x6
  845 0075 40       		.uleb128 0x40
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 20
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 20
 
 
  846 0076 18       		.uleb128 0x18
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  900 00ad 0B       		.uleb128 0xb
  901 00ae 27       		.uleb128 0x27
  902 00af 19       		.uleb128 0x19
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 21
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 21
 
 
  903 00b0 49       		.uleb128 0x49
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  957 002c 70000000 		.4byte	.LFE71-.LFB71
  958 0030 00000000 		.4byte	.LFB72
  959 0034 54000000 		.4byte	.LFE72-.LFB72
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 22
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 22
 
 
  960 0038 00000000 		.4byte	0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  994      4320342E 
  994      392E3320 
  994      32303135 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 23
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 23
 
 
  994      30333033 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  1016      66666572 
  1016      00
  1017              	.LASF34:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 24
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 24
 
 
  1018 0161 764C6973 		.ascii	"vListInitialiseItem\000"
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  1039              	.LASF10:
  1040 023f 6C6F6E67 		.ascii	"long long unsigned int\000"
  1040      206C6F6E 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 25
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 25
 
 
  1040      6720756E 
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 1
  1066      495F4C49 
  1066      53545F49 
  1066      54454D00 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccOSXmnG.s 			page 26
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccDgzpqg.s 			page 26
 
 
  1067              	.LASF1:
