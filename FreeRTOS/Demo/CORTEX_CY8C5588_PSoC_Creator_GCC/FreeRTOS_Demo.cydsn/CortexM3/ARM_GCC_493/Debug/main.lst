@@ -1,0 +1,2233 @@
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.rodata
+  19              		.align	2
+  20              	.LC0:
+  21 0000 43686563 		.ascii	"Check\000"
+  21      6B00
+  22              		.section	.text.main,"ax",%progbits
+  23              		.align	2
+  24              		.global	main
+  25              		.thumb
+  26              		.thumb_func
+  27              		.type	main, %function
+  28              	main:
+  29              	.LFB68:
+  30              		.file 1 "main.c"
+   1:main.c        **** /*
+   2:main.c        ****     FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+   3:main.c        ****     All rights reserved
+   4:main.c        **** 
+   5:main.c        ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+   6:main.c        **** 
+   7:main.c        ****     This file is part of the FreeRTOS distribution.
+   8:main.c        **** 
+   9:main.c        ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  10:main.c        ****     the terms of the GNU General Public License (version 2) as published by the
+  11:main.c        ****     Free Software Foundation >>>> AND MODIFIED BY <<<< the FreeRTOS exception.
+  12:main.c        **** 
+  13:main.c        ****     ***************************************************************************
+  14:main.c        ****     >>!   NOTE: The modification to the GPL is included to allow you to     !<<
+  15:main.c        ****     >>!   distribute a combined work that includes FreeRTOS without being   !<<
+  16:main.c        ****     >>!   obliged to provide the source code for proprietary components     !<<
+  17:main.c        ****     >>!   outside of the FreeRTOS kernel.                                   !<<
+  18:main.c        ****     ***************************************************************************
+  19:main.c        **** 
+  20:main.c        ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  21:main.c        ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  22:main.c        ****     FOR A PARTICULAR PURPOSE.  Full license text is available on the following
+  23:main.c        ****     link: http://www.freertos.org/a00114.html
+  24:main.c        **** 
+  25:main.c        ****     ***************************************************************************
+  26:main.c        ****      *                                                                       *
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 2
+
+
+  27:main.c        ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  28:main.c        ****      *    robust, strictly quality controlled, supported, and cross          *
+  29:main.c        ****      *    platform software that is more than just the market leader, it     *
+  30:main.c        ****      *    is the industry's de facto standard.                               *
+  31:main.c        ****      *                                                                       *
+  32:main.c        ****      *    Help yourself get started quickly while simultaneously helping     *
+  33:main.c        ****      *    to support the FreeRTOS project by purchasing a FreeRTOS           *
+  34:main.c        ****      *    tutorial book, reference manual, or both:                          *
+  35:main.c        ****      *    http://www.FreeRTOS.org/Documentation                              *
+  36:main.c        ****      *                                                                       *
+  37:main.c        ****     ***************************************************************************
+  38:main.c        **** 
+  39:main.c        ****     http://www.FreeRTOS.org/FAQHelp.html - Having a problem?  Start by reading
+  40:main.c        ****     the FAQ page "My application does not run, what could be wrong?".  Have you
+  41:main.c        ****     defined configASSERT()?
+  42:main.c        **** 
+  43:main.c        ****     http://www.FreeRTOS.org/support - In return for receiving this top quality
+  44:main.c        ****     embedded software for free we request you assist our global community by
+  45:main.c        ****     participating in the support forum.
+  46:main.c        **** 
+  47:main.c        ****     http://www.FreeRTOS.org/training - Investing in training allows your team to
+  48:main.c        ****     be as productive as possible as early as possible.  Now you can receive
+  49:main.c        ****     FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers
+  50:main.c        ****     Ltd, and the world's leading authority on the world's leading RTOS.
+  51:main.c        **** 
+  52:main.c        ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  53:main.c        ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  54:main.c        ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  55:main.c        **** 
+  56:main.c        ****     http://www.FreeRTOS.org/labs - Where new FreeRTOS products go to incubate.
+  57:main.c        ****     Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.
+  58:main.c        **** 
+  59:main.c        ****     http://www.OpenRTOS.com - Real Time Engineers ltd. license FreeRTOS to High
+  60:main.c        ****     Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  61:main.c        ****     licenses offer ticketed support, indemnification and commercial middleware.
+  62:main.c        **** 
+  63:main.c        ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  64:main.c        ****     engineered and independently SIL3 certified version for use in safety and
+  65:main.c        ****     mission critical applications that require provable dependability.
+  66:main.c        **** 
+  67:main.c        ****     1 tab == 4 spaces!
+  68:main.c        **** */
+  69:main.c        **** 
+  70:main.c        **** #include <device.h>
+  71:main.c        **** 
+  72:main.c        **** /* RTOS includes. */
+  73:main.c        **** #include "FreeRTOS.h"
+  74:main.c        **** #include "task.h"
+  75:main.c        **** #include "queue.h"
+  76:main.c        **** #include "semphr.h"
+  77:main.c        **** 
+  78:main.c        **** /* Common Demo includes. */
+  79:main.c        **** #include "serial.h"
+  80:main.c        **** #include "BlockQ.h"
+  81:main.c        **** #include "blocktim.h"
+  82:main.c        **** #include "comtest.h"
+  83:main.c        **** #include "countsem.h"
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 3
+
+
+  84:main.c        **** #include "death.h"
+  85:main.c        **** #include "dynamic.h"
+  86:main.c        **** #include "flash.h"
+  87:main.c        **** #include "flop.h"
+  88:main.c        **** #include "GenQTest.h"
+  89:main.c        **** #include "integer.h"
+  90:main.c        **** #include "IntQueue.h"
+  91:main.c        **** #include "mevents.h"
+  92:main.c        **** #include "partest.h"
+  93:main.c        **** #include "PollQ.h"
+  94:main.c        **** #include "print.h"
+  95:main.c        **** #include "QPeek.h"
+  96:main.c        **** #include "semtest.h"
+  97:main.c        **** /*---------------------------------------------------------------------------*/
+  98:main.c        **** 
+  99:main.c        **** /* The time between cycles of the 'check' functionality (defined within the
+ 100:main.c        **** tick hook. */
+ 101:main.c        **** #define mainCHECK_DELAY						( ( TickType_t ) 5000 / portTICK_PERIOD_MS )
+ 102:main.c        **** #define mainCOM_LED							( 3 )
+ 103:main.c        **** 
+ 104:main.c        **** /* The number of nano seconds between each processor clock. */
+ 105:main.c        **** #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000
+ 106:main.c        **** 
+ 107:main.c        **** /* Task priorities. */
+ 108:main.c        **** #define mainQUEUE_POLL_PRIORITY				( tskIDLE_PRIORITY + 2 )
+ 109:main.c        **** #define mainCHECK_TASK_PRIORITY				( tskIDLE_PRIORITY + 3 )
+ 110:main.c        **** #define mainSEM_TEST_PRIORITY				( tskIDLE_PRIORITY + 1 )
+ 111:main.c        **** #define mainBLOCK_Q_PRIORITY				( tskIDLE_PRIORITY + 2 )
+ 112:main.c        **** #define mainCREATOR_TASK_PRIORITY           ( tskIDLE_PRIORITY + 3 )
+ 113:main.c        **** #define mainINTEGER_TASK_PRIORITY           ( tskIDLE_PRIORITY )
+ 114:main.c        **** #define mainGEN_QUEUE_TASK_PRIORITY			( tskIDLE_PRIORITY )
+ 115:main.c        **** #define mainCOM_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
+ 116:main.c        **** #define mainFLASH_TEST_TASK_PRIORITY		( tskIDLE_PRIORITY + 2 )
+ 117:main.c        **** /*---------------------------------------------------------------------------*/
+ 118:main.c        **** 
+ 119:main.c        **** /*
+ 120:main.c        ****  * Configures the timers and interrupts for the fast interrupt test as
+ 121:main.c        ****  * described at the top of this file.
+ 122:main.c        ****  */
+ 123:main.c        **** extern void vSetupTimerTest( void );
+ 124:main.c        **** /*---------------------------------------------------------------------------*/
+ 125:main.c        **** 
+ 126:main.c        **** /*
+ 127:main.c        ****  * The Check task periodical interrogates each of the running tests to
+ 128:main.c        ****  * ensure that they are still executing correctly.
+ 129:main.c        ****  * If all the tests pass, then the LCD is updated with Pass, the number of
+ 130:main.c        ****  * iterations and the Jitter time calculated but the Fast Interrupt Test.
+ 131:main.c        ****  * If any one of the tests fail, it is indicated with an error code printed on
+ 132:main.c        ****  * the display. This indicator won't disappear until the device is reset.
+ 133:main.c        ****  */
+ 134:main.c        **** void vCheckTask( void *pvParameters );
+ 135:main.c        **** 
+ 136:main.c        **** /*
+ 137:main.c        ****  * Installs the RTOS interrupt handlers and starts the peripherals.
+ 138:main.c        ****  */
+ 139:main.c        **** static void prvHardwareSetup( void );
+ 140:main.c        **** /*---------------------------------------------------------------------------*/
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 4
+
+
+ 141:main.c        **** 
+ 142:main.c        **** void main( void )
+ 143:main.c        **** {
+  31              		.loc 1 143 0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 1, uses_anonymous_args = 0
+  35 0000 80B5     		push	{r7, lr}
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 7, -8
+  38              		.cfi_offset 14, -4
+  39 0002 82B0     		sub	sp, sp, #8
+  40              		.cfi_def_cfa_offset 16
+  41 0004 02AF     		add	r7, sp, #8
+  42              		.cfi_def_cfa 7, 8
+ 144:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+ 145:main.c        **** 	prvHardwareSetup();
+  43              		.loc 1 145 0
+  44 0006 FFF7FEFF 		bl	prvHardwareSetup
+ 146:main.c        **** 
+ 147:main.c        **** 	/* Start the standard demo tasks.  These are just here to exercise the
+ 148:main.c        **** 	kernel port and provide examples of how the FreeRTOS API can be used. */
+ 149:main.c        **** 	vStartBlockingQueueTasks( mainBLOCK_Q_PRIORITY );
+  45              		.loc 1 149 0
+  46 000a 0220     		movs	r0, #2
+  47 000c FFF7FEFF 		bl	vStartBlockingQueueTasks
+ 150:main.c        **** 	vCreateBlockTimeTasks();
+  48              		.loc 1 150 0
+  49 0010 FFF7FEFF 		bl	vCreateBlockTimeTasks
+ 151:main.c        **** 	vStartCountingSemaphoreTasks();
+  50              		.loc 1 151 0
+  51 0014 FFF7FEFF 		bl	vStartCountingSemaphoreTasks
+ 152:main.c        **** 	vStartDynamicPriorityTasks();
+  52              		.loc 1 152 0
+  53 0018 FFF7FEFF 		bl	vStartDynamicPriorityTasks
+ 153:main.c        **** 	vStartMathTasks( mainINTEGER_TASK_PRIORITY );
+  54              		.loc 1 153 0
+  55 001c 0020     		movs	r0, #0
+  56 001e FFF7FEFF 		bl	vStartMathTasks
+ 154:main.c        **** 	vStartGenericQueueTasks( mainGEN_QUEUE_TASK_PRIORITY );
+  57              		.loc 1 154 0
+  58 0022 0020     		movs	r0, #0
+  59 0024 FFF7FEFF 		bl	vStartGenericQueueTasks
+ 155:main.c        **** 	vStartIntegerMathTasks( mainINTEGER_TASK_PRIORITY );
+  60              		.loc 1 155 0
+  61 0028 0020     		movs	r0, #0
+  62 002a FFF7FEFF 		bl	vStartIntegerMathTasks
+ 156:main.c        **** 	vStartPolledQueueTasks( mainQUEUE_POLL_PRIORITY );
+  63              		.loc 1 156 0
+  64 002e 0220     		movs	r0, #2
+  65 0030 FFF7FEFF 		bl	vStartPolledQueueTasks
+ 157:main.c        **** 	vStartQueuePeekTasks();
+  66              		.loc 1 157 0
+  67 0034 FFF7FEFF 		bl	vStartQueuePeekTasks
+ 158:main.c        **** 	vStartSemaphoreTasks( mainSEM_TEST_PRIORITY );
+  68              		.loc 1 158 0
+  69 0038 0120     		movs	r0, #1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 5
+
+
+  70 003a FFF7FEFF 		bl	vStartSemaphoreTasks
+ 159:main.c        **** 	vStartLEDFlashTasks( mainFLASH_TEST_TASK_PRIORITY );
+  71              		.loc 1 159 0
+  72 003e 0220     		movs	r0, #2
+  73 0040 FFF7FEFF 		bl	vStartLEDFlashTasks
+ 160:main.c        **** 	vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 57600, mainCOM_LED );
+  74              		.loc 1 160 0
+  75 0044 0120     		movs	r0, #1
+  76 0046 4FF46141 		mov	r1, #57600
+  77 004a 0322     		movs	r2, #3
+  78 004c FFF7FEFF 		bl	vAltStartComTestTasks
+ 161:main.c        **** 	vStartInterruptQueueTasks();
+  79              		.loc 1 161 0
+  80 0050 FFF7FEFF 		bl	vStartInterruptQueueTasks
+ 162:main.c        **** 
+ 163:main.c        **** 	/* Start the error checking task. */
+ 164:main.c        ****   	( void ) xTaskCreate( vCheckTask, "Check", configMINIMAL_STACK_SIZE, NULL, mainCHECK_TASK_PRIORI
+  81              		.loc 1 164 0
+  82 0054 0323     		movs	r3, #3
+  83 0056 0093     		str	r3, [sp]
+  84 0058 0023     		movs	r3, #0
+  85 005a 0193     		str	r3, [sp, #4]
+  86 005c 0648     		ldr	r0, .L3
+  87 005e 0749     		ldr	r1, .L3+4
+  88 0060 6422     		movs	r2, #100
+  89 0062 0023     		movs	r3, #0
+  90 0064 FFF7FEFF 		bl	xTaskCreate
+ 165:main.c        **** 
+ 166:main.c        **** 	/* Configure the timers used by the fast interrupt timer test. */
+ 167:main.c        **** 	vSetupTimerTest();
+  91              		.loc 1 167 0
+  92 0068 FFF7FEFF 		bl	vSetupTimerTest
+ 168:main.c        **** 
+ 169:main.c        **** 	/* The suicide tasks must be created last as they need to know how many
+ 170:main.c        **** 	tasks were running prior to their creation in order to ascertain whether
+ 171:main.c        **** 	or not the correct/expected number of tasks are running at any given time. */
+ 172:main.c        **** 	vCreateSuicidalTasks( mainCREATOR_TASK_PRIORITY );
+  93              		.loc 1 172 0
+  94 006c 0320     		movs	r0, #3
+  95 006e FFF7FEFF 		bl	vCreateSuicidalTasks
+ 173:main.c        **** 
+ 174:main.c        **** 	/* Will only get here if there was insufficient memory to create the idle
+ 175:main.c        ****     task.  The idle task is created within vTaskStartScheduler(). */
+ 176:main.c        **** 	vTaskStartScheduler();
+  96              		.loc 1 176 0
+  97 0072 FFF7FEFF 		bl	vTaskStartScheduler
+  98              	.L2:
+ 177:main.c        **** 
+ 178:main.c        **** 	/* Should never reach here as the kernel will now be running.  If
+ 179:main.c        **** 	vTaskStartScheduler() does return then it is very likely that there was
+ 180:main.c        **** 	insufficient (FreeRTOS) heap space available to create all the tasks,
+ 181:main.c        **** 	including the idle task that is created within vTaskStartScheduler() itself. */
+ 182:main.c        **** 	for( ;; );
+  99              		.loc 1 182 0 discriminator 1
+ 100 0076 FEE7     		b	.L2
+ 101              	.L4:
+ 102              		.align	2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 6
+
+
+ 103              	.L3:
+ 104 0078 00000000 		.word	vCheckTask
+ 105 007c 00000000 		.word	.LC0
+ 106              		.cfi_endproc
+ 107              	.LFE68:
+ 108              		.size	main, .-main
+ 109              		.section	.rodata
+ 110 0006 0000     		.align	2
+ 111              	.LC1:
+ 112 0008 7777772E 		.ascii	"www.FreeRTOS.org \000"
+ 112      46726565 
+ 112      52544F53 
+ 112      2E6F7267 
+ 112      2000
+ 113 001a 0000     		.align	2
+ 114              	.LC2:
+ 115 001c 43593843 		.ascii	"CY8C5588AX-060  \000"
+ 115      35353838 
+ 115      41582D30 
+ 115      36302020 
+ 115      00
+ 116              		.section	.text.prvHardwareSetup,"ax",%progbits
+ 117              		.align	2
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.type	prvHardwareSetup, %function
+ 121              	prvHardwareSetup:
+ 122              	.LFB69:
+ 183:main.c        **** }
+ 184:main.c        **** /*---------------------------------------------------------------------------*/
+ 185:main.c        **** 
+ 186:main.c        **** void prvHardwareSetup( void )
+ 187:main.c        **** {
+ 123              		.loc 1 187 0
+ 124              		.cfi_startproc
+ 125              		@ args = 0, pretend = 0, frame = 0
+ 126              		@ frame_needed = 1, uses_anonymous_args = 0
+ 127 0000 80B5     		push	{r7, lr}
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 7, -8
+ 130              		.cfi_offset 14, -4
+ 131 0002 00AF     		add	r7, sp, #0
+ 132              		.cfi_def_cfa_register 7
+ 188:main.c        **** /* Port layer functions that need to be copied into the vector table. */
+ 189:main.c        **** extern void xPortPendSVHandler( void );
+ 190:main.c        **** extern void xPortSysTickHandler( void );
+ 191:main.c        **** extern void vPortSVCHandler( void );
+ 192:main.c        **** extern cyisraddress CyRamVectors[];
+ 193:main.c        **** 
+ 194:main.c        **** 	/* Install the OS Interrupt Handlers. */
+ 195:main.c        **** 	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
+ 133              		.loc 1 195 0
+ 134 0004 144B     		ldr	r3, .L6
+ 135 0006 154A     		ldr	r2, .L6+4
+ 136 0008 DA62     		str	r2, [r3, #44]
+ 196:main.c        **** 	CyRamVectors[ 14 ] = ( cyisraddress ) xPortPendSVHandler;
+ 137              		.loc 1 196 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 7
+
+
+ 138 000a 134B     		ldr	r3, .L6
+ 139 000c 144A     		ldr	r2, .L6+8
+ 140 000e 9A63     		str	r2, [r3, #56]
+ 197:main.c        **** 	CyRamVectors[ 15 ] = ( cyisraddress ) xPortSysTickHandler;
+ 141              		.loc 1 197 0
+ 142 0010 114B     		ldr	r3, .L6
+ 143 0012 144A     		ldr	r2, .L6+12
+ 144 0014 DA63     		str	r2, [r3, #60]
+ 198:main.c        **** 
+ 199:main.c        **** 	/* Start-up the peripherals. */
+ 200:main.c        **** 
+ 201:main.c        **** 	/* Enable and clear the LCD Display. */
+ 202:main.c        **** 	LCD_Character_Display_Start();
+ 145              		.loc 1 202 0
+ 146 0016 FFF7FEFF 		bl	LCD_Character_Display_Start
+ 203:main.c        **** 	LCD_Character_Display_ClearDisplay();
+ 147              		.loc 1 203 0
+ 148 001a 0120     		movs	r0, #1
+ 149 001c FFF7FEFF 		bl	LCD_Character_Display_WriteControl
+ 204:main.c        **** 	LCD_Character_Display_Position( 0, 0 );
+ 150              		.loc 1 204 0
+ 151 0020 0020     		movs	r0, #0
+ 152 0022 0021     		movs	r1, #0
+ 153 0024 FFF7FEFF 		bl	LCD_Character_Display_Position
+ 205:main.c        **** 	LCD_Character_Display_PrintString( "www.FreeRTOS.org " );
+ 154              		.loc 1 205 0
+ 155 0028 0F48     		ldr	r0, .L6+16
+ 156 002a FFF7FEFF 		bl	LCD_Character_Display_PrintString
+ 206:main.c        **** 	LCD_Character_Display_Position( 1, 0 );
+ 157              		.loc 1 206 0
+ 158 002e 0120     		movs	r0, #1
+ 159 0030 0021     		movs	r1, #0
+ 160 0032 FFF7FEFF 		bl	LCD_Character_Display_Position
+ 207:main.c        **** 	LCD_Character_Display_PrintString("CY8C5588AX-060  ");
+ 161              		.loc 1 207 0
+ 162 0036 0D48     		ldr	r0, .L6+20
+ 163 0038 FFF7FEFF 		bl	LCD_Character_Display_PrintString
+ 208:main.c        **** 
+ 209:main.c        **** 	/* Start the UART. */
+ 210:main.c        **** 	UART_1_Start();
+ 164              		.loc 1 210 0
+ 165 003c FFF7FEFF 		bl	UART_1_Start
+ 211:main.c        **** 
+ 212:main.c        **** 	/* Initialise the LEDs. */
+ 213:main.c        **** 	vParTestInitialise();
+ 166              		.loc 1 213 0
+ 167 0040 FFF7FEFF 		bl	vParTestInitialise
+ 214:main.c        **** 
+ 215:main.c        **** 	/* Start the PWM modules that drive the IntQueue tests. */
+ 216:main.c        **** 	High_Frequency_PWM_0_Start();
+ 168              		.loc 1 216 0
+ 169 0044 FFF7FEFF 		bl	High_Frequency_PWM_0_Start
+ 217:main.c        **** 	High_Frequency_PWM_1_Start();
+ 170              		.loc 1 217 0
+ 171 0048 FFF7FEFF 		bl	High_Frequency_PWM_1_Start
+ 218:main.c        **** 
+ 219:main.c        **** 	/* Start the timers for the Jitter test. */
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 8
+
+
+ 220:main.c        **** 	Timer_20KHz_Start();
+ 172              		.loc 1 220 0
+ 173 004c FFF7FEFF 		bl	Timer_20KHz_Start
+ 221:main.c        **** 	Timer_48MHz_Start();
+ 174              		.loc 1 221 0
+ 175 0050 FFF7FEFF 		bl	Timer_48MHz_Start
+ 222:main.c        **** }
+ 176              		.loc 1 222 0
+ 177 0054 80BD     		pop	{r7, pc}
+ 178              	.L7:
+ 179 0056 00BF     		.align	2
+ 180              	.L6:
+ 181 0058 00000000 		.word	CyRamVectors
+ 182 005c 00000000 		.word	vPortSVCHandler
+ 183 0060 00000000 		.word	xPortPendSVHandler
+ 184 0064 00000000 		.word	xPortSysTickHandler
+ 185 0068 08000000 		.word	.LC1
+ 186 006c 1C000000 		.word	.LC2
+ 187              		.cfi_endproc
+ 188              	.LFE69:
+ 189              		.size	prvHardwareSetup, .-prvHardwareSetup
+ 190              		.section	.rodata
+ 191 002d 000000   		.align	2
+ 192              	.LC3:
+ 193 0030 50617373 		.ascii	"Pass: \000"
+ 193      3A2000
+ 194 0037 00       		.align	2
+ 195              	.LC4:
+ 196 0038 4A697474 		.ascii	"Jitter(ns):\000"
+ 196      6572286E 
+ 196      73293A00 
+ 197              		.align	2
+ 198              	.LC5:
+ 199 0044 4661696C 		.ascii	"Fail at: \000"
+ 199      2061743A 
+ 199      2000
+ 200 004e 0000     		.align	2
+ 201              	.LC6:
+ 202 0050 4572726F 		.ascii	"Error: 0x\000"
+ 202      723A2030 
+ 202      7800
+ 203 005a 0000     		.section	.text.vCheckTask,"ax",%progbits
+ 204              		.align	2
+ 205              		.global	vCheckTask
+ 206              		.thumb
+ 207              		.thumb_func
+ 208              		.type	vCheckTask, %function
+ 209              	vCheckTask:
+ 210              	.LFB70:
+ 223:main.c        **** /*---------------------------------------------------------------------------*/
+ 224:main.c        **** 
+ 225:main.c        **** void vCheckTask( void *pvParameters )
+ 226:main.c        **** {
+ 211              		.loc 1 226 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 24
+ 214              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 9
+
+
+ 215 0000 80B5     		push	{r7, lr}
+ 216              		.cfi_def_cfa_offset 8
+ 217              		.cfi_offset 7, -8
+ 218              		.cfi_offset 14, -4
+ 219 0002 86B0     		sub	sp, sp, #24
+ 220              		.cfi_def_cfa_offset 32
+ 221 0004 00AF     		add	r7, sp, #0
+ 222              		.cfi_def_cfa_register 7
+ 223 0006 7860     		str	r0, [r7, #4]
+ 227:main.c        **** unsigned long ulRow = 0;
+ 224              		.loc 1 227 0
+ 225 0008 0023     		movs	r3, #0
+ 226 000a 7B61     		str	r3, [r7, #20]
+ 228:main.c        **** TickType_t xDelay = 0;
+ 227              		.loc 1 228 0
+ 228 000c 0023     		movs	r3, #0
+ 229 000e BB60     		str	r3, [r7, #8]
+ 229:main.c        **** unsigned short usErrorCode = 0;
+ 230              		.loc 1 229 0
+ 231 0010 0023     		movs	r3, #0
+ 232 0012 7B82     		strh	r3, [r7, #18]	@ movhi
+ 230:main.c        **** unsigned long ulIteration = 0;
+ 233              		.loc 1 230 0
+ 234 0014 0023     		movs	r3, #0
+ 235 0016 FB60     		str	r3, [r7, #12]
+ 231:main.c        **** extern unsigned short usMaxJitter;
+ 232:main.c        **** 
+ 233:main.c        **** 	/* Intialise the sleeper. */
+ 234:main.c        **** 	xDelay = xTaskGetTickCount();
+ 236              		.loc 1 234 0
+ 237 0018 FFF7FEFF 		bl	xTaskGetTickCount
+ 238 001c 0346     		mov	r3, r0
+ 239 001e BB60     		str	r3, [r7, #8]
+ 240              	.L24:
+ 235:main.c        **** 
+ 236:main.c        **** 	for( ;; )
+ 237:main.c        **** 	{
+ 238:main.c        **** 		/* Perform this check every mainCHECK_DELAY milliseconds. */
+ 239:main.c        **** 		vTaskDelayUntil( &xDelay, mainCHECK_DELAY );
+ 241              		.loc 1 239 0
+ 242 0020 07F10803 		add	r3, r7, #8
+ 243 0024 1846     		mov	r0, r3
+ 244 0026 41F28831 		movw	r1, #5000
+ 245 002a FFF7FEFF 		bl	vTaskDelayUntil
+ 240:main.c        **** 
+ 241:main.c        **** 		/* Check that all of the Demo tasks are still running. */
+ 242:main.c        **** 		if( pdTRUE != xAreBlockingQueuesStillRunning() )
+ 246              		.loc 1 242 0
+ 247 002e FFF7FEFF 		bl	xAreBlockingQueuesStillRunning
+ 248 0032 0346     		mov	r3, r0
+ 249 0034 012B     		cmp	r3, #1
+ 250 0036 03D0     		beq	.L9
+ 243:main.c        **** 		{
+ 244:main.c        **** 			usErrorCode |= 0x1;
+ 251              		.loc 1 244 0
+ 252 0038 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 253 003a 43F00103 		orr	r3, r3, #1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 10
+
+
+ 254 003e 7B82     		strh	r3, [r7, #18]	@ movhi
+ 255              	.L9:
+ 245:main.c        **** 		}
+ 246:main.c        **** 
+ 247:main.c        **** 		if( pdTRUE != xAreBlockTimeTestTasksStillRunning() )
+ 256              		.loc 1 247 0
+ 257 0040 FFF7FEFF 		bl	xAreBlockTimeTestTasksStillRunning
+ 258 0044 0346     		mov	r3, r0
+ 259 0046 012B     		cmp	r3, #1
+ 260 0048 03D0     		beq	.L10
+ 248:main.c        **** 		{
+ 249:main.c        **** 			usErrorCode |= 0x2;
+ 261              		.loc 1 249 0
+ 262 004a 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 263 004c 43F00203 		orr	r3, r3, #2
+ 264 0050 7B82     		strh	r3, [r7, #18]	@ movhi
+ 265              	.L10:
+ 250:main.c        **** 		}
+ 251:main.c        **** 
+ 252:main.c        **** 		if( pdTRUE != xAreCountingSemaphoreTasksStillRunning() )
+ 266              		.loc 1 252 0
+ 267 0052 FFF7FEFF 		bl	xAreCountingSemaphoreTasksStillRunning
+ 268 0056 0346     		mov	r3, r0
+ 269 0058 012B     		cmp	r3, #1
+ 270 005a 03D0     		beq	.L11
+ 253:main.c        **** 		{
+ 254:main.c        **** 			usErrorCode |= 0x4;
+ 271              		.loc 1 254 0
+ 272 005c 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 273 005e 43F00403 		orr	r3, r3, #4
+ 274 0062 7B82     		strh	r3, [r7, #18]	@ movhi
+ 275              	.L11:
+ 255:main.c        **** 		}
+ 256:main.c        **** 
+ 257:main.c        **** 		if( pdTRUE != xIsCreateTaskStillRunning() )
+ 276              		.loc 1 257 0
+ 277 0064 FFF7FEFF 		bl	xIsCreateTaskStillRunning
+ 278 0068 0346     		mov	r3, r0
+ 279 006a 012B     		cmp	r3, #1
+ 280 006c 03D0     		beq	.L12
+ 258:main.c        **** 		{
+ 259:main.c        **** 			usErrorCode |= 0x8;
+ 281              		.loc 1 259 0
+ 282 006e 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 283 0070 43F00803 		orr	r3, r3, #8
+ 284 0074 7B82     		strh	r3, [r7, #18]	@ movhi
+ 285              	.L12:
+ 260:main.c        **** 		}
+ 261:main.c        **** 
+ 262:main.c        **** 		if( pdTRUE != xAreDynamicPriorityTasksStillRunning() )
+ 286              		.loc 1 262 0
+ 287 0076 FFF7FEFF 		bl	xAreDynamicPriorityTasksStillRunning
+ 288 007a 0346     		mov	r3, r0
+ 289 007c 012B     		cmp	r3, #1
+ 290 007e 03D0     		beq	.L13
+ 263:main.c        **** 		{
+ 264:main.c        **** 			usErrorCode |= 0x10;
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 11
+
+
+ 291              		.loc 1 264 0
+ 292 0080 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 293 0082 43F01003 		orr	r3, r3, #16
+ 294 0086 7B82     		strh	r3, [r7, #18]	@ movhi
+ 295              	.L13:
+ 265:main.c        **** 		}
+ 266:main.c        **** 
+ 267:main.c        **** 		if( pdTRUE != xAreMathsTaskStillRunning() )
+ 296              		.loc 1 267 0
+ 297 0088 FFF7FEFF 		bl	xAreMathsTaskStillRunning
+ 298 008c 0346     		mov	r3, r0
+ 299 008e 012B     		cmp	r3, #1
+ 300 0090 03D0     		beq	.L14
+ 268:main.c        **** 		{
+ 269:main.c        **** 			usErrorCode |= 0x20;
+ 301              		.loc 1 269 0
+ 302 0092 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 303 0094 43F02003 		orr	r3, r3, #32
+ 304 0098 7B82     		strh	r3, [r7, #18]	@ movhi
+ 305              	.L14:
+ 270:main.c        **** 		}
+ 271:main.c        **** 
+ 272:main.c        **** 		if( pdTRUE != xAreGenericQueueTasksStillRunning() )
+ 306              		.loc 1 272 0
+ 307 009a FFF7FEFF 		bl	xAreGenericQueueTasksStillRunning
+ 308 009e 0346     		mov	r3, r0
+ 309 00a0 012B     		cmp	r3, #1
+ 310 00a2 03D0     		beq	.L15
+ 273:main.c        **** 		{
+ 274:main.c        **** 			usErrorCode |= 0x40;
+ 311              		.loc 1 274 0
+ 312 00a4 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 313 00a6 43F04003 		orr	r3, r3, #64
+ 314 00aa 7B82     		strh	r3, [r7, #18]	@ movhi
+ 315              	.L15:
+ 275:main.c        **** 		}
+ 276:main.c        **** 
+ 277:main.c        **** 		if( pdTRUE != xAreIntegerMathsTaskStillRunning() )
+ 316              		.loc 1 277 0
+ 317 00ac FFF7FEFF 		bl	xAreIntegerMathsTaskStillRunning
+ 318 00b0 0346     		mov	r3, r0
+ 319 00b2 012B     		cmp	r3, #1
+ 320 00b4 03D0     		beq	.L16
+ 278:main.c        **** 		{
+ 279:main.c        **** 			usErrorCode |= 0x80;
+ 321              		.loc 1 279 0
+ 322 00b6 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 323 00b8 43F08003 		orr	r3, r3, #128
+ 324 00bc 7B82     		strh	r3, [r7, #18]	@ movhi
+ 325              	.L16:
+ 280:main.c        **** 		}
+ 281:main.c        **** 
+ 282:main.c        **** 		if( pdTRUE != xArePollingQueuesStillRunning() )
+ 326              		.loc 1 282 0
+ 327 00be FFF7FEFF 		bl	xArePollingQueuesStillRunning
+ 328 00c2 0346     		mov	r3, r0
+ 329 00c4 012B     		cmp	r3, #1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 12
+
+
+ 330 00c6 03D0     		beq	.L17
+ 283:main.c        **** 		{
+ 284:main.c        **** 			usErrorCode |= 0x100;
+ 331              		.loc 1 284 0
+ 332 00c8 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 333 00ca 43F48073 		orr	r3, r3, #256
+ 334 00ce 7B82     		strh	r3, [r7, #18]	@ movhi
+ 335              	.L17:
+ 285:main.c        **** 		}
+ 286:main.c        **** 
+ 287:main.c        **** 		if( pdTRUE != xAreQueuePeekTasksStillRunning() )
+ 336              		.loc 1 287 0
+ 337 00d0 FFF7FEFF 		bl	xAreQueuePeekTasksStillRunning
+ 338 00d4 0346     		mov	r3, r0
+ 339 00d6 012B     		cmp	r3, #1
+ 340 00d8 03D0     		beq	.L18
+ 288:main.c        **** 		{
+ 289:main.c        **** 			usErrorCode |= 0x200;
+ 341              		.loc 1 289 0
+ 342 00da 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 343 00dc 43F40073 		orr	r3, r3, #512
+ 344 00e0 7B82     		strh	r3, [r7, #18]	@ movhi
+ 345              	.L18:
+ 290:main.c        **** 		}
+ 291:main.c        **** 
+ 292:main.c        **** 		if( pdTRUE != xAreSemaphoreTasksStillRunning() )
+ 346              		.loc 1 292 0
+ 347 00e2 FFF7FEFF 		bl	xAreSemaphoreTasksStillRunning
+ 348 00e6 0346     		mov	r3, r0
+ 349 00e8 012B     		cmp	r3, #1
+ 350 00ea 03D0     		beq	.L19
+ 293:main.c        **** 		{
+ 294:main.c        **** 			usErrorCode |= 0x400;
+ 351              		.loc 1 294 0
+ 352 00ec 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 353 00ee 43F48063 		orr	r3, r3, #1024
+ 354 00f2 7B82     		strh	r3, [r7, #18]	@ movhi
+ 355              	.L19:
+ 295:main.c        **** 		}
+ 296:main.c        **** 
+ 297:main.c        **** 		if( pdTRUE != xAreComTestTasksStillRunning() )
+ 356              		.loc 1 297 0
+ 357 00f4 FFF7FEFF 		bl	xAreComTestTasksStillRunning
+ 358 00f8 0346     		mov	r3, r0
+ 359 00fa 012B     		cmp	r3, #1
+ 360 00fc 03D0     		beq	.L20
+ 298:main.c        **** 		{
+ 299:main.c        **** 			usErrorCode |= 0x800;
+ 361              		.loc 1 299 0
+ 362 00fe 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 363 0100 43F40063 		orr	r3, r3, #2048
+ 364 0104 7B82     		strh	r3, [r7, #18]	@ movhi
+ 365              	.L20:
+ 300:main.c        **** 		}
+ 301:main.c        **** 
+ 302:main.c        **** 		if( pdTRUE != xAreIntQueueTasksStillRunning() )
+ 366              		.loc 1 302 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 13
+
+
+ 367 0106 FFF7FEFF 		bl	xAreIntQueueTasksStillRunning
+ 368 010a 0346     		mov	r3, r0
+ 369 010c 012B     		cmp	r3, #1
+ 370 010e 03D0     		beq	.L21
+ 303:main.c        **** 		{
+ 304:main.c        **** 			usErrorCode |= 0x1000;
+ 371              		.loc 1 304 0
+ 372 0110 7B8A     		ldrh	r3, [r7, #18]	@ movhi
+ 373 0112 43F48053 		orr	r3, r3, #4096
+ 374 0116 7B82     		strh	r3, [r7, #18]	@ movhi
+ 375              	.L21:
+ 305:main.c        **** 		}
+ 306:main.c        **** 
+ 307:main.c        **** 		/* Clear the display. */
+ 308:main.c        **** 		LCD_Character_Display_ClearDisplay();
+ 376              		.loc 1 308 0
+ 377 0118 0120     		movs	r0, #1
+ 378 011a FFF7FEFF 		bl	LCD_Character_Display_WriteControl
+ 309:main.c        **** 		if( 0 == usErrorCode )
+ 379              		.loc 1 309 0
+ 380 011e 7B8A     		ldrh	r3, [r7, #18]
+ 381 0120 002B     		cmp	r3, #0
+ 382 0122 2CD1     		bne	.L22
+ 310:main.c        **** 		{
+ 311:main.c        **** 			LCD_Character_Display_Position( ( ulRow ) & 0x1, 0);
+ 383              		.loc 1 311 0
+ 384 0124 7B69     		ldr	r3, [r7, #20]
+ 385 0126 DBB2     		uxtb	r3, r3
+ 386 0128 03F00103 		and	r3, r3, #1
+ 387 012c DBB2     		uxtb	r3, r3
+ 388 012e 1846     		mov	r0, r3
+ 389 0130 0021     		movs	r1, #0
+ 390 0132 FFF7FEFF 		bl	LCD_Character_Display_Position
+ 312:main.c        **** 			LCD_Character_Display_PrintString( "Pass: " );
+ 391              		.loc 1 312 0
+ 392 0136 2448     		ldr	r0, .L25
+ 393 0138 FFF7FEFF 		bl	LCD_Character_Display_PrintString
+ 313:main.c        **** 			LCD_Character_Display_PrintNumber( ulIteration++ );
+ 394              		.loc 1 313 0
+ 395 013c FB68     		ldr	r3, [r7, #12]
+ 396 013e 5A1C     		adds	r2, r3, #1
+ 397 0140 FA60     		str	r2, [r7, #12]
+ 398 0142 9BB2     		uxth	r3, r3
+ 399 0144 1846     		mov	r0, r3
+ 400 0146 FFF7FEFF 		bl	LCD_Character_Display_PrintU32Number
+ 314:main.c        **** 			LCD_Character_Display_Position( ( ++ulRow ) & 0x1, 0 );
+ 401              		.loc 1 314 0
+ 402 014a 7B69     		ldr	r3, [r7, #20]
+ 403 014c 0133     		adds	r3, r3, #1
+ 404 014e 7B61     		str	r3, [r7, #20]
+ 405 0150 7B69     		ldr	r3, [r7, #20]
+ 406 0152 DBB2     		uxtb	r3, r3
+ 407 0154 03F00103 		and	r3, r3, #1
+ 408 0158 DBB2     		uxtb	r3, r3
+ 409 015a 1846     		mov	r0, r3
+ 410 015c 0021     		movs	r1, #0
+ 411 015e FFF7FEFF 		bl	LCD_Character_Display_Position
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 14
+
+
+ 315:main.c        **** 			LCD_Character_Display_PrintString( "Jitter(ns):" );
+ 412              		.loc 1 315 0
+ 413 0162 1A48     		ldr	r0, .L25+4
+ 414 0164 FFF7FEFF 		bl	LCD_Character_Display_PrintString
+ 316:main.c        **** 			LCD_Character_Display_PrintNumber( ( usMaxJitter * mainNS_PER_CLOCK ) );
+ 415              		.loc 1 316 0
+ 416 0168 194B     		ldr	r3, .L25+8
+ 417 016a 1B88     		ldrh	r3, [r3]
+ 418 016c 1A46     		mov	r2, r3	@ movhi
+ 419 016e 9200     		lsls	r2, r2, #2
+ 420 0170 1344     		add	r3, r3, r2
+ 421 0172 9B00     		lsls	r3, r3, #2
+ 422 0174 9BB2     		uxth	r3, r3
+ 423 0176 1846     		mov	r0, r3
+ 424 0178 FFF7FEFF 		bl	LCD_Character_Display_PrintU32Number
+ 425 017c 23E0     		b	.L23
+ 426              	.L22:
+ 317:main.c        **** 		}
+ 318:main.c        **** 		else
+ 319:main.c        **** 		{
+ 320:main.c        **** 			/* Do something to indicate the failure. */
+ 321:main.c        **** 			LCD_Character_Display_Position( ( ulRow ) & 0x1, 0 );
+ 427              		.loc 1 321 0
+ 428 017e 7B69     		ldr	r3, [r7, #20]
+ 429 0180 DBB2     		uxtb	r3, r3
+ 430 0182 03F00103 		and	r3, r3, #1
+ 431 0186 DBB2     		uxtb	r3, r3
+ 432 0188 1846     		mov	r0, r3
+ 433 018a 0021     		movs	r1, #0
+ 434 018c FFF7FEFF 		bl	LCD_Character_Display_Position
+ 322:main.c        **** 			LCD_Character_Display_PrintString( "Fail at: " );
+ 435              		.loc 1 322 0
+ 436 0190 1048     		ldr	r0, .L25+12
+ 437 0192 FFF7FEFF 		bl	LCD_Character_Display_PrintString
+ 323:main.c        **** 			LCD_Character_Display_PrintNumber( ulIteration );
+ 438              		.loc 1 323 0
+ 439 0196 FB68     		ldr	r3, [r7, #12]
+ 440 0198 9BB2     		uxth	r3, r3
+ 441 019a 1846     		mov	r0, r3
+ 442 019c FFF7FEFF 		bl	LCD_Character_Display_PrintU32Number
+ 324:main.c        **** 			LCD_Character_Display_Position( ( ++ulRow ) & 0x1, 0 );
+ 443              		.loc 1 324 0
+ 444 01a0 7B69     		ldr	r3, [r7, #20]
+ 445 01a2 0133     		adds	r3, r3, #1
+ 446 01a4 7B61     		str	r3, [r7, #20]
+ 447 01a6 7B69     		ldr	r3, [r7, #20]
+ 448 01a8 DBB2     		uxtb	r3, r3
+ 449 01aa 03F00103 		and	r3, r3, #1
+ 450 01ae DBB2     		uxtb	r3, r3
+ 451 01b0 1846     		mov	r0, r3
+ 452 01b2 0021     		movs	r1, #0
+ 453 01b4 FFF7FEFF 		bl	LCD_Character_Display_Position
+ 325:main.c        **** 			LCD_Character_Display_PrintString( "Error: 0x" );
+ 454              		.loc 1 325 0
+ 455 01b8 0748     		ldr	r0, .L25+16
+ 456 01ba FFF7FEFF 		bl	LCD_Character_Display_PrintString
+ 326:main.c        **** 			LCD_Character_Display_PrintHexUint16( usErrorCode );
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 15
+
+
+ 457              		.loc 1 326 0
+ 458 01be 7B8A     		ldrh	r3, [r7, #18]
+ 459 01c0 1846     		mov	r0, r3
+ 460 01c2 FFF7FEFF 		bl	LCD_Character_Display_PrintInt16
+ 461              	.L23:
+ 327:main.c        **** 		}
+ 328:main.c        **** 	}
+ 462              		.loc 1 328 0
+ 463 01c6 2BE7     		b	.L24
+ 464              	.L26:
+ 465              		.align	2
+ 466              	.L25:
+ 467 01c8 30000000 		.word	.LC3
+ 468 01cc 38000000 		.word	.LC4
+ 469 01d0 00000000 		.word	usMaxJitter
+ 470 01d4 44000000 		.word	.LC5
+ 471 01d8 50000000 		.word	.LC6
+ 472              		.cfi_endproc
+ 473              	.LFE70:
+ 474              		.size	vCheckTask, .-vCheckTask
+ 475              		.section	.text.vApplicationStackOverflowHook,"ax",%progbits
+ 476              		.align	2
+ 477              		.global	vApplicationStackOverflowHook
+ 478              		.thumb
+ 479              		.thumb_func
+ 480              		.type	vApplicationStackOverflowHook, %function
+ 481              	vApplicationStackOverflowHook:
+ 482              	.LFB71:
+ 329:main.c        **** }
+ 330:main.c        **** /*---------------------------------------------------------------------------*/
+ 331:main.c        **** 
+ 332:main.c        **** void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
+ 333:main.c        **** {
+ 483              		.loc 1 333 0
+ 484              		.cfi_startproc
+ 485              		@ args = 0, pretend = 0, frame = 16
+ 486              		@ frame_needed = 1, uses_anonymous_args = 0
+ 487              		@ link register save eliminated.
+ 488 0000 80B4     		push	{r7}
+ 489              		.cfi_def_cfa_offset 4
+ 490              		.cfi_offset 7, -4
+ 491 0002 85B0     		sub	sp, sp, #20
+ 492              		.cfi_def_cfa_offset 24
+ 493 0004 00AF     		add	r7, sp, #0
+ 494              		.cfi_def_cfa_register 7
+ 495 0006 7860     		str	r0, [r7, #4]
+ 496 0008 3960     		str	r1, [r7]
+ 497              	.LBB6:
+ 498              	.LBB7:
+ 499              		.file 2 "../../../Source/portable/GCC/ARM_CM3/portmacro.h"
+   1:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*
+   2:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+   3:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     All rights reserved
+   4:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+   5:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
+   6:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+   7:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     This file is part of the FreeRTOS distribution.
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 16
+
+
+   8:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+   9:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FreeRTOS is free software; you can redistribute it and/or modify it under
+  10:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     the terms of the GNU General Public License (version 2) as published by the
+  11:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     Free Software Foundation >>>> AND MODIFIED BY <<<< the FreeRTOS exception.
+  12:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  13:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     ***************************************************************************
+  14:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     >>!   NOTE: The modification to the GPL is included to allow you to     !<<
+  15:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     >>!   distribute a combined work that includes FreeRTOS without being   !<<
+  16:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     >>!   obliged to provide the source code for proprietary components     !<<
+  17:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     >>!   outside of the FreeRTOS kernel.                                   !<<
+  18:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     ***************************************************************************
+  19:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  20:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
+  21:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  22:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FOR A PARTICULAR PURPOSE.  Full license text is available on the following
+  23:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     link: http://www.freertos.org/a00114.html
+  24:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  25:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     ***************************************************************************
+  26:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *                                                                       *
+  27:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    FreeRTOS provides completely free yet professionally developed,    *
+  28:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    robust, strictly quality controlled, supported, and cross          *
+  29:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    platform software that is more than just the market leader, it     *
+  30:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    is the industry's de facto standard.                               *
+  31:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *                                                                       *
+  32:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    Help yourself get started quickly while simultaneously helping     *
+  33:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    to support the FreeRTOS project by purchasing a FreeRTOS           *
+  34:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    tutorial book, reference manual, or both:                          *
+  35:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *    http://www.FreeRTOS.org/Documentation                              *
+  36:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****      *                                                                       *
+  37:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     ***************************************************************************
+  38:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  39:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.FreeRTOS.org/FAQHelp.html - Having a problem?  Start by reading
+  40:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     the FAQ page "My application does not run, what could be wrong?".  Have you
+  41:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     defined configASSERT()?
+  42:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  43:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.FreeRTOS.org/support - In return for receiving this top quality
+  44:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     embedded software for free we request you assist our global community by
+  45:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     participating in the support forum.
+  46:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  47:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.FreeRTOS.org/training - Investing in training allows your team to
+  48:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     be as productive as possible as early as possible.  Now you can receive
+  49:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers
+  50:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     Ltd, and the world's leading authority on the world's leading RTOS.
+  51:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  52:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
+  53:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
+  54:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
+  55:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  56:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.FreeRTOS.org/labs - Where new FreeRTOS products go to incubate.
+  57:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     Come and try FreeRTOS+TCP, our new open source TCP/IP stack for FreeRTOS.
+  58:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  59:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.OpenRTOS.com - Real Time Engineers ltd. license FreeRTOS to High
+  60:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     Integrity Systems ltd. to sell under the OpenRTOS brand.  Low cost OpenRTOS
+  61:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     licenses offer ticketed support, indemnification and commercial middleware.
+  62:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  63:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.SafeRTOS.com - High Integrity Systems also provide a safety
+  64:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     engineered and independently SIL3 certified version for use in safety and
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 17
+
+
+  65:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     mission critical applications that require provable dependability.
+  66:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  67:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     1 tab == 4 spaces!
+  68:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** */
+  69:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  70:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  71:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifndef PORTMACRO_H
+  72:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define PORTMACRO_H
+  73:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  74:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifdef __cplusplus
+  75:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** extern "C" {
+  76:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+  77:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  78:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------
+  79:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * Port specific definitions.
+  80:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  *
+  81:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * The settings in this file configure FreeRTOS correctly for the
+  82:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * given hardware and compiler.
+  83:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  *
+  84:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * These settings should not be altered.
+  85:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  *-----------------------------------------------------------
+  86:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  */
+  87:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  88:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Type definitions. */
+  89:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portCHAR		char
+  90:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portFLOAT		float
+  91:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portDOUBLE		double
+  92:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portLONG		long
+  93:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portSHORT		short
+  94:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portSTACK_TYPE	uint32_t
+  95:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portBASE_TYPE	long
+  96:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+  97:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** typedef portSTACK_TYPE StackType_t;
+  98:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** typedef long BaseType_t;
+  99:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** typedef unsigned long UBaseType_t;
+ 100:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 101:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #if( configUSE_16_BIT_TICKS == 1 )
+ 102:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	typedef uint16_t TickType_t;
+ 103:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portMAX_DELAY ( TickType_t ) 0xffff
+ 104:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #else
+ 105:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	typedef uint32_t TickType_t;
+ 106:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portMAX_DELAY ( TickType_t ) 0xffffffffUL
+ 107:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 108:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* 32-bit tick type on a 32-bit architecture, so reads of the tick count do
+ 109:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	not need to be guarded with a critical section. */
+ 110:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portTICK_TYPE_IS_ATOMIC 1
+ 111:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+ 112:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 113:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 114:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Architecture specifics. */
+ 115:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portSTACK_GROWTH			( -1 )
+ 116:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portTICK_PERIOD_MS			( ( TickType_t ) 1000 / configTICK_RATE_HZ )
+ 117:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portBYTE_ALIGNMENT			8
+ 118:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 119:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 120:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Scheduler utilities. */
+ 121:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portYIELD() 															\
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 18
+
+
+ 122:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** {																				\
+ 123:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* Set a PendSV to request a context switch. */								\
+ 124:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	portNVIC_INT_CTRL_REG = portNVIC_PENDSVSET_BIT;								\
+ 125:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 																				\
+ 126:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* Barriers are normally not required but do ensure the code is completely	\
+ 127:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	within the specified behaviour for the architecture. */						\
+ 128:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__asm volatile( "dsb" );													\
+ 129:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__asm volatile( "isb" );													\
+ 130:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** }
+ 131:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 132:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portNVIC_INT_CTRL_REG		( * ( ( volatile uint32_t * ) 0xe000ed04 ) )
+ 133:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portNVIC_PENDSVSET_BIT		( 1UL << 28UL )
+ 134:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portEND_SWITCHING_ISR( xSwitchRequired ) if( xSwitchRequired != pdFALSE ) portYIELD()
+ 135:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portYIELD_FROM_ISR( x ) portEND_SWITCHING_ISR( x )
+ 136:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 137:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 138:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Critical section management. */
+ 139:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** extern void vPortEnterCritical( void );
+ 140:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** extern void vPortExitCritical( void );
+ 141:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portSET_INTERRUPT_MASK_FROM_ISR()		ulPortRaiseBASEPRI()
+ 142:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portCLEAR_INTERRUPT_MASK_FROM_ISR(x)	vPortSetBASEPRI(x)
+ 143:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portDISABLE_INTERRUPTS()				vPortRaiseBASEPRI()
+ 144:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portENABLE_INTERRUPTS()					vPortSetBASEPRI(0)
+ 145:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portENTER_CRITICAL()					vPortEnterCritical()
+ 146:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portEXIT_CRITICAL()						vPortExitCritical()
+ 147:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 148:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 149:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 150:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Task function macros as described on the FreeRTOS.org WEB site.  These are
+ 151:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** not necessary for to use this port.  They are defined so the common demo files
+ 152:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** (which build with all the ports) will build. */
+ 153:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portTASK_FUNCTION_PROTO( vFunction, pvParameters ) void vFunction( void *pvParameters )
+ 154:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portTASK_FUNCTION( vFunction, pvParameters ) void vFunction( void *pvParameters )
+ 155:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 156:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 157:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Tickless idle/low power functionality. */
+ 158:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifndef portSUPPRESS_TICKS_AND_SLEEP
+ 159:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	extern void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime );
+ 160:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portSUPPRESS_TICKS_AND_SLEEP( xExpectedIdleTime ) vPortSuppressTicksAndSleep( xExpectedIdl
+ 161:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+ 162:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 163:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 164:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Architecture specific optimisations. */
+ 165:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifndef configUSE_PORT_OPTIMISED_TASK_SELECTION
+ 166:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
+ 167:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+ 168:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 169:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #if configUSE_PORT_OPTIMISED_TASK_SELECTION == 1
+ 170:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 171:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* Generic helper function. */
+ 172:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__attribute__( ( always_inline ) ) static inline uint8_t ucPortCountLeadingZeros( uint32_t ulBitma
+ 173:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	{
+ 174:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	uint8_t ucReturn;
+ 175:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 176:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 		__asm volatile ( "clz %0, %1" : "=r" ( ucReturn ) : "r" ( ulBitmap ) );
+ 177:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 		return ucReturn;
+ 178:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	}
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 19
+
+
+ 179:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 180:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* Check the configuration. */
+ 181:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#if( configMAX_PRIORITIES > 32 )
+ 182:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 		#error configUSE_PORT_OPTIMISED_TASK_SELECTION can only be set to 1 when configMAX_PRIORITIES is 
+ 183:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#endif
+ 184:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 185:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* Store/clear the ready priorities in a bit map. */
+ 186:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portRECORD_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) |= ( 1UL 
+ 187:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portRESET_READY_PRIORITY( uxPriority, uxReadyPriorities ) ( uxReadyPriorities ) &= ~( 1UL 
+ 188:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 189:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/*-----------------------------------------------------------*/
+ 190:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 191:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portGET_HIGHEST_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31UL - ( ui
+ 192:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 193:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif /* configUSE_PORT_OPTIMISED_TASK_SELECTION */
+ 194:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 195:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 196:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 197:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifdef configASSERT
+ 198:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	void vPortValidateInterruptPriority( void );
+ 199:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portASSERT_IF_INTERRUPT_PRIORITY_INVALID() 	vPortValidateInterruptPriority()
+ 200:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+ 201:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 202:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* portNOP() is not required by this port. */
+ 203:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portNOP()
+ 204:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 205:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portINLINE	__inline
+ 206:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 207:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifndef portFORCE_INLINE
+ 208:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portFORCE_INLINE inline __attribute__(( always_inline))
+ 209:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+ 210:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 211:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** portFORCE_INLINE static BaseType_t xPortIsInsideInterrupt( void )
+ 212:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** {
+ 213:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** uint32_t ulCurrentInterrupt;
+ 214:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** BaseType_t xReturn;
+ 215:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 216:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/* Obtain the number of the currently executing interrupt. */
+ 217:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__asm volatile( "mrs %0, ipsr" : "=r"( ulCurrentInterrupt ) );
+ 218:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 219:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	if( ulCurrentInterrupt == 0 )
+ 220:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	{
+ 221:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 		xReturn = pdFALSE;
+ 222:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	}
+ 223:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	else
+ 224:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	{
+ 225:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 		xReturn = pdTRUE;
+ 226:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	}
+ 227:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 228:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	return xReturn;
+ 229:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** }
+ 230:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 231:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ 232:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 233:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** portFORCE_INLINE static void vPortRaiseBASEPRI( void )
+ 234:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** {
+ 235:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** uint32_t ulNewBASEPRI;
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 20
+
+
+ 236:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ 237:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__asm volatile
+ 500              		.loc 2 237 0
+ 501              	@ 237 "../../../Source/portable/GCC/ARM_CM3/portmacro.h" 1
+ 502 000a 4FF0A003 			mov r3, #160												
+ 503 000e 83F31188 		msr basepri, r3											
+ 504 0012 BFF36F8F 		isb														
+ 505 0016 BFF34F8F 		dsb														
+ 506              	
+ 507              	@ 0 "" 2
+ 508              		.thumb
+ 509 001a FB60     		str	r3, [r7, #12]
+ 510              	.L28:
+ 511              	.LBE7:
+ 512              	.LBE6:
+ 334:main.c        **** 	/* The stack space has been execeeded for a task, considering allocating more. */
+ 335:main.c        **** 	taskDISABLE_INTERRUPTS();
+ 336:main.c        **** 	for( ;; );
+ 513              		.loc 1 336 0 discriminator 1
+ 514 001c FEE7     		b	.L28
+ 515              		.cfi_endproc
+ 516              	.LFE71:
+ 517              		.size	vApplicationStackOverflowHook, .-vApplicationStackOverflowHook
+ 518 001e 00BF     		.section	.text.vApplicationMallocFailedHook,"ax",%progbits
+ 519              		.align	2
+ 520              		.global	vApplicationMallocFailedHook
+ 521              		.thumb
+ 522              		.thumb_func
+ 523              		.type	vApplicationMallocFailedHook, %function
+ 524              	vApplicationMallocFailedHook:
+ 525              	.LFB72:
+ 337:main.c        **** }
+ 338:main.c        **** /*---------------------------------------------------------------------------*/
+ 339:main.c        **** 
+ 340:main.c        **** void vApplicationMallocFailedHook( void )
+ 341:main.c        **** {
+ 526              		.loc 1 341 0
+ 527              		.cfi_startproc
+ 528              		@ args = 0, pretend = 0, frame = 8
+ 529              		@ frame_needed = 1, uses_anonymous_args = 0
+ 530              		@ link register save eliminated.
+ 531 0000 80B4     		push	{r7}
+ 532              		.cfi_def_cfa_offset 4
+ 533              		.cfi_offset 7, -4
+ 534 0002 83B0     		sub	sp, sp, #12
+ 535              		.cfi_def_cfa_offset 16
+ 536 0004 00AF     		add	r7, sp, #0
+ 537              		.cfi_def_cfa_register 7
+ 538              	.LBB8:
+ 539              	.LBB9:
+ 540              		.loc 2 237 0
+ 541              	@ 237 "../../../Source/portable/GCC/ARM_CM3/portmacro.h" 1
+ 542 0006 4FF0A003 			mov r3, #160												
+ 543 000a 83F31188 		msr basepri, r3											
+ 544 000e BFF36F8F 		isb														
+ 545 0012 BFF34F8F 		dsb														
+ 546              	
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 21
+
+
+ 547              	@ 0 "" 2
+ 548              		.thumb
+ 549 0016 7B60     		str	r3, [r7, #4]
+ 550              	.L30:
+ 551              	.LBE9:
+ 552              	.LBE8:
+ 342:main.c        **** 	/* The heap space has been execeeded. */
+ 343:main.c        **** 	taskDISABLE_INTERRUPTS();
+ 344:main.c        **** 	for( ;; );
+ 553              		.loc 1 344 0 discriminator 1
+ 554 0018 FEE7     		b	.L30
+ 555              		.cfi_endproc
+ 556              	.LFE72:
+ 557              		.size	vApplicationMallocFailedHook, .-vApplicationMallocFailedHook
+ 558 001a 00BF     		.text
+ 559              	.Letext0:
+ 560              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 561              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 562              		.file 5 "Generated_Source\\PSoC5/cytypes.h"
+ 563              		.file 6 "../../../Source/include/task.h"
+ 564              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 565              		.section	.debug_info,"",%progbits
+ 566              	.Ldebug_info0:
+ 567 0000 8D020000 		.4byte	0x28d
+ 568 0004 0400     		.2byte	0x4
+ 569 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 570 000a 04       		.byte	0x4
+ 571 000b 01       		.uleb128 0x1
+ 572 000c 33000000 		.4byte	.LASF39
+ 573 0010 01       		.byte	0x1
+ 574 0011 9A020000 		.4byte	.LASF40
+ 575 0015 A5010000 		.4byte	.LASF41
+ 576 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 577 001d 00000000 		.4byte	0
+ 578 0021 00000000 		.4byte	.Ldebug_line0
+ 579 0025 02       		.uleb128 0x2
+ 580 0026 01       		.byte	0x1
+ 581 0027 06       		.byte	0x6
+ 582 0028 F1020000 		.4byte	.LASF0
+ 583 002c 02       		.uleb128 0x2
+ 584 002d 01       		.byte	0x1
+ 585 002e 08       		.byte	0x8
+ 586 002f F5000000 		.4byte	.LASF1
+ 587 0033 02       		.uleb128 0x2
+ 588 0034 02       		.byte	0x2
+ 589 0035 05       		.byte	0x5
+ 590 0036 BD020000 		.4byte	.LASF2
+ 591 003a 02       		.uleb128 0x2
+ 592 003b 02       		.byte	0x2
+ 593 003c 07       		.byte	0x7
+ 594 003d 20010000 		.4byte	.LASF3
+ 595 0041 03       		.uleb128 0x3
+ 596 0042 29000000 		.4byte	.LASF5
+ 597 0046 03       		.byte	0x3
+ 598 0047 3F       		.byte	0x3f
+ 599 0048 4C000000 		.4byte	0x4c
+ 600 004c 02       		.uleb128 0x2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 22
+
+
+ 601 004d 04       		.byte	0x4
+ 602 004e 05       		.byte	0x5
+ 603 004f E8020000 		.4byte	.LASF4
+ 604 0053 03       		.uleb128 0x3
+ 605 0054 03010000 		.4byte	.LASF6
+ 606 0058 03       		.byte	0x3
+ 607 0059 41       		.byte	0x41
+ 608 005a 5E000000 		.4byte	0x5e
+ 609 005e 02       		.uleb128 0x2
+ 610 005f 04       		.byte	0x4
+ 611 0060 07       		.byte	0x7
+ 612 0061 0E010000 		.4byte	.LASF7
+ 613 0065 02       		.uleb128 0x2
+ 614 0066 08       		.byte	0x8
+ 615 0067 05       		.byte	0x5
+ 616 0068 7A020000 		.4byte	.LASF8
+ 617 006c 02       		.uleb128 0x2
+ 618 006d 08       		.byte	0x8
+ 619 006e 07       		.byte	0x7
+ 620 006f 11020000 		.4byte	.LASF9
+ 621 0073 04       		.uleb128 0x4
+ 622 0074 04       		.byte	0x4
+ 623 0075 05       		.byte	0x5
+ 624 0076 696E7400 		.ascii	"int\000"
+ 625 007a 02       		.uleb128 0x2
+ 626 007b 04       		.byte	0x4
+ 627 007c 07       		.byte	0x7
+ 628 007d 98010000 		.4byte	.LASF10
+ 629 0081 03       		.uleb128 0x3
+ 630 0082 DA000000 		.4byte	.LASF11
+ 631 0086 04       		.byte	0x4
+ 632 0087 2C       		.byte	0x2c
+ 633 0088 41000000 		.4byte	0x41
+ 634 008c 03       		.uleb128 0x3
+ 635 008d DF020000 		.4byte	.LASF12
+ 636 0091 04       		.byte	0x4
+ 637 0092 2D       		.byte	0x2d
+ 638 0093 53000000 		.4byte	0x53
+ 639 0097 05       		.uleb128 0x5
+ 640 0098 6D010000 		.4byte	.LASF13
+ 641 009c 05       		.byte	0x5
+ 642 009d 9301     		.2byte	0x193
+ 643 009f 3A000000 		.4byte	0x3a
+ 644 00a3 02       		.uleb128 0x2
+ 645 00a4 04       		.byte	0x4
+ 646 00a5 04       		.byte	0x4
+ 647 00a6 E2000000 		.4byte	.LASF14
+ 648 00aa 02       		.uleb128 0x2
+ 649 00ab 08       		.byte	0x8
+ 650 00ac 04       		.byte	0x4
+ 651 00ad 4C010000 		.4byte	.LASF15
+ 652 00b1 02       		.uleb128 0x2
+ 653 00b2 01       		.byte	0x1
+ 654 00b3 08       		.byte	0x8
+ 655 00b4 A1020000 		.4byte	.LASF16
+ 656 00b8 05       		.uleb128 0x5
+ 657 00b9 28020000 		.4byte	.LASF17
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 23
+
+
+ 658 00bd 05       		.byte	0x5
+ 659 00be 4E02     		.2byte	0x24e
+ 660 00c0 C4000000 		.4byte	0xc4
+ 661 00c4 06       		.uleb128 0x6
+ 662 00c5 04       		.byte	0x4
+ 663 00c6 CA000000 		.4byte	0xca
+ 664 00ca 07       		.uleb128 0x7
+ 665 00cb 02       		.uleb128 0x2
+ 666 00cc 04       		.byte	0x4
+ 667 00cd 07       		.byte	0x7
+ 668 00ce 5E020000 		.4byte	.LASF18
+ 669 00d2 08       		.uleb128 0x8
+ 670 00d3 04       		.byte	0x4
+ 671 00d4 06       		.uleb128 0x6
+ 672 00d5 04       		.byte	0x4
+ 673 00d6 B1000000 		.4byte	0xb1
+ 674 00da 03       		.uleb128 0x3
+ 675 00db 1A030000 		.4byte	.LASF19
+ 676 00df 02       		.byte	0x2
+ 677 00e0 62       		.byte	0x62
+ 678 00e1 4C000000 		.4byte	0x4c
+ 679 00e5 03       		.uleb128 0x3
+ 680 00e6 FD020000 		.4byte	.LASF20
+ 681 00ea 02       		.byte	0x2
+ 682 00eb 63       		.byte	0x63
+ 683 00ec 5E000000 		.4byte	0x5e
+ 684 00f0 03       		.uleb128 0x3
+ 685 00f1 1E000000 		.4byte	.LASF21
+ 686 00f5 02       		.byte	0x2
+ 687 00f6 69       		.byte	0x69
+ 688 00f7 8C000000 		.4byte	0x8c
+ 689 00fb 03       		.uleb128 0x3
+ 690 00fc D2020000 		.4byte	.LASF22
+ 691 0100 06       		.byte	0x6
+ 692 0101 67       		.byte	0x67
+ 693 0102 D2000000 		.4byte	0xd2
+ 694 0106 09       		.uleb128 0x9
+ 695 0107 88020000 		.4byte	.LASF42
+ 696 010b 02       		.byte	0x2
+ 697 010c E9       		.byte	0xe9
+ 698 010d 03       		.byte	0x3
+ 699 010e 1E010000 		.4byte	0x11e
+ 700 0112 0A       		.uleb128 0xa
+ 701 0113 60010000 		.4byte	.LASF43
+ 702 0117 02       		.byte	0x2
+ 703 0118 EB       		.byte	0xeb
+ 704 0119 8C000000 		.4byte	0x8c
+ 705 011d 00       		.byte	0
+ 706 011e 0B       		.uleb128 0xb
+ 707 011f 7F010000 		.4byte	.LASF44
+ 708 0123 01       		.byte	0x1
+ 709 0124 8E       		.byte	0x8e
+ 710 0125 00000000 		.4byte	.LFB68
+ 711 0129 80000000 		.4byte	.LFE68-.LFB68
+ 712 012d 01       		.uleb128 0x1
+ 713 012e 9C       		.byte	0x9c
+ 714 012f 0C       		.uleb128 0xc
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 24
+
+
+ 715 0130 09030000 		.4byte	.LASF45
+ 716 0134 01       		.byte	0x1
+ 717 0135 BA       		.byte	0xba
+ 718 0136 00000000 		.4byte	.LFB69
+ 719 013a 70000000 		.4byte	.LFE69-.LFB69
+ 720 013e 01       		.uleb128 0x1
+ 721 013f 9C       		.byte	0x9c
+ 722 0140 65010000 		.4byte	0x165
+ 723 0144 0D       		.uleb128 0xd
+ 724 0145 C7000000 		.4byte	.LASF23
+ 725 0149 01       		.byte	0x1
+ 726 014a BD       		.byte	0xbd
+ 727 014b 0D       		.uleb128 0xd
+ 728 014c 84010000 		.4byte	.LASF24
+ 729 0150 01       		.byte	0x1
+ 730 0151 BE       		.byte	0xbe
+ 731 0152 0D       		.uleb128 0xd
+ 732 0153 A6020000 		.4byte	.LASF25
+ 733 0157 01       		.byte	0x1
+ 734 0158 BF       		.byte	0xbf
+ 735 0159 0E       		.uleb128 0xe
+ 736 015a 53010000 		.4byte	.LASF30
+ 737 015e 01       		.byte	0x1
+ 738 015f C0       		.byte	0xc0
+ 739 0160 65010000 		.4byte	0x165
+ 740 0164 00       		.byte	0
+ 741 0165 0F       		.uleb128 0xf
+ 742 0166 B8000000 		.4byte	0xb8
+ 743 016a 70010000 		.4byte	0x170
+ 744 016e 10       		.uleb128 0x10
+ 745 016f 00       		.byte	0
+ 746 0170 11       		.uleb128 0x11
+ 747 0171 74010000 		.4byte	.LASF32
+ 748 0175 01       		.byte	0x1
+ 749 0176 E1       		.byte	0xe1
+ 750 0177 00000000 		.4byte	.LFB70
+ 751 017b DC010000 		.4byte	.LFE70-.LFB70
+ 752 017f 01       		.uleb128 0x1
+ 753 0180 9C       		.byte	0x9c
+ 754 0181 D7010000 		.4byte	0x1d7
+ 755 0185 12       		.uleb128 0x12
+ 756 0186 E8000000 		.4byte	.LASF34
+ 757 018a 01       		.byte	0x1
+ 758 018b E1       		.byte	0xe1
+ 759 018c D2000000 		.4byte	0xd2
+ 760 0190 02       		.uleb128 0x2
+ 761 0191 91       		.byte	0x91
+ 762 0192 64       		.sleb128 -28
+ 763 0193 13       		.uleb128 0x13
+ 764 0194 C1000000 		.4byte	.LASF26
+ 765 0198 01       		.byte	0x1
+ 766 0199 E3       		.byte	0xe3
+ 767 019a 5E000000 		.4byte	0x5e
+ 768 019e 02       		.uleb128 0x2
+ 769 019f 91       		.byte	0x91
+ 770 01a0 74       		.sleb128 -12
+ 771 01a1 13       		.uleb128 0x13
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 25
+
+
+ 772 01a2 73020000 		.4byte	.LASF27
+ 773 01a6 01       		.byte	0x1
+ 774 01a7 E4       		.byte	0xe4
+ 775 01a8 F0000000 		.4byte	0xf0
+ 776 01ac 02       		.uleb128 0x2
+ 777 01ad 91       		.byte	0x91
+ 778 01ae 68       		.sleb128 -24
+ 779 01af 13       		.uleb128 0x13
+ 780 01b0 52020000 		.4byte	.LASF28
+ 781 01b4 01       		.byte	0x1
+ 782 01b5 E5       		.byte	0xe5
+ 783 01b6 3A000000 		.4byte	0x3a
+ 784 01ba 02       		.uleb128 0x2
+ 785 01bb 91       		.byte	0x91
+ 786 01bc 72       		.sleb128 -14
+ 787 01bd 13       		.uleb128 0x13
+ 788 01be 67020000 		.4byte	.LASF29
+ 789 01c2 01       		.byte	0x1
+ 790 01c3 E6       		.byte	0xe6
+ 791 01c4 5E000000 		.4byte	0x5e
+ 792 01c8 02       		.uleb128 0x2
+ 793 01c9 91       		.byte	0x91
+ 794 01ca 6C       		.sleb128 -20
+ 795 01cb 0E       		.uleb128 0xe
+ 796 01cc 33010000 		.4byte	.LASF31
+ 797 01d0 01       		.byte	0x1
+ 798 01d1 E7       		.byte	0xe7
+ 799 01d2 3A000000 		.4byte	0x3a
+ 800 01d6 00       		.byte	0
+ 801 01d7 14       		.uleb128 0x14
+ 802 01d8 00000000 		.4byte	.LASF33
+ 803 01dc 01       		.byte	0x1
+ 804 01dd 4C01     		.2byte	0x14c
+ 805 01df 00000000 		.4byte	.LFB71
+ 806 01e3 1E000000 		.4byte	.LFE71-.LFB71
+ 807 01e7 01       		.uleb128 0x1
+ 808 01e8 9C       		.byte	0x9c
+ 809 01e9 2F020000 		.4byte	0x22f
+ 810 01ed 15       		.uleb128 0x15
+ 811 01ee B6020000 		.4byte	.LASF35
+ 812 01f2 01       		.byte	0x1
+ 813 01f3 4C01     		.2byte	0x14c
+ 814 01f5 FB000000 		.4byte	0xfb
+ 815 01f9 02       		.uleb128 0x2
+ 816 01fa 91       		.byte	0x91
+ 817 01fb 6C       		.sleb128 -20
+ 818 01fc 15       		.uleb128 0x15
+ 819 01fd C7020000 		.4byte	.LASF36
+ 820 0201 01       		.byte	0x1
+ 821 0202 4C01     		.2byte	0x14c
+ 822 0204 D4000000 		.4byte	0xd4
+ 823 0208 02       		.uleb128 0x2
+ 824 0209 91       		.byte	0x91
+ 825 020a 68       		.sleb128 -24
+ 826 020b 16       		.uleb128 0x16
+ 827 020c 06010000 		.4byte	0x106
+ 828 0210 0A000000 		.4byte	.LBB6
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 26
+
+
+ 829 0214 12000000 		.4byte	.LBE6-.LBB6
+ 830 0218 01       		.byte	0x1
+ 831 0219 4F01     		.2byte	0x14f
+ 832 021b 17       		.uleb128 0x17
+ 833 021c 0A000000 		.4byte	.LBB7
+ 834 0220 12000000 		.4byte	.LBE7-.LBB7
+ 835 0224 18       		.uleb128 0x18
+ 836 0225 12010000 		.4byte	0x112
+ 837 0229 02       		.uleb128 0x2
+ 838 022a 91       		.byte	0x91
+ 839 022b 74       		.sleb128 -12
+ 840 022c 00       		.byte	0
+ 841 022d 00       		.byte	0
+ 842 022e 00       		.byte	0
+ 843 022f 14       		.uleb128 0x14
+ 844 0230 35020000 		.4byte	.LASF37
+ 845 0234 01       		.byte	0x1
+ 846 0235 5401     		.2byte	0x154
+ 847 0237 00000000 		.4byte	.LFB72
+ 848 023b 1A000000 		.4byte	.LFE72-.LFB72
+ 849 023f 01       		.uleb128 0x1
+ 850 0240 9C       		.byte	0x9c
+ 851 0241 69020000 		.4byte	0x269
+ 852 0245 16       		.uleb128 0x16
+ 853 0246 06010000 		.4byte	0x106
+ 854 024a 06000000 		.4byte	.LBB8
+ 855 024e 12000000 		.4byte	.LBE8-.LBB8
+ 856 0252 01       		.byte	0x1
+ 857 0253 5701     		.2byte	0x157
+ 858 0255 17       		.uleb128 0x17
+ 859 0256 06000000 		.4byte	.LBB9
+ 860 025a 12000000 		.4byte	.LBE9-.LBB9
+ 861 025e 18       		.uleb128 0x18
+ 862 025f 12010000 		.4byte	0x112
+ 863 0263 02       		.uleb128 0x2
+ 864 0264 91       		.byte	0x91
+ 865 0265 74       		.sleb128 -12
+ 866 0266 00       		.byte	0
+ 867 0267 00       		.byte	0
+ 868 0268 00       		.byte	0
+ 869 0269 19       		.uleb128 0x19
+ 870 026a 3F010000 		.4byte	.LASF38
+ 871 026e 07       		.byte	0x7
+ 872 026f 9606     		.2byte	0x696
+ 873 0271 75020000 		.4byte	0x275
+ 874 0275 1A       		.uleb128 0x1a
+ 875 0276 81000000 		.4byte	0x81
+ 876 027a 0E       		.uleb128 0xe
+ 877 027b 53010000 		.4byte	.LASF30
+ 878 027f 01       		.byte	0x1
+ 879 0280 C0       		.byte	0xc0
+ 880 0281 65010000 		.4byte	0x165
+ 881 0285 0E       		.uleb128 0xe
+ 882 0286 33010000 		.4byte	.LASF31
+ 883 028a 01       		.byte	0x1
+ 884 028b E7       		.byte	0xe7
+ 885 028c 3A000000 		.4byte	0x3a
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 27
+
+
+ 886 0290 00       		.byte	0
+ 887              		.section	.debug_abbrev,"",%progbits
+ 888              	.Ldebug_abbrev0:
+ 889 0000 01       		.uleb128 0x1
+ 890 0001 11       		.uleb128 0x11
+ 891 0002 01       		.byte	0x1
+ 892 0003 25       		.uleb128 0x25
+ 893 0004 0E       		.uleb128 0xe
+ 894 0005 13       		.uleb128 0x13
+ 895 0006 0B       		.uleb128 0xb
+ 896 0007 03       		.uleb128 0x3
+ 897 0008 0E       		.uleb128 0xe
+ 898 0009 1B       		.uleb128 0x1b
+ 899 000a 0E       		.uleb128 0xe
+ 900 000b 55       		.uleb128 0x55
+ 901 000c 17       		.uleb128 0x17
+ 902 000d 11       		.uleb128 0x11
+ 903 000e 01       		.uleb128 0x1
+ 904 000f 10       		.uleb128 0x10
+ 905 0010 17       		.uleb128 0x17
+ 906 0011 00       		.byte	0
+ 907 0012 00       		.byte	0
+ 908 0013 02       		.uleb128 0x2
+ 909 0014 24       		.uleb128 0x24
+ 910 0015 00       		.byte	0
+ 911 0016 0B       		.uleb128 0xb
+ 912 0017 0B       		.uleb128 0xb
+ 913 0018 3E       		.uleb128 0x3e
+ 914 0019 0B       		.uleb128 0xb
+ 915 001a 03       		.uleb128 0x3
+ 916 001b 0E       		.uleb128 0xe
+ 917 001c 00       		.byte	0
+ 918 001d 00       		.byte	0
+ 919 001e 03       		.uleb128 0x3
+ 920 001f 16       		.uleb128 0x16
+ 921 0020 00       		.byte	0
+ 922 0021 03       		.uleb128 0x3
+ 923 0022 0E       		.uleb128 0xe
+ 924 0023 3A       		.uleb128 0x3a
+ 925 0024 0B       		.uleb128 0xb
+ 926 0025 3B       		.uleb128 0x3b
+ 927 0026 0B       		.uleb128 0xb
+ 928 0027 49       		.uleb128 0x49
+ 929 0028 13       		.uleb128 0x13
+ 930 0029 00       		.byte	0
+ 931 002a 00       		.byte	0
+ 932 002b 04       		.uleb128 0x4
+ 933 002c 24       		.uleb128 0x24
+ 934 002d 00       		.byte	0
+ 935 002e 0B       		.uleb128 0xb
+ 936 002f 0B       		.uleb128 0xb
+ 937 0030 3E       		.uleb128 0x3e
+ 938 0031 0B       		.uleb128 0xb
+ 939 0032 03       		.uleb128 0x3
+ 940 0033 08       		.uleb128 0x8
+ 941 0034 00       		.byte	0
+ 942 0035 00       		.byte	0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 28
+
+
+ 943 0036 05       		.uleb128 0x5
+ 944 0037 16       		.uleb128 0x16
+ 945 0038 00       		.byte	0
+ 946 0039 03       		.uleb128 0x3
+ 947 003a 0E       		.uleb128 0xe
+ 948 003b 3A       		.uleb128 0x3a
+ 949 003c 0B       		.uleb128 0xb
+ 950 003d 3B       		.uleb128 0x3b
+ 951 003e 05       		.uleb128 0x5
+ 952 003f 49       		.uleb128 0x49
+ 953 0040 13       		.uleb128 0x13
+ 954 0041 00       		.byte	0
+ 955 0042 00       		.byte	0
+ 956 0043 06       		.uleb128 0x6
+ 957 0044 0F       		.uleb128 0xf
+ 958 0045 00       		.byte	0
+ 959 0046 0B       		.uleb128 0xb
+ 960 0047 0B       		.uleb128 0xb
+ 961 0048 49       		.uleb128 0x49
+ 962 0049 13       		.uleb128 0x13
+ 963 004a 00       		.byte	0
+ 964 004b 00       		.byte	0
+ 965 004c 07       		.uleb128 0x7
+ 966 004d 15       		.uleb128 0x15
+ 967 004e 00       		.byte	0
+ 968 004f 27       		.uleb128 0x27
+ 969 0050 19       		.uleb128 0x19
+ 970 0051 00       		.byte	0
+ 971 0052 00       		.byte	0
+ 972 0053 08       		.uleb128 0x8
+ 973 0054 0F       		.uleb128 0xf
+ 974 0055 00       		.byte	0
+ 975 0056 0B       		.uleb128 0xb
+ 976 0057 0B       		.uleb128 0xb
+ 977 0058 00       		.byte	0
+ 978 0059 00       		.byte	0
+ 979 005a 09       		.uleb128 0x9
+ 980 005b 2E       		.uleb128 0x2e
+ 981 005c 01       		.byte	0x1
+ 982 005d 03       		.uleb128 0x3
+ 983 005e 0E       		.uleb128 0xe
+ 984 005f 3A       		.uleb128 0x3a
+ 985 0060 0B       		.uleb128 0xb
+ 986 0061 3B       		.uleb128 0x3b
+ 987 0062 0B       		.uleb128 0xb
+ 988 0063 27       		.uleb128 0x27
+ 989 0064 19       		.uleb128 0x19
+ 990 0065 20       		.uleb128 0x20
+ 991 0066 0B       		.uleb128 0xb
+ 992 0067 01       		.uleb128 0x1
+ 993 0068 13       		.uleb128 0x13
+ 994 0069 00       		.byte	0
+ 995 006a 00       		.byte	0
+ 996 006b 0A       		.uleb128 0xa
+ 997 006c 34       		.uleb128 0x34
+ 998 006d 00       		.byte	0
+ 999 006e 03       		.uleb128 0x3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 29
+
+
+ 1000 006f 0E       		.uleb128 0xe
+ 1001 0070 3A       		.uleb128 0x3a
+ 1002 0071 0B       		.uleb128 0xb
+ 1003 0072 3B       		.uleb128 0x3b
+ 1004 0073 0B       		.uleb128 0xb
+ 1005 0074 49       		.uleb128 0x49
+ 1006 0075 13       		.uleb128 0x13
+ 1007 0076 00       		.byte	0
+ 1008 0077 00       		.byte	0
+ 1009 0078 0B       		.uleb128 0xb
+ 1010 0079 2E       		.uleb128 0x2e
+ 1011 007a 00       		.byte	0
+ 1012 007b 3F       		.uleb128 0x3f
+ 1013 007c 19       		.uleb128 0x19
+ 1014 007d 03       		.uleb128 0x3
+ 1015 007e 0E       		.uleb128 0xe
+ 1016 007f 3A       		.uleb128 0x3a
+ 1017 0080 0B       		.uleb128 0xb
+ 1018 0081 3B       		.uleb128 0x3b
+ 1019 0082 0B       		.uleb128 0xb
+ 1020 0083 27       		.uleb128 0x27
+ 1021 0084 19       		.uleb128 0x19
+ 1022 0085 11       		.uleb128 0x11
+ 1023 0086 01       		.uleb128 0x1
+ 1024 0087 12       		.uleb128 0x12
+ 1025 0088 06       		.uleb128 0x6
+ 1026 0089 40       		.uleb128 0x40
+ 1027 008a 18       		.uleb128 0x18
+ 1028 008b 9642     		.uleb128 0x2116
+ 1029 008d 19       		.uleb128 0x19
+ 1030 008e 00       		.byte	0
+ 1031 008f 00       		.byte	0
+ 1032 0090 0C       		.uleb128 0xc
+ 1033 0091 2E       		.uleb128 0x2e
+ 1034 0092 01       		.byte	0x1
+ 1035 0093 03       		.uleb128 0x3
+ 1036 0094 0E       		.uleb128 0xe
+ 1037 0095 3A       		.uleb128 0x3a
+ 1038 0096 0B       		.uleb128 0xb
+ 1039 0097 3B       		.uleb128 0x3b
+ 1040 0098 0B       		.uleb128 0xb
+ 1041 0099 27       		.uleb128 0x27
+ 1042 009a 19       		.uleb128 0x19
+ 1043 009b 11       		.uleb128 0x11
+ 1044 009c 01       		.uleb128 0x1
+ 1045 009d 12       		.uleb128 0x12
+ 1046 009e 06       		.uleb128 0x6
+ 1047 009f 40       		.uleb128 0x40
+ 1048 00a0 18       		.uleb128 0x18
+ 1049 00a1 9642     		.uleb128 0x2116
+ 1050 00a3 19       		.uleb128 0x19
+ 1051 00a4 01       		.uleb128 0x1
+ 1052 00a5 13       		.uleb128 0x13
+ 1053 00a6 00       		.byte	0
+ 1054 00a7 00       		.byte	0
+ 1055 00a8 0D       		.uleb128 0xd
+ 1056 00a9 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 30
+
+
+ 1057 00aa 00       		.byte	0
+ 1058 00ab 3F       		.uleb128 0x3f
+ 1059 00ac 19       		.uleb128 0x19
+ 1060 00ad 03       		.uleb128 0x3
+ 1061 00ae 0E       		.uleb128 0xe
+ 1062 00af 3A       		.uleb128 0x3a
+ 1063 00b0 0B       		.uleb128 0xb
+ 1064 00b1 3B       		.uleb128 0x3b
+ 1065 00b2 0B       		.uleb128 0xb
+ 1066 00b3 27       		.uleb128 0x27
+ 1067 00b4 19       		.uleb128 0x19
+ 1068 00b5 3C       		.uleb128 0x3c
+ 1069 00b6 19       		.uleb128 0x19
+ 1070 00b7 00       		.byte	0
+ 1071 00b8 00       		.byte	0
+ 1072 00b9 0E       		.uleb128 0xe
+ 1073 00ba 34       		.uleb128 0x34
+ 1074 00bb 00       		.byte	0
+ 1075 00bc 03       		.uleb128 0x3
+ 1076 00bd 0E       		.uleb128 0xe
+ 1077 00be 3A       		.uleb128 0x3a
+ 1078 00bf 0B       		.uleb128 0xb
+ 1079 00c0 3B       		.uleb128 0x3b
+ 1080 00c1 0B       		.uleb128 0xb
+ 1081 00c2 49       		.uleb128 0x49
+ 1082 00c3 13       		.uleb128 0x13
+ 1083 00c4 3F       		.uleb128 0x3f
+ 1084 00c5 19       		.uleb128 0x19
+ 1085 00c6 3C       		.uleb128 0x3c
+ 1086 00c7 19       		.uleb128 0x19
+ 1087 00c8 00       		.byte	0
+ 1088 00c9 00       		.byte	0
+ 1089 00ca 0F       		.uleb128 0xf
+ 1090 00cb 01       		.uleb128 0x1
+ 1091 00cc 01       		.byte	0x1
+ 1092 00cd 49       		.uleb128 0x49
+ 1093 00ce 13       		.uleb128 0x13
+ 1094 00cf 01       		.uleb128 0x1
+ 1095 00d0 13       		.uleb128 0x13
+ 1096 00d1 00       		.byte	0
+ 1097 00d2 00       		.byte	0
+ 1098 00d3 10       		.uleb128 0x10
+ 1099 00d4 21       		.uleb128 0x21
+ 1100 00d5 00       		.byte	0
+ 1101 00d6 00       		.byte	0
+ 1102 00d7 00       		.byte	0
+ 1103 00d8 11       		.uleb128 0x11
+ 1104 00d9 2E       		.uleb128 0x2e
+ 1105 00da 01       		.byte	0x1
+ 1106 00db 3F       		.uleb128 0x3f
+ 1107 00dc 19       		.uleb128 0x19
+ 1108 00dd 03       		.uleb128 0x3
+ 1109 00de 0E       		.uleb128 0xe
+ 1110 00df 3A       		.uleb128 0x3a
+ 1111 00e0 0B       		.uleb128 0xb
+ 1112 00e1 3B       		.uleb128 0x3b
+ 1113 00e2 0B       		.uleb128 0xb
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 31
+
+
+ 1114 00e3 27       		.uleb128 0x27
+ 1115 00e4 19       		.uleb128 0x19
+ 1116 00e5 11       		.uleb128 0x11
+ 1117 00e6 01       		.uleb128 0x1
+ 1118 00e7 12       		.uleb128 0x12
+ 1119 00e8 06       		.uleb128 0x6
+ 1120 00e9 40       		.uleb128 0x40
+ 1121 00ea 18       		.uleb128 0x18
+ 1122 00eb 9642     		.uleb128 0x2116
+ 1123 00ed 19       		.uleb128 0x19
+ 1124 00ee 01       		.uleb128 0x1
+ 1125 00ef 13       		.uleb128 0x13
+ 1126 00f0 00       		.byte	0
+ 1127 00f1 00       		.byte	0
+ 1128 00f2 12       		.uleb128 0x12
+ 1129 00f3 05       		.uleb128 0x5
+ 1130 00f4 00       		.byte	0
+ 1131 00f5 03       		.uleb128 0x3
+ 1132 00f6 0E       		.uleb128 0xe
+ 1133 00f7 3A       		.uleb128 0x3a
+ 1134 00f8 0B       		.uleb128 0xb
+ 1135 00f9 3B       		.uleb128 0x3b
+ 1136 00fa 0B       		.uleb128 0xb
+ 1137 00fb 49       		.uleb128 0x49
+ 1138 00fc 13       		.uleb128 0x13
+ 1139 00fd 02       		.uleb128 0x2
+ 1140 00fe 18       		.uleb128 0x18
+ 1141 00ff 00       		.byte	0
+ 1142 0100 00       		.byte	0
+ 1143 0101 13       		.uleb128 0x13
+ 1144 0102 34       		.uleb128 0x34
+ 1145 0103 00       		.byte	0
+ 1146 0104 03       		.uleb128 0x3
+ 1147 0105 0E       		.uleb128 0xe
+ 1148 0106 3A       		.uleb128 0x3a
+ 1149 0107 0B       		.uleb128 0xb
+ 1150 0108 3B       		.uleb128 0x3b
+ 1151 0109 0B       		.uleb128 0xb
+ 1152 010a 49       		.uleb128 0x49
+ 1153 010b 13       		.uleb128 0x13
+ 1154 010c 02       		.uleb128 0x2
+ 1155 010d 18       		.uleb128 0x18
+ 1156 010e 00       		.byte	0
+ 1157 010f 00       		.byte	0
+ 1158 0110 14       		.uleb128 0x14
+ 1159 0111 2E       		.uleb128 0x2e
+ 1160 0112 01       		.byte	0x1
+ 1161 0113 3F       		.uleb128 0x3f
+ 1162 0114 19       		.uleb128 0x19
+ 1163 0115 03       		.uleb128 0x3
+ 1164 0116 0E       		.uleb128 0xe
+ 1165 0117 3A       		.uleb128 0x3a
+ 1166 0118 0B       		.uleb128 0xb
+ 1167 0119 3B       		.uleb128 0x3b
+ 1168 011a 05       		.uleb128 0x5
+ 1169 011b 27       		.uleb128 0x27
+ 1170 011c 19       		.uleb128 0x19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 32
+
+
+ 1171 011d 11       		.uleb128 0x11
+ 1172 011e 01       		.uleb128 0x1
+ 1173 011f 12       		.uleb128 0x12
+ 1174 0120 06       		.uleb128 0x6
+ 1175 0121 40       		.uleb128 0x40
+ 1176 0122 18       		.uleb128 0x18
+ 1177 0123 9742     		.uleb128 0x2117
+ 1178 0125 19       		.uleb128 0x19
+ 1179 0126 01       		.uleb128 0x1
+ 1180 0127 13       		.uleb128 0x13
+ 1181 0128 00       		.byte	0
+ 1182 0129 00       		.byte	0
+ 1183 012a 15       		.uleb128 0x15
+ 1184 012b 05       		.uleb128 0x5
+ 1185 012c 00       		.byte	0
+ 1186 012d 03       		.uleb128 0x3
+ 1187 012e 0E       		.uleb128 0xe
+ 1188 012f 3A       		.uleb128 0x3a
+ 1189 0130 0B       		.uleb128 0xb
+ 1190 0131 3B       		.uleb128 0x3b
+ 1191 0132 05       		.uleb128 0x5
+ 1192 0133 49       		.uleb128 0x49
+ 1193 0134 13       		.uleb128 0x13
+ 1194 0135 02       		.uleb128 0x2
+ 1195 0136 18       		.uleb128 0x18
+ 1196 0137 00       		.byte	0
+ 1197 0138 00       		.byte	0
+ 1198 0139 16       		.uleb128 0x16
+ 1199 013a 1D       		.uleb128 0x1d
+ 1200 013b 01       		.byte	0x1
+ 1201 013c 31       		.uleb128 0x31
+ 1202 013d 13       		.uleb128 0x13
+ 1203 013e 11       		.uleb128 0x11
+ 1204 013f 01       		.uleb128 0x1
+ 1205 0140 12       		.uleb128 0x12
+ 1206 0141 06       		.uleb128 0x6
+ 1207 0142 58       		.uleb128 0x58
+ 1208 0143 0B       		.uleb128 0xb
+ 1209 0144 59       		.uleb128 0x59
+ 1210 0145 05       		.uleb128 0x5
+ 1211 0146 00       		.byte	0
+ 1212 0147 00       		.byte	0
+ 1213 0148 17       		.uleb128 0x17
+ 1214 0149 0B       		.uleb128 0xb
+ 1215 014a 01       		.byte	0x1
+ 1216 014b 11       		.uleb128 0x11
+ 1217 014c 01       		.uleb128 0x1
+ 1218 014d 12       		.uleb128 0x12
+ 1219 014e 06       		.uleb128 0x6
+ 1220 014f 00       		.byte	0
+ 1221 0150 00       		.byte	0
+ 1222 0151 18       		.uleb128 0x18
+ 1223 0152 34       		.uleb128 0x34
+ 1224 0153 00       		.byte	0
+ 1225 0154 31       		.uleb128 0x31
+ 1226 0155 13       		.uleb128 0x13
+ 1227 0156 02       		.uleb128 0x2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 33
+
+
+ 1228 0157 18       		.uleb128 0x18
+ 1229 0158 00       		.byte	0
+ 1230 0159 00       		.byte	0
+ 1231 015a 19       		.uleb128 0x19
+ 1232 015b 34       		.uleb128 0x34
+ 1233 015c 00       		.byte	0
+ 1234 015d 03       		.uleb128 0x3
+ 1235 015e 0E       		.uleb128 0xe
+ 1236 015f 3A       		.uleb128 0x3a
+ 1237 0160 0B       		.uleb128 0xb
+ 1238 0161 3B       		.uleb128 0x3b
+ 1239 0162 05       		.uleb128 0x5
+ 1240 0163 49       		.uleb128 0x49
+ 1241 0164 13       		.uleb128 0x13
+ 1242 0165 3F       		.uleb128 0x3f
+ 1243 0166 19       		.uleb128 0x19
+ 1244 0167 3C       		.uleb128 0x3c
+ 1245 0168 19       		.uleb128 0x19
+ 1246 0169 00       		.byte	0
+ 1247 016a 00       		.byte	0
+ 1248 016b 1A       		.uleb128 0x1a
+ 1249 016c 35       		.uleb128 0x35
+ 1250 016d 00       		.byte	0
+ 1251 016e 49       		.uleb128 0x49
+ 1252 016f 13       		.uleb128 0x13
+ 1253 0170 00       		.byte	0
+ 1254 0171 00       		.byte	0
+ 1255 0172 00       		.byte	0
+ 1256              		.section	.debug_aranges,"",%progbits
+ 1257 0000 3C000000 		.4byte	0x3c
+ 1258 0004 0200     		.2byte	0x2
+ 1259 0006 00000000 		.4byte	.Ldebug_info0
+ 1260 000a 04       		.byte	0x4
+ 1261 000b 00       		.byte	0
+ 1262 000c 0000     		.2byte	0
+ 1263 000e 0000     		.2byte	0
+ 1264 0010 00000000 		.4byte	.LFB68
+ 1265 0014 80000000 		.4byte	.LFE68-.LFB68
+ 1266 0018 00000000 		.4byte	.LFB69
+ 1267 001c 70000000 		.4byte	.LFE69-.LFB69
+ 1268 0020 00000000 		.4byte	.LFB70
+ 1269 0024 DC010000 		.4byte	.LFE70-.LFB70
+ 1270 0028 00000000 		.4byte	.LFB71
+ 1271 002c 1E000000 		.4byte	.LFE71-.LFB71
+ 1272 0030 00000000 		.4byte	.LFB72
+ 1273 0034 1A000000 		.4byte	.LFE72-.LFB72
+ 1274 0038 00000000 		.4byte	0
+ 1275 003c 00000000 		.4byte	0
+ 1276              		.section	.debug_ranges,"",%progbits
+ 1277              	.Ldebug_ranges0:
+ 1278 0000 00000000 		.4byte	.LFB68
+ 1279 0004 80000000 		.4byte	.LFE68
+ 1280 0008 00000000 		.4byte	.LFB69
+ 1281 000c 70000000 		.4byte	.LFE69
+ 1282 0010 00000000 		.4byte	.LFB70
+ 1283 0014 DC010000 		.4byte	.LFE70
+ 1284 0018 00000000 		.4byte	.LFB71
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 34
+
+
+ 1285 001c 1E000000 		.4byte	.LFE71
+ 1286 0020 00000000 		.4byte	.LFB72
+ 1287 0024 1A000000 		.4byte	.LFE72
+ 1288 0028 00000000 		.4byte	0
+ 1289 002c 00000000 		.4byte	0
+ 1290              		.section	.debug_line,"",%progbits
+ 1291              	.Ldebug_line0:
+ 1292 0000 69020000 		.section	.debug_str,"MS",%progbits,1
+ 1292      02009D01 
+ 1292      00000201 
+ 1292      FB0E0D00 
+ 1292      01010101 
+ 1293              	.LASF33:
+ 1294 0000 76417070 		.ascii	"vApplicationStackOverflowHook\000"
+ 1294      6C696361 
+ 1294      74696F6E 
+ 1294      53746163 
+ 1294      6B4F7665 
+ 1295              	.LASF21:
+ 1296 001e 5469636B 		.ascii	"TickType_t\000"
+ 1296      54797065 
+ 1296      5F7400
+ 1297              	.LASF5:
+ 1298 0029 5F5F696E 		.ascii	"__int32_t\000"
+ 1298      7433325F 
+ 1298      7400
+ 1299              	.LASF39:
+ 1300 0033 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1300      4320342E 
+ 1300      392E3320 
+ 1300      32303135 
+ 1300      30333033 
+ 1301 0066 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1301      20726576 
+ 1301      6973696F 
+ 1301      6E203232 
+ 1301      31323230 
+ 1302 0099 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1302      66756E63 
+ 1302      74696F6E 
+ 1302      2D736563 
+ 1302      74696F6E 
+ 1303              	.LASF26:
+ 1304 00c1 756C526F 		.ascii	"ulRow\000"
+ 1304      7700
+ 1305              	.LASF23:
+ 1306 00c7 78506F72 		.ascii	"xPortPendSVHandler\000"
+ 1306      7450656E 
+ 1306      64535648 
+ 1306      616E646C 
+ 1306      657200
+ 1307              	.LASF11:
+ 1308 00da 696E7433 		.ascii	"int32_t\000"
+ 1308      325F7400 
+ 1309              	.LASF14:
+ 1310 00e2 666C6F61 		.ascii	"float\000"
+ 1310      7400
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 35
+
+
+ 1311              	.LASF34:
+ 1312 00e8 70765061 		.ascii	"pvParameters\000"
+ 1312      72616D65 
+ 1312      74657273 
+ 1312      00
+ 1313              	.LASF1:
+ 1314 00f5 756E7369 		.ascii	"unsigned char\000"
+ 1314      676E6564 
+ 1314      20636861 
+ 1314      7200
+ 1315              	.LASF6:
+ 1316 0103 5F5F7569 		.ascii	"__uint32_t\000"
+ 1316      6E743332 
+ 1316      5F7400
+ 1317              	.LASF7:
+ 1318 010e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1318      20756E73 
+ 1318      69676E65 
+ 1318      6420696E 
+ 1318      7400
+ 1319              	.LASF3:
+ 1320 0120 73686F72 		.ascii	"short unsigned int\000"
+ 1320      7420756E 
+ 1320      7369676E 
+ 1320      65642069 
+ 1320      6E7400
+ 1321              	.LASF31:
+ 1322 0133 75734D61 		.ascii	"usMaxJitter\000"
+ 1322      784A6974 
+ 1322      74657200 
+ 1323              	.LASF38:
+ 1324 013f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1324      52784275 
+ 1324      66666572 
+ 1324      00
+ 1325              	.LASF15:
+ 1326 014c 646F7562 		.ascii	"double\000"
+ 1326      6C6500
+ 1327              	.LASF30:
+ 1328 0153 43795261 		.ascii	"CyRamVectors\000"
+ 1328      6D566563 
+ 1328      746F7273 
+ 1328      00
+ 1329              	.LASF43:
+ 1330 0160 756C4E65 		.ascii	"ulNewBASEPRI\000"
+ 1330      77424153 
+ 1330      45505249 
+ 1330      00
+ 1331              	.LASF13:
+ 1332 016d 75696E74 		.ascii	"uint16\000"
+ 1332      313600
+ 1333              	.LASF32:
+ 1334 0174 76436865 		.ascii	"vCheckTask\000"
+ 1334      636B5461 
+ 1334      736B00
+ 1335              	.LASF44:
+ 1336 017f 6D61696E 		.ascii	"main\000"
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 36
+
+
+ 1336      00
+ 1337              	.LASF24:
+ 1338 0184 78506F72 		.ascii	"xPortSysTickHandler\000"
+ 1338      74537973 
+ 1338      5469636B 
+ 1338      48616E64 
+ 1338      6C657200 
+ 1339              	.LASF10:
+ 1340 0198 756E7369 		.ascii	"unsigned int\000"
+ 1340      676E6564 
+ 1340      20696E74 
+ 1340      00
+ 1341              	.LASF41:
+ 1342 01a5 433A5C55 		.ascii	"C:\\Users\\NGGMLGM\\Documents\\UWE\\GDIP\\GDIP\\Fre"
+ 1342      73657273 
+ 1342      5C4E4747 
+ 1342      4D4C474D 
+ 1342      5C446F63 
+ 1343 01d1 6552544F 		.ascii	"eRTOS\\Demo\\CORTEX_CY8C5588_PSoC_Creator_GCC\\Free"
+ 1343      535C4465 
+ 1343      6D6F5C43 
+ 1343      4F525445 
+ 1343      585F4359 
+ 1344 0201 52544F53 		.ascii	"RTOS_Demo.cydsn\000"
+ 1344      5F44656D 
+ 1344      6F2E6379 
+ 1344      64736E00 
+ 1345              	.LASF9:
+ 1346 0211 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1346      206C6F6E 
+ 1346      6720756E 
+ 1346      7369676E 
+ 1346      65642069 
+ 1347              	.LASF17:
+ 1348 0228 63796973 		.ascii	"cyisraddress\000"
+ 1348      72616464 
+ 1348      72657373 
+ 1348      00
+ 1349              	.LASF37:
+ 1350 0235 76417070 		.ascii	"vApplicationMallocFailedHook\000"
+ 1350      6C696361 
+ 1350      74696F6E 
+ 1350      4D616C6C 
+ 1350      6F634661 
+ 1351              	.LASF28:
+ 1352 0252 75734572 		.ascii	"usErrorCode\000"
+ 1352      726F7243 
+ 1352      6F646500 
+ 1353              	.LASF18:
+ 1354 025e 73697A65 		.ascii	"sizetype\000"
+ 1354      74797065 
+ 1354      00
+ 1355              	.LASF29:
+ 1356 0267 756C4974 		.ascii	"ulIteration\000"
+ 1356      65726174 
+ 1356      696F6E00 
+ 1357              	.LASF27:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 37
+
+
+ 1358 0273 7844656C 		.ascii	"xDelay\000"
+ 1358      617900
+ 1359              	.LASF8:
+ 1360 027a 6C6F6E67 		.ascii	"long long int\000"
+ 1360      206C6F6E 
+ 1360      6720696E 
+ 1360      7400
+ 1361              	.LASF42:
+ 1362 0288 76506F72 		.ascii	"vPortRaiseBASEPRI\000"
+ 1362      74526169 
+ 1362      73654241 
+ 1362      53455052 
+ 1362      4900
+ 1363              	.LASF40:
+ 1364 029a 6D61696E 		.ascii	"main.c\000"
+ 1364      2E6300
+ 1365              	.LASF16:
+ 1366 02a1 63686172 		.ascii	"char\000"
+ 1366      00
+ 1367              	.LASF25:
+ 1368 02a6 76506F72 		.ascii	"vPortSVCHandler\000"
+ 1368      74535643 
+ 1368      48616E64 
+ 1368      6C657200 
+ 1369              	.LASF35:
+ 1370 02b6 70785461 		.ascii	"pxTask\000"
+ 1370      736B00
+ 1371              	.LASF2:
+ 1372 02bd 73686F72 		.ascii	"short int\000"
+ 1372      7420696E 
+ 1372      7400
+ 1373              	.LASF36:
+ 1374 02c7 70635461 		.ascii	"pcTaskName\000"
+ 1374      736B4E61 
+ 1374      6D6500
+ 1375              	.LASF22:
+ 1376 02d2 5461736B 		.ascii	"TaskHandle_t\000"
+ 1376      48616E64 
+ 1376      6C655F74 
+ 1376      00
+ 1377              	.LASF12:
+ 1378 02df 75696E74 		.ascii	"uint32_t\000"
+ 1378      33325F74 
+ 1378      00
+ 1379              	.LASF4:
+ 1380 02e8 6C6F6E67 		.ascii	"long int\000"
+ 1380      20696E74 
+ 1380      00
+ 1381              	.LASF0:
+ 1382 02f1 7369676E 		.ascii	"signed char\000"
+ 1382      65642063 
+ 1382      68617200 
+ 1383              	.LASF20:
+ 1384 02fd 55426173 		.ascii	"UBaseType_t\000"
+ 1384      65547970 
+ 1384      655F7400 
+ 1385              	.LASF45:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnPgGsM.s 			page 38
+
+
+ 1386 0309 70727648 		.ascii	"prvHardwareSetup\000"
+ 1386      61726477 
+ 1386      61726553 
+ 1386      65747570 
+ 1386      00
+ 1387              	.LASF19:
+ 1388 031a 42617365 		.ascii	"BaseType_t\000"
+ 1388      54797065 
+ 1388      5F7400
+ 1389              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
