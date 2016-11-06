@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
   44 003f 00       		.section	.text.vStartSemaphoreTasks,"ax",%progbits
   45              		.align	2
   46              		.global	vStartSemaphoreTasks
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 2
 
 
   47              		.thumb
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
   49:..\..\Common\Minimal/semtest.c ****     FreeRTOS training directly from Richard Barry, CEO of Real Time Engineers
   50:..\..\Common\Minimal/semtest.c ****     Ltd, and the world's leading authority on the world's leading RTOS.
   51:..\..\Common\Minimal/semtest.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 3
 
 
   52:..\..\Common\Minimal/semtest.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  106:..\..\Common\Minimal/semtest.c **** #define semtstNON_BLOCKING_EXPECTED_VALUE	( ( uint32_t ) 0xff  )
  107:..\..\Common\Minimal/semtest.c **** 
  108:..\..\Common\Minimal/semtest.c **** #define semtstSTACK_SIZE			configMINIMAL_STACK_SIZE
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 4
 
 
  109:..\..\Common\Minimal/semtest.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
   76 0018 3AD0     		beq	.L2
  140:..\..\Common\Minimal/semtest.c **** 	{
  141:..\..\Common\Minimal/semtest.c **** 		/* Create the semaphore used by the first two tasks. */
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 5
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 5
 
 
  142:..\..\Common\Minimal/semtest.c **** 		pxFirstSemaphoreParameters->xSemaphore = xSemaphoreCreateBinary();		
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  114 005c 0023     		movs	r3, #0
  115 005e 0093     		str	r3, [sp]
  116 0060 0023     		movs	r3, #0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 6
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 6
 
 
  117 0062 0193     		str	r3, [sp, #4]
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  153 00a8 0246     		mov	r2, r0
  154 00aa FB68     		ldr	r3, [r7, #12]
  155 00ac 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 7
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 7
 
 
  177:..\..\Common\Minimal/semtest.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  199 00fe 0748     		ldr	r0, .L4
  200 0100 0B49     		ldr	r1, .L4+20
  201 0102 6422     		movs	r2, #100
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 8
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 8
 
 
  202 0104 FB68     		ldr	r3, [r7, #12]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  241              		@ frame_needed = 1, uses_anonymous_args = 0
  242 0000 80B5     		push	{r7, lr}
  243              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 9
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 9
 
 
  244              		.cfi_offset 7, -8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  221:..\..\Common\Minimal/semtest.c **** 	switches occur during the count. */
  222:..\..\Common\Minimal/semtest.c **** 	if( pxParameters->xBlockTime > ( TickType_t ) 0 )
  280              		.loc 1 222 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 10
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 10
 
 
  281 0038 7B69     		ldr	r3, [r7, #20]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  316              	.L10:
  242:..\..\Common\Minimal/semtest.c **** 			}
  243:..\..\Common\Minimal/semtest.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 11
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 11
 
 
  244:..\..\Common\Minimal/semtest.c **** 			/* Clear the variable, then count it back up to the expected value
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  354 00ac 0346     		mov	r3, r0
  355 00ae 002B     		cmp	r3, #0
  356 00b0 01D1     		bne	.L14
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 12
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 12
 
 
  259:..\..\Common\Minimal/semtest.c **** 			{
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  277:..\..\Common\Minimal/semtest.c **** 		}
  278:..\..\Common\Minimal/semtest.c **** 		else
  279:..\..\Common\Minimal/semtest.c **** 		{
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 13
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 13
 
 
  280:..\..\Common\Minimal/semtest.c **** 			if( pxParameters->xBlockTime == ( TickType_t ) 0 )
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  432              		@ frame_needed = 1, uses_anonymous_args = 0
  433              		@ link register save eliminated.
  434 0000 80B4     		push	{r7}
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 14
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 14
 
 
  435              		.cfi_def_cfa_offset 4
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  477              	.L20:
  298:..\..\Common\Minimal/semtest.c **** 	{
  478              		.loc 1 298 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 15
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 15
 
 
  479 0046 7B68     		ldr	r3, [r7, #4]
@@ -864,14 +864,14 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  495              	.L25:
  496 005a 00BF     		.align	2
  497              	.L24:
- 498 005c 0C000000 		.word	sLastCheckVariables.6776
+ 498 005c 0C000000 		.word	sLastCheckVariables.6440
  499 0060 00000000 		.word	sCheckVariables
  500              		.cfi_endproc
  501              	.LFE70:
  502              		.size	xAreSemaphoreTasksStillRunning, .-xAreSemaphoreTasksStillRunning
  503              		.bss
  504 000a 0000     		.align	2
- 505              	sLastCheckVariables.6776:
+ 505              	sLastCheckVariables.6440:
  506 000c 00000000 		.space	8
  506      00000000 
  507              		.text
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  528 001d 00000000 		.4byte	0
  529 0021 00000000 		.4byte	.Ldebug_line0
  530 0025 02       		.uleb128 0x2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 16
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 16
 
 
  531 0026 04       		.byte	0x4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  585 008c 02       		.uleb128 0x2
  586 008d 04       		.byte	0x4
  587 008e 07       		.byte	0x7
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 17
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 17
 
 
  588 008f D7020000 		.4byte	.LASF12
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  642 0101 06       		.byte	0x6
  643 0102 58       		.byte	0x58
  644 0103 93000000 		.4byte	0x93
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 18
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 18
 
 
  645 0107 04       		.uleb128 0x4
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  699 0176 64       		.sleb128 -28
  700 0177 0C       		.uleb128 0xc
  701 0178 9E010000 		.4byte	.LASF29
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 19
 
 
  702 017c 01       		.byte	0x1
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  756 01df 4D000000 		.4byte	.LASF26
  757 01e3 01       		.byte	0x1
  758 01e4 CC       		.byte	0xcc
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 20
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 20
 
 
  759 01e5 43010000 		.4byte	0x143
@@ -1195,10 +1195,10 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  810 0247 70020000 		.4byte	0x270
  811 024b 05       		.uleb128 0x5
  812 024c 03       		.byte	0x3
- 813 024d 0C000000 		.4byte	sLastCheckVariables.6776
+ 813 024d 0C000000 		.4byte	sLastCheckVariables.6440
  814 0251 10       		.uleb128 0x10
  815 0252 0B000000 		.4byte	.LASF39
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 21
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 21
 
 
  816 0256 01       		.byte	0x1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  870 0002 01       		.byte	0x1
  871 0003 25       		.uleb128 0x25
  872 0004 0E       		.uleb128 0xe
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 22
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 22
 
 
  873 0005 13       		.uleb128 0x13
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  927 003b 00       		.byte	0
  928 003c 00       		.byte	0
  929 003d 06       		.uleb128 0x6
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 23
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 23
 
 
  930 003e 35       		.uleb128 0x35
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  984 0074 3B       		.uleb128 0x3b
  985 0075 0B       		.uleb128 0xb
  986 0076 27       		.uleb128 0x27
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 24
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 24
 
 
  987 0077 19       		.uleb128 0x19
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1041 00ae 0E       		.uleb128 0xe
  1042 00af 3A       		.uleb128 0x3a
  1043 00b0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 25
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 25
 
 
  1044 00b1 3B       		.uleb128 0x3b
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1098 00e9 02       		.uleb128 0x2
  1099 00ea 18       		.uleb128 0x18
  1100 00eb 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 26
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 26
 
 
  1101 00ec 00       		.byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1155              	.Ldebug_ranges0:
  1156 0000 00000000 		.4byte	.LFB68
  1157 0004 38010000 		.4byte	.LFE68
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 27
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 27
 
 
  1158 0008 00000000 		.4byte	.LFB69
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1186      4320342E 
  1186      392E3320 
  1186      32303135 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 28
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 28
 
 
  1186      30333033 
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1206      69676E65 
  1206      6420696E 
  1206      7400
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 29
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 29
 
 
  1207              	.LASF4:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1229 0251 6552544F 		.ascii	"eRTOS\\Demo\\CORTEX_CY8C5588_PSoC_Creator_GCC\\Free"
  1229      535C4465 
  1229      6D6F5C43 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 30
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 30
 
 
  1229      4F525445 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 1
  1252      65645661 
  1252      6C756500 
  1253              	.LASF3:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cckLvix8.s 			page 31
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccwoCDGS.s 			page 31
 
 
  1254 0324 73686F72 		.ascii	"short int\000"

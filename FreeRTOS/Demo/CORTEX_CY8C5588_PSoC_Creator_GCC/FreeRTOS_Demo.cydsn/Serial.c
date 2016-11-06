@@ -88,17 +88,20 @@ static QueueHandle_t xSerialRxQueue = NULL;
 xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned portBASE_TYPE uxQueueLength )
 {
 	/* Configure Rx. */
-	xSerialRxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );	
-	isr_UART1_RX_BYTE_RECEIVED_ClearPending();
-	isr_UART1_RX_BYTE_RECEIVED_StartEx(vUartRxISR);
+	xSerialRxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );
+    
+    /* Clear ISR flag and attach to the function vUartRxISR */
+    uartISR_BYTE_RX_ClearPending();
+    uartISR_BYTE_RX_StartEx(vUartRxISR);
 
 	/* Configure Tx */
+    /* This seems to work by using an ISR to send the next character in the queue */
 	xSerialTxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );
-	isr_UART1_TX_BYTE_COMPLETE_ClearPending() ;
-	isr_UART1_TX_BYTE_COMPLETE_StartEx(vUartTxISR);
+    uartISR_BYTE_TX_ClearPending();
+    uartISR_BYTE_TX_StartEx(vUartTxISR);
 
 	/* Clear the interrupt modes for the Tx for the time being. */
-	UART_1_SetTxInterruptMode( 0 );
+	UART_SetTxInterruptMode( 0 );
 
 	/* Both configured successfully. */
 	return ( xComPortHandle )( xSerialTxQueue && xSerialRxQueue );
@@ -158,7 +161,7 @@ portBASE_TYPE xReturn = pdFALSE;
 	    Currently sending so the Tx Complete will fire.
 	    Not sending so the Empty will fire.	*/
 	taskENTER_CRITICAL();
-		UART_1_SetTxInterruptMode( UART_1_TX_STS_COMPLETE | UART_1_TX_STS_FIFO_EMPTY );
+		UART_SetTxInterruptMode( UART_TX_STS_COMPLETE | UART_TX_STS_FIFO_EMPTY );
 	taskEXIT_CRITICAL();
 	
 	return xReturn;
@@ -173,13 +176,13 @@ signed char cInChar = 0;
 unsigned long ulMask = 0;
 
 	/* Read the status to acknowledge. */
-	ucStatus = UART_1_ReadRxStatus();
+	ucStatus = UART_ReadRxStatus();
 
 	/* Only interested in a character being received. */
-	if( 0 != ( ucStatus & UART_1_RX_STS_FIFO_NOTEMPTY ) )
+	if( 0 != ( ucStatus & UART_RX_STS_FIFO_NOTEMPTY ) )
 	{
 		/* Get the character. */
-		cInChar = UART_1_GetChar();
+		cInChar = UART_GetChar();
 		
 		/* Mask off the other RTOS interrupts to interact with the queue. */
 		ulMask = portSET_INTERRUPT_MASK_FROM_ISR();
@@ -212,10 +215,10 @@ signed char cOutChar = 0;
 unsigned long ulMask = 0;
 
 	/* Read the status to acknowledge. */
-	ucStatus = UART_1_ReadTxStatus();
+	ucStatus = UART_ReadTxStatus();
 	
 	/* Check to see whether this is a genuine interrupt. */
-	if( ( 0 != ( ucStatus & UART_1_TX_STS_COMPLETE ) ) || ( 0 != ( ucStatus & UART_1_TX_STS_FIFO_EMPTY ) ) )
+	if( ( 0 != ( ucStatus & UART_TX_STS_COMPLETE ) ) || ( 0 != ( ucStatus & UART_TX_STS_FIFO_EMPTY ) ) )
 	{	
 		/* Mask off the other RTOS interrupts to interact with the queue. */
 		ulMask = portSET_INTERRUPT_MASK_FROM_ISR();
@@ -223,18 +226,18 @@ unsigned long ulMask = 0;
 			if( pdTRUE == xQueueReceiveFromISR( xSerialTxQueue, &cOutChar, &xHigherPriorityTaskWoken ) )
 			{
 				/* Send the next character. */
-				UART_1_PutChar( cOutChar );			
+				UART_PutChar( cOutChar );			
 
 				/* If we are firing, then the only interrupt we are interested in
 				is the Complete. The application code will add the Empty interrupt
 				when there is something else to be done. */
-				UART_1_SetTxInterruptMode( UART_1_TX_STS_COMPLETE );
+				UART_SetTxInterruptMode( UART_TX_STS_COMPLETE );
 			}
 			else
 			{
 				/* There is no work left so disable the interrupt until the application 
 				puts more into the queue. */
-				UART_1_SetTxInterruptMode( 0 );
+				UART_SetTxInterruptMode( 0 );
 			}
 		}
 		portCLEAR_INTERRUPT_MASK_FROM_ISR( ulMask );

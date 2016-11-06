@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   22:Serial.c      ****     FOR A PARTICULAR PURPOSE.  Full license text is available on the following
   23:Serial.c      ****     link: http://www.freertos.org/a00114.html
   24:Serial.c      **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 2
 
 
   25:Serial.c      ****     ***************************************************************************
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   79:Serial.c      **** 
   80:Serial.c      **** CY_ISR_PROTO( vUartRxISR );
   81:Serial.c      **** CY_ISR_PROTO( vUartTxISR );
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 3
 
 
   82:Serial.c      **** /*---------------------------------------------------------------------------*/
@@ -144,7 +144,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   46 0006 7860     		str	r0, [r7, #4]
   47 0008 3960     		str	r1, [r7]
   90:Serial.c      **** 	/* Configure Rx. */
-  91:Serial.c      **** 	xSerialRxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );	
+  91:Serial.c      **** 	xSerialRxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );
   48              		.loc 1 91 0
   49 000a 3868     		ldr	r0, [r7]
   50 000c 0121     		movs	r1, #1
@@ -153,17 +153,20 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   53 0014 0246     		mov	r2, r0
   54 0016 134B     		ldr	r3, .L5
   55 0018 1A60     		str	r2, [r3]
-  92:Serial.c      **** 	isr_UART1_RX_BYTE_RECEIVED_ClearPending();
-  56              		.loc 1 92 0
-  57 001a FFF7FEFF 		bl	isr_UART1_RX_BYTE_RECEIVED_ClearPending
-  93:Serial.c      **** 	isr_UART1_RX_BYTE_RECEIVED_StartEx(vUartRxISR);
-  58              		.loc 1 93 0
+  92:Serial.c      ****     
+  93:Serial.c      ****     /* Clear ISR flag and attach to the function vUartRxISR */
+  94:Serial.c      ****     uartISR_BYTE_RX_ClearPending();
+  56              		.loc 1 94 0
+  57 001a FFF7FEFF 		bl	uartISR_BYTE_RX_ClearPending
+  95:Serial.c      ****     uartISR_BYTE_RX_StartEx(vUartRxISR);
+  58              		.loc 1 95 0
   59 001e 1248     		ldr	r0, .L5+4
-  60 0020 FFF7FEFF 		bl	isr_UART1_RX_BYTE_RECEIVED_StartEx
-  94:Serial.c      **** 
-  95:Serial.c      **** 	/* Configure Tx */
-  96:Serial.c      **** 	xSerialTxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );
-  61              		.loc 1 96 0
+  60 0020 FFF7FEFF 		bl	uartISR_BYTE_RX_StartEx
+  96:Serial.c      **** 
+  97:Serial.c      **** 	/* Configure Tx */
+  98:Serial.c      ****     /* This seems to work by using an ISR to send the next character in the queue */
+  99:Serial.c      **** 	xSerialTxQueue = xQueueCreate( uxQueueLength, sizeof( signed char ) );
+  61              		.loc 1 99 0
   62 0024 3868     		ldr	r0, [r7]
   63 0026 0121     		movs	r1, #1
   64 0028 0022     		movs	r2, #0
@@ -171,44 +174,44 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   66 002e 0246     		mov	r2, r0
   67 0030 0E4B     		ldr	r3, .L5+8
   68 0032 1A60     		str	r2, [r3]
-  97:Serial.c      **** 	isr_UART1_TX_BYTE_COMPLETE_ClearPending() ;
-  69              		.loc 1 97 0
-  70 0034 FFF7FEFF 		bl	isr_UART1_TX_BYTE_COMPLETE_ClearPending
-  98:Serial.c      **** 	isr_UART1_TX_BYTE_COMPLETE_StartEx(vUartTxISR);
-  71              		.loc 1 98 0
+ 100:Serial.c      ****     uartISR_BYTE_TX_ClearPending();
+  69              		.loc 1 100 0
+  70 0034 FFF7FEFF 		bl	uartISR_BYTE_TX_ClearPending
+ 101:Serial.c      ****     uartISR_BYTE_TX_StartEx(vUartTxISR);
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 4
+
+
+  71              		.loc 1 101 0
   72 0038 0D48     		ldr	r0, .L5+12
-  73 003a FFF7FEFF 		bl	isr_UART1_TX_BYTE_COMPLETE_StartEx
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 4
-
-
-  99:Serial.c      **** 
- 100:Serial.c      **** 	/* Clear the interrupt modes for the Tx for the time being. */
- 101:Serial.c      **** 	UART_1_SetTxInterruptMode( 0 );
-  74              		.loc 1 101 0
-  75 003e 0020     		movs	r0, #0
-  76 0040 FFF7FEFF 		bl	UART_1_SetTxInterruptMode
+  73 003a FFF7FEFF 		bl	uartISR_BYTE_TX_StartEx
  102:Serial.c      **** 
- 103:Serial.c      **** 	/* Both configured successfully. */
- 104:Serial.c      **** 	return ( xComPortHandle )( xSerialTxQueue && xSerialRxQueue );
-  77              		.loc 1 104 0
+ 103:Serial.c      **** 	/* Clear the interrupt modes for the Tx for the time being. */
+ 104:Serial.c      **** 	UART_SetTxInterruptMode( 0 );
+  74              		.loc 1 104 0
+  75 003e 0020     		movs	r0, #0
+  76 0040 FFF7FEFF 		bl	UART_SetTxInterruptMode
+ 105:Serial.c      **** 
+ 106:Serial.c      **** 	/* Both configured successfully. */
+ 107:Serial.c      **** 	return ( xComPortHandle )( xSerialTxQueue && xSerialRxQueue );
+  77              		.loc 1 107 0
   78 0044 094B     		ldr	r3, .L5+8
   79 0046 1B68     		ldr	r3, [r3]
   80 0048 002B     		cmp	r3, #0
   81 004a 05D0     		beq	.L2
-  82              		.loc 1 104 0 is_stmt 0 discriminator 1
+  82              		.loc 1 107 0 is_stmt 0 discriminator 1
   83 004c 054B     		ldr	r3, .L5
   84 004e 1B68     		ldr	r3, [r3]
   85 0050 002B     		cmp	r3, #0
   86 0052 01D0     		beq	.L2
-  87              		.loc 1 104 0 discriminator 3
+  87              		.loc 1 107 0 discriminator 3
   88 0054 0123     		movs	r3, #1
   89 0056 00E0     		b	.L3
   90              	.L2:
-  91              		.loc 1 104 0 discriminator 4
+  91              		.loc 1 107 0 discriminator 4
   92 0058 0023     		movs	r3, #0
   93              	.L3:
- 105:Serial.c      **** }
-  94              		.loc 1 105 0 is_stmt 1 discriminator 6
+ 108:Serial.c      **** }
+  94              		.loc 1 108 0 is_stmt 1 discriminator 6
   95 005a 1846     		mov	r0, r3
   96 005c 0837     		adds	r7, r7, #8
   97              		.cfi_def_cfa_offset 8
@@ -234,14 +237,14 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  117              		.type	vSerialPutString, %function
  118              	vSerialPutString:
  119              	.LFB69:
- 106:Serial.c      **** /*---------------------------------------------------------------------------*/
- 107:Serial.c      **** 
- 108:Serial.c      **** void vSerialPutString( xComPortHandle pxPort, const signed char * const pcString, unsigned short us
- 109:Serial.c      **** {
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 5
+ 109:Serial.c      **** /*---------------------------------------------------------------------------*/
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 5
 
 
- 120              		.loc 1 109 0
+ 110:Serial.c      **** 
+ 111:Serial.c      **** void vSerialPutString( xComPortHandle pxPort, const signed char * const pcString, unsigned short us
+ 112:Serial.c      **** {
+ 120              		.loc 1 112 0
  121              		.cfi_startproc
  122              		@ args = 0, pretend = 0, frame = 24
  123              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -257,37 +260,37 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  133 0008 B960     		str	r1, [r7, #8]
  134 000a 1346     		mov	r3, r2
  135 000c FB80     		strh	r3, [r7, #6]	@ movhi
- 110:Serial.c      **** unsigned short usIndex = 0;
- 136              		.loc 1 110 0
+ 113:Serial.c      **** unsigned short usIndex = 0;
+ 136              		.loc 1 113 0
  137 000e 0023     		movs	r3, #0
  138 0010 FB82     		strh	r3, [r7, #22]	@ movhi
- 111:Serial.c      **** 
- 112:Serial.c      **** 	for( usIndex = 0; usIndex < usStringLength; usIndex++ )
- 139              		.loc 1 112 0
+ 114:Serial.c      **** 
+ 115:Serial.c      **** 	for( usIndex = 0; usIndex < usStringLength; usIndex++ )
+ 139              		.loc 1 115 0
  140 0012 0023     		movs	r3, #0
  141 0014 FB82     		strh	r3, [r7, #22]	@ movhi
  142 0016 14E0     		b	.L8
  143              	.L11:
- 113:Serial.c      **** 	{
- 114:Serial.c      **** 		/* Check for pre-mature end of line. */
- 115:Serial.c      **** 		if( '\0' == pcString[ usIndex ] )
- 144              		.loc 1 115 0
+ 116:Serial.c      **** 	{
+ 117:Serial.c      **** 		/* Check for pre-mature end of line. */
+ 118:Serial.c      **** 		if( '\0' == pcString[ usIndex ] )
+ 144              		.loc 1 118 0
  145 0018 FB8A     		ldrh	r3, [r7, #22]
  146 001a BA68     		ldr	r2, [r7, #8]
  147 001c 1344     		add	r3, r3, r2
  148 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  149 0020 002B     		cmp	r3, #0
  150 0022 00D1     		bne	.L9
- 116:Serial.c      **** 		{
- 117:Serial.c      **** 			break;
- 151              		.loc 1 117 0
+ 119:Serial.c      **** 		{
+ 120:Serial.c      **** 			break;
+ 151              		.loc 1 120 0
  152 0024 11E0     		b	.L7
  153              	.L9:
- 118:Serial.c      **** 		}
- 119:Serial.c      **** 		
- 120:Serial.c      **** 		/* Send out, one character at a time. */
- 121:Serial.c      **** 		if( pdTRUE != xSerialPutChar( NULL, pcString[ usIndex ], serialSTRING_DELAY_TICKS ) )
- 154              		.loc 1 121 0
+ 121:Serial.c      **** 		}
+ 122:Serial.c      **** 		
+ 123:Serial.c      **** 		/* Send out, one character at a time. */
+ 124:Serial.c      **** 		if( pdTRUE != xSerialPutChar( NULL, pcString[ usIndex ], serialSTRING_DELAY_TICKS ) )
+ 154              		.loc 1 124 0
  155 0026 FB8A     		ldrh	r3, [r7, #22]
  156 0028 BA68     		ldr	r2, [r7, #8]
  157 002a 1344     		add	r3, r3, r2
@@ -295,30 +298,30 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  159 002e 5BB2     		sxtb	r3, r3
  160 0030 0020     		movs	r0, #0
  161 0032 1946     		mov	r1, r3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 6
+
+
  162 0034 4FF0FF32 		mov	r2, #-1
  163 0038 FFF7FEFF 		bl	xSerialPutChar
- 112:Serial.c      **** 	{
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 6
-
-
- 164              		.loc 1 112 0
+ 115:Serial.c      **** 	{
+ 164              		.loc 1 115 0
  165 003c FB8A     		ldrh	r3, [r7, #22]
  166 003e 0133     		adds	r3, r3, #1
  167 0040 FB82     		strh	r3, [r7, #22]	@ movhi
  168              	.L8:
- 112:Serial.c      **** 	{
- 169              		.loc 1 112 0 is_stmt 0 discriminator 1
+ 115:Serial.c      **** 	{
+ 169              		.loc 1 115 0 is_stmt 0 discriminator 1
  170 0042 FA8A     		ldrh	r2, [r7, #22]
  171 0044 FB88     		ldrh	r3, [r7, #6]
  172 0046 9A42     		cmp	r2, r3
  173 0048 E6D3     		bcc	.L11
  174              	.L7:
- 122:Serial.c      **** 		{
- 123:Serial.c      **** 			/* Failed to send, this will be picked up in the receive comtest task. */
- 124:Serial.c      **** 		}
- 125:Serial.c      **** 	}
- 126:Serial.c      **** }
- 175              		.loc 1 126 0 is_stmt 1
+ 125:Serial.c      **** 		{
+ 126:Serial.c      **** 			/* Failed to send, this will be picked up in the receive comtest task. */
+ 127:Serial.c      **** 		}
+ 128:Serial.c      **** 	}
+ 129:Serial.c      **** }
+ 175              		.loc 1 129 0 is_stmt 1
  176 004a 1837     		adds	r7, r7, #24
  177              		.cfi_def_cfa_offset 8
  178 004c BD46     		mov	sp, r7
@@ -336,11 +339,11 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  190              		.type	xSerialGetChar, %function
  191              	xSerialGetChar:
  192              	.LFB70:
- 127:Serial.c      **** /*---------------------------------------------------------------------------*/
- 128:Serial.c      **** 
- 129:Serial.c      **** signed portBASE_TYPE xSerialGetChar( xComPortHandle pxPort, signed char *pcRxedChar, TickType_t xBl
- 130:Serial.c      **** {
- 193              		.loc 1 130 0
+ 130:Serial.c      **** /*---------------------------------------------------------------------------*/
+ 131:Serial.c      **** 
+ 132:Serial.c      **** signed portBASE_TYPE xSerialGetChar( xComPortHandle pxPort, signed char *pcRxedChar, TickType_t xBl
+ 133:Serial.c      **** {
+ 193              		.loc 1 133 0
  194              		.cfi_startproc
  195              		@ args = 0, pretend = 0, frame = 24
  196              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -355,16 +358,16 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  205 0006 F860     		str	r0, [r7, #12]
  206 0008 B960     		str	r1, [r7, #8]
  207 000a 7A60     		str	r2, [r7, #4]
- 131:Serial.c      **** portBASE_TYPE xReturn = pdFALSE;
- 208              		.loc 1 131 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 7
+
+
+ 134:Serial.c      **** portBASE_TYPE xReturn = pdFALSE;
+ 208              		.loc 1 134 0
  209 000c 0023     		movs	r3, #0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 7
-
-
  210 000e 7B61     		str	r3, [r7, #20]
- 132:Serial.c      **** 
- 133:Serial.c      **** 	if( pdTRUE == xQueueReceive( xSerialRxQueue, pcRxedChar, xBlockTime ) )
- 211              		.loc 1 133 0
+ 135:Serial.c      **** 
+ 136:Serial.c      **** 	if( pdTRUE == xQueueReceive( xSerialRxQueue, pcRxedChar, xBlockTime ) )
+ 211              		.loc 1 136 0
  212 0010 084B     		ldr	r3, .L15
  213 0012 1B68     		ldr	r3, [r3]
  214 0014 1846     		mov	r0, r3
@@ -375,19 +378,19 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  219 0020 0346     		mov	r3, r0
  220 0022 012B     		cmp	r3, #1
  221 0024 01D1     		bne	.L13
- 134:Serial.c      **** 	{
- 135:Serial.c      **** 		/* Picked up a character. */
- 136:Serial.c      **** 		xReturn = pdTRUE;
- 222              		.loc 1 136 0
+ 137:Serial.c      **** 	{
+ 138:Serial.c      **** 		/* Picked up a character. */
+ 139:Serial.c      **** 		xReturn = pdTRUE;
+ 222              		.loc 1 139 0
  223 0026 0123     		movs	r3, #1
  224 0028 7B61     		str	r3, [r7, #20]
  225              	.L13:
- 137:Serial.c      **** 	}
- 138:Serial.c      **** 	return xReturn;
- 226              		.loc 1 138 0
+ 140:Serial.c      **** 	}
+ 141:Serial.c      **** 	return xReturn;
+ 226              		.loc 1 141 0
  227 002a 7B69     		ldr	r3, [r7, #20]
- 139:Serial.c      **** }
- 228              		.loc 1 139 0
+ 142:Serial.c      **** }
+ 228              		.loc 1 142 0
  229 002c 1846     		mov	r0, r3
  230 002e 1837     		adds	r7, r7, #24
  231              		.cfi_def_cfa_offset 8
@@ -410,17 +413,17 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  248              		.type	xSerialPutChar, %function
  249              	xSerialPutChar:
  250              	.LFB71:
- 140:Serial.c      **** /*---------------------------------------------------------------------------*/
- 141:Serial.c      **** 
- 142:Serial.c      **** signed portBASE_TYPE xSerialPutChar( xComPortHandle pxPort, signed char cOutChar, TickType_t xBlock
- 143:Serial.c      **** {
- 251              		.loc 1 143 0
+ 143:Serial.c      **** /*---------------------------------------------------------------------------*/
+ 144:Serial.c      **** 
+ 145:Serial.c      **** signed portBASE_TYPE xSerialPutChar( xComPortHandle pxPort, signed char cOutChar, TickType_t xBlock
+ 146:Serial.c      **** {
+ 251              		.loc 1 146 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 8
+
+
  252              		.cfi_startproc
  253              		@ args = 0, pretend = 0, frame = 24
  254              		@ frame_needed = 1, uses_anonymous_args = 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 8
-
-
  255 0000 80B5     		push	{r7, lr}
  256              		.cfi_def_cfa_offset 8
  257              		.cfi_offset 7, -8
@@ -433,14 +436,14 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  264 0008 0B46     		mov	r3, r1
  265 000a 7A60     		str	r2, [r7, #4]
  266 000c FB72     		strb	r3, [r7, #11]
- 144:Serial.c      **** portBASE_TYPE xReturn = pdFALSE;
- 267              		.loc 1 144 0
+ 147:Serial.c      **** portBASE_TYPE xReturn = pdFALSE;
+ 267              		.loc 1 147 0
  268 000e 0023     		movs	r3, #0
  269 0010 7B61     		str	r3, [r7, #20]
- 145:Serial.c      **** 
- 146:Serial.c      **** 	/* The ISR is processing characters is so just add to the end of the queue. */
- 147:Serial.c      **** 	if( pdTRUE == xQueueSend( xSerialTxQueue, &cOutChar, xBlockTime ) )
- 270              		.loc 1 147 0
+ 148:Serial.c      **** 
+ 149:Serial.c      **** 	/* The ISR is processing characters is so just add to the end of the queue. */
+ 150:Serial.c      **** 	if( pdTRUE == xQueueSend( xSerialTxQueue, &cOutChar, xBlockTime ) )
+ 270              		.loc 1 150 0
  271 0012 0F4B     		ldr	r3, .L21
  272 0014 1A68     		ldr	r2, [r3]
  273 0016 07F10B03 		add	r3, r7, #11
@@ -452,46 +455,46 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  279 0026 0346     		mov	r3, r0
  280 0028 012B     		cmp	r3, #1
  281 002a 02D1     		bne	.L18
- 148:Serial.c      **** 	{	
- 149:Serial.c      **** 		xReturn = pdTRUE;
- 282              		.loc 1 149 0
+ 151:Serial.c      **** 	{	
+ 152:Serial.c      **** 		xReturn = pdTRUE;
+ 282              		.loc 1 152 0
  283 002c 0123     		movs	r3, #1
  284 002e 7B61     		str	r3, [r7, #20]
  285 0030 01E0     		b	.L19
  286              	.L18:
- 150:Serial.c      **** 	}
- 151:Serial.c      **** 	else
- 152:Serial.c      **** 	{
- 153:Serial.c      **** 		/* The queue is probably full. */
- 154:Serial.c      **** 		xReturn = pdFALSE;
- 287              		.loc 1 154 0
+ 153:Serial.c      **** 	}
+ 154:Serial.c      **** 	else
+ 155:Serial.c      **** 	{
+ 156:Serial.c      **** 		/* The queue is probably full. */
+ 157:Serial.c      **** 		xReturn = pdFALSE;
+ 287              		.loc 1 157 0
  288 0032 0023     		movs	r3, #0
  289 0034 7B61     		str	r3, [r7, #20]
  290              	.L19:
- 155:Serial.c      **** 	}
- 156:Serial.c      **** 
- 157:Serial.c      **** 	/* Make sure that the interrupt will fire in the case where:
- 158:Serial.c      **** 	    Currently sending so the Tx Complete will fire.
- 159:Serial.c      **** 	    Not sending so the Empty will fire.	*/
- 160:Serial.c      **** 	taskENTER_CRITICAL();
- 291              		.loc 1 160 0
+ 158:Serial.c      **** 	}
+ 159:Serial.c      **** 
+ 160:Serial.c      **** 	/* Make sure that the interrupt will fire in the case where:
+ 161:Serial.c      **** 	    Currently sending so the Tx Complete will fire.
+ 162:Serial.c      **** 	    Not sending so the Empty will fire.	*/
+ 163:Serial.c      **** 	taskENTER_CRITICAL();
+ 291              		.loc 1 163 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 9
+
+
  292 0036 FFF7FEFF 		bl	vPortEnterCritical
- 161:Serial.c      **** 		UART_1_SetTxInterruptMode( UART_1_TX_STS_COMPLETE | UART_1_TX_STS_FIFO_EMPTY );
- 293              		.loc 1 161 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 9
-
-
+ 164:Serial.c      **** 		UART_SetTxInterruptMode( UART_TX_STS_COMPLETE | UART_TX_STS_FIFO_EMPTY );
+ 293              		.loc 1 164 0
  294 003a 0320     		movs	r0, #3
- 295 003c FFF7FEFF 		bl	UART_1_SetTxInterruptMode
- 162:Serial.c      **** 	taskEXIT_CRITICAL();
- 296              		.loc 1 162 0
+ 295 003c FFF7FEFF 		bl	UART_SetTxInterruptMode
+ 165:Serial.c      **** 	taskEXIT_CRITICAL();
+ 296              		.loc 1 165 0
  297 0040 FFF7FEFF 		bl	vPortExitCritical
- 163:Serial.c      **** 	
- 164:Serial.c      **** 	return xReturn;
- 298              		.loc 1 164 0
+ 166:Serial.c      **** 	
+ 167:Serial.c      **** 	return xReturn;
+ 298              		.loc 1 167 0
  299 0044 7B69     		ldr	r3, [r7, #20]
- 165:Serial.c      **** }
- 300              		.loc 1 165 0
+ 168:Serial.c      **** }
+ 300              		.loc 1 168 0
  301 0046 1846     		mov	r0, r3
  302 0048 1837     		adds	r7, r7, #24
  303              		.cfi_def_cfa_offset 8
@@ -514,11 +517,11 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  320              		.type	vUartRxISR, %function
  321              	vUartRxISR:
  322              	.LFB72:
- 166:Serial.c      **** /*---------------------------------------------------------------------------*/
- 167:Serial.c      **** 
- 168:Serial.c      **** CY_ISR(vUartRxISR)
- 169:Serial.c      **** {
- 323              		.loc 1 169 0
+ 169:Serial.c      **** /*---------------------------------------------------------------------------*/
+ 170:Serial.c      **** 
+ 171:Serial.c      **** CY_ISR(vUartRxISR)
+ 172:Serial.c      **** {
+ 323              		.loc 1 172 0
  324              		.cfi_startproc
  325              		@ args = 0, pretend = 0, frame = 24
  326              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -530,46 +533,46 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  332              		.cfi_def_cfa_offset 32
  333 0004 00AF     		add	r7, sp, #0
  334              		.cfi_def_cfa_register 7
- 170:Serial.c      **** portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
- 335              		.loc 1 170 0
+ 173:Serial.c      **** portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+ 335              		.loc 1 173 0
  336 0006 0023     		movs	r3, #0
  337 0008 7B60     		str	r3, [r7, #4]
- 171:Serial.c      **** volatile unsigned char ucStatus = 0;
- 338              		.loc 1 171 0
+ 174:Serial.c      **** volatile unsigned char ucStatus = 0;
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 10
+
+
+ 338              		.loc 1 174 0
  339 000a 0023     		movs	r3, #0
  340 000c FB70     		strb	r3, [r7, #3]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 10
-
-
- 172:Serial.c      **** signed char cInChar = 0;
- 341              		.loc 1 172 0
+ 175:Serial.c      **** signed char cInChar = 0;
+ 341              		.loc 1 175 0
  342 000e 0023     		movs	r3, #0
  343 0010 BB70     		strb	r3, [r7, #2]
- 173:Serial.c      **** unsigned long ulMask = 0;
- 344              		.loc 1 173 0
+ 176:Serial.c      **** unsigned long ulMask = 0;
+ 344              		.loc 1 176 0
  345 0012 0023     		movs	r3, #0
  346 0014 7B61     		str	r3, [r7, #20]
- 174:Serial.c      **** 
- 175:Serial.c      **** 	/* Read the status to acknowledge. */
- 176:Serial.c      **** 	ucStatus = UART_1_ReadRxStatus();
- 347              		.loc 1 176 0
- 348 0016 FFF7FEFF 		bl	UART_1_ReadRxStatus
+ 177:Serial.c      **** 
+ 178:Serial.c      **** 	/* Read the status to acknowledge. */
+ 179:Serial.c      **** 	ucStatus = UART_ReadRxStatus();
+ 347              		.loc 1 179 0
+ 348 0016 FFF7FEFF 		bl	UART_ReadRxStatus
  349 001a 0346     		mov	r3, r0
  350 001c FB70     		strb	r3, [r7, #3]
- 177:Serial.c      **** 
- 178:Serial.c      **** 	/* Only interested in a character being received. */
- 179:Serial.c      **** 	if( 0 != ( ucStatus & UART_1_RX_STS_FIFO_NOTEMPTY ) )
- 351              		.loc 1 179 0
+ 180:Serial.c      **** 
+ 181:Serial.c      **** 	/* Only interested in a character being received. */
+ 182:Serial.c      **** 	if( 0 != ( ucStatus & UART_RX_STS_FIFO_NOTEMPTY ) )
+ 351              		.loc 1 182 0
  352 001e FB78     		ldrb	r3, [r7, #3]
  353 0020 DBB2     		uxtb	r3, r3
  354 0022 03F02003 		and	r3, r3, #32
  355 0026 002B     		cmp	r3, #0
  356 0028 21D0     		beq	.L24
- 180:Serial.c      **** 	{
- 181:Serial.c      **** 		/* Get the character. */
- 182:Serial.c      **** 		cInChar = UART_1_GetChar();
- 357              		.loc 1 182 0
- 358 002a FFF7FEFF 		bl	UART_1_GetChar
+ 183:Serial.c      **** 	{
+ 184:Serial.c      **** 		/* Get the character. */
+ 185:Serial.c      **** 		cInChar = UART_GetChar();
+ 357              		.loc 1 185 0
+ 358 002a FFF7FEFF 		bl	UART_GetChar
  359 002e 0346     		mov	r3, r0
  360 0030 DBB2     		uxtb	r3, r3
  361 0032 BB70     		strb	r3, [r7, #2]
@@ -595,12 +598,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   17:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     >>!   outside of the FreeRTOS kernel.                                   !<<
   18:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     ***************************************************************************
   19:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 11
+
+
   20:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FreeRTOS is distributed in the hope that it will be useful, but WITHOUT ANY
   21:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
   22:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     FOR A PARTICULAR PURPOSE.  Full license text is available on the following
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 11
-
-
   23:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     link: http://www.freertos.org/a00114.html
   24:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
   25:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     ***************************************************************************
@@ -655,12 +658,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
   74:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #ifdef __cplusplus
   75:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** extern "C" {
   76:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 12
+
+
   77:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
   78:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------
   79:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * Port specific definitions.
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 12
-
-
   80:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  *
   81:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * The settings in this file configure FreeRTOS correctly for the
   82:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****  * given hardware and compiler.
@@ -715,12 +718,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  131:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  132:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portNVIC_INT_CTRL_REG		( * ( ( volatile uint32_t * ) 0xe000ed04 ) )
  133:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portNVIC_PENDSVSET_BIT		( 1UL << 28UL )
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 13
+
+
  134:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portEND_SWITCHING_ISR( xSwitchRequired ) if( xSwitchRequired != pdFALSE ) portYIELD()
  135:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #define portYIELD_FROM_ISR( x ) portEND_SWITCHING_ISR( x )
  136:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 13
-
-
  137:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  138:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /* Critical section management. */
  139:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** extern void vPortEnterCritical( void );
@@ -775,12 +778,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  188:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  189:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	/*-----------------------------------------------------------*/
  190:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 14
+
+
  191:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portGET_HIGHEST_PRIORITY( uxTopPriority, uxReadyPriorities ) uxTopPriority = ( 31UL - ( ui
  192:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  193:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif /* configUSE_PORT_OPTIMISED_TASK_SELECTION */
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 14
-
-
  194:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  195:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
  196:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
@@ -835,12 +838,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  245:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** }
  246:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  247:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 15
+
+
  248:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  249:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** portFORCE_INLINE static uint32_t ulPortRaiseBASEPRI( void )
  250:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** {
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 15
-
-
  251:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** uint32_t ulOriginalBASEPRI, ulNewBASEPRI;
  252:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  253:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__asm volatile
@@ -872,15 +875,15 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  378 004c 3B69     		ldr	r3, [r7, #16]
  379              	.LBE11:
  380              	.LBE10:
- 183:Serial.c      **** 		
- 184:Serial.c      **** 		/* Mask off the other RTOS interrupts to interact with the queue. */
- 185:Serial.c      **** 		ulMask = portSET_INTERRUPT_MASK_FROM_ISR();
- 381              		.loc 1 185 0
+ 186:Serial.c      **** 		
+ 187:Serial.c      **** 		/* Mask off the other RTOS interrupts to interact with the queue. */
+ 188:Serial.c      **** 		ulMask = portSET_INTERRUPT_MASK_FROM_ISR();
+ 381              		.loc 1 188 0
  382 004e 7B61     		str	r3, [r7, #20]
- 186:Serial.c      **** 		{
- 187:Serial.c      **** 			/* Try to deliver the character. */
- 188:Serial.c      **** 			if( pdTRUE != xQueueSendFromISR( xSerialRxQueue, &cInChar, &xHigherPriorityTaskWoken ) )
- 383              		.loc 1 188 0
+ 189:Serial.c      **** 		{
+ 190:Serial.c      **** 			/* Try to deliver the character. */
+ 191:Serial.c      **** 			if( pdTRUE != xQueueSendFromISR( xSerialRxQueue, &cInChar, &xHigherPriorityTaskWoken ) )
+ 383              		.loc 1 191 0
  384 0050 0E4B     		ldr	r3, .L27
  385 0052 1968     		ldr	r1, [r3]
  386 0054 BA1C     		adds	r2, r7, #2
@@ -895,12 +898,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  395              	.LBB12:
  396              	.LBB13:
  266:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** }
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 16
+
+
  267:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
  268:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
  269:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** portFORCE_INLINE static void vPortSetBASEPRI( uint32_t ulNewMaskValue )
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 16
-
-
  270:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** {
  271:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	__asm volatile
  397              		.loc 2 271 0
@@ -912,39 +915,39 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  403              	.L24:
  404              	.LBE13:
  405              	.LBE12:
- 189:Serial.c      **** 			{
- 190:Serial.c      **** 				/* Run out of space. */
- 191:Serial.c      **** 			}
- 192:Serial.c      **** 		}
- 193:Serial.c      **** 		portCLEAR_INTERRUPT_MASK_FROM_ISR( ulMask );
- 194:Serial.c      **** 	}
- 195:Serial.c      **** 
- 196:Serial.c      **** 	/* If we delivered the character then a context switch might be required.
- 197:Serial.c      **** 	xHigherPriorityTaskWoken was set to pdFALSE on interrupt entry.  If calling 
- 198:Serial.c      **** 	xQueueSendFromISR() caused a task to unblock, and the unblocked task has
- 199:Serial.c      **** 	a priority equal to or higher than the currently running task (the task this
- 200:Serial.c      **** 	ISR interrupted), then xHigherPriorityTaskWoken will have been set to pdTRUE and
- 201:Serial.c      **** 	portEND_SWITCHING_ISR() will request a context switch to the newly unblocked
- 202:Serial.c      **** 	task. */
- 203:Serial.c      **** 	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
- 406              		.loc 1 203 0
+ 192:Serial.c      **** 			{
+ 193:Serial.c      **** 				/* Run out of space. */
+ 194:Serial.c      **** 			}
+ 195:Serial.c      **** 		}
+ 196:Serial.c      **** 		portCLEAR_INTERRUPT_MASK_FROM_ISR( ulMask );
+ 197:Serial.c      **** 	}
+ 198:Serial.c      **** 
+ 199:Serial.c      **** 	/* If we delivered the character then a context switch might be required.
+ 200:Serial.c      **** 	xHigherPriorityTaskWoken was set to pdFALSE on interrupt entry.  If calling 
+ 201:Serial.c      **** 	xQueueSendFromISR() caused a task to unblock, and the unblocked task has
+ 202:Serial.c      **** 	a priority equal to or higher than the currently running task (the task this
+ 203:Serial.c      **** 	ISR interrupted), then xHigherPriorityTaskWoken will have been set to pdTRUE and
+ 204:Serial.c      **** 	portEND_SWITCHING_ISR() will request a context switch to the newly unblocked
+ 205:Serial.c      **** 	task. */
+ 206:Serial.c      **** 	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+ 406              		.loc 1 206 0
  407 006e 7B68     		ldr	r3, [r7, #4]
  408 0070 002B     		cmp	r3, #0
  409 0072 07D0     		beq	.L23
- 410              		.loc 1 203 0 is_stmt 0 discriminator 1
+ 410              		.loc 1 206 0 is_stmt 0 discriminator 1
  411 0074 064B     		ldr	r3, .L27+4
  412 0076 4FF08052 		mov	r2, #268435456
  413 007a 1A60     		str	r2, [r3]
- 414              	@ 203 "Serial.c" 1
+ 414              	@ 206 "Serial.c" 1
  415 007c BFF34F8F 		dsb
  416              	@ 0 "" 2
- 417              	@ 203 "Serial.c" 1
+ 417              	@ 206 "Serial.c" 1
  418 0080 BFF36F8F 		isb
  419              	@ 0 "" 2
  420              		.thumb
  421              	.L23:
- 204:Serial.c      **** }
- 422              		.loc 1 204 0 is_stmt 1
+ 207:Serial.c      **** }
+ 422              		.loc 1 207 0 is_stmt 1
  423 0084 1837     		adds	r7, r7, #24
  424              		.cfi_def_cfa_offset 8
  425 0086 BD46     		mov	sp, r7
@@ -955,12 +958,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  430 008a 00BF     		.align	2
  431              	.L27:
  432 008c 04000000 		.word	xSerialRxQueue
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 17
+
+
  433 0090 04ED00E0 		.word	-536810236
  434              		.cfi_endproc
  435              	.LFE72:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 17
-
-
  436              		.size	vUartRxISR, .-vUartRxISR
  437              		.section	.text.vUartTxISR,"ax",%progbits
  438              		.align	2
@@ -970,11 +973,11 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  442              		.type	vUartTxISR, %function
  443              	vUartTxISR:
  444              	.LFB73:
- 205:Serial.c      **** /*---------------------------------------------------------------------------*/
- 206:Serial.c      **** 
- 207:Serial.c      **** CY_ISR(vUartTxISR)
- 208:Serial.c      **** {
- 445              		.loc 1 208 0
+ 208:Serial.c      **** /*---------------------------------------------------------------------------*/
+ 209:Serial.c      **** 
+ 210:Serial.c      **** CY_ISR(vUartTxISR)
+ 211:Serial.c      **** {
+ 445              		.loc 1 211 0
  446              		.cfi_startproc
  447              		@ args = 0, pretend = 0, frame = 24
  448              		@ frame_needed = 1, uses_anonymous_args = 0
@@ -986,42 +989,42 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  454              		.cfi_def_cfa_offset 32
  455 0004 00AF     		add	r7, sp, #0
  456              		.cfi_def_cfa_register 7
- 209:Serial.c      **** portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
- 457              		.loc 1 209 0
+ 212:Serial.c      **** portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
+ 457              		.loc 1 212 0
  458 0006 0023     		movs	r3, #0
  459 0008 7B60     		str	r3, [r7, #4]
- 210:Serial.c      **** volatile unsigned char ucStatus = 0;
- 460              		.loc 1 210 0
+ 213:Serial.c      **** volatile unsigned char ucStatus = 0;
+ 460              		.loc 1 213 0
  461 000a 0023     		movs	r3, #0
  462 000c FB70     		strb	r3, [r7, #3]
- 211:Serial.c      **** signed char cOutChar = 0;
- 463              		.loc 1 211 0
+ 214:Serial.c      **** signed char cOutChar = 0;
+ 463              		.loc 1 214 0
  464 000e 0023     		movs	r3, #0
  465 0010 BB70     		strb	r3, [r7, #2]
- 212:Serial.c      **** unsigned long ulMask = 0;
- 466              		.loc 1 212 0
+ 215:Serial.c      **** unsigned long ulMask = 0;
+ 466              		.loc 1 215 0
  467 0012 0023     		movs	r3, #0
  468 0014 7B61     		str	r3, [r7, #20]
- 213:Serial.c      **** 
- 214:Serial.c      **** 	/* Read the status to acknowledge. */
- 215:Serial.c      **** 	ucStatus = UART_1_ReadTxStatus();
- 469              		.loc 1 215 0
- 470 0016 FFF7FEFF 		bl	UART_1_ReadTxStatus
+ 216:Serial.c      **** 
+ 217:Serial.c      **** 	/* Read the status to acknowledge. */
+ 218:Serial.c      **** 	ucStatus = UART_ReadTxStatus();
+ 469              		.loc 1 218 0
+ 470 0016 FFF7FEFF 		bl	UART_ReadTxStatus
  471 001a 0346     		mov	r3, r0
  472 001c FB70     		strb	r3, [r7, #3]
- 216:Serial.c      **** 	
- 217:Serial.c      **** 	/* Check to see whether this is a genuine interrupt. */
- 218:Serial.c      **** 	if( ( 0 != ( ucStatus & UART_1_TX_STS_COMPLETE ) ) || ( 0 != ( ucStatus & UART_1_TX_STS_FIFO_EMPTY
- 473              		.loc 1 218 0
+ 219:Serial.c      **** 	
+ 220:Serial.c      **** 	/* Check to see whether this is a genuine interrupt. */
+ 221:Serial.c      **** 	if( ( 0 != ( ucStatus & UART_TX_STS_COMPLETE ) ) || ( 0 != ( ucStatus & UART_TX_STS_FIFO_EMPTY ) )
+ 473              		.loc 1 221 0
  474 001e FB78     		ldrb	r3, [r7, #3]
  475 0020 DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 18
+
+
  476 0022 03F00103 		and	r3, r3, #1
  477 0026 002B     		cmp	r3, #0
  478 0028 05D1     		bne	.L30
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 18
-
-
- 479              		.loc 1 218 0 is_stmt 0 discriminator 1
+ 479              		.loc 1 221 0 is_stmt 0 discriminator 1
  480 002a FB78     		ldrb	r3, [r7, #3]
  481 002c DBB2     		uxtb	r3, r3
  482 002e 03F00203 		and	r3, r3, #2
@@ -1048,14 +1051,14 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  501 004e 3B69     		ldr	r3, [r7, #16]
  502              	.LBE15:
  503              	.LBE14:
- 219:Serial.c      **** 	{	
- 220:Serial.c      **** 		/* Mask off the other RTOS interrupts to interact with the queue. */
- 221:Serial.c      **** 		ulMask = portSET_INTERRUPT_MASK_FROM_ISR();
- 504              		.loc 1 221 0
+ 222:Serial.c      **** 	{	
+ 223:Serial.c      **** 		/* Mask off the other RTOS interrupts to interact with the queue. */
+ 224:Serial.c      **** 		ulMask = portSET_INTERRUPT_MASK_FROM_ISR();
+ 504              		.loc 1 224 0
  505 0050 7B61     		str	r3, [r7, #20]
- 222:Serial.c      **** 		{
- 223:Serial.c      **** 			if( pdTRUE == xQueueReceiveFromISR( xSerialTxQueue, &cOutChar, &xHigherPriorityTaskWoken ) )
- 506              		.loc 1 223 0
+ 225:Serial.c      **** 		{
+ 226:Serial.c      **** 			if( pdTRUE == xQueueReceiveFromISR( xSerialTxQueue, &cOutChar, &xHigherPriorityTaskWoken ) )
+ 506              		.loc 1 226 0
  507 0052 154B     		ldr	r3, .L36
  508 0054 1968     		ldr	r1, [r3]
  509 0056 BA1C     		adds	r2, r7, #2
@@ -1067,36 +1070,36 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  515 0064 0346     		mov	r3, r0
  516 0066 012B     		cmp	r3, #1
  517 0068 08D1     		bne	.L33
- 224:Serial.c      **** 			{
- 225:Serial.c      **** 				/* Send the next character. */
- 226:Serial.c      **** 				UART_1_PutChar( cOutChar );			
- 518              		.loc 1 226 0
+ 227:Serial.c      **** 			{
+ 228:Serial.c      **** 				/* Send the next character. */
+ 229:Serial.c      **** 				UART_PutChar( cOutChar );			
+ 518              		.loc 1 229 0
  519 006a BB78     		ldrb	r3, [r7, #2]	@ zero_extendqisi2
  520 006c DBB2     		uxtb	r3, r3
  521 006e 1846     		mov	r0, r3
- 522 0070 FFF7FEFF 		bl	UART_1_PutChar
- 227:Serial.c      **** 
- 228:Serial.c      **** 				/* If we are firing, then the only interrupt we are interested in
- 229:Serial.c      **** 				is the Complete. The application code will add the Empty interrupt
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 19
+ 522 0070 FFF7FEFF 		bl	UART_PutChar
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 19
 
 
- 230:Serial.c      **** 				when there is something else to be done. */
- 231:Serial.c      **** 				UART_1_SetTxInterruptMode( UART_1_TX_STS_COMPLETE );
- 523              		.loc 1 231 0
+ 230:Serial.c      **** 
+ 231:Serial.c      **** 				/* If we are firing, then the only interrupt we are interested in
+ 232:Serial.c      **** 				is the Complete. The application code will add the Empty interrupt
+ 233:Serial.c      **** 				when there is something else to be done. */
+ 234:Serial.c      **** 				UART_SetTxInterruptMode( UART_TX_STS_COMPLETE );
+ 523              		.loc 1 234 0
  524 0074 0120     		movs	r0, #1
- 525 0076 FFF7FEFF 		bl	UART_1_SetTxInterruptMode
+ 525 0076 FFF7FEFF 		bl	UART_SetTxInterruptMode
  526 007a 02E0     		b	.L34
  527              	.L33:
- 232:Serial.c      **** 			}
- 233:Serial.c      **** 			else
- 234:Serial.c      **** 			{
- 235:Serial.c      **** 				/* There is no work left so disable the interrupt until the application 
- 236:Serial.c      **** 				puts more into the queue. */
- 237:Serial.c      **** 				UART_1_SetTxInterruptMode( 0 );
- 528              		.loc 1 237 0
+ 235:Serial.c      **** 			}
+ 236:Serial.c      **** 			else
+ 237:Serial.c      **** 			{
+ 238:Serial.c      **** 				/* There is no work left so disable the interrupt until the application 
+ 239:Serial.c      **** 				puts more into the queue. */
+ 240:Serial.c      **** 				UART_SetTxInterruptMode( 0 );
+ 528              		.loc 1 240 0
  529 007c 0020     		movs	r0, #0
- 530 007e FFF7FEFF 		bl	UART_1_SetTxInterruptMode
+ 530 007e FFF7FEFF 		bl	UART_SetTxInterruptMode
  531              	.L34:
  532 0082 7B69     		ldr	r3, [r7, #20]
  533 0084 BB60     		str	r3, [r7, #8]
@@ -1111,40 +1114,40 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  542              	.L31:
  543              	.LBE17:
  544              	.LBE16:
- 238:Serial.c      **** 			}
- 239:Serial.c      **** 		}
- 240:Serial.c      **** 		portCLEAR_INTERRUPT_MASK_FROM_ISR( ulMask );
- 241:Serial.c      **** 	}
- 242:Serial.c      **** 
- 243:Serial.c      **** 	/* If we delivered the character then a context switch might be required.
- 244:Serial.c      **** 	xHigherPriorityTaskWoken was set to pdFALSE on interrupt entry.  If calling 
- 245:Serial.c      **** 	xQueueSendFromISR() caused a task to unblock, and the unblocked task has
- 246:Serial.c      **** 	a priority equal to or higher than the currently running task (the task this
- 247:Serial.c      **** 	ISR interrupted), then xHigherPriorityTaskWoken will have been set to pdTRUE and
- 248:Serial.c      **** 	portEND_SWITCHING_ISR() will request a context switch to the newly unblocked
- 249:Serial.c      **** 	task. */
- 250:Serial.c      **** 	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
- 545              		.loc 1 250 0
+ 241:Serial.c      **** 			}
+ 242:Serial.c      **** 		}
+ 243:Serial.c      **** 		portCLEAR_INTERRUPT_MASK_FROM_ISR( ulMask );
+ 244:Serial.c      **** 	}
+ 245:Serial.c      **** 
+ 246:Serial.c      **** 	/* If we delivered the character then a context switch might be required.
+ 247:Serial.c      **** 	xHigherPriorityTaskWoken was set to pdFALSE on interrupt entry.  If calling 
+ 248:Serial.c      **** 	xQueueSendFromISR() caused a task to unblock, and the unblocked task has
+ 249:Serial.c      **** 	a priority equal to or higher than the currently running task (the task this
+ 250:Serial.c      **** 	ISR interrupted), then xHigherPriorityTaskWoken will have been set to pdTRUE and
+ 251:Serial.c      **** 	portEND_SWITCHING_ISR() will request a context switch to the newly unblocked
+ 252:Serial.c      **** 	task. */
+ 253:Serial.c      **** 	portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+ 545              		.loc 1 253 0
  546 008c 7B68     		ldr	r3, [r7, #4]
  547 008e 002B     		cmp	r3, #0
  548 0090 07D0     		beq	.L29
- 549              		.loc 1 250 0 is_stmt 0 discriminator 1
+ 549              		.loc 1 253 0 is_stmt 0 discriminator 1
  550 0092 064B     		ldr	r3, .L36+4
  551 0094 4FF08052 		mov	r2, #268435456
  552 0098 1A60     		str	r2, [r3]
- 553              	@ 250 "Serial.c" 1
+ 553              	@ 253 "Serial.c" 1
  554 009a BFF34F8F 		dsb
  555              	@ 0 "" 2
- 556              	@ 250 "Serial.c" 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 20
+
+
+ 556              	@ 253 "Serial.c" 1
  557 009e BFF36F8F 		isb
  558              	@ 0 "" 2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 20
-
-
  559              		.thumb
  560              	.L29:
- 251:Serial.c      **** }
- 561              		.loc 1 251 0 is_stmt 1
+ 254:Serial.c      **** }
+ 561              		.loc 1 254 0 is_stmt 1
  562 00a2 1837     		adds	r7, r7, #24
  563              		.cfi_def_cfa_offset 8
  564 00a4 BD46     		mov	sp, r7
@@ -1195,12 +1198,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  609 0039 08       		.byte	0x8
  610 003a 4C010000 		.4byte	.LASF1
  611 003e 02       		.uleb128 0x2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 21
+
+
  612 003f 02       		.byte	0x2
  613 0040 05       		.byte	0x5
  614 0041 18030000 		.4byte	.LASF2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 21
-
-
  615 0045 02       		.uleb128 0x2
  616 0046 02       		.byte	0x2
  617 0047 07       		.byte	0x7
@@ -1255,12 +1258,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  666 00a8 2D       		.byte	0x2d
  667 00a9 5E000000 		.4byte	0x5e
  668 00ad 05       		.uleb128 0x5
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 22
+
+
  669 00ae 22030000 		.4byte	.LASF15
  670 00b2 05       		.byte	0x5
  671 00b3 9201     		.2byte	0x192
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 22
-
-
  672 00b5 37000000 		.4byte	0x37
  673 00b9 02       		.uleb128 0x2
  674 00ba 04       		.byte	0x4
@@ -1315,12 +1318,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  723 011e 08       		.uleb128 0x8
  724 011f C2010000 		.4byte	.LASF25
  725 0123 02       		.byte	0x2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 23
+
+
  726 0124 FB       		.byte	0xfb
  727 0125 A2000000 		.4byte	0xa2
  728 0129 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 23
-
-
  729 012a 09       		.uleb128 0x9
  730 012b E5010000 		.4byte	.LASF52
  731 012f 02       		.byte	0x2
@@ -1363,7 +1366,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  768 017a 0D       		.uleb128 0xd
  769 017b 26010000 		.4byte	.LASF39
  770 017f 01       		.byte	0x1
- 771 0180 6C       		.byte	0x6c
+ 771 0180 6F       		.byte	0x6f
  772 0181 00000000 		.4byte	.LFB69
  773 0185 50000000 		.4byte	.LFE69-.LFB69
  774 0189 01       		.uleb128 0x1
@@ -1372,18 +1375,18 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  777 018f 0C       		.uleb128 0xc
  778 0190 5A010000 		.4byte	.LASF28
  779 0194 01       		.byte	0x1
- 780 0195 6C       		.byte	0x6c
+ 780 0195 6F       		.byte	0x6f
  781 0196 F8000000 		.4byte	0xf8
  782 019a 02       		.uleb128 0x2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 24
+
+
  783 019b 91       		.byte	0x91
  784 019c 6C       		.sleb128 -20
  785 019d 0C       		.uleb128 0xc
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 24
-
-
  786 019e B2010000 		.4byte	.LASF29
  787 01a2 01       		.byte	0x1
- 788 01a3 6C       		.byte	0x6c
+ 788 01a3 6F       		.byte	0x6f
  789 01a4 C8010000 		.4byte	0x1c8
  790 01a8 02       		.uleb128 0x2
  791 01a9 91       		.byte	0x91
@@ -1391,7 +1394,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  793 01ab 0C       		.uleb128 0xc
  794 01ac 98020000 		.4byte	.LASF30
  795 01b0 01       		.byte	0x1
- 796 01b1 6C       		.byte	0x6c
+ 796 01b1 6F       		.byte	0x6f
  797 01b2 45000000 		.4byte	0x45
  798 01b6 02       		.uleb128 0x2
  799 01b7 91       		.byte	0x91
@@ -1399,7 +1402,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  801 01b9 0E       		.uleb128 0xe
  802 01ba 36030000 		.4byte	.LASF35
  803 01be 01       		.byte	0x1
- 804 01bf 6E       		.byte	0x6e
+ 804 01bf 71       		.byte	0x71
  805 01c0 45000000 		.4byte	0x45
  806 01c4 02       		.uleb128 0x2
  807 01c5 91       		.byte	0x91
@@ -1415,7 +1418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  817 01d8 0B       		.uleb128 0xb
  818 01d9 A7020000 		.4byte	.LASF32
  819 01dd 01       		.byte	0x1
- 820 01de 81       		.byte	0x81
+ 820 01de 84       		.byte	0x84
  821 01df 57000000 		.4byte	0x57
  822 01e3 00000000 		.4byte	.LFB70
  823 01e7 38000000 		.4byte	.LFE70-.LFB70
@@ -1425,7 +1428,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  827 01f1 0C       		.uleb128 0xc
  828 01f2 5A010000 		.4byte	.LASF28
  829 01f6 01       		.byte	0x1
- 830 01f7 81       		.byte	0x81
+ 830 01f7 84       		.byte	0x84
  831 01f8 F8000000 		.4byte	0xf8
  832 01fc 02       		.uleb128 0x2
  833 01fd 91       		.byte	0x91
@@ -1433,18 +1436,18 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  835 01ff 0C       		.uleb128 0xc
  836 0200 00000000 		.4byte	.LASF33
  837 0204 01       		.byte	0x1
- 838 0205 81       		.byte	0x81
+ 838 0205 84       		.byte	0x84
  839 0206 2A020000 		.4byte	0x22a
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 25
+
+
  840 020a 02       		.uleb128 0x2
  841 020b 91       		.byte	0x91
  842 020c 68       		.sleb128 -24
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 25
-
-
  843 020d 0C       		.uleb128 0xc
  844 020e B6020000 		.4byte	.LASF34
  845 0212 01       		.byte	0x1
- 846 0213 81       		.byte	0x81
+ 846 0213 84       		.byte	0x84
  847 0214 E2000000 		.4byte	0xe2
  848 0218 02       		.uleb128 0x2
  849 0219 91       		.byte	0x91
@@ -1452,7 +1455,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  851 021b 0E       		.uleb128 0xe
  852 021c 66030000 		.4byte	.LASF36
  853 0220 01       		.byte	0x1
- 854 0221 83       		.byte	0x83
+ 854 0221 86       		.byte	0x86
  855 0222 57000000 		.4byte	0x57
  856 0226 02       		.uleb128 0x2
  857 0227 91       		.byte	0x91
@@ -1464,7 +1467,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  863 0230 0B       		.uleb128 0xb
  864 0231 A3010000 		.4byte	.LASF37
  865 0235 01       		.byte	0x1
- 866 0236 8E       		.byte	0x8e
+ 866 0236 91       		.byte	0x91
  867 0237 57000000 		.4byte	0x57
  868 023b 00000000 		.4byte	.LFB71
  869 023f 54000000 		.4byte	.LFE71-.LFB71
@@ -1474,7 +1477,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  873 0249 0C       		.uleb128 0xc
  874 024a 5A010000 		.4byte	.LASF28
  875 024e 01       		.byte	0x1
- 876 024f 8E       		.byte	0x8e
+ 876 024f 91       		.byte	0x91
  877 0250 F8000000 		.4byte	0xf8
  878 0254 02       		.uleb128 0x2
  879 0255 91       		.byte	0x91
@@ -1482,7 +1485,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  881 0257 0C       		.uleb128 0xc
  882 0258 9A010000 		.4byte	.LASF38
  883 025c 01       		.byte	0x1
- 884 025d 8E       		.byte	0x8e
+ 884 025d 91       		.byte	0x91
  885 025e 25000000 		.4byte	0x25
  886 0262 02       		.uleb128 0x2
  887 0263 91       		.byte	0x91
@@ -1490,18 +1493,18 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  889 0265 0C       		.uleb128 0xc
  890 0266 B6020000 		.4byte	.LASF34
  891 026a 01       		.byte	0x1
- 892 026b 8E       		.byte	0x8e
+ 892 026b 91       		.byte	0x91
  893 026c E2000000 		.4byte	0xe2
  894 0270 02       		.uleb128 0x2
  895 0271 91       		.byte	0x91
  896 0272 64       		.sleb128 -28
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 26
+
+
  897 0273 0E       		.uleb128 0xe
  898 0274 66030000 		.4byte	.LASF36
  899 0278 01       		.byte	0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 26
-
-
- 900 0279 90       		.byte	0x90
+ 900 0279 93       		.byte	0x93
  901 027a 57000000 		.4byte	0x57
  902 027e 02       		.uleb128 0x2
  903 027f 91       		.byte	0x91
@@ -1510,7 +1513,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  906 0282 0D       		.uleb128 0xd
  907 0283 8D020000 		.4byte	.LASF40
  908 0287 01       		.byte	0x1
- 909 0288 A8       		.byte	0xa8
+ 909 0288 AB       		.byte	0xab
  910 0289 00000000 		.4byte	.LFB72
  911 028d 94000000 		.4byte	.LFE72-.LFB72
  912 0291 01       		.uleb128 0x1
@@ -1519,7 +1522,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  915 0297 0E       		.uleb128 0xe
  916 0298 FF020000 		.4byte	.LASF41
  917 029c 01       		.byte	0x1
- 918 029d AA       		.byte	0xaa
+ 918 029d AD       		.byte	0xad
  919 029e 57000000 		.4byte	0x57
  920 02a2 02       		.uleb128 0x2
  921 02a3 91       		.byte	0x91
@@ -1527,7 +1530,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  923 02a5 0E       		.uleb128 0xe
  924 02a6 3E030000 		.4byte	.LASF42
  925 02aa 01       		.byte	0x1
- 926 02ab AB       		.byte	0xab
+ 926 02ab AE       		.byte	0xae
  927 02ac 16030000 		.4byte	0x316
  928 02b0 02       		.uleb128 0x2
  929 02b1 91       		.byte	0x91
@@ -1535,7 +1538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  931 02b3 0E       		.uleb128 0xe
  932 02b4 DD020000 		.4byte	.LASF43
  933 02b8 01       		.byte	0x1
- 934 02b9 AC       		.byte	0xac
+ 934 02b9 AF       		.byte	0xaf
  935 02ba 25000000 		.4byte	0x25
  936 02be 02       		.uleb128 0x2
  937 02bf 91       		.byte	0x91
@@ -1543,7 +1546,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  939 02c1 0E       		.uleb128 0xe
  940 02c2 5F030000 		.4byte	.LASF44
  941 02c6 01       		.byte	0x1
- 942 02c7 AD       		.byte	0xad
+ 942 02c7 B0       		.byte	0xb0
  943 02c8 69000000 		.4byte	0x69
  944 02cc 02       		.uleb128 0x2
  945 02cd 91       		.byte	0x91
@@ -1553,14 +1556,14 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  949 02d4 34000000 		.4byte	.LBB10
  950 02d8 1A000000 		.4byte	.LBE10-.LBB10
  951 02dc 01       		.byte	0x1
- 952 02dd B9       		.byte	0xb9
+ 952 02dd BC       		.byte	0xbc
  953 02de FD020000 		.4byte	0x2fd
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 27
+
+
  954 02e2 12       		.uleb128 0x12
  955 02e3 34000000 		.4byte	.LBB11
  956 02e7 1A000000 		.4byte	.LBE11-.LBB11
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 27
-
-
  957 02eb 13       		.uleb128 0x13
  958 02ec 13010000 		.4byte	0x113
  959 02f0 02       		.uleb128 0x2
@@ -1578,7 +1581,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  971 0302 68000000 		.4byte	.LBB12
  972 0306 06000000 		.4byte	.LBE12-.LBB12
  973 030a 01       		.byte	0x1
- 974 030b C1       		.byte	0xc1
+ 974 030b C4       		.byte	0xc4
  975 030c 15       		.uleb128 0x15
  976 030d 37010000 		.4byte	0x137
  977 0311 02       		.uleb128 0x2
@@ -1591,7 +1594,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  984 031b 0D       		.uleb128 0xd
  985 031c 4A000000 		.4byte	.LASF45
  986 0320 01       		.byte	0x1
- 987 0321 CF       		.byte	0xcf
+ 987 0321 D2       		.byte	0xd2
  988 0322 00000000 		.4byte	.LFB73
  989 0326 B0000000 		.4byte	.LFE73-.LFB73
  990 032a 01       		.uleb128 0x1
@@ -1600,7 +1603,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  993 0330 0E       		.uleb128 0xe
  994 0331 FF020000 		.4byte	.LASF41
  995 0335 01       		.byte	0x1
- 996 0336 D1       		.byte	0xd1
+ 996 0336 D4       		.byte	0xd4
  997 0337 57000000 		.4byte	0x57
  998 033b 02       		.uleb128 0x2
  999 033c 91       		.byte	0x91
@@ -1608,26 +1611,26 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1001 033e 0E       		.uleb128 0xe
  1002 033f 3E030000 		.4byte	.LASF42
  1003 0343 01       		.byte	0x1
- 1004 0344 D2       		.byte	0xd2
+ 1004 0344 D5       		.byte	0xd5
  1005 0345 16030000 		.4byte	0x316
  1006 0349 02       		.uleb128 0x2
  1007 034a 91       		.byte	0x91
  1008 034b 63       		.sleb128 -29
  1009 034c 0E       		.uleb128 0xe
  1010 034d 9A010000 		.4byte	.LASF38
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 28
+
+
  1011 0351 01       		.byte	0x1
- 1012 0352 D3       		.byte	0xd3
+ 1012 0352 D6       		.byte	0xd6
  1013 0353 25000000 		.4byte	0x25
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 28
-
-
  1014 0357 02       		.uleb128 0x2
  1015 0358 91       		.byte	0x91
  1016 0359 62       		.sleb128 -30
  1017 035a 0E       		.uleb128 0xe
  1018 035b 5F030000 		.4byte	.LASF44
  1019 035f 01       		.byte	0x1
- 1020 0360 D4       		.byte	0xd4
+ 1020 0360 D7       		.byte	0xd7
  1021 0361 69000000 		.4byte	0x69
  1022 0365 02       		.uleb128 0x2
  1023 0366 91       		.byte	0x91
@@ -1637,7 +1640,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1027 036d 36000000 		.4byte	.LBB14
  1028 0371 1A000000 		.4byte	.LBE14-.LBB14
  1029 0375 01       		.byte	0x1
- 1030 0376 DD       		.byte	0xdd
+ 1030 0376 E0       		.byte	0xe0
  1031 0377 96030000 		.4byte	0x396
  1032 037b 12       		.uleb128 0x12
  1033 037c 36000000 		.4byte	.LBB15
@@ -1659,7 +1662,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1049 039b 86000000 		.4byte	.LBB16
  1050 039f 06000000 		.4byte	.LBE16-.LBB16
  1051 03a3 01       		.byte	0x1
- 1052 03a4 F0       		.byte	0xf0
+ 1052 03a4 F3       		.byte	0xf3
  1053 03a5 15       		.uleb128 0x15
  1054 03a6 37010000 		.4byte	0x137
  1055 03aa 02       		.uleb128 0x2
@@ -1675,12 +1678,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1065 03ba 05       		.uleb128 0x5
  1066 03bb 03       		.byte	0x3
  1067 03bc 00000000 		.4byte	xSerialTxQueue
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 29
+
+
  1068 03c0 0E       		.uleb128 0xe
  1069 03c1 0A010000 		.4byte	.LASF47
  1070 03c5 01       		.byte	0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 29
-
-
  1071 03c6 55       		.byte	0x55
  1072 03c7 ED000000 		.4byte	0xed
  1073 03cb 05       		.uleb128 0x5
@@ -1735,12 +1738,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1122 0024 0B       		.uleb128 0xb
  1123 0025 3B       		.uleb128 0x3b
  1124 0026 0B       		.uleb128 0xb
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 30
+
+
  1125 0027 49       		.uleb128 0x49
  1126 0028 13       		.uleb128 0x13
  1127 0029 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 30
-
-
  1128 002a 00       		.byte	0
  1129 002b 04       		.uleb128 0x4
  1130 002c 24       		.uleb128 0x24
@@ -1795,12 +1798,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1179 005d 08       		.uleb128 0x8
  1180 005e 34       		.uleb128 0x34
  1181 005f 00       		.byte	0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 31
+
+
  1182 0060 03       		.uleb128 0x3
  1183 0061 0E       		.uleb128 0xe
  1184 0062 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 31
-
-
  1185 0063 0B       		.uleb128 0xb
  1186 0064 3B       		.uleb128 0x3b
  1187 0065 0B       		.uleb128 0xb
@@ -1855,12 +1858,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1236 0096 13       		.uleb128 0x13
  1237 0097 11       		.uleb128 0x11
  1238 0098 01       		.uleb128 0x1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 32
+
+
  1239 0099 12       		.uleb128 0x12
  1240 009a 06       		.uleb128 0x6
  1241 009b 40       		.uleb128 0x40
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 32
-
-
  1242 009c 18       		.uleb128 0x18
  1243 009d 9642     		.uleb128 0x2116
  1244 009f 19       		.uleb128 0x19
@@ -1915,12 +1918,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1293 00d1 0E       		.uleb128 0xe
  1294 00d2 3A       		.uleb128 0x3a
  1295 00d3 0B       		.uleb128 0xb
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 33
+
+
  1296 00d4 3B       		.uleb128 0x3b
  1297 00d5 0B       		.uleb128 0xb
  1298 00d6 49       		.uleb128 0x49
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 33
-
-
  1299 00d7 13       		.uleb128 0x13
  1300 00d8 02       		.uleb128 0x2
  1301 00d9 18       		.uleb128 0x18
@@ -1975,12 +1978,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1350 010a 13       		.uleb128 0x13
  1351 010b 02       		.uleb128 0x2
  1352 010c 18       		.uleb128 0x18
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 34
+
+
  1353 010d 00       		.byte	0
  1354 010e 00       		.byte	0
  1355 010f 14       		.uleb128 0x14
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 34
-
-
  1356 0110 1D       		.uleb128 0x1d
  1357 0111 01       		.byte	0x1
  1358 0112 31       		.uleb128 0x31
@@ -2035,12 +2038,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1407 0006 00000000 		.4byte	.Ldebug_info0
  1408 000a 04       		.byte	0x4
  1409 000b 00       		.byte	0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 35
+
+
  1410 000c 0000     		.2byte	0
  1411 000e 0000     		.2byte	0
  1412 0010 00000000 		.4byte	.LFB68
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 35
-
-
  1413 0014 74000000 		.4byte	.LFE68-.LFB68
  1414 0018 00000000 		.4byte	.LFB69
  1415 001c 50000000 		.4byte	.LFE69-.LFB69
@@ -2095,12 +2098,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1450      524900
  1451              	.LASF21:
  1452 0035 5469636B 		.ascii	"TickType_t\000"
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 36
+
+
  1452      54797065 
  1452      5F7400
  1453              	.LASF4:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 36
-
-
  1454 0040 5F5F7569 		.ascii	"__uint8_t\000"
  1454      6E74385F 
  1454      7400
@@ -2155,12 +2158,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1472      72696E67 
  1472      00
  1473              	.LASF46:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 37
+
+
  1474 0137 78536572 		.ascii	"xSerialTxQueue\000"
  1474      69616C54 
  1474      78517565 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 37
-
-
  1474      756500
  1475              	.LASF16:
  1476 0146 666C6F61 		.ascii	"float\000"
@@ -2215,12 +2218,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1498      45505249 
  1498      00
  1499              	.LASF49:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 38
+
+
  1500 01cf 53657269 		.ascii	"Serial.c\000"
  1500      616C2E63 
  1500      00
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 38
-
-
  1501              	.LASF54:
  1502 01d8 49544D5F 		.ascii	"ITM_RxBuffer\000"
  1502      52784275 
@@ -2275,12 +2278,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1520      65744368 
  1520      617200
  1521              	.LASF34:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 39
+
+
  1522 02b6 78426C6F 		.ascii	"xBlockTime\000"
  1522      636B5469 
  1522      6D6500
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 39
-
-
  1523              	.LASF19:
  1524 02c1 73697A65 		.ascii	"sizetype\000"
  1524      74797065 
@@ -2335,12 +2338,12 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 1
  1548      33325F74 
  1548      00
  1549              	.LASF53:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccd4GiVu.s 			page 40
+
+
  1550 0350 756C4E65 		.ascii	"ulNewMaskValue\000"
  1550      774D6173 
  1550      6B56616C 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cczuAjj3.s 			page 40
-
-
  1550      756500
  1551              	.LASF44:
  1552 035f 756C4D61 		.ascii	"ulMask\000"

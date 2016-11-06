@@ -1,4 +1,4 @@
---------------- Rebuild Started: 11/06/2016 08:37:39 Project: FreeRTOS_Demo, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 11/06/2016 10:45:27 Project: FreeRTOS_Demo, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\BlockQ.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\blocktim.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\comtest.o"
@@ -26,34 +26,6 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\Serial.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\TimerTest.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cymetadata.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_1_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_1_INT.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_1_BOOT.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Tx_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Pin_LED_0.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Pin_LED_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\isr_UART1_TX_BYTE_COMPLETE.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\isr_UART1_RX_BYTE_RECEIVED.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_0.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_0_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Clock_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\isr_High_Frequency_2000Hz.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Pin_LED_2.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Pin_LED_3.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_1_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\isr_High_Frequency_2001Hz.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Startup_Release_Switch.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Timer_20KHz.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Timer_20KHz_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\isrTimer_20KHz_TC.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Timer_48MHz.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Timer_48MHz_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_1_IntClock.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display_LCDPort.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Cm3Start.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CyDmac.o"
@@ -62,6 +34,17 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\CyLib.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cyPm.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CySpc.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cyutils.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_RX.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\servoPin.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\pwmClock.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\servoPWM.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\servoPWM_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_PM.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_INT.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\UART_IntClock.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_TX.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.hex"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.elf"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.map"
@@ -71,11 +54,12 @@ Deleting file ".\FreeRTOS_Demo.rpt"
 Deleting file ".\FreeRTOS_Demo_timing.html"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.P"
-cydsfit.exe -.appdatapath "C:\Users\NGGMLGM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C5868AXI-LP032 -s C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit.exe -.appdatapath "C:\Users\NGGMLGM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C5868LTI-LP039 -s C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 HDL Generation...
 Synthesis...
 Tech Mapping...
+ADD: pft.M0040: information: The following 1 pin(s) will be assigned a location by the fitter: servoPin(0)
 Analog Placement...
 Analog Routing...
 Analog Code Generation...
@@ -90,6 +74,16 @@ Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/BlockQ.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\Common\Minimal\BlockQ.c -o .\CortexM3\ARM_GCC_493\Debug\BlockQ.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/blocktim.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\Common\Minimal\blocktim.c -o .\CortexM3\ARM_GCC_493\Debug\blocktim.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/comtest.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\Common\Minimal\comtest.c -o .\CortexM3\ARM_GCC_493\Debug\comtest.o
+..\..\Common\Minimal\comtest.c: In function 'vComRxTask':
+..\..\Common\Minimal\comtest.c:209:39: warning: unused variable 'xErrorOccurred' [-Wunused-variable]
+ BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
+                                       ^
+..\..\Common\Minimal\comtest.c:209:12: warning: unused variable 'xResyncRequired' [-Wunused-variable]
+ BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
+            ^
+..\..\Common\Minimal\comtest.c:208:13: warning: unused variable 'cExpectedByte' [-Wunused-variable]
+ signed char cExpectedByte, cByteRxed;
+             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/countsem.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\Common\Minimal\countsem.c -o .\CortexM3\ARM_GCC_493\Debug\countsem.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/death.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\Common\Minimal\death.c -o .\CortexM3\ARM_GCC_493\Debug\death.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/dynamic.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\Common\Minimal\dynamic.c -o .\CortexM3\ARM_GCC_493\Debug\dynamic.o
@@ -108,43 +102,49 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/queue.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\..\Source\queue.c -o .\CortexM3\ARM_GCC_493\Debug\queue.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/tasks.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ..\..\..\Source\tasks.c -o .\CortexM3\ARM_GCC_493\Debug\tasks.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/IntQueueTimer.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c IntQueueTimer.c -o .\CortexM3\ARM_GCC_493\Debug\IntQueueTimer.o
+IntQueueTimer.c: In function 'vInitialiseTimerForIntQueueTest':
+IntQueueTimer.c:91:3: warning: implicit declaration of function 'isr_High_Frequency_2000Hz_ClearPending' [-Wimplicit-function-declaration]
+   isr_High_Frequency_2000Hz_ClearPending();
+   ^
+IntQueueTimer.c:92:3: warning: implicit declaration of function 'isr_High_Frequency_2000Hz_StartEx' [-Wimplicit-function-declaration]
+   isr_High_Frequency_2000Hz_StartEx( ( cyisraddress ) vHighFrequencyFirstISR );
+   ^
+IntQueueTimer.c:95:3: warning: implicit declaration of function 'isr_High_Frequency_2001Hz_ClearPending' [-Wimplicit-function-declaration]
+   isr_High_Frequency_2001Hz_ClearPending();
+   ^
+IntQueueTimer.c:96:3: warning: implicit declaration of function 'isr_High_Frequency_2001Hz_StartEx' [-Wimplicit-function-declaration]
+   isr_High_Frequency_2001Hz_StartEx( ( cyisraddress ) vHighFrequencySecondISR );
+   ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
-main.c:142:6: warning: return type of 'main' is not 'int' [-Wmain]
+main.c:102:6: warning: return type of 'main' is not 'int' [-Wmain]
  void main( void )
       ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/ParTest.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c ParTest.c -o .\CortexM3\ARM_GCC_493\Debug\ParTest.o
+ParTest.c: In function 'vParTestSetLED':
+ParTest.c:101:5: warning: implicit declaration of function 'Pin_LED_0_Write' [-Wimplicit-function-declaration]
+     Pin_LED_0_Write( xValue & 0x1 );
+     ^
+ParTest.c:104:5: warning: implicit declaration of function 'Pin_LED_1_Write' [-Wimplicit-function-declaration]
+     Pin_LED_1_Write( xValue & 0x1 );
+     ^
+ParTest.c:107:5: warning: implicit declaration of function 'Pin_LED_2_Write' [-Wimplicit-function-declaration]
+     Pin_LED_2_Write( xValue & 0x1 );
+     ^
+ParTest.c:110:5: warning: implicit declaration of function 'Pin_LED_3_Write' [-Wimplicit-function-declaration]
+     Pin_LED_3_Write( xValue & 0x1 );
+     ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Serial.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Serial.c -o .\CortexM3\ARM_GCC_493\Debug\Serial.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/TimerTest.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c TimerTest.c -o .\CortexM3\ARM_GCC_493\Debug\TimerTest.o
+TimerTest.c: In function 'vSetupTimerTest':
+TimerTest.c:103:2: warning: implicit declaration of function 'isrTimer_20KHz_TC_StartEx' [-Wimplicit-function-declaration]
+  isrTimer_20KHz_TC_StartEx(vTimer20KHzISR);
+  ^
+TimerTest.c: In function 'vTimer20KHzISR':
+TimerTest.c:113:2: warning: implicit declaration of function 'Timer_48MHz_ReadCounter' [-Wimplicit-function-declaration]
+  usThisCount = Timer_48MHz_ReadCounter();
+  ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cymetadata.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_1.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_1.c -o .\CortexM3\ARM_GCC_493\Debug\UART_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_1_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_1_PM.c -o .\CortexM3\ARM_GCC_493\Debug\UART_1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_1_INT.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_1_INT.c -o .\CortexM3\ARM_GCC_493\Debug\UART_1_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_1_BOOT.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_1_BOOT.c -o .\CortexM3\ARM_GCC_493\Debug\UART_1_BOOT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Tx_1.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Tx_1.c -o .\CortexM3\ARM_GCC_493\Debug\Tx_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Pin_LED_0.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Pin_LED_0.c -o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_0.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Pin_LED_1.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Pin_LED_1.c -o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/isr_UART1_TX_BYTE_COMPLETE.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\isr_UART1_TX_BYTE_COMPLETE.c -o .\CortexM3\ARM_GCC_493\Debug\isr_UART1_TX_BYTE_COMPLETE.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/isr_UART1_RX_BYTE_RECEIVED.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\isr_UART1_RX_BYTE_RECEIVED.c -o .\CortexM3\ARM_GCC_493\Debug\isr_UART1_RX_BYTE_RECEIVED.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/High_Frequency_PWM_0.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\High_Frequency_PWM_0.c -o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_0.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/High_Frequency_PWM_0_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\High_Frequency_PWM_0_PM.c -o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_0_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Clock_1.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Clock_1.c -o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/isr_High_Frequency_2000Hz.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\isr_High_Frequency_2000Hz.c -o .\CortexM3\ARM_GCC_493\Debug\isr_High_Frequency_2000Hz.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Character_Display.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\LCD_Character_Display.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Character_Display_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\LCD_Character_Display_PM.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Pin_LED_2.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Pin_LED_2.c -o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Pin_LED_3.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Pin_LED_3.c -o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_3.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/High_Frequency_PWM_1.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\High_Frequency_PWM_1.c -o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/High_Frequency_PWM_1_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\High_Frequency_PWM_1_PM.c -o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/isr_High_Frequency_2001Hz.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\isr_High_Frequency_2001Hz.c -o .\CortexM3\ARM_GCC_493\Debug\isr_High_Frequency_2001Hz.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Startup_Release_Switch.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Startup_Release_Switch.c -o .\CortexM3\ARM_GCC_493\Debug\Startup_Release_Switch.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Timer_20KHz.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Timer_20KHz.c -o .\CortexM3\ARM_GCC_493\Debug\Timer_20KHz.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Timer_20KHz_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Timer_20KHz_PM.c -o .\CortexM3\ARM_GCC_493\Debug\Timer_20KHz_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/isrTimer_20KHz_TC.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\isrTimer_20KHz_TC.c -o .\CortexM3\ARM_GCC_493\Debug\isrTimer_20KHz_TC.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Timer_48MHz.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Timer_48MHz.c -o .\CortexM3\ARM_GCC_493\Debug\Timer_48MHz.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Timer_48MHz_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Timer_48MHz_PM.c -o .\CortexM3\ARM_GCC_493\Debug\Timer_48MHz_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_1_IntClock.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_1_IntClock.c -o .\CortexM3\ARM_GCC_493\Debug\UART_1_IntClock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_Character_Display_LCDPort.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\LCD_Character_Display_LCDPort.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display_LCDPort.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Cm3Start.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyDmac.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyFlash.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o
@@ -152,12 +152,23 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyPm.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_493\Debug\cyPm.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CySpc.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_493\Debug\CySpc.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyutils.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_493\Debug\cyutils.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/uartISR_BYTE_RX.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\uartISR_BYTE_RX.c -o .\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_RX.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/servoPin.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\servoPin.c -o .\CortexM3\ARM_GCC_493\Debug\servoPin.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/pwmClock.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\pwmClock.c -o .\CortexM3\ARM_GCC_493\Debug\pwmClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/servoPWM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\servoPWM.c -o .\CortexM3\ARM_GCC_493\Debug\servoPWM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/servoPWM_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\servoPWM_PM.c -o .\CortexM3\ARM_GCC_493\Debug\servoPWM_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART.c -o .\CortexM3\ARM_GCC_493\Debug\UART.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_PM.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_PM.c -o .\CortexM3\ARM_GCC_493\Debug\UART_PM.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_INT.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_INT.c -o .\CortexM3\ARM_GCC_493\Debug\UART_INT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_BOOT.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_BOOT.c -o .\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/UART_IntClock.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\UART_IntClock.c -o .\CortexM3\ARM_GCC_493\Debug\UART_IntClock.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/uartISR_BYTE_TX.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects -c Generated_Source\PSoC5\uartISR_BYTE_TX.c -o .\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_TX.o
 arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_493\Debug/CyBootAsmGnu.lst -g -o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\UART_1.o .\CortexM3\ARM_GCC_493\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_493\Debug\Tx_1.o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_0.o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_1.o .\CortexM3\ARM_GCC_493\Debug\isr_UART1_TX_BYTE_COMPLETE.o .\CortexM3\ARM_GCC_493\Debug\isr_UART1_RX_BYTE_RECEIVED.o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_0.o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_0_PM.o .\CortexM3\ARM_GCC_493\Debug\Clock_1.o .\CortexM3\ARM_GCC_493\Debug\isr_High_Frequency_2000Hz.o .\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display.o .\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display_PM.o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_2.o .\CortexM3\ARM_GCC_493\Debug\Pin_LED_3.o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_1.o .\CortexM3\ARM_GCC_493\Debug\High_Frequency_PWM_1_PM.o .\CortexM3\ARM_GCC_493\Debug\isr_High_Frequency_2001Hz.o .\CortexM3\ARM_GCC_493\Debug\Startup_Release_Switch.o .\CortexM3\ARM_GCC_493\Debug\Timer_20KHz.o .\CortexM3\ARM_GCC_493\Debug\Timer_20KHz_PM.o .\CortexM3\ARM_GCC_493\Debug\isrTimer_20KHz_TC.o .\CortexM3\ARM_GCC_493\Debug\Timer_48MHz.o .\CortexM3\ARM_GCC_493\Debug\Timer_48MHz_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_493\Debug\LCD_Character_Display_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_RX.o .\CortexM3\ARM_GCC_493\Debug\servoPin.o .\CortexM3\ARM_GCC_493\Debug\pwmClock.o .\CortexM3\ARM_GCC_493\Debug\servoPWM.o .\CortexM3\ARM_GCC_493\Debug\servoPWM_PM.o .\CortexM3\ARM_GCC_493\Debug\UART.o .\CortexM3\ARM_GCC_493\Debug\UART_PM.o .\CortexM3\ARM_GCC_493\Debug\UART_INT.o .\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_493\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_TX.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.elf .\CortexM3\ARM_GCC_493\Debug\BlockQ.o .\CortexM3\ARM_GCC_493\Debug\blocktim.o .\CortexM3\ARM_GCC_493\Debug\comtest.o .\CortexM3\ARM_GCC_493\Debug\countsem.o .\CortexM3\ARM_GCC_493\Debug\death.o .\CortexM3\ARM_GCC_493\Debug\dynamic.o .\CortexM3\ARM_GCC_493\Debug\flash.o .\CortexM3\ARM_GCC_493\Debug\flop.o .\CortexM3\ARM_GCC_493\Debug\GenQTest.o .\CortexM3\ARM_GCC_493\Debug\integer.o .\CortexM3\ARM_GCC_493\Debug\IntQueue.o .\CortexM3\ARM_GCC_493\Debug\PollQ.o .\CortexM3\ARM_GCC_493\Debug\QPeek.o .\CortexM3\ARM_GCC_493\Debug\semtest.o .\CortexM3\ARM_GCC_493\Debug\croutine.o .\CortexM3\ARM_GCC_493\Debug\heap_2.o .\CortexM3\ARM_GCC_493\Debug\list.o .\CortexM3\ARM_GCC_493\Debug\port.o .\CortexM3\ARM_GCC_493\Debug\queue.o .\CortexM3\ARM_GCC_493\Debug\tasks.o .\CortexM3\ARM_GCC_493\Debug\IntQueueTimer.o .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\ParTest.o .\CortexM3\ARM_GCC_493\Debug\Serial.o .\CortexM3\ARM_GCC_493\Debug\TimerTest.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -O0 -ffat-lto-objects -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/FreeRTOS_Demo.map -T C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.elf --flash_row_size 256 --flash_size 262144
 cyelftool.exe -S C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.elf
-Flash used: 32462 of 262144 bytes (12.4 %).
-SRAM used: 35365 of 65536 bytes (54.0 %). Stack: 1024 bytes. Heap: 0 bytes.
---------------- Rebuild Succeeded: 11/06/2016 08:38:23 ---------------
+Flash used: 10270 of 262144 bytes (3.9 %).
+SRAM used: 34501 of 65536 bytes (52.6 %). Stack: 1024 bytes. Heap: 0 bytes.
+--------------- Rebuild Succeeded: 11/06/2016 10:46:03 ---------------

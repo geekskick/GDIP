@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
   55 0024 00000000 		.space	4
   56              		.comm	xHighPriorityNormallyEmptyTask1,4,4
   57              		.comm	xHighPriorityNormallyEmptyTask2,4,4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 2
 
 
   58              		.comm	xHighPriorityNormallyFullTask1,4,4
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
   92              		.align	2
   93              		.global	vStartInterruptQueueTasks
   94              		.thumb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 3
 
 
   95              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
   50:..\..\Common\Minimal/IntQueue.c ****     Ltd, and the world's leading authority on the world's leading RTOS.
   51:..\..\Common\Minimal/IntQueue.c **** 
   52:..\..\Common\Minimal/IntQueue.c ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 4
 
 
   53:..\..\Common\Minimal/IntQueue.c ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  107:..\..\Common\Minimal/IntQueue.c **** /* The number of values to send/receive before checking that all values were
  108:..\..\Common\Minimal/IntQueue.c **** processed as expected. */
  109:..\..\Common\Minimal/IntQueue.c **** #define intqNUM_VALUES_TO_LOG	( 200 )
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 5
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 5
 
 
  110:..\..\Common\Minimal/IntQueue.c **** #define intqSHORT_DELAY			( 140 )
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  164:..\..\Common\Minimal/IntQueue.c **** 			{																												\
  165:..\..\Common\Minimal/IntQueue.c **** 				uxValueForNormallyFullQueue--;																				\
  166:..\..\Common\Minimal/IntQueue.c **** 			} 																												\
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 6
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 6
 
 
  167:..\..\Common\Minimal/IntQueue.c **** 		}																													\
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  221:..\..\Common\Minimal/IntQueue.c **** 
  222:..\..\Common\Minimal/IntQueue.c **** /* The test tasks themselves. */
  223:..\..\Common\Minimal/IntQueue.c **** static void prvLowerPriorityNormallyEmptyTask( void *pvParameters );
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 7
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 7
 
 
  224:..\..\Common\Minimal/IntQueue.c **** static void prvLowerPriorityNormallyFullTask( void *pvParameters );
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  133 002e 0023     		movs	r3, #0
  134 0030 0093     		str	r3, [sp]
  135 0032 0023     		movs	r3, #0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 8
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 8
 
 
  136 0034 0193     		str	r3, [sp, #4]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  182 0090 0421     		movs	r1, #4
  183 0092 0022     		movs	r2, #0
  184 0094 FFF7FEFF 		bl	xQueueGenericCreate
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 9
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 9
 
 
  185 0098 0246     		mov	r2, r0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  229              		.size	vStartInterruptQueueTasks, .-vStartInterruptQueueTasks
  230              		.section	.text.prvRecordValue_NormallyFull,"ax",%progbits
  231              		.align	2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 10
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 10
 
 
  232              		.thumb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  271 002c 1344     		add	r3, r3, r2
  272 002e 0A46     		mov	r2, r1
  273 0030 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 11
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 11
 
 
  274              	.L4:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  317 0014 1344     		add	r3, r3, r2
  318 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  319 0018 002B     		cmp	r3, #0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 12
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 12
 
 
  320 001a 03D0     		beq	.L11
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  362              		.cfi_offset 7, -4
  363 0002 83B0     		sub	sp, sp, #12
  364              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 13
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 13
 
 
  365 0004 00AF     		add	r7, sp, #0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  411 0004 00AF     		add	r7, sp, #0
  412              		.cfi_def_cfa_register 7
  413 0006 7860     		str	r0, [r7, #4]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 14
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 14
 
 
  309:..\..\Common\Minimal/IntQueue.c **** UBaseType_t uxRxed, ux, uxTask1, uxTask2, uxInterrupts, uxErrorCount1 = 0, uxErrorCount2 = 0;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  445 0040 7B68     		ldr	r3, [r7, #4]
  446 0042 1046     		mov	r0, r2
  447 0044 1946     		mov	r1, r3
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 15
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 15
 
 
  448 0046 FFF7FEFF 		bl	prvRecordValue_NormallyEmpty
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  350:..\..\Common\Minimal/IntQueue.c **** 				Start at 1 as we expect position 0 to be unused. */
  351:..\..\Common\Minimal/IntQueue.c **** 				for( ux = 1; ux < intqNUM_VALUES_TO_LOG; ux++ )
  484              		.loc 1 351 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 16
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 16
 
 
  485 007e 0123     		movs	r3, #1
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  522 00ba FB69     		ldr	r3, [r7, #28]
  523 00bc 0133     		adds	r3, r3, #1
  524 00be FB61     		str	r3, [r7, #28]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 17
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 17
 
 
  525 00c0 08E0     		b	.L24
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  562 00f6 FFF7FEFF 		bl	prvQueueAccessLogError
  563 00fa 01E0     		b	.L30
  564              	.L28:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 18
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 18
 
 
  384:..\..\Common\Minimal/IntQueue.c **** 					}
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  595 0126 40F29710 		movw	r0, #407
  596 012a FFF7FEFF 		bl	prvQueueAccessLogError
  597              	.L34:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 19
 
 
  408:..\..\Common\Minimal/IntQueue.c **** 				}
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  633              		.cfi_endproc
  634              	.LFE72:
  635              		.size	prvHigherPriorityNormallyEmptyTask, .-prvHigherPriorityNormallyEmptyTask
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 20
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 20
 
 
  636              		.section	.text.prvLowerPriorityNormallyEmptyTask,"ax",%progbits
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  673 0028 FFF7FEFF 		bl	eTaskGetState
  674 002c 0346     		mov	r3, r0
  675 002e 032B     		cmp	r3, #3
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 21
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 21
 
 
  676 0030 03D0     		beq	.L39
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  463:..\..\Common\Minimal/IntQueue.c **** 				uxValue = uxValueForNormallyEmptyQueue;
  711              		.loc 1 463 0
  712 0070 104B     		ldr	r3, .L43+12
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 22
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 22
 
 
  713 0072 1B68     		ldr	r3, [r3]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  756              	.LFB74:
  475:..\..\Common\Minimal/IntQueue.c **** }
  476:..\..\Common\Minimal/IntQueue.c **** /*-----------------------------------------------------------*/
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 23
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 23
 
 
  477:..\..\Common\Minimal/IntQueue.c **** 
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  791 0028 1A68     		ldr	r2, [r3]
  792 002a 07F10C03 		add	r3, r7, #12
  793 002e 1046     		mov	r0, r2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 24
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 24
 
 
  794 0030 1946     		mov	r1, r3
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  509:..\..\Common\Minimal/IntQueue.c **** 		{
  510:..\..\Common\Minimal/IntQueue.c **** 			/* intqHIGH_PRIORITY_TASK2 is never suspended so we would not
  511:..\..\Common\Minimal/IntQueue.c **** 			expect it to ever time out. */
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 25
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 25
 
 
  512:..\..\Common\Minimal/IntQueue.c **** 			prvQueueAccessLogError( __LINE__ );
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  868 00b2 FFF7FEFF 		bl	prvQueueAccessLogError
  869              	.L50:
  532:..\..\Common\Minimal/IntQueue.c **** 			}
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 26
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 26
 
 
  533:..\..\Common\Minimal/IntQueue.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  905              	.L53:
  542:..\..\Common\Minimal/IntQueue.c **** 			{
  906              		.loc 1 542 0 discriminator 2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 27
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 27
 
 
  907 00ee 7B69     		ldr	r3, [r7, #20]
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  574:..\..\Common\Minimal/IntQueue.c **** 			vTaskSuspend( NULL );
  938              		.loc 1 574 0
  939 0122 0020     		movs	r0, #0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 28
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 28
 
 
  940 0124 FFF7FEFF 		bl	vTaskSuspend
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  587:..\..\Common\Minimal/IntQueue.c **** 
  588:..\..\Common\Minimal/IntQueue.c **** 	/* Make sure the queue starts full or near full.  >> 1 as there are two
  589:..\..\Common\Minimal/IntQueue.c **** 	high priority tasks. */
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 29
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 29
 
 
  590:..\..\Common\Minimal/IntQueue.c **** 	for( ux = 0; ux < ( intqQUEUE_LENGTH >> 1 ); ux++ )
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  604:..\..\Common\Minimal/IntQueue.c **** 		portENTER_CRITICAL();
  1020              		.loc 1 604 0 is_stmt 1
  1021 0046 FFF7FEFF 		bl	vPortEnterCritical
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 30
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 30
 
 
  605:..\..\Common\Minimal/IntQueue.c **** 		{
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  622:..\..\Common\Minimal/IntQueue.c **** 		taskYIELD();
  1059              		.loc 1 622 0
  1060 008e 074B     		ldr	r3, .L64+12
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 31
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 31
 
 
  1061 0090 4FF08052 		mov	r2, #268435456
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  632:..\..\Common\Minimal/IntQueue.c **** 	( void ) pvParameters;
  633:..\..\Common\Minimal/IntQueue.c **** 
  634:..\..\Common\Minimal/IntQueue.c **** 	for( ;; )
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 32
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 32
 
 
  635:..\..\Common\Minimal/IntQueue.c **** 	{
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1143              		.loc 1 651 0
  1144 0056 0020     		movs	r0, #0
  1145 0058 0421     		movs	r1, #4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 33
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 33
 
 
  1146 005a FFF7FEFF 		bl	vTaskPrioritySet
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1187              		.align	2
  1188              		.global	xFirstTimerHandler
  1189              		.thumb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 34
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 34
 
 
  1190              		.thumb_func
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1227 002e 012B     		cmp	r3, #1
  1228 0030 28D0     		beq	.L77
  1229              	.LBB42:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 35
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 35
 
 
  1230              	.LBB43:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
   52:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     http://www.FreeRTOS.org/plus - A selection of FreeRTOS ecosystem products,
   53:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     including FreeRTOS+Trace - an indispensable productivity tool, a DOS
   54:../../../Source/portable/GCC/ARM_CM3/portmacro.h ****     compatible FAT file system, and our tiny thread aware UDP/IP stack.
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 36
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 36
 
 
   55:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  109:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	not need to be guarded with a critical section. */
  110:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define portTICK_TYPE_IS_ATOMIC 1
  111:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 37
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 37
 
 
  112:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** /*-----------------------------------------------------------*/
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  166:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	#define configUSE_PORT_OPTIMISED_TASK_SELECTION 1
  167:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #endif
  168:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 38
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 38
 
 
  169:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** #if configUSE_PORT_OPTIMISED_TASK_SELECTION == 1
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  223:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	else
  224:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	{
  225:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 		xReturn = pdTRUE;
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 39
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 39
 
 
  226:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	}
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1247              	.LBE44:
  1248              	.LBE43:
  1249              		.loc 1 681 0 discriminator 1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 40
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 40
 
 
  1250 004c 7B63     		str	r3, [r7, #52]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1297              	.LBB48:
  1298              	.LBB49:
  253:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	(
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 41
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 41
 
 
  1299              		.loc 2 253 0 discriminator 1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1352              	.LBE50:
  1353              	.LBE47:
  683:..\..\Common\Minimal/IntQueue.c **** 		timerNORMALLY_EMPTY_TX();
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 42
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 42
 
 
  1354              		.loc 1 683 0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1406 013e FB6A     		ldr	r3, [r7, #44]
  1407 0140 BB60     		str	r3, [r7, #8]
  1408              	.LBB55:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 43
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 43
 
 
  1409              	.LBB56:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1457              		.loc 1 689 0 is_stmt 1
  1458 018e 0E4B     		ldr	r3, .L90+12
  1459 0190 1968     		ldr	r1, [r3]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 44
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 44
 
 
  1460 0192 3A46     		mov	r2, r7
@@ -2613,7 +2613,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1485              	.L91:
  1486 01ba 00BF     		.align	2
  1487              	.L90:
- 1488 01bc B8010000 		.word	uxNextOperation.6432
+ 1488 01bc B8010000 		.word	uxNextOperation.6096
  1489 01c0 00000000 		.word	xNormallyEmptyQueue
  1490 01c4 20000000 		.word	uxValueForNormallyEmptyQueue
  1491 01c8 04000000 		.word	xNormallyFullQueue
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1506              		@ frame_needed = 1, uses_anonymous_args = 0
  1507 0000 80B5     		push	{r7, lr}
  1508              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 45
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 45
 
 
  1509              		.cfi_offset 7, -8
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1550              		.thumb
  1551 0046 3A64     		str	r2, [r7, #64]
  1552 0048 FB63     		str	r3, [r7, #60]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 46
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 46
 
 
  265:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** }
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1605              	.LBB63:
  1606              	.LBB64:
  253:../../../Source/portable/GCC/ARM_CM3/portmacro.h **** 	(
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 47
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 47
 
 
  1607              		.loc 2 253 0 discriminator 1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1660              	.LBE65:
  1661              	.LBE62:
  711:..\..\Common\Minimal/IntQueue.c **** 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 48
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 48
 
 
  712:..\..\Common\Minimal/IntQueue.c **** 		timerNORMALLY_EMPTY_RX();
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1710 0140 574B     		ldr	r3, .L115+12
  1711 0142 1968     		ldr	r1, [r3]
  1712 0144 3A1D     		adds	r2, r7, #4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 49
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 49
 
 
  1713 0146 3B46     		mov	r3, r7
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1764 019e 1046     		mov	r0, r2
  1765 01a0 4049     		ldr	r1, .L115+16
  1766 01a2 1A46     		mov	r2, r3
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 50
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 50
 
 
  1767 01a4 0023     		movs	r3, #0
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1818              	.LBE74:
  1819              	.LBE73:
  1820              		.loc 1 719 0 discriminator 1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 51
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 51
 
 
  1821 01ee BB64     		str	r3, [r7, #72]
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1873 023a 4FF0A003 		mov r3, #160												
  1874 023e 83F31188 		msr basepri, r3											
  1875 0242 BFF36F8F 		isb														
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 52
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 52
 
 
  1876 0246 BFF34F8F 		dsb														
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1926 0288 3B68     		ldr	r3, [r7]
  724:..\..\Common\Minimal/IntQueue.c **** }
  1927              		.loc 1 724 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 53
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 53
 
 
  1928 028a 1846     		mov	r0, r3
@@ -3131,7 +3131,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  1935              	.L116:
  1936 0292 00BF     		.align	2
  1937              	.L115:
- 1938 0294 BC010000 		.word	uxNextOperation.6441
+ 1938 0294 BC010000 		.word	uxNextOperation.6105
  1939 0298 00000000 		.word	xNormallyEmptyQueue
  1940 029c 20000000 		.word	uxValueForNormallyEmptyQueue
  1941 02a0 04000000 		.word	xNormallyFullQueue
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  736:..\..\Common\Minimal/IntQueue.c **** 	{
  737:..\..\Common\Minimal/IntQueue.c **** 		/* The high priority 1 task has stalled. */
  738:..\..\Common\Minimal/IntQueue.c **** 		prvQueueAccessLogError( __LINE__ );
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 54
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 54
 
 
  1971              		.loc 1 738 0
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  757:..\..\Common\Minimal/IntQueue.c **** 	uxLastLowPriorityLoops1 = uxLowPriorityLoops1;
  2007              		.loc 1 757 0
  2008 0050 0E4B     		ldr	r3, .L123+16
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 55
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 55
 
 
  2009 0052 1B68     		ldr	r3, [r3]
@@ -3281,38 +3281,38 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2035              		.align	2
  2036              	.L123:
  2037 007c 08000000 		.word	uxHighPriorityLoops1
- 2038 0080 C0010000 		.word	uxLastHighPriorityLoops1.6450
+ 2038 0080 C0010000 		.word	uxLastHighPriorityLoops1.6114
  2039 0084 0C000000 		.word	uxHighPriorityLoops2
- 2040 0088 C4010000 		.word	uxLastHighPriorityLoops2.6451
+ 2040 0088 C4010000 		.word	uxLastHighPriorityLoops2.6115
  2041 008c 10000000 		.word	uxLowPriorityLoops1
- 2042 0090 C8010000 		.word	uxLastLowPriorityLoops1.6452
+ 2042 0090 C8010000 		.word	uxLastLowPriorityLoops1.6116
  2043 0094 14000000 		.word	uxLowPriorityLoops2
- 2044 0098 CC010000 		.word	uxLastLowPriorityLoops2.6453
+ 2044 0098 CC010000 		.word	uxLastLowPriorityLoops2.6117
  2045 009c 00000000 		.word	xErrorStatus
  2046              		.cfi_endproc
  2047              	.LFE79:
  2048              		.size	xAreIntQueueTasksStillRunning, .-xAreIntQueueTasksStillRunning
  2049              		.bss
  2050              		.align	2
- 2051              	uxNextOperation.6432:
+ 2051              	uxNextOperation.6096:
  2052 01b8 00000000 		.space	4
  2053              		.align	2
- 2054              	uxNextOperation.6441:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 56
+ 2054              	uxNextOperation.6105:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 56
 
 
  2055 01bc 00000000 		.space	4
  2056              		.align	2
- 2057              	uxLastHighPriorityLoops1.6450:
+ 2057              	uxLastHighPriorityLoops1.6114:
  2058 01c0 00000000 		.space	4
  2059              		.align	2
- 2060              	uxLastHighPriorityLoops2.6451:
+ 2060              	uxLastHighPriorityLoops2.6115:
  2061 01c4 00000000 		.space	4
  2062              		.align	2
- 2063              	uxLastLowPriorityLoops1.6452:
+ 2063              	uxLastLowPriorityLoops1.6116:
  2064 01c8 00000000 		.space	4
  2065              		.align	2
- 2066              	uxLastLowPriorityLoops2.6453:
+ 2066              	uxLastLowPriorityLoops2.6117:
  2067 01cc 00000000 		.space	4
  2068              		.text
  2069              	.Letext0:
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2109 0048 EA030000 		.4byte	.LASF2
  2110 004c 03       		.uleb128 0x3
  2111 004d 02       		.byte	0x2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 57
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 57
 
 
  2112 004e 05       		.byte	0x5
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2166 00b7 04       		.byte	0x4
  2167 00b8 2D       		.byte	0x2d
  2168 00b9 6C000000 		.4byte	0x6c
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 58
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 58
 
 
  2169 00bd 03       		.uleb128 0x3
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2223 0129 9C010000 		.4byte	.LASF29
  2224 012d 05       		.sleb128 5
  2225 012e 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 59
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 59
 
 
  2226 012f 08       		.uleb128 0x8
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2280 01a5 74       		.sleb128 -12
  2281 01a6 0E       		.uleb128 0xe
  2282 01a7 49020000 		.4byte	.LASF33
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 60
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 60
 
 
  2283 01ab 01       		.byte	0x1
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2337 0217 3301     		.2byte	0x133
  2338 0219 00000000 		.4byte	.LFB72
  2339 021d 74010000 		.4byte	.LFE72-.LFB72
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 61
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 61
 
 
  2340 0221 01       		.uleb128 0x1
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2394 0286 3501     		.2byte	0x135
  2395 0288 D6000000 		.4byte	0xd6
  2396 028c 02       		.uleb128 0x2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 62
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 62
 
 
  2397 028d 91       		.byte	0x91
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2451 02f9 0E       		.uleb128 0xe
  2452 02fa 7A040000 		.4byte	.LASF39
  2453 02fe 01       		.byte	0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 63
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 63
 
 
  2454 02ff DE01     		.2byte	0x1de
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2508 0368 70       		.sleb128 -16
  2509 0369 11       		.uleb128 0x11
  2510 036a 757800   		.ascii	"ux\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 64
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 64
 
 
  2511 036d 01       		.byte	0x1
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2565 03dc 9E02     		.2byte	0x29e
  2566 03de CB000000 		.4byte	0xcb
  2567 03e2 02       		.uleb128 0x2
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 65
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 65
 
 
  2568 03e3 91       		.byte	0x91
@@ -3858,7 +3858,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2582 03fc D6000000 		.4byte	0xd6
  2583 0400 05       		.uleb128 0x5
  2584 0401 03       		.byte	0x3
- 2585 0402 B8010000 		.4byte	uxNextOperation.6432
+ 2585 0402 B8010000 		.4byte	uxNextOperation.6096
  2586 0406 13       		.uleb128 0x13
  2587 0407 32000000 		.4byte	.LBB42
  2588 040b 52000000 		.4byte	.LBE42-.LBB42
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2622 0456 7E000000 		.4byte	.LBB45
  2623 045a 06000000 		.4byte	.LBE45-.LBB45
  2624 045e 01       		.byte	0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 66
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 66
 
 
  2625 045f A902     		.2byte	0x2a9
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2679 04cf 00       		.byte	0
  2680 04d0 15       		.uleb128 0x15
  2681 04d1 F6000000 		.4byte	.LBB52
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 67
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 67
 
 
  2682 04d5 54000000 		.4byte	.LBE52-.LBB52
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2736 0548 7A070000 		.4byte	0x77a
  2737 054c 10       		.uleb128 0x10
  2738 054d 79050000 		.4byte	.LASF53
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 68
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 68
 
 
  2739 0551 01       		.byte	0x1
@@ -4042,7 +4042,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2757 0574 D6000000 		.4byte	0xd6
  2758 0578 05       		.uleb128 0x5
  2759 0579 03       		.byte	0x3
- 2760 057a BC010000 		.4byte	uxNextOperation.6441
+ 2760 057a BC010000 		.4byte	uxNextOperation.6105
  2761 057e 13       		.uleb128 0x13
  2762 057f 32000000 		.4byte	.LBB57
  2763 0583 52000000 		.4byte	.LBE57-.LBB57
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2793 05c7 00       		.byte	0
  2794 05c8 00       		.byte	0
  2795 05c9 17       		.uleb128 0x17
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 69
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 69
 
 
  2796 05ca 56010000 		.4byte	0x156
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2850 0643 02       		.uleb128 0x2
  2851 0644 91       		.byte	0x91
  2852 0645 4C       		.sleb128 -52
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 70
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 70
 
 
  2853 0646 00       		.byte	0
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2907 06bb D5050000 		.4byte	.LASF55
  2908 06bf 01       		.byte	0x1
  2909 06c0 CF02     		.2byte	0x2cf
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 71
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 71
 
 
  2910 06c2 D6000000 		.4byte	0xd6
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  2964 073a 01       		.byte	0x1
  2965 073b D002     		.2byte	0x2d0
  2966 073d 5E070000 		.4byte	0x75e
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 72
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 72
 
 
  2967 0741 15       		.uleb128 0x15
@@ -4307,7 +4307,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3010 079c D6000000 		.4byte	0xd6
  3011 07a0 05       		.uleb128 0x5
  3012 07a1 03       		.byte	0x3
- 3013 07a2 C0010000 		.4byte	uxLastHighPriorityLoops1.6450
+ 3013 07a2 C0010000 		.4byte	uxLastHighPriorityLoops1.6114
  3014 07a6 10       		.uleb128 0x10
  3015 07a7 73030000 		.4byte	.LASF60
  3016 07ab 01       		.byte	0x1
@@ -4315,10 +4315,10 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3018 07ae D6000000 		.4byte	0xd6
  3019 07b2 05       		.uleb128 0x5
  3020 07b3 03       		.byte	0x3
- 3021 07b4 C4010000 		.4byte	uxLastHighPriorityLoops2.6451
+ 3021 07b4 C4010000 		.4byte	uxLastHighPriorityLoops2.6115
  3022 07b8 10       		.uleb128 0x10
  3023 07b9 A9060000 		.4byte	.LASF61
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 73
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 73
 
 
  3024 07bd 01       		.byte	0x1
@@ -4326,7 +4326,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3026 07c0 D6000000 		.4byte	0xd6
  3027 07c4 05       		.uleb128 0x5
  3028 07c5 03       		.byte	0x3
- 3029 07c6 C8010000 		.4byte	uxLastLowPriorityLoops1.6452
+ 3029 07c6 C8010000 		.4byte	uxLastLowPriorityLoops1.6116
  3030 07ca 10       		.uleb128 0x10
  3031 07cb 7D010000 		.4byte	.LASF62
  3032 07cf 01       		.byte	0x1
@@ -4334,7 +4334,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3034 07d2 D6000000 		.4byte	0xd6
  3035 07d6 05       		.uleb128 0x5
  3036 07d7 03       		.byte	0x3
- 3037 07d8 CC010000 		.4byte	uxLastLowPriorityLoops2.6453
+ 3037 07d8 CC010000 		.4byte	uxLastLowPriorityLoops2.6117
  3038 07dc 00       		.byte	0
  3039 07dd 19       		.uleb128 0x19
  3040 07de A5010000 		.4byte	.LASF63
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3078 0831 05       		.uleb128 0x5
  3079 0832 03       		.byte	0x3
  3080 0833 10000000 		.4byte	uxLowPriorityLoops1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 74
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 74
 
 
  3081 0837 19       		.uleb128 0x19
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3135 08ac 00       		.byte	0
  3136 08ad 19       		.uleb128 0x19
  3137 08ae EC050000 		.4byte	.LASF74
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 75
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 75
 
 
  3138 08b2 01       		.byte	0x1
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3192              		.section	.debug_abbrev,"",%progbits
  3193              	.Ldebug_abbrev0:
  3194 0000 01       		.uleb128 0x1
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 76
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 76
 
 
  3195 0001 11       		.uleb128 0x11
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3249 0037 0F       		.uleb128 0xf
  3250 0038 00       		.byte	0
  3251 0039 0B       		.uleb128 0xb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 77
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 77
 
 
  3252 003a 0B       		.uleb128 0xb
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3306 0070 13       		.uleb128 0x13
  3307 0071 00       		.byte	0
  3308 0072 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 78
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 78
 
 
  3309 0073 0A       		.uleb128 0xa
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3363 00aa 2E       		.uleb128 0x2e
  3364 00ab 01       		.byte	0x1
  3365 00ac 03       		.uleb128 0x3
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 79
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 79
 
 
  3366 00ad 0E       		.uleb128 0xe
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3420 00e5 13       		.uleb128 0x13
  3421 00e6 00       		.byte	0
  3422 00e7 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 80
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 80
 
 
  3423 00e8 10       		.uleb128 0x10
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3477 011f 13       		.uleb128 0x13
  3478 0120 00       		.byte	0
  3479 0121 00       		.byte	0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 81
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 81
 
 
  3480 0122 13       		.uleb128 0x13
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3534 0158 06       		.uleb128 0x6
  3535 0159 58       		.uleb128 0x58
  3536 015a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 82
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 82
 
 
  3537 015b 59       		.uleb128 0x59
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3591 0191 34       		.uleb128 0x34
  3592 0192 00       		.byte	0
  3593 0193 03       		.uleb128 0x3
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 83
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 83
 
 
  3594 0194 0E       		.uleb128 0xe
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3648 004c B0000000 		.4byte	.LFE75-.LFB75
  3649 0050 00000000 		.4byte	.LFB76
  3650 0054 A4000000 		.4byte	.LFE76-.LFB76
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 84
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 84
 
 
  3651 0058 00000000 		.4byte	.LFB77
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3695 0028 78486967 		.ascii	"xHighPriorityNormallyFullTask2\000"
  3695      68507269 
  3695      6F726974 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 85
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 85
 
 
  3695      794E6F72 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3715 0140 78486967 		.ascii	"xHighPriorityNormallyEmptyTask2\000"
  3715      68507269 
  3715      6F726974 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 86
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 86
 
 
  3715      794E6F72 
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3738              	.LASF54:
  3739 021c 75784E65 		.ascii	"uxNextOperation\000"
  3739      78744F70 
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 87
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 87
 
 
  3739      65726174 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3760      6E203232 
  3760      31323230 
  3761 0332 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 88
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 88
 
 
  3761      66756E63 
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3781      616C4241 
  3781      53455052 
  3781      4900
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 89
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 89
 
 
  3782              	.LASF48:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3806              	.LASF13:
  3807 04ac 63686172 		.ascii	"char\000"
  3807      00
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 90
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 90
 
 
  3808              	.LASF7:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3829      00
  3830              	.LASF53:
  3831 0579 75785278 		.ascii	"uxRxedValue\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 91
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 91
 
 
  3831      65645661 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 1
  3853      7400
  3854              	.LASF67:
  3855 0634 75784C6F 		.ascii	"uxLowPriorityLoops1\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccnldL3D.s 			page 92
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccbIuh3p.s 			page 92
 
 
  3855      77507269 

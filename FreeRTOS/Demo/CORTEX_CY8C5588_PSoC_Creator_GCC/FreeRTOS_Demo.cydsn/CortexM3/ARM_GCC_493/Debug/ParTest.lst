@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 1
   25:ParTest.c     ****     ***************************************************************************
   26:ParTest.c     ****      *                                                                       *
   27:ParTest.c     ****      *    FreeRTOS provides completely free yet professionally developed,    *
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 2
 
 
   28:ParTest.c     ****      *    robust, strictly quality controlled, supported, and cross          *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 1
   82:ParTest.c     **** 
   83:ParTest.c     **** void vParTestInitialise( void )
   84:ParTest.c     **** {
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 3
 
 
   31              		.loc 1 84 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 1
   76 002c 00000000 		.word	cLedOutput
   77              		.cfi_endproc
   78              	.LFE68:
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 4
 
 
   79              		.size	vParTestInitialise, .-vParTestInitialise
@@ -216,733 +216,838 @@ ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 1
  104              		.loc 1 98 0
  105 000e 7B68     		ldr	r3, [r7, #4]
  106 0010 032B     		cmp	r3, #3
- 107 0012 2FD8     		bhi	.L15
+ 107 0012 27D8     		bhi	.L15
  108 0014 01A2     		adr	r2, .L9
  109 0016 52F823F0 		ldr	pc, [r2, r3, lsl #2]
  110 001a 00BF     		.p2align 2
  111              	.L9:
  112 001c 2D000000 		.word	.L8+1
- 113 0020 3F000000 		.word	.L10+1
- 114 0024 51000000 		.word	.L11+1
- 115 0028 63000000 		.word	.L12+1
+ 113 0020 3B000000 		.word	.L10+1
+ 114 0024 49000000 		.word	.L11+1
+ 115 0028 57000000 		.word	.L12+1
  116              		.p2align 1
  117              	.L8:
+ 118              	.LBB2:
   99:ParTest.c     **** 		{
  100:ParTest.c     **** 			case 0:
  101:ParTest.c     **** 				Pin_LED_0_Write( xValue & 0x1 );
- 118              		.loc 1 101 0
- 119 002c 3B68     		ldr	r3, [r7]
- 120 002e DBB2     		uxtb	r3, r3
- 121 0030 03F00103 		and	r3, r3, #1
- 122 0034 DBB2     		uxtb	r3, r3
- 123 0036 1846     		mov	r0, r3
- 124 0038 FFF7FEFF 		bl	Pin_LED_0_Write
+ 119              		.loc 1 101 0
+ 120 002c 3B68     		ldr	r3, [r7]
+ 121 002e 03F00103 		and	r3, r3, #1
+ 122 0032 1846     		mov	r0, r3
+ 123 0034 FFF7FEFF 		bl	Pin_LED_0_Write
  102:ParTest.c     **** 				break;
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 5
+ 124              		.loc 1 102 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 5
 
 
- 125              		.loc 1 102 0
- 126 003c 1BE0     		b	.L13
- 127              	.L10:
+ 125 0038 15E0     		b	.L13
+ 126              	.L10:
  103:ParTest.c     **** 			case 1:
  104:ParTest.c     **** 				Pin_LED_1_Write( xValue & 0x1 );
- 128              		.loc 1 104 0
- 129 003e 3B68     		ldr	r3, [r7]
- 130 0040 DBB2     		uxtb	r3, r3
- 131 0042 03F00103 		and	r3, r3, #1
- 132 0046 DBB2     		uxtb	r3, r3
- 133 0048 1846     		mov	r0, r3
- 134 004a FFF7FEFF 		bl	Pin_LED_1_Write
+ 127              		.loc 1 104 0
+ 128 003a 3B68     		ldr	r3, [r7]
+ 129 003c 03F00103 		and	r3, r3, #1
+ 130 0040 1846     		mov	r0, r3
+ 131 0042 FFF7FEFF 		bl	Pin_LED_1_Write
  105:ParTest.c     **** 				break;
- 135              		.loc 1 105 0
- 136 004e 12E0     		b	.L13
- 137              	.L11:
+ 132              		.loc 1 105 0
+ 133 0046 0EE0     		b	.L13
+ 134              	.L11:
  106:ParTest.c     **** 			case 2:
  107:ParTest.c     **** 				Pin_LED_2_Write( xValue & 0x1 );
- 138              		.loc 1 107 0
- 139 0050 3B68     		ldr	r3, [r7]
- 140 0052 DBB2     		uxtb	r3, r3
- 141 0054 03F00103 		and	r3, r3, #1
- 142 0058 DBB2     		uxtb	r3, r3
- 143 005a 1846     		mov	r0, r3
- 144 005c FFF7FEFF 		bl	Pin_LED_2_Write
+ 135              		.loc 1 107 0
+ 136 0048 3B68     		ldr	r3, [r7]
+ 137 004a 03F00103 		and	r3, r3, #1
+ 138 004e 1846     		mov	r0, r3
+ 139 0050 FFF7FEFF 		bl	Pin_LED_2_Write
  108:ParTest.c     **** 				break;
- 145              		.loc 1 108 0
- 146 0060 09E0     		b	.L13
- 147              	.L12:
+ 140              		.loc 1 108 0
+ 141 0054 07E0     		b	.L13
+ 142              	.L12:
  109:ParTest.c     **** 			case 3:
  110:ParTest.c     **** 				Pin_LED_3_Write( xValue & 0x1 );
- 148              		.loc 1 110 0
- 149 0062 3B68     		ldr	r3, [r7]
- 150 0064 DBB2     		uxtb	r3, r3
- 151 0066 03F00103 		and	r3, r3, #1
- 152 006a DBB2     		uxtb	r3, r3
- 153 006c 1846     		mov	r0, r3
- 154 006e FFF7FEFF 		bl	Pin_LED_3_Write
+ 143              		.loc 1 110 0
+ 144 0056 3B68     		ldr	r3, [r7]
+ 145 0058 03F00103 		and	r3, r3, #1
+ 146 005c 1846     		mov	r0, r3
+ 147 005e FFF7FEFF 		bl	Pin_LED_3_Write
  111:ParTest.c     **** 				break;
- 155              		.loc 1 111 0
- 156 0072 00E0     		b	.L13
- 157              	.L15:
+ 148              		.loc 1 111 0
+ 149 0062 00E0     		b	.L13
+ 150              	.L15:
  112:ParTest.c     **** 			default:
  113:ParTest.c     **** 				/* Do nothing. */
  114:ParTest.c     **** 				break;
- 158              		.loc 1 114 0
- 159 0074 00BF     		nop
- 160              	.L13:
+ 151              		.loc 1 114 0
+ 152 0064 00BF     		nop
+ 153              	.L13:
+ 154              	.LBE2:
  115:ParTest.c     **** 		}
  116:ParTest.c     **** 	}
  117:ParTest.c     **** 	taskEXIT_CRITICAL();
- 161              		.loc 1 117 0
- 162 0076 FFF7FEFF 		bl	vPortExitCritical
+ 155              		.loc 1 117 0
+ 156 0066 FFF7FEFF 		bl	vPortExitCritical
  118:ParTest.c     **** 	
  119:ParTest.c     **** 	/* Record the output for the sake of toggling. */
  120:ParTest.c     **** 	if( uxLED < partstMAX_LED )
- 163              		.loc 1 120 0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 6
-
-
- 164 007a 7B68     		ldr	r3, [r7, #4]
- 165 007c 032B     		cmp	r3, #3
- 166 007e 09D8     		bhi	.L6
+ 157              		.loc 1 120 0
+ 158 006a 7B68     		ldr	r3, [r7, #4]
+ 159 006c 032B     		cmp	r3, #3
+ 160 006e 09D8     		bhi	.L6
  121:ParTest.c     **** 	{
  122:ParTest.c     **** 		cLedOutput[ uxLED ] = ( xValue & 0x1 );
- 167              		.loc 1 122 0
- 168 0080 3B68     		ldr	r3, [r7]
- 169 0082 DBB2     		uxtb	r3, r3
- 170 0084 03F00103 		and	r3, r3, #1
- 171 0088 D9B2     		uxtb	r1, r3
- 172 008a 044A     		ldr	r2, .L16
- 173 008c 7B68     		ldr	r3, [r7, #4]
- 174 008e 1344     		add	r3, r3, r2
- 175 0090 0A46     		mov	r2, r1
- 176 0092 1A70     		strb	r2, [r3]
- 177              	.L6:
+ 161              		.loc 1 122 0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 6
+
+
+ 162 0070 3B68     		ldr	r3, [r7]
+ 163 0072 DBB2     		uxtb	r3, r3
+ 164 0074 03F00103 		and	r3, r3, #1
+ 165 0078 D9B2     		uxtb	r1, r3
+ 166 007a 044A     		ldr	r2, .L16
+ 167 007c 7B68     		ldr	r3, [r7, #4]
+ 168 007e 1344     		add	r3, r3, r2
+ 169 0080 0A46     		mov	r2, r1
+ 170 0082 1A70     		strb	r2, [r3]
+ 171              	.L6:
  123:ParTest.c     **** 	}
  124:ParTest.c     **** }
- 178              		.loc 1 124 0
- 179 0094 0837     		adds	r7, r7, #8
- 180              		.cfi_def_cfa_offset 8
- 181 0096 BD46     		mov	sp, r7
- 182              		.cfi_def_cfa_register 13
- 183              		@ sp needed
- 184 0098 80BD     		pop	{r7, pc}
- 185              	.L17:
- 186 009a 00BF     		.align	2
- 187              	.L16:
- 188 009c 00000000 		.word	cLedOutput
- 189              		.cfi_endproc
- 190              	.LFE69:
- 191              		.size	vParTestSetLED, .-vParTestSetLED
- 192              		.section	.text.vParTestToggleLED,"ax",%progbits
- 193              		.align	2
- 194              		.global	vParTestToggleLED
- 195              		.thumb
- 196              		.thumb_func
- 197              		.type	vParTestToggleLED, %function
- 198              	vParTestToggleLED:
- 199              	.LFB70:
+ 172              		.loc 1 124 0
+ 173 0084 0837     		adds	r7, r7, #8
+ 174              		.cfi_def_cfa_offset 8
+ 175 0086 BD46     		mov	sp, r7
+ 176              		.cfi_def_cfa_register 13
+ 177              		@ sp needed
+ 178 0088 80BD     		pop	{r7, pc}
+ 179              	.L17:
+ 180 008a 00BF     		.align	2
+ 181              	.L16:
+ 182 008c 00000000 		.word	cLedOutput
+ 183              		.cfi_endproc
+ 184              	.LFE69:
+ 185              		.size	vParTestSetLED, .-vParTestSetLED
+ 186              		.section	.text.vParTestToggleLED,"ax",%progbits
+ 187              		.align	2
+ 188              		.global	vParTestToggleLED
+ 189              		.thumb
+ 190              		.thumb_func
+ 191              		.type	vParTestToggleLED, %function
+ 192              	vParTestToggleLED:
+ 193              	.LFB70:
  125:ParTest.c     **** /*---------------------------------------------------------------------------*/
  126:ParTest.c     **** 
  127:ParTest.c     **** void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
  128:ParTest.c     **** {
- 200              		.loc 1 128 0
- 201              		.cfi_startproc
- 202              		@ args = 0, pretend = 0, frame = 8
- 203              		@ frame_needed = 1, uses_anonymous_args = 0
- 204 0000 80B5     		push	{r7, lr}
- 205              		.cfi_def_cfa_offset 8
- 206              		.cfi_offset 7, -8
- 207              		.cfi_offset 14, -4
- 208 0002 82B0     		sub	sp, sp, #8
- 209              		.cfi_def_cfa_offset 16
- 210 0004 00AF     		add	r7, sp, #0
- 211              		.cfi_def_cfa_register 7
- 212 0006 7860     		str	r0, [r7, #4]
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 7
-
-
+ 194              		.loc 1 128 0
+ 195              		.cfi_startproc
+ 196              		@ args = 0, pretend = 0, frame = 8
+ 197              		@ frame_needed = 1, uses_anonymous_args = 0
+ 198 0000 80B5     		push	{r7, lr}
+ 199              		.cfi_def_cfa_offset 8
+ 200              		.cfi_offset 7, -8
+ 201              		.cfi_offset 14, -4
+ 202 0002 82B0     		sub	sp, sp, #8
+ 203              		.cfi_def_cfa_offset 16
+ 204 0004 00AF     		add	r7, sp, #0
+ 205              		.cfi_def_cfa_register 7
+ 206 0006 7860     		str	r0, [r7, #4]
  129:ParTest.c     **** 	if( uxLED < partstMAX_LED )
- 213              		.loc 1 129 0
- 214 0008 7B68     		ldr	r3, [r7, #4]
- 215 000a 032B     		cmp	r3, #3
- 216 000c 0DD8     		bhi	.L18
+ 207              		.loc 1 129 0
+ 208 0008 7B68     		ldr	r3, [r7, #4]
+ 209 000a 032B     		cmp	r3, #3
+ 210 000c 0DD8     		bhi	.L18
  130:ParTest.c     **** 	{
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 7
+
+
  131:ParTest.c     **** 		vParTestSetLED( uxLED, !cLedOutput[ uxLED ] );
- 217              		.loc 1 131 0
- 218 000e 084A     		ldr	r2, .L20
- 219 0010 7B68     		ldr	r3, [r7, #4]
- 220 0012 1344     		add	r3, r3, r2
- 221 0014 1B78     		ldrb	r3, [r3]
- 222 0016 DBB2     		uxtb	r3, r3
- 223 0018 002B     		cmp	r3, #0
- 224 001a 0CBF     		ite	eq
- 225 001c 0123     		moveq	r3, #1
- 226 001e 0023     		movne	r3, #0
- 227 0020 DBB2     		uxtb	r3, r3
- 228 0022 7868     		ldr	r0, [r7, #4]
- 229 0024 1946     		mov	r1, r3
- 230 0026 FFF7FEFF 		bl	vParTestSetLED
- 231              	.L18:
+ 211              		.loc 1 131 0
+ 212 000e 084A     		ldr	r2, .L20
+ 213 0010 7B68     		ldr	r3, [r7, #4]
+ 214 0012 1344     		add	r3, r3, r2
+ 215 0014 1B78     		ldrb	r3, [r3]
+ 216 0016 DBB2     		uxtb	r3, r3
+ 217 0018 002B     		cmp	r3, #0
+ 218 001a 0CBF     		ite	eq
+ 219 001c 0123     		moveq	r3, #1
+ 220 001e 0023     		movne	r3, #0
+ 221 0020 DBB2     		uxtb	r3, r3
+ 222 0022 7868     		ldr	r0, [r7, #4]
+ 223 0024 1946     		mov	r1, r3
+ 224 0026 FFF7FEFF 		bl	vParTestSetLED
+ 225              	.L18:
  132:ParTest.c     **** 	}
  133:ParTest.c     **** }
- 232              		.loc 1 133 0
- 233 002a 0837     		adds	r7, r7, #8
- 234              		.cfi_def_cfa_offset 8
- 235 002c BD46     		mov	sp, r7
- 236              		.cfi_def_cfa_register 13
- 237              		@ sp needed
- 238 002e 80BD     		pop	{r7, pc}
- 239              	.L21:
- 240              		.align	2
- 241              	.L20:
- 242 0030 00000000 		.word	cLedOutput
- 243              		.cfi_endproc
- 244              	.LFE70:
- 245              		.size	vParTestToggleLED, .-vParTestToggleLED
- 246              		.text
- 247              	.Letext0:
- 248              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
- 249              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
- 250              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
- 251              		.section	.debug_info,"",%progbits
- 252              	.Ldebug_info0:
- 253 0000 4B010000 		.4byte	0x14b
- 254 0004 0400     		.2byte	0x4
- 255 0006 00000000 		.4byte	.Ldebug_abbrev0
- 256 000a 04       		.byte	0x4
- 257 000b 01       		.uleb128 0x1
- 258 000c BC000000 		.4byte	.LASF22
- 259 0010 01       		.byte	0x1
- 260 0011 62000000 		.4byte	.LASF23
- 261 0015 64010000 		.4byte	.LASF24
- 262 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 263 001d 00000000 		.4byte	0
- 264 0021 00000000 		.4byte	.Ldebug_line0
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 8
+ 226              		.loc 1 133 0
+ 227 002a 0837     		adds	r7, r7, #8
+ 228              		.cfi_def_cfa_offset 8
+ 229 002c BD46     		mov	sp, r7
+ 230              		.cfi_def_cfa_register 13
+ 231              		@ sp needed
+ 232 002e 80BD     		pop	{r7, pc}
+ 233              	.L21:
+ 234              		.align	2
+ 235              	.L20:
+ 236 0030 00000000 		.word	cLedOutput
+ 237              		.cfi_endproc
+ 238              	.LFE70:
+ 239              		.size	vParTestToggleLED, .-vParTestToggleLED
+ 240              		.text
+ 241              	.Letext0:
+ 242              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 243              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 244              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 245              		.section	.debug_info,"",%progbits
+ 246              	.Ldebug_info0:
+ 247 0000 95010000 		.4byte	0x195
+ 248 0004 0400     		.2byte	0x4
+ 249 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 250 000a 04       		.byte	0x4
+ 251 000b 01       		.uleb128 0x1
+ 252 000c 31000000 		.4byte	.LASF25
+ 253 0010 01       		.byte	0x1
+ 254 0011 E1000000 		.4byte	.LASF26
+ 255 0015 6C010000 		.4byte	.LASF27
+ 256 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 257 001d 00000000 		.4byte	0
+ 258 0021 00000000 		.4byte	.Ldebug_line0
+ 259 0025 02       		.uleb128 0x2
+ 260 0026 01       		.byte	0x1
+ 261 0027 06       		.byte	0x6
+ 262 0028 36020000 		.4byte	.LASF0
+ 263 002c 02       		.uleb128 0x2
+ 264 002d 01       		.byte	0x1
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 8
 
 
- 265 0025 02       		.uleb128 0x2
- 266 0026 01       		.byte	0x1
- 267 0027 06       		.byte	0x6
- 268 0028 E6010000 		.4byte	.LASF0
- 269 002c 02       		.uleb128 0x2
- 270 002d 01       		.byte	0x1
- 271 002e 08       		.byte	0x8
- 272 002f 95000000 		.4byte	.LASF1
- 273 0033 02       		.uleb128 0x2
- 274 0034 02       		.byte	0x2
- 275 0035 05       		.byte	0x5
- 276 0036 4A010000 		.4byte	.LASF2
- 277 003a 02       		.uleb128 0x2
- 278 003b 02       		.byte	0x2
- 279 003c 07       		.byte	0x7
- 280 003d 0E000000 		.4byte	.LASF3
- 281 0041 03       		.uleb128 0x3
- 282 0042 F2010000 		.4byte	.LASF9
- 283 0046 02       		.byte	0x2
- 284 0047 3F       		.byte	0x3f
- 285 0048 4C000000 		.4byte	0x4c
- 286 004c 02       		.uleb128 0x2
- 287 004d 04       		.byte	0x4
- 288 004e 05       		.byte	0x5
- 289 004f 5B010000 		.4byte	.LASF4
- 290 0053 02       		.uleb128 0x2
- 291 0054 04       		.byte	0x4
- 292 0055 07       		.byte	0x7
- 293 0056 39000000 		.4byte	.LASF5
- 294 005a 02       		.uleb128 0x2
- 295 005b 08       		.byte	0x8
- 296 005c 05       		.byte	0x5
- 297 005d 00000000 		.4byte	.LASF6
- 298 0061 02       		.uleb128 0x2
- 299 0062 08       		.byte	0x8
- 300 0063 07       		.byte	0x7
- 301 0064 4B000000 		.4byte	.LASF7
- 302 0068 04       		.uleb128 0x4
- 303 0069 04       		.byte	0x4
- 304 006a 05       		.byte	0x5
- 305 006b 696E7400 		.ascii	"int\000"
- 306 006f 02       		.uleb128 0x2
- 307 0070 04       		.byte	0x4
- 308 0071 07       		.byte	0x7
- 309 0072 21000000 		.4byte	.LASF8
- 310 0076 03       		.uleb128 0x3
- 311 0077 08020000 		.4byte	.LASF10
- 312 007b 03       		.byte	0x3
- 313 007c 2C       		.byte	0x2c
- 314 007d 41000000 		.4byte	0x41
- 315 0081 02       		.uleb128 0x2
- 316 0082 04       		.byte	0x4
- 317 0083 04       		.byte	0x4
- 318 0084 FC010000 		.4byte	.LASF11
- 319 0088 02       		.uleb128 0x2
- 320 0089 08       		.byte	0x8
- 321 008a 04       		.byte	0x4
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 9
+ 265 002e 08       		.byte	0x8
+ 266 002f D3000000 		.4byte	.LASF1
+ 267 0033 02       		.uleb128 0x2
+ 268 0034 02       		.byte	0x2
+ 269 0035 05       		.byte	0x5
+ 270 0036 23020000 		.4byte	.LASF2
+ 271 003a 02       		.uleb128 0x2
+ 272 003b 02       		.byte	0x2
+ 273 003c 07       		.byte	0x7
+ 274 003d 42020000 		.4byte	.LASF3
+ 275 0041 03       		.uleb128 0x3
+ 276 0042 15000000 		.4byte	.LASF9
+ 277 0046 02       		.byte	0x2
+ 278 0047 3F       		.byte	0x3f
+ 279 0048 4C000000 		.4byte	0x4c
+ 280 004c 02       		.uleb128 0x2
+ 281 004d 04       		.byte	0x4
+ 282 004e 05       		.byte	0x5
+ 283 004f 2D020000 		.4byte	.LASF4
+ 284 0053 02       		.uleb128 0x2
+ 285 0054 04       		.byte	0x4
+ 286 0055 07       		.byte	0x7
+ 287 0056 EB000000 		.4byte	.LASF5
+ 288 005a 02       		.uleb128 0x2
+ 289 005b 08       		.byte	0x8
+ 290 005c 05       		.byte	0x5
+ 291 005d 10020000 		.4byte	.LASF6
+ 292 0061 02       		.uleb128 0x2
+ 293 0062 08       		.byte	0x8
+ 294 0063 07       		.byte	0x7
+ 295 0064 D8010000 		.4byte	.LASF7
+ 296 0068 04       		.uleb128 0x4
+ 297 0069 04       		.byte	0x4
+ 298 006a 05       		.byte	0x5
+ 299 006b 696E7400 		.ascii	"int\000"
+ 300 006f 02       		.uleb128 0x2
+ 301 0070 04       		.byte	0x4
+ 302 0071 07       		.byte	0x7
+ 303 0072 5F010000 		.4byte	.LASF8
+ 304 0076 03       		.uleb128 0x3
+ 305 0077 FF010000 		.4byte	.LASF10
+ 306 007b 03       		.byte	0x3
+ 307 007c 2C       		.byte	0x2c
+ 308 007d 41000000 		.4byte	0x41
+ 309 0081 02       		.uleb128 0x2
+ 310 0082 04       		.byte	0x4
+ 311 0083 04       		.byte	0x4
+ 312 0084 C6000000 		.4byte	.LASF11
+ 313 0088 02       		.uleb128 0x2
+ 314 0089 08       		.byte	0x8
+ 315 008a 04       		.byte	0x4
+ 316 008b BF000000 		.4byte	.LASF12
+ 317 008f 02       		.uleb128 0x2
+ 318 0090 01       		.byte	0x1
+ 319 0091 08       		.byte	0x8
+ 320 0092 1E020000 		.4byte	.LASF13
+ 321 0096 02       		.uleb128 0x2
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 9
 
 
- 322 008b 54010000 		.4byte	.LASF12
- 323 008f 02       		.uleb128 0x2
- 324 0090 01       		.byte	0x1
- 325 0091 08       		.byte	0x8
- 326 0092 10020000 		.4byte	.LASF13
- 327 0096 02       		.uleb128 0x2
- 328 0097 04       		.byte	0x4
- 329 0098 07       		.byte	0x7
- 330 0099 D0010000 		.4byte	.LASF14
- 331 009d 05       		.uleb128 0x5
- 332 009e 7B000000 		.4byte	.LASF15
- 333 00a2 01       		.byte	0x1
- 334 00a3 53       		.byte	0x53
- 335 00a4 00000000 		.4byte	.LFB68
- 336 00a8 30000000 		.4byte	.LFE68-.LFB68
- 337 00ac 01       		.uleb128 0x1
- 338 00ad 9C       		.byte	0x9c
- 339 00ae C1000000 		.4byte	0xc1
- 340 00b2 06       		.uleb128 0x6
- 341 00b3 A3000000 		.4byte	.LASF20
- 342 00b7 01       		.byte	0x1
- 343 00b8 55       		.byte	0x55
- 344 00b9 4C000000 		.4byte	0x4c
- 345 00bd 02       		.uleb128 0x2
- 346 00be 91       		.byte	0x91
- 347 00bf 74       		.sleb128 -12
- 348 00c0 00       		.byte	0
- 349 00c1 07       		.uleb128 0x7
- 350 00c2 6C000000 		.4byte	.LASF16
- 351 00c6 01       		.byte	0x1
- 352 00c7 5E       		.byte	0x5e
- 353 00c8 00000000 		.4byte	.LFB69
- 354 00cc A0000000 		.4byte	.LFE69-.LFB69
- 355 00d0 01       		.uleb128 0x1
- 356 00d1 9C       		.byte	0x9c
- 357 00d2 F3000000 		.4byte	0xf3
- 358 00d6 08       		.uleb128 0x8
- 359 00d7 02020000 		.4byte	.LASF17
- 360 00db 01       		.byte	0x1
- 361 00dc 5E       		.byte	0x5e
- 362 00dd 53000000 		.4byte	0x53
- 363 00e1 02       		.uleb128 0x2
- 364 00e2 91       		.byte	0x91
- 365 00e3 74       		.sleb128 -12
- 366 00e4 08       		.uleb128 0x8
- 367 00e5 8E000000 		.4byte	.LASF18
- 368 00e9 01       		.byte	0x1
- 369 00ea 5E       		.byte	0x5e
- 370 00eb 4C000000 		.4byte	0x4c
- 371 00ef 02       		.uleb128 0x2
- 372 00f0 91       		.byte	0x91
- 373 00f1 70       		.sleb128 -16
- 374 00f2 00       		.byte	0
- 375 00f3 07       		.uleb128 0x7
- 376 00f4 AA000000 		.4byte	.LASF19
- 377 00f8 01       		.byte	0x1
- 378 00f9 7F       		.byte	0x7f
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 10
+ 322 0097 04       		.byte	0x4
+ 323 0098 07       		.byte	0x7
+ 324 0099 07020000 		.4byte	.LASF14
+ 325 009d 05       		.uleb128 0x5
+ 326 009e 0D010000 		.4byte	.LASF15
+ 327 00a2 01       		.byte	0x1
+ 328 00a3 53       		.byte	0x53
+ 329 00a4 00000000 		.4byte	.LFB68
+ 330 00a8 30000000 		.4byte	.LFE68-.LFB68
+ 331 00ac 01       		.uleb128 0x1
+ 332 00ad 9C       		.byte	0x9c
+ 333 00ae C1000000 		.4byte	0xc1
+ 334 00b2 06       		.uleb128 0x6
+ 335 00b3 CC000000 		.4byte	.LASF23
+ 336 00b7 01       		.byte	0x1
+ 337 00b8 55       		.byte	0x55
+ 338 00b9 4C000000 		.4byte	0x4c
+ 339 00bd 02       		.uleb128 0x2
+ 340 00be 91       		.byte	0x91
+ 341 00bf 74       		.sleb128 -12
+ 342 00c0 00       		.byte	0
+ 343 00c1 07       		.uleb128 0x7
+ 344 00c2 00000000 		.4byte	.LASF16
+ 345 00c6 01       		.byte	0x1
+ 346 00c7 5E       		.byte	0x5e
+ 347 00c8 00000000 		.4byte	.LFB69
+ 348 00cc 90000000 		.4byte	.LFE69-.LFB69
+ 349 00d0 01       		.uleb128 0x1
+ 350 00d1 9C       		.byte	0x9c
+ 351 00d2 3D010000 		.4byte	0x13d
+ 352 00d6 08       		.uleb128 0x8
+ 353 00d7 0F000000 		.4byte	.LASF17
+ 354 00db 01       		.byte	0x1
+ 355 00dc 5E       		.byte	0x5e
+ 356 00dd 53000000 		.4byte	0x53
+ 357 00e1 02       		.uleb128 0x2
+ 358 00e2 91       		.byte	0x91
+ 359 00e3 74       		.sleb128 -12
+ 360 00e4 08       		.uleb128 0x8
+ 361 00e5 3D010000 		.4byte	.LASF18
+ 362 00e9 01       		.byte	0x1
+ 363 00ea 5E       		.byte	0x5e
+ 364 00eb 4C000000 		.4byte	0x4c
+ 365 00ef 02       		.uleb128 0x2
+ 366 00f0 91       		.byte	0x91
+ 367 00f1 70       		.sleb128 -16
+ 368 00f2 09       		.uleb128 0x9
+ 369 00f3 2C000000 		.4byte	.LBB2
+ 370 00f7 3A000000 		.4byte	.LBE2-.LBB2
+ 371 00fb 0A       		.uleb128 0xa
+ 372 00fc FD000000 		.4byte	.LASF19
+ 373 0100 01       		.byte	0x1
+ 374 0101 65       		.byte	0x65
+ 375 0102 68000000 		.4byte	0x68
+ 376 0106 0C010000 		.4byte	0x10c
+ 377 010a 0B       		.uleb128 0xb
+ 378 010b 00       		.byte	0
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 10
 
 
- 379 00fa 00000000 		.4byte	.LFB70
- 380 00fe 34000000 		.4byte	.LFE70-.LFB70
- 381 0102 01       		.uleb128 0x1
- 382 0103 9C       		.byte	0x9c
- 383 0104 17010000 		.4byte	0x117
- 384 0108 08       		.uleb128 0x8
- 385 0109 02020000 		.4byte	.LASF17
- 386 010d 01       		.byte	0x1
- 387 010e 7F       		.byte	0x7f
- 388 010f 53000000 		.4byte	0x53
- 389 0113 02       		.uleb128 0x2
- 390 0114 91       		.byte	0x91
- 391 0115 74       		.sleb128 -12
- 392 0116 00       		.byte	0
- 393 0117 09       		.uleb128 0x9
- 394 0118 8F000000 		.4byte	0x8f
- 395 011c 27010000 		.4byte	0x127
- 396 0120 0A       		.uleb128 0xa
- 397 0121 96000000 		.4byte	0x96
- 398 0125 03       		.byte	0x3
- 399 0126 00       		.byte	0
- 400 0127 06       		.uleb128 0x6
- 401 0128 2E000000 		.4byte	.LASF21
- 402 012c 01       		.byte	0x1
- 403 012d 50       		.byte	0x50
- 404 012e 38010000 		.4byte	0x138
- 405 0132 05       		.uleb128 0x5
- 406 0133 03       		.byte	0x3
- 407 0134 00000000 		.4byte	cLedOutput
- 408 0138 0B       		.uleb128 0xb
- 409 0139 17010000 		.4byte	0x117
- 410 013d 0C       		.uleb128 0xc
- 411 013e D9010000 		.4byte	.LASF25
- 412 0142 04       		.byte	0x4
- 413 0143 9606     		.2byte	0x696
- 414 0145 49010000 		.4byte	0x149
- 415 0149 0B       		.uleb128 0xb
- 416 014a 76000000 		.4byte	0x76
- 417 014e 00       		.byte	0
- 418              		.section	.debug_abbrev,"",%progbits
- 419              	.Ldebug_abbrev0:
- 420 0000 01       		.uleb128 0x1
- 421 0001 11       		.uleb128 0x11
- 422 0002 01       		.byte	0x1
- 423 0003 25       		.uleb128 0x25
- 424 0004 0E       		.uleb128 0xe
- 425 0005 13       		.uleb128 0x13
- 426 0006 0B       		.uleb128 0xb
- 427 0007 03       		.uleb128 0x3
- 428 0008 0E       		.uleb128 0xe
- 429 0009 1B       		.uleb128 0x1b
- 430 000a 0E       		.uleb128 0xe
- 431 000b 55       		.uleb128 0x55
- 432 000c 17       		.uleb128 0x17
- 433 000d 11       		.uleb128 0x11
- 434 000e 01       		.uleb128 0x1
- 435 000f 10       		.uleb128 0x10
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 11
+ 379 010c 0A       		.uleb128 0xa
+ 380 010d 2D010000 		.4byte	.LASF20
+ 381 0111 01       		.byte	0x1
+ 382 0112 68       		.byte	0x68
+ 383 0113 68000000 		.4byte	0x68
+ 384 0117 1D010000 		.4byte	0x11d
+ 385 011b 0B       		.uleb128 0xb
+ 386 011c 00       		.byte	0
+ 387 011d 0A       		.uleb128 0xa
+ 388 011e 4F010000 		.4byte	.LASF21
+ 389 0122 01       		.byte	0x1
+ 390 0123 6B       		.byte	0x6b
+ 391 0124 68000000 		.4byte	0x68
+ 392 0128 2E010000 		.4byte	0x12e
+ 393 012c 0B       		.uleb128 0xb
+ 394 012d 00       		.byte	0
+ 395 012e 0C       		.uleb128 0xc
+ 396 012f EF010000 		.4byte	.LASF28
+ 397 0133 01       		.byte	0x1
+ 398 0134 6E       		.byte	0x6e
+ 399 0135 68000000 		.4byte	0x68
+ 400 0139 0B       		.uleb128 0xb
+ 401 013a 00       		.byte	0
+ 402 013b 00       		.byte	0
+ 403 013c 00       		.byte	0
+ 404 013d 07       		.uleb128 0x7
+ 405 013e 1F000000 		.4byte	.LASF22
+ 406 0142 01       		.byte	0x1
+ 407 0143 7F       		.byte	0x7f
+ 408 0144 00000000 		.4byte	.LFB70
+ 409 0148 34000000 		.4byte	.LFE70-.LFB70
+ 410 014c 01       		.uleb128 0x1
+ 411 014d 9C       		.byte	0x9c
+ 412 014e 61010000 		.4byte	0x161
+ 413 0152 08       		.uleb128 0x8
+ 414 0153 0F000000 		.4byte	.LASF17
+ 415 0157 01       		.byte	0x1
+ 416 0158 7F       		.byte	0x7f
+ 417 0159 53000000 		.4byte	0x53
+ 418 015d 02       		.uleb128 0x2
+ 419 015e 91       		.byte	0x91
+ 420 015f 74       		.sleb128 -12
+ 421 0160 00       		.byte	0
+ 422 0161 0D       		.uleb128 0xd
+ 423 0162 8F000000 		.4byte	0x8f
+ 424 0166 71010000 		.4byte	0x171
+ 425 016a 0E       		.uleb128 0xe
+ 426 016b 96000000 		.4byte	0x96
+ 427 016f 03       		.byte	0x3
+ 428 0170 00       		.byte	0
+ 429 0171 06       		.uleb128 0x6
+ 430 0172 44010000 		.4byte	.LASF24
+ 431 0176 01       		.byte	0x1
+ 432 0177 50       		.byte	0x50
+ 433 0178 82010000 		.4byte	0x182
+ 434 017c 05       		.uleb128 0x5
+ 435 017d 03       		.byte	0x3
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 11
 
 
- 436 0010 17       		.uleb128 0x17
- 437 0011 00       		.byte	0
- 438 0012 00       		.byte	0
- 439 0013 02       		.uleb128 0x2
- 440 0014 24       		.uleb128 0x24
- 441 0015 00       		.byte	0
- 442 0016 0B       		.uleb128 0xb
- 443 0017 0B       		.uleb128 0xb
- 444 0018 3E       		.uleb128 0x3e
- 445 0019 0B       		.uleb128 0xb
- 446 001a 03       		.uleb128 0x3
- 447 001b 0E       		.uleb128 0xe
- 448 001c 00       		.byte	0
- 449 001d 00       		.byte	0
- 450 001e 03       		.uleb128 0x3
- 451 001f 16       		.uleb128 0x16
- 452 0020 00       		.byte	0
- 453 0021 03       		.uleb128 0x3
- 454 0022 0E       		.uleb128 0xe
- 455 0023 3A       		.uleb128 0x3a
- 456 0024 0B       		.uleb128 0xb
- 457 0025 3B       		.uleb128 0x3b
- 458 0026 0B       		.uleb128 0xb
- 459 0027 49       		.uleb128 0x49
- 460 0028 13       		.uleb128 0x13
- 461 0029 00       		.byte	0
- 462 002a 00       		.byte	0
- 463 002b 04       		.uleb128 0x4
- 464 002c 24       		.uleb128 0x24
- 465 002d 00       		.byte	0
- 466 002e 0B       		.uleb128 0xb
- 467 002f 0B       		.uleb128 0xb
- 468 0030 3E       		.uleb128 0x3e
- 469 0031 0B       		.uleb128 0xb
- 470 0032 03       		.uleb128 0x3
- 471 0033 08       		.uleb128 0x8
- 472 0034 00       		.byte	0
- 473 0035 00       		.byte	0
- 474 0036 05       		.uleb128 0x5
- 475 0037 2E       		.uleb128 0x2e
- 476 0038 01       		.byte	0x1
- 477 0039 3F       		.uleb128 0x3f
- 478 003a 19       		.uleb128 0x19
- 479 003b 03       		.uleb128 0x3
- 480 003c 0E       		.uleb128 0xe
- 481 003d 3A       		.uleb128 0x3a
- 482 003e 0B       		.uleb128 0xb
- 483 003f 3B       		.uleb128 0x3b
- 484 0040 0B       		.uleb128 0xb
- 485 0041 27       		.uleb128 0x27
- 486 0042 19       		.uleb128 0x19
- 487 0043 11       		.uleb128 0x11
- 488 0044 01       		.uleb128 0x1
- 489 0045 12       		.uleb128 0x12
- 490 0046 06       		.uleb128 0x6
- 491 0047 40       		.uleb128 0x40
- 492 0048 18       		.uleb128 0x18
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 12
+ 436 017e 00000000 		.4byte	cLedOutput
+ 437 0182 0F       		.uleb128 0xf
+ 438 0183 61010000 		.4byte	0x161
+ 439 0187 10       		.uleb128 0x10
+ 440 0188 20010000 		.4byte	.LASF29
+ 441 018c 04       		.byte	0x4
+ 442 018d 9606     		.2byte	0x696
+ 443 018f 93010000 		.4byte	0x193
+ 444 0193 0F       		.uleb128 0xf
+ 445 0194 76000000 		.4byte	0x76
+ 446 0198 00       		.byte	0
+ 447              		.section	.debug_abbrev,"",%progbits
+ 448              	.Ldebug_abbrev0:
+ 449 0000 01       		.uleb128 0x1
+ 450 0001 11       		.uleb128 0x11
+ 451 0002 01       		.byte	0x1
+ 452 0003 25       		.uleb128 0x25
+ 453 0004 0E       		.uleb128 0xe
+ 454 0005 13       		.uleb128 0x13
+ 455 0006 0B       		.uleb128 0xb
+ 456 0007 03       		.uleb128 0x3
+ 457 0008 0E       		.uleb128 0xe
+ 458 0009 1B       		.uleb128 0x1b
+ 459 000a 0E       		.uleb128 0xe
+ 460 000b 55       		.uleb128 0x55
+ 461 000c 17       		.uleb128 0x17
+ 462 000d 11       		.uleb128 0x11
+ 463 000e 01       		.uleb128 0x1
+ 464 000f 10       		.uleb128 0x10
+ 465 0010 17       		.uleb128 0x17
+ 466 0011 00       		.byte	0
+ 467 0012 00       		.byte	0
+ 468 0013 02       		.uleb128 0x2
+ 469 0014 24       		.uleb128 0x24
+ 470 0015 00       		.byte	0
+ 471 0016 0B       		.uleb128 0xb
+ 472 0017 0B       		.uleb128 0xb
+ 473 0018 3E       		.uleb128 0x3e
+ 474 0019 0B       		.uleb128 0xb
+ 475 001a 03       		.uleb128 0x3
+ 476 001b 0E       		.uleb128 0xe
+ 477 001c 00       		.byte	0
+ 478 001d 00       		.byte	0
+ 479 001e 03       		.uleb128 0x3
+ 480 001f 16       		.uleb128 0x16
+ 481 0020 00       		.byte	0
+ 482 0021 03       		.uleb128 0x3
+ 483 0022 0E       		.uleb128 0xe
+ 484 0023 3A       		.uleb128 0x3a
+ 485 0024 0B       		.uleb128 0xb
+ 486 0025 3B       		.uleb128 0x3b
+ 487 0026 0B       		.uleb128 0xb
+ 488 0027 49       		.uleb128 0x49
+ 489 0028 13       		.uleb128 0x13
+ 490 0029 00       		.byte	0
+ 491 002a 00       		.byte	0
+ 492 002b 04       		.uleb128 0x4
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 12
 
 
- 493 0049 9742     		.uleb128 0x2117
- 494 004b 19       		.uleb128 0x19
- 495 004c 01       		.uleb128 0x1
- 496 004d 13       		.uleb128 0x13
- 497 004e 00       		.byte	0
- 498 004f 00       		.byte	0
- 499 0050 06       		.uleb128 0x6
- 500 0051 34       		.uleb128 0x34
- 501 0052 00       		.byte	0
- 502 0053 03       		.uleb128 0x3
- 503 0054 0E       		.uleb128 0xe
- 504 0055 3A       		.uleb128 0x3a
- 505 0056 0B       		.uleb128 0xb
- 506 0057 3B       		.uleb128 0x3b
- 507 0058 0B       		.uleb128 0xb
- 508 0059 49       		.uleb128 0x49
- 509 005a 13       		.uleb128 0x13
- 510 005b 02       		.uleb128 0x2
- 511 005c 18       		.uleb128 0x18
- 512 005d 00       		.byte	0
- 513 005e 00       		.byte	0
- 514 005f 07       		.uleb128 0x7
- 515 0060 2E       		.uleb128 0x2e
- 516 0061 01       		.byte	0x1
- 517 0062 3F       		.uleb128 0x3f
- 518 0063 19       		.uleb128 0x19
- 519 0064 03       		.uleb128 0x3
- 520 0065 0E       		.uleb128 0xe
- 521 0066 3A       		.uleb128 0x3a
- 522 0067 0B       		.uleb128 0xb
- 523 0068 3B       		.uleb128 0x3b
- 524 0069 0B       		.uleb128 0xb
- 525 006a 27       		.uleb128 0x27
- 526 006b 19       		.uleb128 0x19
- 527 006c 11       		.uleb128 0x11
- 528 006d 01       		.uleb128 0x1
- 529 006e 12       		.uleb128 0x12
- 530 006f 06       		.uleb128 0x6
- 531 0070 40       		.uleb128 0x40
- 532 0071 18       		.uleb128 0x18
- 533 0072 9642     		.uleb128 0x2116
- 534 0074 19       		.uleb128 0x19
- 535 0075 01       		.uleb128 0x1
- 536 0076 13       		.uleb128 0x13
- 537 0077 00       		.byte	0
- 538 0078 00       		.byte	0
- 539 0079 08       		.uleb128 0x8
- 540 007a 05       		.uleb128 0x5
- 541 007b 00       		.byte	0
- 542 007c 03       		.uleb128 0x3
- 543 007d 0E       		.uleb128 0xe
- 544 007e 3A       		.uleb128 0x3a
- 545 007f 0B       		.uleb128 0xb
- 546 0080 3B       		.uleb128 0x3b
- 547 0081 0B       		.uleb128 0xb
- 548 0082 49       		.uleb128 0x49
- 549 0083 13       		.uleb128 0x13
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 13
+ 493 002c 24       		.uleb128 0x24
+ 494 002d 00       		.byte	0
+ 495 002e 0B       		.uleb128 0xb
+ 496 002f 0B       		.uleb128 0xb
+ 497 0030 3E       		.uleb128 0x3e
+ 498 0031 0B       		.uleb128 0xb
+ 499 0032 03       		.uleb128 0x3
+ 500 0033 08       		.uleb128 0x8
+ 501 0034 00       		.byte	0
+ 502 0035 00       		.byte	0
+ 503 0036 05       		.uleb128 0x5
+ 504 0037 2E       		.uleb128 0x2e
+ 505 0038 01       		.byte	0x1
+ 506 0039 3F       		.uleb128 0x3f
+ 507 003a 19       		.uleb128 0x19
+ 508 003b 03       		.uleb128 0x3
+ 509 003c 0E       		.uleb128 0xe
+ 510 003d 3A       		.uleb128 0x3a
+ 511 003e 0B       		.uleb128 0xb
+ 512 003f 3B       		.uleb128 0x3b
+ 513 0040 0B       		.uleb128 0xb
+ 514 0041 27       		.uleb128 0x27
+ 515 0042 19       		.uleb128 0x19
+ 516 0043 11       		.uleb128 0x11
+ 517 0044 01       		.uleb128 0x1
+ 518 0045 12       		.uleb128 0x12
+ 519 0046 06       		.uleb128 0x6
+ 520 0047 40       		.uleb128 0x40
+ 521 0048 18       		.uleb128 0x18
+ 522 0049 9742     		.uleb128 0x2117
+ 523 004b 19       		.uleb128 0x19
+ 524 004c 01       		.uleb128 0x1
+ 525 004d 13       		.uleb128 0x13
+ 526 004e 00       		.byte	0
+ 527 004f 00       		.byte	0
+ 528 0050 06       		.uleb128 0x6
+ 529 0051 34       		.uleb128 0x34
+ 530 0052 00       		.byte	0
+ 531 0053 03       		.uleb128 0x3
+ 532 0054 0E       		.uleb128 0xe
+ 533 0055 3A       		.uleb128 0x3a
+ 534 0056 0B       		.uleb128 0xb
+ 535 0057 3B       		.uleb128 0x3b
+ 536 0058 0B       		.uleb128 0xb
+ 537 0059 49       		.uleb128 0x49
+ 538 005a 13       		.uleb128 0x13
+ 539 005b 02       		.uleb128 0x2
+ 540 005c 18       		.uleb128 0x18
+ 541 005d 00       		.byte	0
+ 542 005e 00       		.byte	0
+ 543 005f 07       		.uleb128 0x7
+ 544 0060 2E       		.uleb128 0x2e
+ 545 0061 01       		.byte	0x1
+ 546 0062 3F       		.uleb128 0x3f
+ 547 0063 19       		.uleb128 0x19
+ 548 0064 03       		.uleb128 0x3
+ 549 0065 0E       		.uleb128 0xe
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 13
 
 
- 550 0084 02       		.uleb128 0x2
- 551 0085 18       		.uleb128 0x18
- 552 0086 00       		.byte	0
- 553 0087 00       		.byte	0
- 554 0088 09       		.uleb128 0x9
- 555 0089 01       		.uleb128 0x1
- 556 008a 01       		.byte	0x1
- 557 008b 49       		.uleb128 0x49
- 558 008c 13       		.uleb128 0x13
- 559 008d 01       		.uleb128 0x1
- 560 008e 13       		.uleb128 0x13
- 561 008f 00       		.byte	0
- 562 0090 00       		.byte	0
- 563 0091 0A       		.uleb128 0xa
- 564 0092 21       		.uleb128 0x21
- 565 0093 00       		.byte	0
- 566 0094 49       		.uleb128 0x49
- 567 0095 13       		.uleb128 0x13
- 568 0096 2F       		.uleb128 0x2f
- 569 0097 0B       		.uleb128 0xb
- 570 0098 00       		.byte	0
- 571 0099 00       		.byte	0
- 572 009a 0B       		.uleb128 0xb
- 573 009b 35       		.uleb128 0x35
- 574 009c 00       		.byte	0
- 575 009d 49       		.uleb128 0x49
- 576 009e 13       		.uleb128 0x13
- 577 009f 00       		.byte	0
- 578 00a0 00       		.byte	0
- 579 00a1 0C       		.uleb128 0xc
- 580 00a2 34       		.uleb128 0x34
- 581 00a3 00       		.byte	0
- 582 00a4 03       		.uleb128 0x3
- 583 00a5 0E       		.uleb128 0xe
- 584 00a6 3A       		.uleb128 0x3a
- 585 00a7 0B       		.uleb128 0xb
- 586 00a8 3B       		.uleb128 0x3b
- 587 00a9 05       		.uleb128 0x5
- 588 00aa 49       		.uleb128 0x49
- 589 00ab 13       		.uleb128 0x13
- 590 00ac 3F       		.uleb128 0x3f
- 591 00ad 19       		.uleb128 0x19
- 592 00ae 3C       		.uleb128 0x3c
- 593 00af 19       		.uleb128 0x19
- 594 00b0 00       		.byte	0
- 595 00b1 00       		.byte	0
- 596 00b2 00       		.byte	0
- 597              		.section	.debug_aranges,"",%progbits
- 598 0000 2C000000 		.4byte	0x2c
- 599 0004 0200     		.2byte	0x2
- 600 0006 00000000 		.4byte	.Ldebug_info0
- 601 000a 04       		.byte	0x4
- 602 000b 00       		.byte	0
- 603 000c 0000     		.2byte	0
- 604 000e 0000     		.2byte	0
- 605 0010 00000000 		.4byte	.LFB68
- 606 0014 30000000 		.4byte	.LFE68-.LFB68
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 14
+ 550 0066 3A       		.uleb128 0x3a
+ 551 0067 0B       		.uleb128 0xb
+ 552 0068 3B       		.uleb128 0x3b
+ 553 0069 0B       		.uleb128 0xb
+ 554 006a 27       		.uleb128 0x27
+ 555 006b 19       		.uleb128 0x19
+ 556 006c 11       		.uleb128 0x11
+ 557 006d 01       		.uleb128 0x1
+ 558 006e 12       		.uleb128 0x12
+ 559 006f 06       		.uleb128 0x6
+ 560 0070 40       		.uleb128 0x40
+ 561 0071 18       		.uleb128 0x18
+ 562 0072 9642     		.uleb128 0x2116
+ 563 0074 19       		.uleb128 0x19
+ 564 0075 01       		.uleb128 0x1
+ 565 0076 13       		.uleb128 0x13
+ 566 0077 00       		.byte	0
+ 567 0078 00       		.byte	0
+ 568 0079 08       		.uleb128 0x8
+ 569 007a 05       		.uleb128 0x5
+ 570 007b 00       		.byte	0
+ 571 007c 03       		.uleb128 0x3
+ 572 007d 0E       		.uleb128 0xe
+ 573 007e 3A       		.uleb128 0x3a
+ 574 007f 0B       		.uleb128 0xb
+ 575 0080 3B       		.uleb128 0x3b
+ 576 0081 0B       		.uleb128 0xb
+ 577 0082 49       		.uleb128 0x49
+ 578 0083 13       		.uleb128 0x13
+ 579 0084 02       		.uleb128 0x2
+ 580 0085 18       		.uleb128 0x18
+ 581 0086 00       		.byte	0
+ 582 0087 00       		.byte	0
+ 583 0088 09       		.uleb128 0x9
+ 584 0089 0B       		.uleb128 0xb
+ 585 008a 01       		.byte	0x1
+ 586 008b 11       		.uleb128 0x11
+ 587 008c 01       		.uleb128 0x1
+ 588 008d 12       		.uleb128 0x12
+ 589 008e 06       		.uleb128 0x6
+ 590 008f 00       		.byte	0
+ 591 0090 00       		.byte	0
+ 592 0091 0A       		.uleb128 0xa
+ 593 0092 2E       		.uleb128 0x2e
+ 594 0093 01       		.byte	0x1
+ 595 0094 3F       		.uleb128 0x3f
+ 596 0095 19       		.uleb128 0x19
+ 597 0096 03       		.uleb128 0x3
+ 598 0097 0E       		.uleb128 0xe
+ 599 0098 3A       		.uleb128 0x3a
+ 600 0099 0B       		.uleb128 0xb
+ 601 009a 3B       		.uleb128 0x3b
+ 602 009b 0B       		.uleb128 0xb
+ 603 009c 49       		.uleb128 0x49
+ 604 009d 13       		.uleb128 0x13
+ 605 009e 3C       		.uleb128 0x3c
+ 606 009f 19       		.uleb128 0x19
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 14
 
 
- 607 0018 00000000 		.4byte	.LFB69
- 608 001c A0000000 		.4byte	.LFE69-.LFB69
- 609 0020 00000000 		.4byte	.LFB70
- 610 0024 34000000 		.4byte	.LFE70-.LFB70
- 611 0028 00000000 		.4byte	0
- 612 002c 00000000 		.4byte	0
- 613              		.section	.debug_ranges,"",%progbits
- 614              	.Ldebug_ranges0:
- 615 0000 00000000 		.4byte	.LFB68
- 616 0004 30000000 		.4byte	.LFE68
- 617 0008 00000000 		.4byte	.LFB69
- 618 000c A0000000 		.4byte	.LFE69
- 619 0010 00000000 		.4byte	.LFB70
- 620 0014 34000000 		.4byte	.LFE70
- 621 0018 00000000 		.4byte	0
- 622 001c 00000000 		.4byte	0
- 623              		.section	.debug_line,"",%progbits
- 624              	.Ldebug_line0:
- 625 0000 98010000 		.section	.debug_str,"MS",%progbits,1
- 625      02003D01 
- 625      00000201 
- 625      FB0E0D00 
- 625      01010101 
- 626              	.LASF6:
- 627 0000 6C6F6E67 		.ascii	"long long int\000"
- 627      206C6F6E 
- 627      6720696E 
- 627      7400
- 628              	.LASF3:
- 629 000e 73686F72 		.ascii	"short unsigned int\000"
- 629      7420756E 
- 629      7369676E 
- 629      65642069 
- 629      6E7400
- 630              	.LASF8:
- 631 0021 756E7369 		.ascii	"unsigned int\000"
- 631      676E6564 
- 631      20696E74 
- 631      00
- 632              	.LASF21:
- 633 002e 634C6564 		.ascii	"cLedOutput\000"
- 633      4F757470 
- 633      757400
- 634              	.LASF5:
- 635 0039 6C6F6E67 		.ascii	"long unsigned int\000"
- 635      20756E73 
- 635      69676E65 
- 635      6420696E 
- 635      7400
- 636              	.LASF7:
- 637 004b 6C6F6E67 		.ascii	"long long unsigned int\000"
- 637      206C6F6E 
- 637      6720756E 
- 637      7369676E 
- 637      65642069 
- 638              	.LASF23:
- 639 0062 50617254 		.ascii	"ParTest.c\000"
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 15
+ 607 00a0 01       		.uleb128 0x1
+ 608 00a1 13       		.uleb128 0x13
+ 609 00a2 00       		.byte	0
+ 610 00a3 00       		.byte	0
+ 611 00a4 0B       		.uleb128 0xb
+ 612 00a5 18       		.uleb128 0x18
+ 613 00a6 00       		.byte	0
+ 614 00a7 00       		.byte	0
+ 615 00a8 00       		.byte	0
+ 616 00a9 0C       		.uleb128 0xc
+ 617 00aa 2E       		.uleb128 0x2e
+ 618 00ab 01       		.byte	0x1
+ 619 00ac 3F       		.uleb128 0x3f
+ 620 00ad 19       		.uleb128 0x19
+ 621 00ae 03       		.uleb128 0x3
+ 622 00af 0E       		.uleb128 0xe
+ 623 00b0 3A       		.uleb128 0x3a
+ 624 00b1 0B       		.uleb128 0xb
+ 625 00b2 3B       		.uleb128 0x3b
+ 626 00b3 0B       		.uleb128 0xb
+ 627 00b4 49       		.uleb128 0x49
+ 628 00b5 13       		.uleb128 0x13
+ 629 00b6 3C       		.uleb128 0x3c
+ 630 00b7 19       		.uleb128 0x19
+ 631 00b8 00       		.byte	0
+ 632 00b9 00       		.byte	0
+ 633 00ba 0D       		.uleb128 0xd
+ 634 00bb 01       		.uleb128 0x1
+ 635 00bc 01       		.byte	0x1
+ 636 00bd 49       		.uleb128 0x49
+ 637 00be 13       		.uleb128 0x13
+ 638 00bf 01       		.uleb128 0x1
+ 639 00c0 13       		.uleb128 0x13
+ 640 00c1 00       		.byte	0
+ 641 00c2 00       		.byte	0
+ 642 00c3 0E       		.uleb128 0xe
+ 643 00c4 21       		.uleb128 0x21
+ 644 00c5 00       		.byte	0
+ 645 00c6 49       		.uleb128 0x49
+ 646 00c7 13       		.uleb128 0x13
+ 647 00c8 2F       		.uleb128 0x2f
+ 648 00c9 0B       		.uleb128 0xb
+ 649 00ca 00       		.byte	0
+ 650 00cb 00       		.byte	0
+ 651 00cc 0F       		.uleb128 0xf
+ 652 00cd 35       		.uleb128 0x35
+ 653 00ce 00       		.byte	0
+ 654 00cf 49       		.uleb128 0x49
+ 655 00d0 13       		.uleb128 0x13
+ 656 00d1 00       		.byte	0
+ 657 00d2 00       		.byte	0
+ 658 00d3 10       		.uleb128 0x10
+ 659 00d4 34       		.uleb128 0x34
+ 660 00d5 00       		.byte	0
+ 661 00d6 03       		.uleb128 0x3
+ 662 00d7 0E       		.uleb128 0xe
+ 663 00d8 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 15
 
 
- 639      6573742E 
- 639      6300
- 640              	.LASF16:
- 641 006c 76506172 		.ascii	"vParTestSetLED\000"
- 641      54657374 
- 641      5365744C 
- 641      454400
- 642              	.LASF15:
- 643 007b 76506172 		.ascii	"vParTestInitialise\000"
- 643      54657374 
- 643      496E6974 
- 643      69616C69 
- 643      736500
- 644              	.LASF18:
- 645 008e 7856616C 		.ascii	"xValue\000"
- 645      756500
- 646              	.LASF1:
- 647 0095 756E7369 		.ascii	"unsigned char\000"
- 647      676E6564 
- 647      20636861 
- 647      7200
- 648              	.LASF20:
- 649 00a3 6C496E64 		.ascii	"lIndex\000"
- 649      657800
- 650              	.LASF19:
- 651 00aa 76506172 		.ascii	"vParTestToggleLED\000"
- 651      54657374 
- 651      546F6767 
- 651      6C654C45 
- 651      4400
- 652              	.LASF22:
- 653 00bc 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 653      4320342E 
- 653      392E3320 
- 653      32303135 
- 653      30333033 
- 654 00ef 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 654      20726576 
- 654      6973696F 
- 654      6E203232 
- 654      31323230 
- 655 0122 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 655      66756E63 
- 655      74696F6E 
- 655      2D736563 
- 655      74696F6E 
- 656              	.LASF2:
- 657 014a 73686F72 		.ascii	"short int\000"
- 657      7420696E 
- 657      7400
- 658              	.LASF12:
- 659 0154 646F7562 		.ascii	"double\000"
- 659      6C6500
- 660              	.LASF4:
- 661 015b 6C6F6E67 		.ascii	"long int\000"
- 661      20696E74 
- 661      00
-ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\ccPi2gmC.s 			page 16
+ 664 00d9 0B       		.uleb128 0xb
+ 665 00da 3B       		.uleb128 0x3b
+ 666 00db 05       		.uleb128 0x5
+ 667 00dc 49       		.uleb128 0x49
+ 668 00dd 13       		.uleb128 0x13
+ 669 00de 3F       		.uleb128 0x3f
+ 670 00df 19       		.uleb128 0x19
+ 671 00e0 3C       		.uleb128 0x3c
+ 672 00e1 19       		.uleb128 0x19
+ 673 00e2 00       		.byte	0
+ 674 00e3 00       		.byte	0
+ 675 00e4 00       		.byte	0
+ 676              		.section	.debug_aranges,"",%progbits
+ 677 0000 2C000000 		.4byte	0x2c
+ 678 0004 0200     		.2byte	0x2
+ 679 0006 00000000 		.4byte	.Ldebug_info0
+ 680 000a 04       		.byte	0x4
+ 681 000b 00       		.byte	0
+ 682 000c 0000     		.2byte	0
+ 683 000e 0000     		.2byte	0
+ 684 0010 00000000 		.4byte	.LFB68
+ 685 0014 30000000 		.4byte	.LFE68-.LFB68
+ 686 0018 00000000 		.4byte	.LFB69
+ 687 001c 90000000 		.4byte	.LFE69-.LFB69
+ 688 0020 00000000 		.4byte	.LFB70
+ 689 0024 34000000 		.4byte	.LFE70-.LFB70
+ 690 0028 00000000 		.4byte	0
+ 691 002c 00000000 		.4byte	0
+ 692              		.section	.debug_ranges,"",%progbits
+ 693              	.Ldebug_ranges0:
+ 694 0000 00000000 		.4byte	.LFB68
+ 695 0004 30000000 		.4byte	.LFE68
+ 696 0008 00000000 		.4byte	.LFB69
+ 697 000c 90000000 		.4byte	.LFE69
+ 698 0010 00000000 		.4byte	.LFB70
+ 699 0014 34000000 		.4byte	.LFE70
+ 700 0018 00000000 		.4byte	0
+ 701 001c 00000000 		.4byte	0
+ 702              		.section	.debug_line,"",%progbits
+ 703              	.Ldebug_line0:
+ 704 0000 98010000 		.section	.debug_str,"MS",%progbits,1
+ 704      02003D01 
+ 704      00000201 
+ 704      FB0E0D00 
+ 704      01010101 
+ 705              	.LASF16:
+ 706 0000 76506172 		.ascii	"vParTestSetLED\000"
+ 706      54657374 
+ 706      5365744C 
+ 706      454400
+ 707              	.LASF17:
+ 708 000f 75784C45 		.ascii	"uxLED\000"
+ 708      4400
+ 709              	.LASF9:
+ 710 0015 5F5F696E 		.ascii	"__int32_t\000"
+ 710      7433325F 
+ 710      7400
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 16
 
 
- 662              	.LASF24:
- 663 0164 433A5C55 		.ascii	"C:\\Users\\NGGMLGM\\Documents\\UWE\\GDIP\\GDIP\\Fre"
- 663      73657273 
- 663      5C4E4747 
- 663      4D4C474D 
- 663      5C446F63 
- 664 0190 6552544F 		.ascii	"eRTOS\\Demo\\CORTEX_CY8C5588_PSoC_Creator_GCC\\Free"
- 664      535C4465 
- 664      6D6F5C43 
- 664      4F525445 
- 664      585F4359 
- 665 01c0 52544F53 		.ascii	"RTOS_Demo.cydsn\000"
- 665      5F44656D 
- 665      6F2E6379 
- 665      64736E00 
- 666              	.LASF14:
- 667 01d0 73697A65 		.ascii	"sizetype\000"
- 667      74797065 
- 667      00
- 668              	.LASF25:
- 669 01d9 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 669      52784275 
- 669      66666572 
- 669      00
- 670              	.LASF0:
- 671 01e6 7369676E 		.ascii	"signed char\000"
- 671      65642063 
- 671      68617200 
- 672              	.LASF9:
- 673 01f2 5F5F696E 		.ascii	"__int32_t\000"
- 673      7433325F 
- 673      7400
- 674              	.LASF11:
- 675 01fc 666C6F61 		.ascii	"float\000"
- 675      7400
- 676              	.LASF17:
- 677 0202 75784C45 		.ascii	"uxLED\000"
- 677      4400
- 678              	.LASF10:
- 679 0208 696E7433 		.ascii	"int32_t\000"
- 679      325F7400 
- 680              	.LASF13:
- 681 0210 63686172 		.ascii	"char\000"
- 681      00
- 682              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 711              	.LASF22:
+ 712 001f 76506172 		.ascii	"vParTestToggleLED\000"
+ 712      54657374 
+ 712      546F6767 
+ 712      6C654C45 
+ 712      4400
+ 713              	.LASF25:
+ 714 0031 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 714      4320342E 
+ 714      392E3320 
+ 714      32303135 
+ 714      30333033 
+ 715 0064 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 715      20726576 
+ 715      6973696F 
+ 715      6E203232 
+ 715      31323230 
+ 716 0097 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 716      66756E63 
+ 716      74696F6E 
+ 716      2D736563 
+ 716      74696F6E 
+ 717              	.LASF12:
+ 718 00bf 646F7562 		.ascii	"double\000"
+ 718      6C6500
+ 719              	.LASF11:
+ 720 00c6 666C6F61 		.ascii	"float\000"
+ 720      7400
+ 721              	.LASF23:
+ 722 00cc 6C496E64 		.ascii	"lIndex\000"
+ 722      657800
+ 723              	.LASF1:
+ 724 00d3 756E7369 		.ascii	"unsigned char\000"
+ 724      676E6564 
+ 724      20636861 
+ 724      7200
+ 725              	.LASF26:
+ 726 00e1 50617254 		.ascii	"ParTest.c\000"
+ 726      6573742E 
+ 726      6300
+ 727              	.LASF5:
+ 728 00eb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 728      20756E73 
+ 728      69676E65 
+ 728      6420696E 
+ 728      7400
+ 729              	.LASF19:
+ 730 00fd 50696E5F 		.ascii	"Pin_LED_0_Write\000"
+ 730      4C45445F 
+ 730      305F5772 
+ 730      69746500 
+ 731              	.LASF15:
+ 732 010d 76506172 		.ascii	"vParTestInitialise\000"
+ 732      54657374 
+ 732      496E6974 
+ 732      69616C69 
+ 732      736500
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 17
+
+
+ 733              	.LASF29:
+ 734 0120 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 734      52784275 
+ 734      66666572 
+ 734      00
+ 735              	.LASF20:
+ 736 012d 50696E5F 		.ascii	"Pin_LED_1_Write\000"
+ 736      4C45445F 
+ 736      315F5772 
+ 736      69746500 
+ 737              	.LASF18:
+ 738 013d 7856616C 		.ascii	"xValue\000"
+ 738      756500
+ 739              	.LASF24:
+ 740 0144 634C6564 		.ascii	"cLedOutput\000"
+ 740      4F757470 
+ 740      757400
+ 741              	.LASF21:
+ 742 014f 50696E5F 		.ascii	"Pin_LED_2_Write\000"
+ 742      4C45445F 
+ 742      325F5772 
+ 742      69746500 
+ 743              	.LASF8:
+ 744 015f 756E7369 		.ascii	"unsigned int\000"
+ 744      676E6564 
+ 744      20696E74 
+ 744      00
+ 745              	.LASF27:
+ 746 016c 433A5C55 		.ascii	"C:\\Users\\NGGMLGM\\Documents\\UWE\\GDIP\\GDIP\\Fre"
+ 746      73657273 
+ 746      5C4E4747 
+ 746      4D4C474D 
+ 746      5C446F63 
+ 747 0198 6552544F 		.ascii	"eRTOS\\Demo\\CORTEX_CY8C5588_PSoC_Creator_GCC\\Free"
+ 747      535C4465 
+ 747      6D6F5C43 
+ 747      4F525445 
+ 747      585F4359 
+ 748 01c8 52544F53 		.ascii	"RTOS_Demo.cydsn\000"
+ 748      5F44656D 
+ 748      6F2E6379 
+ 748      64736E00 
+ 749              	.LASF7:
+ 750 01d8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 750      206C6F6E 
+ 750      6720756E 
+ 750      7369676E 
+ 750      65642069 
+ 751              	.LASF28:
+ 752 01ef 50696E5F 		.ascii	"Pin_LED_3_Write\000"
+ 752      4C45445F 
+ 752      335F5772 
+ 752      69746500 
+ 753              	.LASF10:
+ 754 01ff 696E7433 		.ascii	"int32_t\000"
+ 754      325F7400 
+ 755              	.LASF14:
+ARM GAS  C:\Users\NGGMLGM\AppData\Local\Temp\cc2wNCyf.s 			page 18
+
+
+ 756 0207 73697A65 		.ascii	"sizetype\000"
+ 756      74797065 
+ 756      00
+ 757              	.LASF6:
+ 758 0210 6C6F6E67 		.ascii	"long long int\000"
+ 758      206C6F6E 
+ 758      6720696E 
+ 758      7400
+ 759              	.LASF13:
+ 760 021e 63686172 		.ascii	"char\000"
+ 760      00
+ 761              	.LASF2:
+ 762 0223 73686F72 		.ascii	"short int\000"
+ 762      7420696E 
+ 762      7400
+ 763              	.LASF4:
+ 764 022d 6C6F6E67 		.ascii	"long int\000"
+ 764      20696E74 
+ 764      00
+ 765              	.LASF0:
+ 766 0236 7369676E 		.ascii	"signed char\000"
+ 766      65642063 
+ 766      68617200 
+ 767              	.LASF3:
+ 768 0242 73686F72 		.ascii	"short unsigned int\000"
+ 768      7420756E 
+ 768      7369676E 
+ 768      65642069 
+ 768      6E7400
+ 769              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
