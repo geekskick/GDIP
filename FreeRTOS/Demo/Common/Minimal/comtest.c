@@ -165,16 +165,14 @@ void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHa
 	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* )ipInputQueue , uxPriority, ( TaskHandle_t * ) NULL );
 }
 /*-----------------------------------------------------------*/
-/*-----------------------------------------------------------*/
 
 static portTASK_FUNCTION( vComRxTask, pvParameters )
 {
-signed char cExpectedByte, cByteRxed;
-char buffer[10] = { 0 };
-int bufferLoc = 0;
-BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
+signed char cByteRxed;      /* The input byte */
+char buffer[10] = { 0 };    /* a buffer to store the user input */
+int bufferLoc = 0;          /* index of the next free location in the buffer */
 
-	/* cas tthe params passed in as a pointer to a queue */
+	/* cast the params passed in as a pointer to a queue */
 	QueueHandle_t *ipInputQueue = ( QueueHandle_t* ) pvParameters;
 
 	for( ;; )
@@ -183,50 +181,33 @@ BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
 		available. */
 		xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME ); 
         
-        if(cByteRxed == '\r' || bufferLoc == 9){
-            vParTestToggleLED(0);
-            /* Now send to the servoqueue or task etc but this isn't implemeted yet */
-            /* first convert the recieved text into a number, and if it's in the range 1 - 180 then send to the servo queue */
-            int iNumRxd = atoi(buffer);
+        /* turn the light on to show that it's in this part of the process */
+        vParTestToggleLED(0);
         
-            if(iNumRxd > 0 && iNumRxd <= 180 && ipInputQueue != NULL )
+        /* if it's the end of what the user wants to send. or there is no more room then send to the queue */
+        if(cByteRxed == '\r' || bufferLoc == 9){
+            
+            /* first convert the recieved text into a number and send to the queue if it's valid */
+            int iNumRxd = atoi(buffer);
+            
+            if(ipInputQueue != NULL )
             {
-                // for not dont worry about a time out if the queue is full, dont think it'll ever get there.
+                /* for now dont worry about a time out if the queue is full, dont think it'll ever get there */
                 xQueueSend( *ipInputQueue, (void *)&iNumRxd, 0);
             }
+            
+            /* reset the buffer to 0s and point to the start of it */
             memset(buffer, 0, 10);
             bufferLoc = 0;
         }
         else
         {
+            /* add to the buffer cause the user is still sending characters */
             buffer[bufferLoc++] = cByteRxed;   
         }
         
         
 	}
-} /*lint !e715 !e818 pvParameters is required for a task function even if it is not referenced. */
-/*-----------------------------------------------------------*/
-
-BaseType_t xAreComTestTasksStillRunning( void )
-{
-BaseType_t xReturn;
-
-	/* If the count of successful reception loops has not changed than at
-	some time an error occurred (i.e. a character was received out of sequence)
-	and we will return false. */
-	if( uxRxLoops == comINITIAL_RX_COUNT_VALUE )
-	{
-		xReturn = pdFALSE;
-	}
-	else
-	{
-		xReturn = pdTRUE;
-	}
-
-	/* Reset the count of successful Rx loops.  When this function is called
-	again we expect this to have been incremented. */
-	uxRxLoops = comINITIAL_RX_COUNT_VALUE;
-
-	return xReturn;
 }
+/*-----------------------------------------------------------*/
 
