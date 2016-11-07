@@ -13,16 +13,10 @@
 #ifndef SERVO_H
 #define SERVO_H
     
-#include "Serial.h" /* included for the xComPortHandle"  */
-    
+/* depth of the queue is ten bytes */
+#define SERVO_QUEUE_SIZE 10
 
-/* A struct to pass paramters to the servo task */
-struct servoArgs{
-    xComPortHandle serialPort;
-    QueueHandle_t  inputQueue;
-};
-
-void vStartServoTasks(void *pvParams, int priority);
+QueueHandle_t* xStartServoTasks( int priority );
 
 #endif
 

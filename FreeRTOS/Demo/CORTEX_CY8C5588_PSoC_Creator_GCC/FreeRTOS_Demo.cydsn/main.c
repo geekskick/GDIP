@@ -87,9 +87,6 @@
 /* Task priorities. */
 #define mainCOM_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
 
-/* the queue i only want to be defined in this file so make it static */
-static QueueHandle_t servoQueue = NULL;
-
 /*---------------------------------------------------------------------------*/
 /*
  * Installs the RTOS interrupt handlers and starts the peripherals.
@@ -102,24 +99,16 @@ int main( void )
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 	prvHardwareSetup();
 
-    /* init the queue between the uart in and the servo task with enough room for 100 bytes of data to be sent.
-    it wont ever be that much but I need to make a start somewhere. */
-    servoQueue = xQueueCreate( 100, sizeof(uint8_t) );
+    /* the servo task will create a queue, this will be it's location. 
+        Needs to be static so that the other tasks can use it */
+    static QueueHandle_t *servoQueue = NULL;
+    servoQueue = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY - 1 );
     
     /* start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
     and return the comport handler into the uart location
     */
-	xComPortHandle uart = NULL; 
-    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, &servoQueue, &uart );
+    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, servoQueue, NULL );
     
-    /* The struct for passing to the task need to be static  */
-    static struct servoArgs a;
-    a.inputQueue = servoQueue;
-    a.serialPort = uart;
-    
-    /* finally create the servo task */
-    vStartServoTasks( ( void*) &a,  mainCOM_TEST_TASK_PRIORITY - 1);
-
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
 	vTaskStartScheduler();
