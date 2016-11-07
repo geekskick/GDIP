@@ -216,14 +216,17 @@
     <Group key="Pin">
       <Data key="3a0a5806-ffd9-43bc-b395-84692ceed6cb" value="Pin_1" />
       <Data key="289a8dd4-b439-4dcc-b229-17674ce5879f" value="Pin_LED_3" />
+      <Data key="633bff1e-0969-4852-9c7b-be9f6763fe3d" value="builtInLED" />
       <Data key="31701add-6005-44d9-ae4e-af20af5e04c1" value="Startup_Release_Switch" />
-      <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
+      <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="rxPin" />
       <Data key="a774cbee-f634-4288-91e6-9ae6a6f16e58/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_Character_Display_LCDPort" />
       <Data key="b3ac9170-30ae-409e-a625-ad268e914172" value="Pin_LED_2" />
       <Data key="d2d370b0-ab5e-45a8-bdaa-cae154932b4e" value="Pin_2" />
       <Data key="dd8e7b7a-4555-4c6e-b975-b71c8ba57ccc" value="Pin_LED_0" />
+      <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="servoPin" />
       <Data key="e887b5b1-e747-416b-a086-8910d8e44d24" value="Pin_LED_1" />
-      <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
+      <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="txPin" />
+      <Data key="fb1b4ee1-703a-4255-bb45-e2cc7333777a" value="pin_servoGND" />
     </Group>
   </Group>
   <Group key="Interrupt">
@@ -244,6 +247,11 @@
         <Data key="Port Format" value="0,7" />
       </Group>
     </Group>
+    <Group key="633bff1e-0969-4852-9c7b-be9f6763fe3d">
+      <Group key="0">
+        <Data key="Port Format" value="2,1" />
+      </Group>
+    </Group>
     <Group key="31701add-6005-44d9-ae4e-af20af5e04c1">
       <Group key="0">
         <Data key="Port Format" value="1,7" />
@@ -251,7 +259,7 @@
     </Group>
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">
       <Group key="0">
-        <Data key="Port Format" value="0,0" />
+        <Data key="Port Format" value="0,1" />
       </Group>
     </Group>
     <Group key="a774cbee-f634-4288-91e6-9ae6a6f16e58/ed092b9b-d398-4703-be89-cebf998501f6">
@@ -292,6 +300,11 @@
         <Data key="Port Format" value="0,4" />
       </Group>
     </Group>
+    <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
+      <Group key="0">
+        <Data key="Port Format" value="1,5" />
+      </Group>
+    </Group>
     <Group key="e887b5b1-e747-416b-a086-8910d8e44d24">
       <Group key="0">
         <Data key="Port Format" value="0,5" />
@@ -299,9 +312,15 @@
     </Group>
     <Group key="ed092b9b-d398-4703-be89-cebf998501f6">
       <Group key="0">
-        <Data key="Port Format" value="0,1" />
+        <Data key="Port Format" value="0,0" />
       </Group>
     </Group>
+    <Group key="fb1b4ee1-703a-4255-bb45-e2cc7333777a">
+      <Group key="0">
+        <Data key="Port Format" value="1,6" />
+      </Group>
+    </Group>
+    <Group key="UnAssigned Pins" />
   </Group>
   <Group key="System3">
     <Data key="CYDEV_HEAP_SIZE" value="0" />

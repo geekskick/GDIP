@@ -78,6 +78,8 @@
 /* Common Demo includes. */
 #include "serial.h"
 #include "comtest.h"
+
+#include "partest.h"
 /*---------------------------------------------------------------------------*/
 
 /* The time between cycles of the 'check' functionality (defined within the
@@ -92,19 +94,73 @@ tick hook. */
 #define mainCOM_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
 /*---------------------------------------------------------------------------*/
 
-
 /*
  * Installs the RTOS interrupt handlers and starts the peripherals.
  */
 static void prvHardwareSetup( void );
+
+struct servoArgs{
+    xComPortHandle serialPort;
+    QueueHandle_t  inputQueue;
+};
+
+static QueueHandle_t servoQueue = NULL;
+
+static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
+static portTASK_FUNCTION( vServoTask, pvParamaters )
+{
+    struct servoArgs args = *((struct servoArgs*) pvParamaters );
+    QueueHandle_t inputQueue = args.inputQueue;
+    
+    uint8_t inputValue = 0;
+    const uint8_t SERVO_MIN = 0x00, 
+                  SERVO_MAX = 0xFF;
+    
+    // the meat of the task
+    for (;;)
+    {
+        if( pdTRUE == xQueueReceive( servoQueue, &inputValue, portMAX_DELAY ) )
+        {
+           // vSerialPutString(args.serialPort, "Got a value", strlen("Got a value"));
+            // when using HW disable interurpts
+            vParTestToggleLED(0);
+            
+            taskENTER_CRITICAL();
+            
+            
+            // for now this test is pointless, however when i actually know these limits it's easy to change the values in the variables
+            if( ( inputValue <= SERVO_MAX ) &&
+                ( inputValue > SERVO_MIN ) &&
+                ( inputValue < servoPWM_ReadPeriod() ) 
+            )
+            { 
+                servoPWM_WriteCompare( inputValue ); 
+            }
+            taskEXIT_CRITICAL();
+        }
+        
+    }
+    
+}
 /*---------------------------------------------------------------------------*/
 
-void main( void )
+int main( void )
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 	prvHardwareSetup();
 
-	vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, mainCOM_LED );
+    // init the queue between the uart in and the servo task with enough room for 100 bytes of data to be sent.
+    // it wont ever be that much but I need to make a start somewhere. 
+    servoQueue = xQueueCreate( 100, sizeof(uint8_t) );
+    
+    // start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
+	xComPortHandle uart = NULL;
+    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, &servoQueue, &uart );
+    struct servoArgs a;
+    a.inputQueue = servoQueue;
+    a.serialPort = uart;
+     
+    xTaskCreate( vServoTask, "Servo", configMINIMAL_STACK_SIZE, ( void* ) &a, mainCOM_TEST_TASK_PRIORITY - 1, ( TaskHandle_t *) NULL);
 
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
@@ -138,6 +194,10 @@ extern cyisraddress CyRamVectors[];
     
     pwmClock_Start();
     servoPWM_Start();
+    uint8_t maxP = servoPWM_ReadPeriod();
+    servoPWM_WriteCompare(maxP);
+    
+    builtInLED_Write(1);
 
 }
 /*---------------------------------------------------------------------------*/

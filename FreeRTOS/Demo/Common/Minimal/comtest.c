@@ -103,6 +103,7 @@
 #include <stdlib.h>
 #include "FreeRTOS.h"
 #include "task.h"
+#include "queue.h"
 
 /* Demo program include files. */
 #include "serial.h"
@@ -155,61 +156,26 @@ static volatile UBaseType_t uxRxLoops = comINITIAL_RX_COUNT_VALUE;
 
 /*-----------------------------------------------------------*/
 
-void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, UBaseType_t uxLED )
+void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHandle_t* ipInputQueue, xComPortHandle *handler )
 {
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
-	uxBaseLED = uxLED;
-	xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
-
-	/* The Tx task is spawned with a lower priority than the Rx task. */
-	xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE, NULL, uxPriority - 1, ( TaskHandle_t * ) NULL );
-	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, NULL, uxPriority, ( TaskHandle_t * ) NULL );
+	*handler = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    
+    // this task is different because it needs to know the address of the poutput queue, so cast to void* then send it
+	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* )ipInputQueue , uxPriority, ( TaskHandle_t * ) NULL );
 }
 /*-----------------------------------------------------------*/
-
-static portTASK_FUNCTION( vComTxTask, pvParameters )
-{
-char cByteToSend;
-TickType_t xTimeToWait;
-
-	/* Just to stop compiler warnings. */
-	( void ) pvParameters;
-
-	for( ;; )
-	{
-		/* Simply transmit a sequence of characters from comFIRST_BYTE to
-		comLAST_BYTE. */
-		for( cByteToSend = comFIRST_BYTE; cByteToSend <= comLAST_BYTE; cByteToSend++ )
-		{
-			xSerialPutChar( xPort, cByteToSend, comNO_BLOCK );
-		}
-
-		/* We have posted all the characters in the string - wait before
-		re-sending.  Wait a pseudo-random time as this will provide a better
-		test. */
-		xTimeToWait = xTaskGetTickCount() + comOFFSET_TIME;
-
-		/* Make sure we don't wait too long... */
-		xTimeToWait %= comTX_MAX_BLOCK_TIME;
-
-		/* ...but we do want to wait. */
-		if( xTimeToWait < comTX_MIN_BLOCK_TIME )
-		{
-			xTimeToWait = comTX_MIN_BLOCK_TIME;
-		}
-
-		vTaskDelay( xTimeToWait );
-	}
-} /*lint !e715 !e818 pvParameters is required for a task function even if it is not referenced. */
 /*-----------------------------------------------------------*/
 
 static portTASK_FUNCTION( vComRxTask, pvParameters )
 {
 signed char cExpectedByte, cByteRxed;
+char buffer[10] = { 0 };
+int bufferLoc = 0;
 BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
 
-	/* Just to stop compiler warnings. */
-	( void ) pvParameters;
+	/* cas tthe params passed in as a pointer to a queue */
+	QueueHandle_t *ipInputQueue = ( QueueHandle_t* ) pvParameters;
 
 	for( ;; )
 	{
@@ -217,7 +183,26 @@ BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
 		available. */
 		xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME ); 
         
-        /* Now send to the servoqueue or task etc but this isn't implemeted yet */
+        if(cByteRxed == '\r' || bufferLoc == 9){
+            vParTestToggleLED(0);
+            /* Now send to the servoqueue or task etc but this isn't implemeted yet */
+            /* first convert the recieved text into a number, and if it's in the range 1 - 180 then send to the servo queue */
+            int iNumRxd = atoi(buffer);
+        
+            if(iNumRxd > 0 && iNumRxd <= 180 && ipInputQueue != NULL )
+            {
+                // for not dont worry about a time out if the queue is full, dont think it'll ever get there.
+                xQueueSend( *ipInputQueue, (void *)&iNumRxd, 0);
+            }
+            memset(buffer, 0, 10);
+            bufferLoc = 0;
+        }
+        else
+        {
+            buffer[bufferLoc++] = cByteRxed;   
+        }
+        
+        
 	}
 } /*lint !e715 !e818 pvParameters is required for a task function even if it is not referenced. */
 /*-----------------------------------------------------------*/

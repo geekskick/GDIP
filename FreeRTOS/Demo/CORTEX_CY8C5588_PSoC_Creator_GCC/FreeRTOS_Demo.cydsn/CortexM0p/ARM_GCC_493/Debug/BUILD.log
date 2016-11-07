@@ -1,0 +1,14 @@
+--------------- Build Started: 11/06/2016 19:35:06 Project: FreeRTOS_Demo, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+Initializing Build...
+cydsfit.exe -.appdatapath "C:\Users\NGGMLGM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C4A45PVI-471 -s C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+Elaborating Design...
+ADD: sdb.M0033: error: The instance 'rxPin', of component cy_pins_v2_20, contains an error. The parameter InputSyncModes contains an error. Pin 0: Input Sync mode of 'Double-Sync' is not available for this device.
+ * C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\TopDesign\TopDesign.cysch (Instance:rxPin)
+ADD: fit.M0006: error: Pin Error: (P0[0] has been reserved for debugging in the DWR System settings.).
+ * C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cydwr (txPin)
+ADD: sdb.M0059: error: Error in component: servoPWM. The PWM_v3_30 component (servoPWM) is not compatible with the selected device. Please check the component datasheet for details on updating to a compatible component.
+ * C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\TopDesign\TopDesign.cysch (Instance:servoPWM)
+ADD: sdb.M0059: error: Error in component: UART. The UART_v2_50 component (UART) is not compatible with the selected device. Please check the component datasheet for details on updating to a compatible component.
+ * C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\TopDesign\TopDesign.cysch (Instance:UART)
+Error: fit.M0050: The fitter aborted due to errors, please address all errors and rebuild. (App=cydsfit)
+--------------- Build Failed: 11/06/2016 19:35:10 ---------------
