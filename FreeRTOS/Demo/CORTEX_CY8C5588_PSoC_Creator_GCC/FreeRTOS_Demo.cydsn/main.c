@@ -78,7 +78,7 @@
 /* Common Demo includes. */
 #include "serial.h"
 #include "comtest.h"
-
+#include "servo.h"
 #include "partest.h"
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
@@ -87,62 +87,15 @@
 /* Task priorities. */
 #define mainCOM_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
 
-/* A struct to pass paramters to the servo task */
-struct servoArgs{
-    xComPortHandle serialPort;
-    QueueHandle_t  inputQueue;
-};
-
-/* the queue i only want to be visible in this file so make it static */
+/* the queue i only want to be defined in this file so make it static */
 static QueueHandle_t servoQueue = NULL;
 
-/* forward declare it cause im a good boy */
-static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
 /*---------------------------------------------------------------------------*/
-
 /*
  * Installs the RTOS interrupt handlers and starts the peripherals.
  */
 static void prvHardwareSetup( void );
 
-/*-----------------------------------------------------------------------*/
-static portTASK_FUNCTION( vServoTask, pvParamaters )
-{
-    /* get out the paramters */
-    struct servoArgs *args = ( ( struct servoArgs* ) pvParamaters );
-    uint8_t inputValue = 0;
-    const uint8_t SERVO_MIN = 0x00, 
-                  SERVO_MAX = 0xFF;
-    
-    // the meat of the task
-    for (;;)
-    {
-        /* block forever to get the value from the queue, for some reason using the servoQueue passed in blocks forever in the rc function as well */
-        if( pdTRUE == xQueueReceive( args->inputQueue, &inputValue, portMAX_DELAY ) )
-        {
-            /* The LED should tun off immediately */
-            vParTestToggleLED(0);
-            
-            /* when using HW disable interurpts */
-            taskENTER_CRITICAL();
-            
-            /* for now this test is pointless, however when i actually know these limits
-            it's easy to change the values in the variables. Set the Duty Cycle to within limits, and not over the set period */
-            if( ( inputValue <= SERVO_MAX ) &&
-                ( inputValue > SERVO_MIN ) &&
-                ( inputValue < servoPWM_ReadPeriod() ) 
-            )
-            { 
-                servoPWM_WriteCompare( inputValue ); 
-            }
-            
-            /* re-enable interrupts */
-            taskEXIT_CRITICAL();
-        }
-        
-    }
-    
-}
 /*---------------------------------------------------------------------------*/
 int main( void )
 {
@@ -165,7 +118,7 @@ int main( void )
     a.serialPort = uart;
     
     /* finally create the servo task */
-    xTaskCreate( vServoTask, "Servo", configMINIMAL_STACK_SIZE, ( void* ) &a, mainCOM_TEST_TASK_PRIORITY - 1, ( TaskHandle_t *) NULL);
+    vStartServoTasks( ( void*) &a,  mainCOM_TEST_TASK_PRIORITY - 1);
 
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
