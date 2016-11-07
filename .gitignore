@@ -14,3 +14,4 @@ FreeRTOS/Demo/CORTEX_CY8C5588_PSoC_Creator_GCC/FreeRTOS_Demo.cydsn/Generated_Sou
 *.plc_log
 *.hex
 *.o
+*.NGGMLGM

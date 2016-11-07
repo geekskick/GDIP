@@ -100,7 +100,7 @@ int main( void )
 	prvHardwareSetup();
 
     /* the servo task will create a queue, this will be it's location. 
-        Needs to be static so that the other tasks can use it */
+    Needs to be static so that the other tasks can use it */
     static QueueHandle_t *servoQueue = NULL;
     servoQueue = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY - 1 );
     
