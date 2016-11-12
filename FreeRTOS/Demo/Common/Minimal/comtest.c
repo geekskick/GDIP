@@ -138,16 +138,8 @@ don't have to block to send. */
 /* Handle to the com port used by both tasks. */
 static xComPortHandle xPort = NULL;
 
-/* The transmit task as described at the top of the file. */
-static portTASK_FUNCTION_PROTO( vComTxTask, pvParameters );
-
 /* The receive task as described at the top of the file. */
 static portTASK_FUNCTION_PROTO( vComRxTask, pvParameters );
-
-/* The LED that should be toggled by the Rx and Tx tasks.  The Rx task will
-toggle LED ( uxBaseLED + comRX_LED_OFFSET).  The Tx task will toggle LED
-( uxBaseLED + comTX_LED_OFFSET ). */
-static UBaseType_t uxBaseLED = 0;
 
 /* Check variable used to ensure no error have occurred.  The Rx task will
 increment this variable after every successfully received sequence.  If at any
