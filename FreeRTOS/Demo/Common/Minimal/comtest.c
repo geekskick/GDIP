@@ -182,7 +182,7 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
 		xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME ); 
         
         /* turn the light on to show that it's in this part of the process */
-        vParTestToggleLED(0);
+        //vParTestToggleLED(0);
         
         /* if it's the end of what the user wants to send. or there is no more room then send to the queue */
         if(cByteRxed == '\r' || bufferLoc == 9){

@@ -26,7 +26,7 @@
 static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
 
 /* the queue which the task will receive from */
-static QueueHandle_t servoQueue = NULL;
+static QueueHandle_t outputQueue = NULL;
 
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION( vServoTask, pvParamaters )
@@ -42,10 +42,10 @@ static portTASK_FUNCTION( vServoTask, pvParamaters )
     for (;;)
     {
         /* block forever to get the value from the queue */
-        if( pdTRUE == xQueueReceive( servoQueue, &inputValue, portMAX_DELAY ) )
+        if( pdTRUE == xQueueReceive( outputQueue, &inputValue, portMAX_DELAY ) )
         {
             /* The LED should tun off immediately */
-            vParTestToggleLED(0);
+            //vParTestToggleLED(0);
             
             /* when using HW disable interurpts */
             taskENTER_CRITICAL();
@@ -73,12 +73,12 @@ QueueHandle_t* xStartServoTasks( int priority )
 {
     /* create the queue 
     100 bytes should be quite enough */
-    servoQueue = xQueueCreate(SERVO_QUEUE_SIZE, sizeof(uint8));
+    outputQueue = xQueueCreate(SERVO_QUEUE_SIZE, sizeof(uint8));
     
     /* create the task */
     xTaskCreate( vServoTask, "Servo", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t *) NULL);
     
-    return &servoQueue;
+    return &outputQueue;
 }
 
 /* [] END OF FILE */
