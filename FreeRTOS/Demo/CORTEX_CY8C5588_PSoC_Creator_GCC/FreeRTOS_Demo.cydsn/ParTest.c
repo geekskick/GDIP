@@ -93,8 +93,11 @@ long lIndex;
 
 void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
 {
-	taskENTER_CRITICAL();
+    ( void ) uxLED;       /* stop warnings */
+    ( void ) xValue;      /* stop warnings */
     
+	taskENTER_CRITICAL();
+    /* nothing */
 	taskEXIT_CRITICAL();
 	
 }
@@ -102,8 +105,10 @@ void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
 
 void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
 {
+    ( void ) uxLED;    /* stop warnings */
     static uint8 state = 0;
-    uint8 newState = 0;
+
+    /* if the led is on, then turn it off, else turn it on */
     if( state == 0 ) 
     {
         state = 1;

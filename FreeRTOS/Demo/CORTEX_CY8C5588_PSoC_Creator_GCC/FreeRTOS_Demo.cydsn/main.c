@@ -80,6 +80,7 @@
 #include "comtest.h"
 #include "servo.h"
 #include "partest.h"
+#include "keypad.h"
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
@@ -102,12 +103,15 @@ int main( void )
     /* the servo task will create a queue, this will be it's location. 
     Needs to be static so that the other tasks can use it */
     static QueueHandle_t *servoQueue = NULL;
+    static xComPortHandle com;
     servoQueue = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY - 1 );
     
     /* start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
     and return the comport handler into the uart location
     */
-    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, servoQueue, NULL );
+    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, servoQueue, &com );
+    
+    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 1, com );
     
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
