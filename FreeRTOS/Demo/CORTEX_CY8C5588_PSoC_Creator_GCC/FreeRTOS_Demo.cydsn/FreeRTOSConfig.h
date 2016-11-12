@@ -106,6 +106,9 @@
 #define configQUEUE_REGISTRY_SIZE		10
 #define configGENERATE_RUN_TIME_STATS	0
 #define configUSE_MALLOC_FAILED_HOOK	1
+    
+// PM added to satisfy usage in blocktim.c
+#define configTIMER_TASK_PRIORITY       0
 
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
