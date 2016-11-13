@@ -14,6 +14,7 @@
 #define KEYPAD_H
 
 /* Each keypad button has an ASCII value associated with it in the following layout 
+       |
     a b c d
     e f g h 
     i j k l 

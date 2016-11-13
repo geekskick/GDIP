@@ -37,8 +37,8 @@ static portTASK_FUNCTION( vServoTask, pvParamaters )
     
 ( void ) pvParamaters;              /* stops warnings */
 uint8_t inputValue = 0;             /* input from the queue */
-const uint8_t SERVO_MIN = 0x00;     /* servo min value, this will be changed at some point so now it's more of a placeholder */
-const uint8_t SERVO_MAX = 0xFF;     /* servo max value, this will be changed at some point so now it's more of a placeholder */
+const uint8_t SERVO_MIN = 6;     /* servo min value, this will be changed at some point so now it's more of a placeholder */
+const uint8_t SERVO_MAX = 25;     /* servo max value, this will be changed at some point so now it's more of a placeholder */
 
     // the meat of the task
     for (;;)
@@ -53,7 +53,7 @@ const uint8_t SERVO_MAX = 0xFF;     /* servo max value, this will be changed at 
             /* for now this test is pointless, however when i actually know these limits
             it's easy to change the values in the variables. Set the Duty Cycle to within limits, and not over the set period */
             if( ( inputValue <= SERVO_MAX ) &&
-                ( inputValue > SERVO_MIN ) &&
+                ( inputValue >= SERVO_MIN ) &&
                 ( inputValue < servoPWM_ReadPeriod() ) 
             )
             { 
