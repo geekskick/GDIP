@@ -215,6 +215,8 @@
     </Group>
     <Group key="Pin">
       <Data key="3a0a5806-ffd9-43bc-b395-84692ceed6cb" value="Pin_1" />
+      <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="keypadIn" />
+      <Data key="9fe21b26-2ef5-40be-b4e1-f6bace123875" value="keypadOut" />
       <Data key="289a8dd4-b439-4dcc-b229-17674ce5879f" value="Pin_LED_3" />
       <Data key="633bff1e-0969-4852-9c7b-be9f6763fe3d" value="builtInLED" />
       <Data key="31701add-6005-44d9-ae4e-af20af5e04c1" value="Startup_Release_Switch" />
@@ -240,6 +242,34 @@
     <Group key="3a0a5806-ffd9-43bc-b395-84692ceed6cb">
       <Group key="0">
         <Data key="Port Format" value="0,2" />
+      </Group>
+    </Group>
+    <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
+      <Group key="0">
+        <Data key="Port Format" value="3,0" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="3,1" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="3,2" />
+      </Group>
+      <Group key="3">
+        <Data key="Port Format" value="3,3" />
+      </Group>
+    </Group>
+    <Group key="9fe21b26-2ef5-40be-b4e1-f6bace123875">
+      <Group key="0">
+        <Data key="Port Format" value="3,4" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="3,5" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="3,6" />
+      </Group>
+      <Group key="3">
+        <Data key="Port Format" value="3,7" />
       </Group>
     </Group>
     <Group key="289a8dd4-b439-4dcc-b229-17674ce5879f">

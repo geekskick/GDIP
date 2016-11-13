@@ -22,30 +22,30 @@
 /* included to toggle the LED */
 #include "partest.h"
 
+/*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
 
+/*-----------------------------------------------------------------------*/
 /* the queue which the task will receive from */
-static QueueHandle_t servoQueue = NULL;
+static QueueHandle_t outputQueue = NULL;
 
 /*-----------------------------------------------------------------------*/
+/* the main function reads from the queue and sets the PWM duty  to the passed in value */
 static portTASK_FUNCTION( vServoTask, pvParamaters )
 {
-    /* stops warnings */
-    ( void ) pvParamaters; 
     
-    uint8_t inputValue = 0;
-    const uint8_t SERVO_MIN = 0x00, 
-                  SERVO_MAX = 0xFF;
-    
+( void ) pvParamaters;              /* stops warnings */
+uint8_t inputValue = 0;             /* input from the queue */
+const uint8_t SERVO_MIN = 0x00;     /* servo min value, this will be changed at some point so now it's more of a placeholder */
+const uint8_t SERVO_MAX = 0xFF;     /* servo max value, this will be changed at some point so now it's more of a placeholder */
+
     // the meat of the task
     for (;;)
     {
         /* block forever to get the value from the queue */
-        if( pdTRUE == xQueueReceive( servoQueue, &inputValue, portMAX_DELAY ) )
+        if( pdTRUE == xQueueReceive( outputQueue, &inputValue, portMAX_DELAY ) )
         {
-            /* The LED should tun off immediately */
-            vParTestToggleLED(0);
             
             /* when using HW disable interurpts */
             taskENTER_CRITICAL();
@@ -68,17 +68,14 @@ static portTASK_FUNCTION( vServoTask, pvParamaters )
     
 }
 /*-----------------------------------------------------------------------*/
-
+/* init */
 QueueHandle_t* xStartServoTasks( int priority )
 {
-    /* create the queue 
-    100 bytes should be quite enough */
-    servoQueue = xQueueCreate(SERVO_QUEUE_SIZE, sizeof(uint8));
-    
-    /* create the task */
+
+    outputQueue = xQueueCreate(SERVO_QUEUE_SIZE, sizeof(uint8));
     xTaskCreate( vServoTask, "Servo", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t *) NULL);
     
-    return &servoQueue;
+    return &outputQueue;
 }
 
 /* [] END OF FILE */
