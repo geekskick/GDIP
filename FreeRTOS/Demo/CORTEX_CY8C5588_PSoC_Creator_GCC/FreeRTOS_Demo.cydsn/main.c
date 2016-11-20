@@ -111,7 +111,7 @@ int main( void )
     */
     vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, servoQueue, &com );
     
-    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 1, com );
+    //xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY - 1, com );
     
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
@@ -146,10 +146,7 @@ extern cyisraddress CyRamVectors[];
     /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
     pwmClock_Start();
     servoPWM_Start();
-    
-    /* Start the LED as it's max brightness, just so I can see it's working */
-    uint8_t maxP = servoPWM_ReadPeriod();
-    servoPWM_WriteCompare(maxP);
+   
     
     /* also the same for the built in LED */
     builtInLED_Write(1);
@@ -161,6 +158,8 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 {
 	/* The stack space has been execeeded for a task, considering allocating more. */
 	taskDISABLE_INTERRUPTS();
+    UART_PutString("Stack Overflow from ");
+    UART_PutString(pcTaskName);
 	for( ;; );
 }
 /*---------------------------------------------------------------------------*/

@@ -101,6 +101,7 @@
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -109,6 +110,8 @@
 #include "serial.h"
 #include "comtest.h"
 #include "partest.h"
+
+#include "currentposition.h"
 
 #define comSTACK_SIZE				configMINIMAL_STACK_SIZE
 #define comTX_LED_OFFSET			( 0 )
@@ -135,26 +138,23 @@ don't have to block to send. */
 #define comBUFFER_LEN				( ( UBaseType_t ) ( comLAST_BYTE - comFIRST_BYTE ) + ( UBaseType_t ) 1 )
 #define comINITIAL_RX_COUNT_VALUE	( 0 )
 
-/* Handle to the com port used by both tasks. */
-static xComPortHandle xPort = NULL;
-
 /* The receive task as described at the top of the file. */
 static portTASK_FUNCTION_PROTO( vComRxTask, pvParameters );
+static portTASK_FUNCTION_PROTO( vComTxTask, pvParameters );
 
-/* Check variable used to ensure no error have occurred.  The Rx task will
-increment this variable after every successfully received sequence.  If at any
-time the sequence is incorrect the the variable will stop being incremented. */
-static volatile UBaseType_t uxRxLoops = comINITIAL_RX_COUNT_VALUE;
+static xComPortHandle xHandle = NULL;
 
 /*-----------------------------------------------------------*/
 
 void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHandle_t* ipInputQueue, xComPortHandle *handler )
 {
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
-	*handler = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    xHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    *handler = xHandle;
     
-    // this task is different because it needs to know the address of the poutput queue, so cast to void* then send it
-	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* )ipInputQueue , uxPriority, ( TaskHandle_t * ) NULL );
+    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
+	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) ipInputQueue,    uxPriority, ( TaskHandle_t * ) NULL );
+    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL,            uxPriority, ( TaskHandle_t * ) NULL );
 }
 /*-----------------------------------------------------------*/
 
@@ -171,7 +171,7 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
 	{
 		/* Block on the queue that contains received bytes until a byte is
 		available. */
-		xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME ); 
+		xSerialGetChar( xHandle, &cByteRxed, comRX_BLOCK_TIME ); 
         
         /* turn the light on to show that it's in this part of the process */
         //vParTestToggleLED(0);
@@ -202,4 +202,32 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
 	}
 }
 /*-----------------------------------------------------------*/
+static portTASK_FUNCTION( vComTxTask, pvParameters )
+{
+signed char buffer[10] = { 0 };                 /* a buffer to store the output in */
+const TickType_t xFreq = 200;                   /* This is going to happen evert 200ms */
+uint8_t     usCurrentPos = 0;                   /* will be parsed to make a string */
+TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
+uint8_t     i;                                  /* for loop counter */
 
+	/* stop warnings  */
+    ( void ) pvParameters;
+
+	for( ;; )
+	{
+        /* clear the screen and reset to the top using the VT100 escape commands
+        http://www.termsys.demon.co.uk/vtansi.htm */
+		vSerialPutString(xHandle, "\033[2J", strlen("\033[2J"));
+        vSerialPutString(xHandle, "\033[0;0H", strlen("\033[0;0H"));
+        
+        /* The servo position is returned as a uint8_t, 
+        so safely change this to a string before sending it */
+        usCurrentPos = usGetCurrentPosition();
+        snprintf( buffer, 10, "%d", usCurrentPos );
+        
+        vSerialPutString(xHandle, buffer, strlen(buffer) );
+        
+        /* delay */
+        vTaskDelayUntil( &xLastWakeTime, xFreq );
+	}
+}

@@ -71,9 +71,6 @@
 #define COMTEST_H
 
 void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHandle_t* ipInputQueue, xComPortHandle *handler );
-void vStartComTestTasks( UBaseType_t uxPriority, eCOMPort ePort, eBaud eBaudRate );
-BaseType_t xAreComTestTasksStillRunning( void );
-void vComTestUnsuspendTask( void );
 
 #endif
 

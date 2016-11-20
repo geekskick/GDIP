@@ -22,6 +22,9 @@
 /* included to toggle the LED */
 #include "partest.h"
 
+/* to save the location */
+#include "currentposition.h"
+
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
@@ -37,8 +40,8 @@ static portTASK_FUNCTION( vServoTask, pvParamaters )
     
 ( void ) pvParamaters;              /* stops warnings */
 uint8_t inputValue = 0;             /* input from the queue */
-const uint8_t SERVO_MIN = 6;     /* servo min value, this will be changed at some point so now it's more of a placeholder */
-const uint8_t SERVO_MAX = 25;     /* servo max value, this will be changed at some point so now it's more of a placeholder */
+const uint8_t SERVO_MIN = 6;        /* servo min value, this will be changed at some point so now it's more of a placeholder */
+const uint8_t SERVO_MAX = 25;       /* servo max value, this will be changed at some point so now it's more of a placeholder */
 
     // the meat of the task
     for (;;)
@@ -46,6 +49,8 @@ const uint8_t SERVO_MAX = 25;     /* servo max value, this will be changed at so
         /* block forever to get the value from the queue */
         if( pdTRUE == xQueueReceive( outputQueue, &inputValue, portMAX_DELAY ) )
         {
+            /* save in the shared resource */
+            vSetCurrentPosition( inputValue );
             
             /* when using HW disable interurpts */
             taskENTER_CRITICAL();
