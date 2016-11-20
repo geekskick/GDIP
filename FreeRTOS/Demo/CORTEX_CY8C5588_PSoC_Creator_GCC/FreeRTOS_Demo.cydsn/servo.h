@@ -17,6 +17,7 @@
 #define SERVO_QUEUE_SIZE 10
 
 QueueHandle_t* xStartServoTasks( int priority );
+uint8_t usGetMidPoint( void );
 
 #endif
 

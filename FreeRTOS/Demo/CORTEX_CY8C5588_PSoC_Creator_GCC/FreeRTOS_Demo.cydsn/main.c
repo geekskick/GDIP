@@ -81,6 +81,7 @@
 #include "servo.h"
 #include "partest.h"
 #include "keypad.h"
+#include "currentposition.h"
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
@@ -111,7 +112,7 @@ int main( void )
     */
     vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, servoQueue, &com );
     
-    //xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY - 1, com );
+    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY - 1, com );
     
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
@@ -132,6 +133,7 @@ extern void xPortPendSVHandler( void );
 extern void xPortSysTickHandler( void );
 extern void vPortSVCHandler( void );
 extern cyisraddress CyRamVectors[];
+const uint8_t usMidPoint = usGetMidPoint();
 
 	/* Install the OS Interrupt Handlers. */
 	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
@@ -147,9 +149,10 @@ extern cyisraddress CyRamVectors[];
     pwmClock_Start();
     servoPWM_Start();
    
-    
-    /* also the same for the built in LED */
+    /* init the servo to middle and the built in led to on */
     builtInLED_Write(1);
+    servoPWM_WriteCompare(usMidPoint);
+    vSetCurrentPosition(usMidPoint);
 
 }
 /*---------------------------------------------------------------------------*/

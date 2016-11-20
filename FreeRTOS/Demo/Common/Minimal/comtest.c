@@ -208,7 +208,6 @@ signed char buffer[10] = { 0 };                 /* a buffer to store the output 
 const TickType_t xFreq = 200;                   /* This is going to happen evert 200ms */
 uint8_t     usCurrentPos = 0;                   /* will be parsed to make a string */
 TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
-uint8_t     i;                                  /* for loop counter */
 
 	/* stop warnings  */
     ( void ) pvParameters;
@@ -217,8 +216,8 @@ uint8_t     i;                                  /* for loop counter */
 	{
         /* clear the screen and reset to the top using the VT100 escape commands
         http://www.termsys.demon.co.uk/vtansi.htm */
-		vSerialPutString(xHandle, "\033[2J", strlen("\033[2J"));
-        vSerialPutString(xHandle, "\033[0;0H", strlen("\033[0;0H"));
+		//vSerialPutString(xHandle, "\033[2J", strlen("\033[2J"));
+        //vSerialPutString(xHandle, "\033[0;0H", strlen("\033[0;0H"));
         
         /* The servo position is returned as a uint8_t, 
         so safely change this to a string before sending it */
