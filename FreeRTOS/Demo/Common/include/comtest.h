@@ -70,7 +70,14 @@
 #ifndef COMTEST_H
 #define COMTEST_H
 
-void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHandle_t* ipInputQueue, xComPortHandle *handler );
+    /* as there are a few variables goin to the com tasks, 
+    use this struct to pass them around */
+struct xComParams{
+    QueueHandle_t* pxRxdQueue;
+    QueueHandle_t* pxTxQueue;
+    xComPortHandle* pxComHandle;
+};
+void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct xComParams xParams );
 
 #endif
 

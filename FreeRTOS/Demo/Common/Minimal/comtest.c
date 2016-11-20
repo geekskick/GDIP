@@ -146,15 +146,15 @@ static xComPortHandle xHandle = NULL;
 
 /*-----------------------------------------------------------*/
 
-void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHandle_t* ipInputQueue, xComPortHandle *handler )
+void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct xComParams xParams )
 {
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
     xHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
-    *handler = xHandle;
-    
+    *(xParams.pxComHandle) = xHandle;
+
     /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
-	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) ipInputQueue,    uxPriority, ( TaskHandle_t * ) NULL );
-    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL,            uxPriority, ( TaskHandle_t * ) NULL );
+	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) xParams.pxRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
+    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) xParams.pxTxQueue, uxPriority, ( TaskHandle_t * ) NULL );
 }
 /*-----------------------------------------------------------*/
 
@@ -208,24 +208,35 @@ signed char buffer[10] = { 0 };                 /* a buffer to store the output 
 const TickType_t xFreq = 200;                   /* This is going to happen evert 200ms */
 uint8_t     usCurrentPos = 0;                   /* will be parsed to make a string */
 TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
-
-	/* stop warnings  */
-    ( void ) pvParameters;
+signed char cButton = 'X';
+QueueHandle_t *pxToDisplay = (QueueHandle_t*) pvParameters;
+static const char* cBTN_MSG = "button pressed was ";
+const uint8_t usBTN_MSG_LEN = strlen(cBTN_MSG);
 
 	for( ;; )
 	{
+        /* wait for 100 milliseconds for the queue to recieve, this will have no effect on the
+        task timing at the waituntil function is used, so it will never be shorter than the desired frequency.
+        */
+        xQueueReceive( *pxToDisplay, &cButton, (TickType_t) 100 );
+
         /* clear the screen and reset to the top using the VT100 escape commands
         http://www.termsys.demon.co.uk/vtansi.htm */
-		//vSerialPutString(xHandle, "\033[2J", strlen("\033[2J"));
-        //vSerialPutString(xHandle, "\033[0;0H", strlen("\033[0;0H"));
+	    vSerialPutString(xHandle, "\033[2J", strlen("\033[2J"));
+        vSerialPutString(xHandle, "\033[0;0H", strlen("\033[0;0H"));
         
         /* The servo position is returned as a uint8_t, 
         so safely change this to a string before sending it */
         usCurrentPos = usGetCurrentPosition();
-        snprintf( buffer, 10, "%d", usCurrentPos );
+        snprintf( buffer, 10, "%d\n", usCurrentPos );
         
+        /*the display logic */
         vSerialPutString(xHandle, buffer, strlen(buffer) );
-        
+        vSerialPutString(xHandle, cBTN_MSG, usBTN_MSG_LEN );
+        vSerialPutString(xHandle, &cButton , 1 );
+        vSerialPutString(xHandle, '\n', 1);
+      
+     
         /* delay */
         vTaskDelayUntil( &xLastWakeTime, xFreq );
 	}
