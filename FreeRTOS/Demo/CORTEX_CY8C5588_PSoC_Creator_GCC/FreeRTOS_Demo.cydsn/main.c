@@ -113,6 +113,7 @@ static QueueHandle_t *pxKeypadQueue = NULL;
     /* start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
     and return the comport handler into the uart location
     */
+    
     struct xComParams xParams;
     xParams.pxComHandle = &com;
     xParams.pxTxQueue = pxKeypadQueue;
