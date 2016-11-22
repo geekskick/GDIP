@@ -26,6 +26,7 @@
 #define KEYPAD_TASK_PERIODICITYms 200       /* how often the whole keypad needs to be scanned for button press */
     
 QueueHandle_t* xStartKeypadTask( int priority, xComPortHandle com );
+void vSetDisplayTaskHandle( xTaskHandle xDisplayTask );
     
 #endif
 
