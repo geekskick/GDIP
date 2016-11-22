@@ -229,19 +229,6 @@
 <file name=".\Generated_Source\PSoC5\keypadOutPins.c" />
 <file name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <file name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\pin_servoGND.o">
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.c" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
-</file>
-<file name=".\Generated_Source\PSoC5\pin_servoGND.c" />
-<file name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<file name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\pwmClock.o">
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
@@ -397,8 +384,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -546,8 +531,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -639,8 +622,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -729,8 +710,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -742,6 +721,100 @@
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name=".\TimerTest.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o">
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name="..\..\Common\include\serial.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\semphr.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\servoPWM.h" />
+<dep name=".\Generated_Source\PSoC5\servoPin.h" />
+<dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\currentposition.c" />
+<dep name=".\currentposition.h" />
+<dep name=".\device.h" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+</file>
+<file name="..\..\..\Source\include\semphr.h" />
+<file name=".\currentposition.c" />
+<file name=".\currentposition.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\keypad.o">
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
@@ -822,8 +895,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -919,14 +990,13 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\currentposition.h" />
 <dep name=".\device.h" />
 <dep name=".\keypad.h" />
 <dep name=".\main.c" />
@@ -934,7 +1004,6 @@
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name="..\..\Common\include\comtest.h" />
-<file name="..\..\..\Source\include\semphr.h" />
 <file name=".\main.c" />
 <file name=".\servo.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\servo.o">
@@ -1016,14 +1085,13 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\currentposition.h" />
 <dep name=".\device.h" />
 <dep name=".\servo.c" />
 <dep name=".\servo.h" />
@@ -1109,8 +1177,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1203,8 +1269,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1296,8 +1360,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1391,8 +1453,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1485,8 +1545,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1578,8 +1636,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1673,14 +1729,13 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\currentposition.h" />
 <dep name=".\device.h" />
 <dep name="..\..\Common\Minimal\comtest.c" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
@@ -1766,8 +1821,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1858,8 +1911,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -1952,8 +2003,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2045,8 +2094,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2137,8 +2184,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2229,8 +2274,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2323,8 +2366,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2415,8 +2456,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2505,8 +2544,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2595,8 +2632,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2685,8 +2720,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2777,8 +2810,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2869,8 +2900,6 @@
 <dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
-<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\servoPWM.h" />
 <dep name=".\Generated_Source\PSoC5\servoPin.h" />
@@ -2894,6 +2923,19 @@
 <file name=".\Generated_Source\PSoC5\cydevicegnu.inc" />
 <file name=".\Generated_Source\PSoC5\cydevicegnu_trm.inc" />
 <file name=".\Generated_Source\PSoC5\cyfittergnu.inc" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\pin_servoGND.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\pin_servoGND.c" />
+<dep name=".\Generated_Source\PSoC5\pin_servoGND.h" />
+<dep name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
+</file>
+<file name=".\Generated_Source\PSoC5\pin_servoGND.c" />
+<file name=".\Generated_Source\PSoC5\pin_servoGND.h" />
+<file name=".\Generated_Source\PSoC5\pin_servoGND_aliases.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\usrtISR_BYTE_TX.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -3312,6 +3354,7 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\TimerTest.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\servo.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\keypad.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\cymetadata.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\Cm3Start.o" />
@@ -3333,7 +3376,6 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\UART_IntClock.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_TX.o" />
-<dep name=".\CortexM3\ARM_GCC_493\Debug\pin_servoGND.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\builtInLED.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\keypadOutPins.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\keypadInPins.o" />
@@ -3435,6 +3477,7 @@
 <name_val_pair name="Generated_Source\PSoC5\keypadOutControl.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Generated_Source\PSoC5\keypadOutControl_PM.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Generated_Source\PSoC5\keypadInStatus.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="currentposition.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\NGGMLGM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C5888LTI-LP097 -s C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -3794,45 +3837,6 @@
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cysym</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cystate</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cyprimitive</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\custom.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyenums.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinsdata.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinpicture.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinutils.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
 <v>.\FreeRTOS_Demo.cydwr</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cm3gcc.ld</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3RealView.scat</v>
@@ -4013,7 +4017,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="131235394876798862" />
+<deps_time v="131242937792568035" />
 <top_block v="TopDesign" />
 <last_generation v="0" />
 <pdl_path v="" />
@@ -4021,7 +4025,7 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131235395131270863" />
+<deps_time v="131242938047928035" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="718b6b01-68ba-4a17-b632-d38dc61ebb3b">
@@ -4086,7 +4090,11 @@
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
-<debugger_breakpoint_list />
+<debugger_breakpoint_list>
+<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="False" hardware="True" temparary="False" filename=".\currentposition.c" linenumber="83" />
+<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="False" hardware="True" temparary="False" filename=".\main.c" linenumber="115" />
+<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="False" hardware="True" temparary="False" filename=".\keypad.c" linenumber="205" />
+</debugger_breakpoint_list>
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>
 <dataGuid v="597c5b74-0c46-4204-8b7f-96f3570671dc">
