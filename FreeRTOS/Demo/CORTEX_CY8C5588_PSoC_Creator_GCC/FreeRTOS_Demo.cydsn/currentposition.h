@@ -10,15 +10,12 @@
  * ========================================
 */
 
-#ifndef SERVO_H
-#define SERVO_H
+#ifndef CURRENTPOSITION_H
+#define CURRENTPOSITION_H
     
-/* depth of the queue is ten bytes */
-#define SERVO_QUEUE_SIZE 10
-
-QueueHandle_t* xStartServoTasks( int priority );
-uint8_t usGetMidPoint( void );
-
+uint8_t usGetCurrentPosition( void );
+void    vSetCurrentPosition( uint8_t usNewPosition );
+    
 #endif
 
 /* [] END OF FILE */

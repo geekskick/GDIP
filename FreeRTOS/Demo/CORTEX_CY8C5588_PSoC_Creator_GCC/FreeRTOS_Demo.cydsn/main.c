@@ -81,6 +81,7 @@
 #include "servo.h"
 #include "partest.h"
 #include "keypad.h"
+#include "currentposition.h"
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
@@ -102,16 +103,23 @@ int main( void )
 
     /* the servo task will create a queue, this will be it's location. 
     Needs to be static so that the other tasks can use it */
-    static QueueHandle_t *servoQueue = NULL;
-    static xComPortHandle com;
+static QueueHandle_t *servoQueue = NULL;
+static xComPortHandle com;
+static QueueHandle_t *pxKeypadQueue = NULL;
+    
+    pxKeypadQueue = xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 1, com );
     servoQueue = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY - 1 );
     
     /* start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
     and return the comport handler into the uart location
     */
-    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, servoQueue, &com );
     
-    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 1, com );
+    struct xComParams xParams;
+    xParams.pxComHandle = &com;
+    xParams.pxTxQueue = pxKeypadQueue;
+    xParams.pxRxdQueue = servoQueue;
+    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, xParams );
+
     
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
@@ -132,6 +140,7 @@ extern void xPortPendSVHandler( void );
 extern void xPortSysTickHandler( void );
 extern void vPortSVCHandler( void );
 extern cyisraddress CyRamVectors[];
+const uint8_t usMidPoint = usGetMidPoint();
 
 	/* Install the OS Interrupt Handlers. */
 	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
@@ -146,13 +155,14 @@ extern cyisraddress CyRamVectors[];
     /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
     pwmClock_Start();
     servoPWM_Start();
-    
-    /* Start the LED as it's max brightness, just so I can see it's working */
-    uint8_t maxP = servoPWM_ReadPeriod();
-    servoPWM_WriteCompare(maxP);
-    
-    /* also the same for the built in LED */
+   
+    /* init the servo to middle and the built in led to on */
     builtInLED_Write(1);
+    servoPWM_WriteCompare(usMidPoint);
+    vSetCurrentPosition(usMidPoint);
+    
+    LCD_Start();
+    LCD_DisplayOn();
 
 }
 /*---------------------------------------------------------------------------*/
@@ -161,6 +171,8 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 {
 	/* The stack space has been execeeded for a task, considering allocating more. */
 	taskDISABLE_INTERRUPTS();
+    UART_PutString("Stack Overflow from ");
+    UART_PutString(pcTaskName);
 	for( ;; );
 }
 /*---------------------------------------------------------------------------*/

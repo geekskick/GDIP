@@ -180,8 +180,11 @@ TickType_t xLastWakeTime;                                       /* For measuring
                     in addition in the vSerialPutString the length is fixed as 
                     1 since it's only 1 character for this task. 
                     */
-                    xQueueSend( &outputQueue, ( void* )&cButton, 0 );
-                    vSerialPutString( serialCom, &cButton, 1 );
+                    if( pdFALSE == xQueueSend( outputQueue, ( void* )&cButton, 0 ) )
+                    {
+                        vParTestToggleLED(0);
+                    }
+              
                 } 
             }
             

@@ -101,6 +101,7 @@
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -109,6 +110,8 @@
 #include "serial.h"
 #include "comtest.h"
 #include "partest.h"
+
+#include "currentposition.h"
 
 #define comSTACK_SIZE				configMINIMAL_STACK_SIZE
 #define comTX_LED_OFFSET			( 0 )
@@ -135,26 +138,38 @@ don't have to block to send. */
 #define comBUFFER_LEN				( ( UBaseType_t ) ( comLAST_BYTE - comFIRST_BYTE ) + ( UBaseType_t ) 1 )
 #define comINITIAL_RX_COUNT_VALUE	( 0 )
 
-/* Handle to the com port used by both tasks. */
-static xComPortHandle xPort = NULL;
-
 /* The receive task as described at the top of the file. */
 static portTASK_FUNCTION_PROTO( vComRxTask, pvParameters );
+static portTASK_FUNCTION_PROTO( vComTxTask, pvParameters );
 
-/* Check variable used to ensure no error have occurred.  The Rx task will
-increment this variable after every successfully received sequence.  If at any
-time the sequence is incorrect the the variable will stop being incremented. */
-static volatile UBaseType_t uxRxLoops = comINITIAL_RX_COUNT_VALUE;
+/*-----------------------------------------------------------*/
+void vSerialPrint(const char8* cBuffer, const char8 cButton);
+void vScreenPrint(const char8* cBuffer, const char8 cButton);
+
+/*-----------------------------------------------------------*/
+static xComPortHandle xHandle = NULL;
+
+static const char8* cBTN_MSG = "button:";    /* boilerplate text for displaying */
+static const char8* cPOS_MSG = "servo at:";
+static uint8_t usPOS_MSG_LEN;                /* boiler plate text lengths */
+static uint8_t usBTN_MSG_LEN;
 
 /*-----------------------------------------------------------*/
 
-void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, QueueHandle_t* ipInputQueue, xComPortHandle *handler )
+void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct xComParams xParams )
 {
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
-	*handler = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
-    
-    // this task is different because it needs to know the address of the poutput queue, so cast to void* then send it
-	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* )ipInputQueue , uxPriority, ( TaskHandle_t * ) NULL );
+    xHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    *(xParams.pxComHandle) = xHandle;
+
+    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
+	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) xParams.pxRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
+    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) xParams.pxTxQueue, uxPriority, ( TaskHandle_t * ) NULL );
+
+    /* the length of the place holder text is only calculated once to save repeatition later */
+    usPOS_MSG_LEN = strlen(cPOS_MSG);
+    usBTN_MSG_LEN = strlen(cBTN_MSG);     
+
 }
 /*-----------------------------------------------------------*/
 
@@ -171,7 +186,7 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
 	{
 		/* Block on the queue that contains received bytes until a byte is
 		available. */
-		xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME ); 
+		xSerialGetChar( xHandle, &cByteRxed, comRX_BLOCK_TIME ); 
         
         /* turn the light on to show that it's in this part of the process */
         //vParTestToggleLED(0);
@@ -201,5 +216,93 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
         
 	}
 }
-/*-----------------------------------------------------------*/
 
+/*-----------------------------------------------------------*/
+/* prints to serial port */
+void vSerialPrint(const char8* cBuffer, const char8 cButton)
+{
+
+    /* clear the screen and reset to the top using the VT100 escape commands
+    http://www.termsys.demon.co.uk/vtansi.htm */
+    vSerialPutString(xHandle, (const signed char*)"\033[2J", strlen("\033[2J"));
+    vSerialPutString(xHandle, (const signed char*)"\033[0;0H", strlen("\033[0;0H"));
+           
+            /*the display logic */
+    vSerialPutString(xHandle, (const signed char*)cBuffer, strlen(cBuffer) );
+    vSerialPutString(xHandle, (const signed char*)"\n", 1);
+    vSerialPutString(xHandle, (const signed char*)cBTN_MSG, usBTN_MSG_LEN );
+    vSerialPutString(xHandle, (const signed char*)&cButton , 1 );
+}
+/*-----------------------------------------------------------*/
+/* prints to the LCD display */
+/* THIS HAS AN INTERMITTANT FAULT; IN THE PRINTSTRING I THINK */
+void vScreenPrint(const char8* cBuffer, const char8 cButton)
+{
+    /* not sure if the LCD API uses interrupts to tes tthe ready flag, so 
+    keep the interrupts enabled but stop the scheduler to do all the screen displaying at once 
+    */
+    vTaskSuspendAll();
+    LCD_ClearDisplay();
+    
+    LCD_Position( 0u , 0u );
+    LCD_PrintString( cBTN_MSG );
+    LCD_PutChar( cButton );
+    
+    LCD_Position( 1u, 0u );
+    LCD_PrintString( cPOS_MSG );
+    LCD_PrintString( cBuffer );
+
+    xTaskResumeAll();
+    
+}
+/*-----------------------------------------------------------*/
+static portTASK_FUNCTION( vComTxTask, pvParameters )
+{
+char8 buffer[10] = { 0 };                 /* a buffer to store the output in */
+const TickType_t xFreq = 200;                   /* This is going to happen evert 200ms */
+uint8_t     usCurrentPos = 0;                   /* will be parsed to make a string */
+uint8_t     usPreviousPos = 0;
+TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
+char8 cButton = 'X';                      /* when no button is pressed display this */
+QueueHandle_t *pxToDisplay = (QueueHandle_t*) pvParameters; /* the incoming character to display */
+
+    vScreenPrint( buffer, cButton );
+    vScreenPrint( buffer, cButton );
+
+	for( ;; )
+	{
+        /* wait for 100 milliseconds for the queue to recieve, this will have no effect on the
+        task timing at the waituntil function is used, so it will never be shorter than the desired frequency.
+        */
+        
+        /* only display things differently if there is a change, if there's no change then 
+        don't bother displaying on screen or serial */
+        if ( pdTRUE == xQueueReceive( *pxToDisplay, &cButton, (TickType_t) 100 ) ) 
+        {
+            vScreenPrint( buffer, cButton );
+            vSerialPrint( buffer, cButton );
+        }
+        
+        /* The servo position is returned as a uint8_t, 
+        so safely change this to a string before sending it */
+        usCurrentPos = usGetCurrentPosition();
+        
+        if( usPreviousPos != usCurrentPos )
+        {
+            
+            /* zero the buffer so that no extra number remain */
+            memset( buffer, 0, (size_t) 10 );
+            snprintf( buffer, 10, "%d", usCurrentPos );
+            
+            vSerialPrint( buffer, cButton );
+            vScreenPrint( buffer, cButton );
+            
+            /* this is now the most recent number */
+            usPreviousPos = usCurrentPos;
+           
+        }
+        
+        /* delay */
+        vTaskDelayUntil( &xLastWakeTime, xFreq );
+	}
+}
