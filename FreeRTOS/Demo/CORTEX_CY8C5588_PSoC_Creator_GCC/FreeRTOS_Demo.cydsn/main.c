@@ -140,7 +140,7 @@ extern void xPortPendSVHandler( void );
 extern void xPortSysTickHandler( void );
 extern void vPortSVCHandler( void );
 extern cyisraddress CyRamVectors[];
-const uint8_t usMidPoint = usGetMidPoint();
+const uint16_t usMidPoint = usGetMidPoint();
 
 	/* Install the OS Interrupt Handlers. */
 	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
@@ -158,8 +158,8 @@ const uint8_t usMidPoint = usGetMidPoint();
    
     /* init the servo to middle and the built in led to on */
     builtInLED_Write(1);
-    servoPWM_WriteCompare(usMidPoint);
-    vSetCurrentPosition(usMidPoint);
+    servoPWM_WriteCompare( usMidPoint );
+    vSetCurrentPosition( usMidPoint );
     
     LCD_Start();
     LCD_DisplayOn();

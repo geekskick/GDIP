@@ -13,8 +13,8 @@
 #ifndef CURRENTPOSITION_H
 #define CURRENTPOSITION_H
     
-uint8_t usGetCurrentPosition( void );
-void    vSetCurrentPosition( uint8_t usNewPosition );
+uint16_t usGetCurrentPosition( void );
+void    vSetCurrentPosition( uint16_t usNewPosition );
     
 #endif
 

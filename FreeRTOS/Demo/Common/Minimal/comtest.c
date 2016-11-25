@@ -67,38 +67,6 @@
     1 tab == 4 spaces!
 */
 
-
-/*
- * This version of comtest. c is for use on systems that have limited stack
- * space and no display facilities.  The complete version can be found in
- * the Demo/Common/Full directory.
- *
- * Creates two tasks that operate on an interrupt driven serial port.  A
- * loopback connector should be used so that everything that is transmitted is
- * also received.  The serial port does not use any flow control.  On a
- * standard 9way 'D' connector pins two and three should be connected together.
- *
- * The first task posts a sequence of characters to the Tx queue, toggling an
- * LED on each successful post.  At the end of the sequence it sleeps for a
- * pseudo-random period before resending the same sequence.
- *
- * The UART Tx end interrupt is enabled whenever data is available in the Tx
- * queue.  The Tx end ISR removes a single character from the Tx queue and
- * passes it to the UART for transmission.
- *
- * The second task blocks on the Rx queue waiting for a character to become
- * available.  When the UART Rx end interrupt receives a character it places
- * it in the Rx queue, waking the second task.  The second task checks that the
- * characters removed from the Rx queue form the same sequence as those posted
- * to the Tx queue, and toggles an LED for each correct character.
- *
- * The receiving task is spawned with a higher priority than the transmitting
- * task.  The receiver will therefore wake every time a character is
- * transmitted so neither the Tx or Rx queue should ever hold more than a few
- * characters.
- *
- */
-
 /* Scheduler include files. */
 #include <stdlib.h>
 #include <stdio.h>
@@ -135,7 +103,7 @@ don't have to block to send. */
 #define comFIRST_BYTE				( 'A' )
 #define comLAST_BYTE				( 'X' )
 
-#define comBUFFER_LEN				( ( UBaseType_t ) ( comLAST_BYTE - comFIRST_BYTE ) + ( UBaseType_t ) 1 )
+#define comBUFFER_LEN				( 10 )
 #define comINITIAL_RX_COUNT_VALUE	( 0 )
 
 /* The receive task as described at the top of the file. */
@@ -149,8 +117,8 @@ void vScreenPrint(const char8* cBuffer, const char8 cButton);
 /*-----------------------------------------------------------*/
 static xComPortHandle xHandle = NULL;
 
-static const char8* cBTN_MSG = "button:";    /* boilerplate text for displaying */
-static const char8* cPOS_MSG = "servo at:";
+static const char8* cBTN_MSG = "Button:";    /* boilerplate text for displaying */
+static const char8* cPOS_MSG = "Servo:";
 static uint8_t usPOS_MSG_LEN;                /* boiler plate text lengths */
 static uint8_t usBTN_MSG_LEN;
 
@@ -176,8 +144,8 @@ void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct 
 static portTASK_FUNCTION( vComRxTask, pvParameters )
 {
 signed char cByteRxed;      /* The input byte */
-char buffer[10] = { 0 };    /* a buffer to store the user input */
-int bufferLoc = 0;          /* index of the next free location in the buffer */
+char buffer[comBUFFER_LEN] = { 0 };    /* a buffer to store the user input */
+uint8_t bufferLoc = 0;      /* index of the next free location in the buffer */
 
 	/* cast the params passed in as a pointer to a queue */
 	QueueHandle_t *ipInputQueue = ( QueueHandle_t* ) pvParameters;
@@ -192,7 +160,7 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
         //vParTestToggleLED(0);
         
         /* if it's the end of what the user wants to send. or there is no more room then send to the queue */
-        if(cByteRxed == '\r' || bufferLoc == 9){
+        if( cByteRxed == '\r' || bufferLoc == comBUFFER_LEN - 1 ){
             
             /* first convert the recieved text into a number and send to the queue if it's valid */
             int iNumRxd = atoi(buffer);
@@ -200,20 +168,18 @@ int bufferLoc = 0;          /* index of the next free location in the buffer */
             if(ipInputQueue != NULL )
             {
                 /* for now dont worry about a time out if the queue is full, dont think it'll ever get there */
-                xQueueSend( *ipInputQueue, (void *)&iNumRxd, 0);
+                xQueueSend( *ipInputQueue, (void *)&iNumRxd, 0 );
             }
             
             /* reset the buffer to 0s and point to the start of it */
-            memset(buffer, 0, 10);
+            memset( buffer, 0, comBUFFER_LEN );
             bufferLoc = 0;
         }
         else
         {
             /* add to the buffer cause the user is still sending characters */
             buffer[bufferLoc++] = cByteRxed;   
-        }
-        
-        
+        }    
 	}
 }
 
@@ -224,46 +190,49 @@ void vSerialPrint(const char8* cBuffer, const char8 cButton)
 
     /* clear the screen and reset to the top using the VT100 escape commands
     http://www.termsys.demon.co.uk/vtansi.htm */
-    vSerialPutString(xHandle, (const signed char*)"\033[2J", strlen("\033[2J"));
-    vSerialPutString(xHandle, (const signed char*)"\033[0;0H", strlen("\033[0;0H"));
+    vSerialPutString( xHandle, (const signed char*)"\033[2J", strlen("\033[2J") );
+    vSerialPutString( xHandle, (const signed char*)"\033[0;0H", strlen("\033[0;0H") );
            
-            /*the display logic */
-    vSerialPutString(xHandle, (const signed char*)cBuffer, strlen(cBuffer) );
-    vSerialPutString(xHandle, (const signed char*)"\n", 1);
-    vSerialPutString(xHandle, (const signed char*)cBTN_MSG, usBTN_MSG_LEN );
-    vSerialPutString(xHandle, (const signed char*)&cButton , 1 );
+    /*the display logic */
+    vSerialPutString( xHandle, (const signed char*)cBuffer, strlen(cBuffer) );
+    vSerialPutString( xHandle, (const signed char*)"\n", 1 );
+    vSerialPutString( xHandle, (const signed char*)cBTN_MSG, usBTN_MSG_LEN );
+    vSerialPutString( xHandle, (const signed char*)&cButton , 1 );
 }
 /*-----------------------------------------------------------*/
 /* prints to the LCD display */
 /* THIS HAS AN INTERMITTANT FAULT; IN THE PRINTSTRING I THINK */
 void vScreenPrint(const char8* cBuffer, const char8 cButton)
 {
-    /* not sure if the LCD API uses interrupts to tes tthe ready flag, so 
+    /* not sure if the LCD API uses interrupts to test the ready flag, so 
     keep the interrupts enabled but stop the scheduler to do all the screen displaying at once 
     */
-    vTaskSuspendAll();
+    portENTER_CRITICAL();
+    LCD_DisplayOff();
     LCD_ClearDisplay();
     
     LCD_Position( 0u , 0u );
     LCD_PrintString( cBTN_MSG );
+    LCD_Position( 0u, usBTN_MSG_LEN );
     LCD_PutChar( cButton );
-    
+
     LCD_Position( 1u, 0u );
     LCD_PrintString( cPOS_MSG );
+    LCD_Position( 1u, usPOS_MSG_LEN );
     LCD_PrintString( cBuffer );
+    LCD_DisplayOn();
 
-    xTaskResumeAll();
-    
+    portEXIT_CRITICAL();
 }
 /*-----------------------------------------------------------*/
 static portTASK_FUNCTION( vComTxTask, pvParameters )
 {
-char8 buffer[10] = { 0 };                 /* a buffer to store the output in */
-const TickType_t xFreq = 200;                   /* This is going to happen evert 200ms */
-uint8_t     usCurrentPos = 0;                   /* will be parsed to make a string */
-uint8_t     usPreviousPos = 0;
+char8 buffer[comBUFFER_LEN] = { 0 };             /* a buffer to store the output in */
+const TickType_t xFreq = 200;                    /* This is going to happen evert 200ms */
+uint16_t     usCurrentPos = 0;                   /* will be parsed to make a string */
+uint16_t     usPreviousPos = 0;
 TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
-char8 cButton = 'X';                      /* when no button is pressed display this */
+char8 cButton = 'X';                            /* when no button is pressed display this */
 QueueHandle_t *pxToDisplay = (QueueHandle_t*) pvParameters; /* the incoming character to display */
 
     vScreenPrint( buffer, cButton );
@@ -279,20 +248,20 @@ QueueHandle_t *pxToDisplay = (QueueHandle_t*) pvParameters; /* the incoming char
         don't bother displaying on screen or serial */
         if ( pdTRUE == xQueueReceive( *pxToDisplay, &cButton, (TickType_t) 100 ) ) 
         {
-            vScreenPrint( buffer, cButton );
+            vScreenPrint( buffer, cButton );  
             vSerialPrint( buffer, cButton );
         }
         
-        /* The servo position is returned as a uint8_t, 
+        /* The servo position is returned as a uint16_t, 
         so safely change this to a string before sending it */
         usCurrentPos = usGetCurrentPosition();
         
         if( usPreviousPos != usCurrentPos )
         {
             
-            /* zero the buffer so that no extra number remain */
-            memset( buffer, 0, (size_t) 10 );
-            snprintf( buffer, 10, "%d", usCurrentPos );
+            /* zero the buffer so that no extra numbers remain */
+            memset( buffer, 0, comBUFFER_LEN );
+            snprintf( buffer, comBUFFER_LEN, "%d", usCurrentPos );
             
             vSerialPrint( buffer, cButton );
             vScreenPrint( buffer, cButton );

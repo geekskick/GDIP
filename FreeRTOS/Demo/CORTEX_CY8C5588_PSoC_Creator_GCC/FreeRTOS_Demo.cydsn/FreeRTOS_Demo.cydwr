@@ -215,9 +215,11 @@
     </Group>
     <Group key="Pin">
       <Data key="3a0a5806-ffd9-43bc-b395-84692ceed6cb" value="Pin_1" />
+      <Data key="8c355381-5a13-422f-9793-56bebe736b6d" value="scl_pin" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="keypadInPins" />
       <Data key="9fe21b26-2ef5-40be-b4e1-f6bace123875" value="keypadOutPins" />
       <Data key="92a390e4-56f4-4294-8dee-f08ef88eec5e/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_LCDPort" />
+      <Data key="264be2d3-9481-494b-8d9c-c1905a45e9cc" value="sda_pin" />
       <Data key="289a8dd4-b439-4dcc-b229-17674ce5879f" value="Pin_LED_3" />
       <Data key="633bff1e-0969-4852-9c7b-be9f6763fe3d" value="builtInLED" />
       <Data key="31701add-6005-44d9-ae4e-af20af5e04c1" value="Startup_Release_Switch" />
@@ -243,6 +245,11 @@
     <Group key="3a0a5806-ffd9-43bc-b395-84692ceed6cb">
       <Group key="0">
         <Data key="Port Format" value="0,2" />
+      </Group>
+    </Group>
+    <Group key="8c355381-5a13-422f-9793-56bebe736b6d">
+      <Group key="0">
+        <Data key="Port Format" value="15,4" />
       </Group>
     </Group>
     <Group key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba">
@@ -296,9 +303,19 @@
         <Data key="Port Format" value="2,6" />
       </Group>
     </Group>
+    <Group key="264be2d3-9481-494b-8d9c-c1905a45e9cc">
+      <Group key="0">
+        <Data key="Port Format" value="15,5" />
+      </Group>
+    </Group>
     <Group key="289a8dd4-b439-4dcc-b229-17674ce5879f">
       <Group key="0">
         <Data key="Port Format" value="0,7" />
+      </Group>
+    </Group>
+    <Group key="633bff1e-0969-4852-9c7b-be9f6763fe3d">
+      <Group key="0">
+        <Data key="Port Format" value="0,0" />
       </Group>
     </Group>
     <Group key="31701add-6005-44d9-ae4e-af20af5e04c1">
@@ -369,11 +386,7 @@
         <Data key="Port Format" value="1,6" />
       </Group>
     </Group>
-    <Group key="UnAssigned Pins">
-      <Group key="633bff1e-0969-4852-9c7b-be9f6763fe3d">
-        <Data key="0" value="131243175574731283" />
-      </Group>
-    </Group>
+    <Group key="UnAssigned Pins" />
   </Group>
   <Group key="System3">
     <Data key="CYDEV_HEAP_SIZE" value="0" />

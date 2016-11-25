@@ -21,7 +21,7 @@
 #include "serial.h"
 
 /************************************************************/
-static uint8_t usCurrentPosition = 0;           /* shared resource */
+static uint16_t usCurrentPosition = 0;           /* shared resource */
 static xSemaphoreHandle xGatekeeper = NULL;     /* mutex */
 static bool xInitialised = false;               /* if the mutex is created this is true */
 
@@ -29,14 +29,14 @@ static bool xInitialised = false;               /* if the mutex is created this 
 /* internal functions and a point to them mean I wotn have to repeat myself 
     when writing code to access the mutex etc
 */
-void vGet( uint8_t* out );
-void vSet( uint8_t* in );
-void ( *funct ) ( uint8_t *usArg ); /* the fn pointer */
+void vGet( uint16_t* out );
+void vSet( uint16_t* in );
+void ( *funct ) ( uint16_t *usArg ); /* the fn pointer */
 
 /************************************************************/
 /* The generic mutex Take/Give function */
 
-void vBase( void ( *funct ) ( uint8_t *usArg ), uint8_t *usArg )
+void vBase( void ( *funct ) ( uint16_t *usArg ), uint16_t *usArg )
 {
      /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -64,30 +64,30 @@ void vBase( void ( *funct ) ( uint8_t *usArg ), uint8_t *usArg )
 
 /************************************************************/
 /* inward facing getter */
-void vGet( uint8_t *usOut )
+void vGet( uint16_t *usOut )
 {
     *usOut = usCurrentPosition;
 }
 
 /************************************************************/
 /* inward facing setter */
-void vSet( uint8_t *usIn )
+void vSet( uint16_t *usIn )
 {
     usCurrentPosition = *usIn;
 }
 
 /************************************************************/
 /* external facing setter */
-void vSetCurrentPosition( uint8_t usNewPosition )
+void vSetCurrentPosition( uint16_t usNewPosition )
 {
     vBase( &vSet, &usNewPosition );
 }
 
 /************************************************************/
 /* external facing getter */
-uint8_t usGetCurrentPosition( void )
+uint16_t usGetCurrentPosition( void )
 {
-uint8_t rc = 0xFF; /* Initialise to an out of range value */
+uint16_t rc = 0xFFFF; /* Initialise to an out of range value */
     
     vBase( &vGet, &rc );
     return rc;
