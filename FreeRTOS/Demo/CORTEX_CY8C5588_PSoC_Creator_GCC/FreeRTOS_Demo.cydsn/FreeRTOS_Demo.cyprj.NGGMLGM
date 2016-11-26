@@ -11,7 +11,7 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_493\Debug\comtest.o">
+<file name=".\CortexM3\ARM_GCC_493\Debug\servo.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -48,9 +48,7 @@
 <dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name="..\..\Common\include\comtest.h" />
 <dep name="..\..\Common\include\partest.h" />
-<dep name="..\..\Common\include\serial.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
@@ -103,7 +101,9 @@
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\currentposition.h" />
 <dep name=".\device.h" />
-<dep name="..\..\Common\Minimal\comtest.c" />
+<dep name=".\servo.c" />
+<dep name=".\servo.h" />
+<dep name=".\servoqueueparams.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -142,9 +142,7 @@
 <file name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
 <file name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <file name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<file name="..\..\Common\include\comtest.h" />
 <file name="..\..\Common\include\partest.h" />
-<file name="..\..\Common\include\serial.h" />
 <file name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
 <file name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
 <file name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
@@ -196,8 +194,106 @@
 <file name=".\FreeRTOSConfig.h" />
 <file name=".\currentposition.h" />
 <file name=".\device.h" />
-<file name="..\..\Common\Minimal\comtest.c" />
+<file name=".\servo.c" />
+<file name=".\servo.h" />
+<file name=".\servoqueueparams.h" />
 <file name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\decodertask.o">
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\LCD.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\servoPWM.h" />
+<dep name=".\Generated_Source\PSoC5\servoPin.h" />
+<dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name="..\..\Common\include\partest.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\ServoQueueParams.h" />
+<dep name=".\decodertask.c" />
+<dep name=".\decodertask.h" />
+<dep name=".\device.h" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+</file>
+<file name=".\decodertask.c" />
+<file name=".\decodertask.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -297,11 +393,11 @@
 <dep name=".\servo.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
+<file name="..\..\Common\include\comtest.h" />
+<file name="..\..\Common\include\serial.h" />
 <file name="..\..\..\Source\include\semphr.h" />
-<file name=".\decodertask.h" />
 <file name=".\keypad.h" />
 <file name=".\main.c" />
-<file name=".\servo.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\keypad.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -397,7 +493,7 @@
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name=".\keypad.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\decodertask.o">
+<file name=".\CortexM3\ARM_GCC_493\Debug\comtest.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -434,7 +530,9 @@
 <dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name="..\..\Common\include\comtest.h" />
 <dep name="..\..\Common\include\partest.h" />
+<dep name="..\..\Common\include\serial.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
@@ -485,14 +583,12 @@
 <dep name="..\..\..\Source\include\task.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
 <dep name=".\FreeRTOSConfig.h" />
-<dep name=".\ServoQueueParams.h" />
-<dep name=".\decodertask.c" />
-<dep name=".\decodertask.h" />
+<dep name=".\currentposition.h" />
 <dep name=".\device.h" />
+<dep name="..\..\Common\Minimal\comtest.c" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
-<file name=".\ServoQueueParams.h" />
-<file name=".\decodertask.c" />
+<file name="..\..\Common\Minimal\comtest.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\Cm3Start.o">
 <dep name=".\Generated_Source\PSoC5\Cm3Start.c" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1257,102 +1353,6 @@
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name=".\currentposition.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\servo.o">
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name="..\..\Common\include\partest.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<dep name="..\..\..\Source\include\FreeRTOS.h" />
-<dep name="..\..\..\Source\include\deprecated_definitions.h" />
-<dep name="..\..\..\Source\include\list.h" />
-<dep name="..\..\..\Source\include\mpu_wrappers.h" />
-<dep name="..\..\..\Source\include\portable.h" />
-<dep name="..\..\..\Source\include\projdefs.h" />
-<dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\task.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\FreeRTOSConfig.h" />
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\UART.h" />
-<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\servoPWM.h" />
-<dep name=".\Generated_Source\PSoC5\servoPin.h" />
-<dep name=".\Generated_Source\PSoC5\servoPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name=".\currentposition.h" />
-<dep name=".\device.h" />
-<dep name=".\servo.c" />
-<dep name=".\servo.h" />
-<dep name=".\servoqueueparams.h" />
-<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-</file>
-<file name=".\servo.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\BlockQ.o">
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
@@ -4069,7 +4069,7 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131246710727042480" />
+<deps_time v="131246736114606636" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="718b6b01-68ba-4a17-b632-d38dc61ebb3b">
@@ -4138,8 +4138,7 @@
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
 <debugger_breakpoint_list>
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\main.c" linenumber="140" />
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename="..\..\Common\Minimal\comtest.c" linenumber="215" />
+<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\main.c" linenumber="134" />
 </debugger_breakpoint_list>
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>

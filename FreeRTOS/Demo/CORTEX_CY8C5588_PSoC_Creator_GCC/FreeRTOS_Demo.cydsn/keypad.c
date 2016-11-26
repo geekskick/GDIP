@@ -61,8 +61,8 @@ static portTASK_FUNCTION_PROTO( vKeypadTask, pvParameters );
 const char *KEYPAD_BUTTONS_ORDERED = "abodefchijglmnkp";    /* these are in the wrong order due to a suspected wiring fault in the keypad 
                                                                 where the 3rd columns' rows seems to have been shifted downwards by 1 */
 static QueueHandle_t outputQueue = NULL;                    /* The output values are put into this queue */
-static xComPortHandle serialCom;                            /* the output serial comport */
-static TaskHandle_t *taskToNotify = NULL;
+static xComPortHandle xSerialCom;                           /* the output serial comport */
+static TaskHandle_t *xTaskToNotify = NULL;                  /* the task to notify when a button is pressed */
 
 /* to access the port values by index define then in an array to make it easier to use in code.
 also, const and static so that it's stored in flash */
@@ -138,7 +138,7 @@ Send it to the queue as the button's ASCII value
 */
 static portTASK_FUNCTION( vKeypadTask, pvParamaters )
 {
-    TaskHandle_t disp =*taskToNotify;
+TaskHandle_t xDispTask = NULL;   
 ( void ) pvParamaters;                                          /* stops warnings */
 uint8_t  usColumnInput = 0;                                     /* The input value will go here  when read in */
 uint8_t  usRow;                                                 /* The row being energised */
@@ -178,23 +178,32 @@ TickType_t xLastWakeTime;                                       /* For measuring
                 /* in case of an error on the ascii conversion and bit shifting make it conditional */
                 if( cButton != KEYPAD_ERROR_SC )
                 {
+                    /* the display task might not be initialied at the very start, 
+                    so keep trying to get the taskhandle until a value one is put in the correct location */
+                    if( xDispTask == NULL )
+                    {
+                        xDispTask = *xTaskToNotify;
+                        /* for debugging */
+                        vParTestToggleLED(1);
+                        
+                    }
+                    else
+                    {
+                        /* at this point the xDispTask handle is valid, so send the notifcation, overwriting
+                        the current notification. it accepts a 32bit value so cast the ascii to 32 bits in the process.
+                        hopefully this does it normally and just prefixes the value with 0's. If not look here for errors
+                        in the display not sending out the correct letter
+                        */
+                        xTaskNotify( xDispTask, ( uint32_t )cButton, eSetValueWithOverwrite );
+                    }
+                    
                     /* The qeueue timeout is 0, so if it's full then dont wait, 
                     in addition in the vSerialPutString the length is fixed as 
                     1 since it's only 1 character for this task. 
                     */
-                    if( disp == NULL )
-                    {
-                        //disp = xTaskGetHandle( "COMTx" );
-                        disp = *taskToNotify;
-                        vParTestToggleLED(1);
-                    }
-                    else
-                    {
-                        xTaskNotify( disp, ( uint32_t )cButton, eSetValueWithOverwrite );
-                    }
-                    
                     if( pdFALSE == xQueueSend( outputQueue, ( void* )&cButton, 0 ) )
                     {
+                        /* for debugging */
                         vParTestToggleLED(0);
                     }
               
@@ -210,10 +219,10 @@ TickType_t xLastWakeTime;                                       /* For measuring
 
 /*-----------------------------------------------------------------------*/
 /* init */
-QueueHandle_t xStartKeypadTask( int priority, xComPortHandle com, TaskHandle_t *xTxTask )
+QueueHandle_t xStartKeypadTask( int priority, xComPortHandle xCom, TaskHandle_t *xTxTask )
 {
-    serialCom = com;
-    taskToNotify = xTxTask;
+    xSerialCom = xCom;
+    xTaskToNotify = xTxTask;
     
     /* init the queue */
     outputQueue = xQueueCreate( KEYPAD_QUEUE_SIZE, sizeof(signed char) );

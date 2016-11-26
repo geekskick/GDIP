@@ -82,45 +82,23 @@
 #include "currentposition.h"
 
 #define comSTACK_SIZE				configMINIMAL_STACK_SIZE
-#define comTX_LED_OFFSET			( 0 )
-#define comRX_LED_OFFSET			( 1 )
-#define comTOTAL_PERMISSIBLE_ERRORS ( 2 )
-
-/* The Tx task will transmit the sequence of characters at a pseudo random
-interval.  This is the maximum and minimum block time between sends. */
-#define comTX_MAX_BLOCK_TIME		( ( TickType_t ) 0x96 )
-#define comTX_MIN_BLOCK_TIME		( ( TickType_t ) 0x32 )
-#define comOFFSET_TIME				( ( TickType_t ) 3 )
-
-/* We should find that each character can be queued for Tx immediately and we
-don't have to block to send. */
-#define comNO_BLOCK					( ( TickType_t ) 0 )
-
-/* The Rx task will block on the Rx queue for a long period. */
-#define comRX_BLOCK_TIME			( ( TickType_t ) 0xffff )
-
-/* The sequence transmitted is from comFIRST_BYTE to and including comLAST_BYTE. */
-#define comFIRST_BYTE				( 'A' )
-#define comLAST_BYTE				( 'X' )
-
 #define comBUFFER_LEN				( 10 )
-#define comINITIAL_RX_COUNT_VALUE	( 0 )
 
 /* The receive task as described at the top of the file. */
 static portTASK_FUNCTION_PROTO( vComRxTask, pvParameters );
 static portTASK_FUNCTION_PROTO( vComTxTask, pvParameters );
 
 /*-----------------------------------------------------------*/
-void vSerialPrint(const char8* cBuffer, const char8 cButton);
-void vScreenPrint(const char8* cBuffer, const char8 cButton);
+static void vSerialPrint(const char8* cBuffer, const char8 cButton);
+static void vScreenPrint(const char8* cBuffer, const char8 cButton);
 
 /*-----------------------------------------------------------*/
 static xComPortHandle xHandle = NULL;
 
 static const char8* cBTN_MSG = "Button:";    /* boilerplate text for displaying */
 static const char8* cPOS_MSG = "Servo:";
-static uint8_t usPOS_MSG_LEN;                /* boiler plate text lengths */
 static uint8_t usBTN_MSG_LEN;
+static uint8_t usPOS_MSG_LEN;
 
 /*-----------------------------------------------------------*/
 
@@ -128,17 +106,21 @@ void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct 
 {
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
     xHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    
+    /* for the other tasks to use vSerialPutString() they need to know the comport handle */
     *(xParams.pxComHandle) = xHandle;
 
-    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
+    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow,
+    Also, put the task handle in the structs pointer location for use in notifications */
+    
+    // commented out for debugging
 	//xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) &xParams.xRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
-    //xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) &xParams.xTxQueue, uxPriority, ( TaskHandle_t * ) xParams.pxTxTask );
-    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) xParams.pxTxTask );
+    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) xParams.pxTxTask );    
 
-    /* the length of the place holder text is only calculated once to save repeatition later */
-    usPOS_MSG_LEN = strlen(cPOS_MSG);
-    usBTN_MSG_LEN = strlen(cBTN_MSG);     
-
+    /* in displaying writing to the comport you need to know the length of the string, it's const so calculate this only once. */
+    usBTN_MSG_LEN = strlen( cBTN_MSG );
+    usPOS_MSG_LEN = strlen( cPOS_MSG );
+    
 }
 /*-----------------------------------------------------------*/
 
@@ -155,7 +137,7 @@ uint8_t bufferLoc = 0;      /* index of the next free location in the buffer */
 	{
 		/* Block on the queue that contains received bytes until a byte is
 		available. */
-		xSerialGetChar( xHandle, &cByteRxed, comRX_BLOCK_TIME ); 
+		xSerialGetChar( xHandle, &cByteRxed, portMAX_DELAY ); 
         
         /* turn the light on to show that it's in this part of the process */
         //vParTestToggleLED(0);
@@ -229,35 +211,33 @@ void vScreenPrint(const char8* cBuffer, const char8 cButton)
 /*-----------------------------------------------------------*/
 static portTASK_FUNCTION( vComTxTask, pvParameters )
 {
+( void ) pvParameters;                           /* stop warnings */
 char8 buffer[comBUFFER_LEN] = { 0 };             /* a buffer to store the output in */
 const TickType_t xFreq = 200;                    /* This is going to happen evert 200ms */
 uint16_t     usCurrentPos = 0;                   /* will be parsed to make a string */
-uint16_t     usPreviousPos = 0;
+uint16_t     usPreviousPos = 0;                  /* for remembering the previous position */
 TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
 char8 cButton = 'X';                            /* when no button is pressed display this */
-//QueueHandle_t xToDisplay = *( ( QueueHandle_t* ) pvParameters ); /* the incoming character to display */
-TaskHandle_t xFromKeyboard = *( ( TaskHandle_t * )  pvParameters );
-uint32_t ulBtn = 0, prvBtn = 0;
+uint32_t ulBtn;                                 /* the returned notifcation value */
 
-
+    /* init the screen */
     vScreenPrint( buffer, cButton );
     vScreenPrint( buffer, cButton );
 
 	for( ;; )
-	{
-        /* wait for 100 milliseconds for the queue to recieve, this will have no effect on the
-        task timing at the waituntil function is used, so it will never be shorter than the desired frequency.
-        */
+    {
         
-        /* only display things differently if there is a change, if there's no change then 
-        don't bother displaying on screen or serial */
+        /* only display things differently if there is a change or a button press detected, if there's no change then 
+        don't bother displaying on screen or serial, The notification is set to 0 if after a read, and if nothing has 
+        been sending a notification then it'll be 0 too.*/
         ulBtn = ulTaskNotifyTake( pdTRUE, ( TickType_t ) 0 );
         if( ulBtn != 0 )
         {
+            /* the notification value returned is actually an ASCII character so explicitly cast it then refresh */
             cButton = ( char8 ) ulBtn;
             vScreenPrint( buffer, cButton );  
             vSerialPrint( buffer, cButton );
-            prvBtn = ulBtn;
+
         }
         
         /* The servo position is returned as a uint16_t, 

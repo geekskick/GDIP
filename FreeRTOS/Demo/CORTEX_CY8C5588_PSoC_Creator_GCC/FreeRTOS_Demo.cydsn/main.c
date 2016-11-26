@@ -102,33 +102,27 @@ int main( void )
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 	prvHardwareSetup();
 
-    /* the servo task will create a queue, this will be it's location. 
-    Needs to be static so that the other tasks can use it */
-QueueHandle_t servoQueue = NULL;  //q to the servos
-static xComPortHandle com;                  //serial port
-QueueHandle_t xKeypadQueue = NULL;   // q from the keypad
-struct xDecoderParams xDecoderP;     // params to the decoder task
-struct xComParams xParams;
-static TaskHandle_t xDisplayTask;
-xParams.pxComHandle = &com; //the location of the com port 
-xParams.pxTxTask = &xDisplayTask;
+/* there is a lot of wasted memory here and pointers could be used in place of some repetition, so clean this up 
+    if there is any issue with memory */
+QueueHandle_t servoQueue = NULL;        /* queue to the servos */
+static xComPortHandle com;              /* serial port needs to be static as it's written to from another location */
+QueueHandle_t xKeypadQueue = NULL;      /* queue from the keypad */
+struct xDecoderParams xDecoderP;        /* params to the decoder task */
+struct xComParams xParams;              /* params to the comtask */
+static TaskHandle_t xDisplayTask;       /* the display task handle is put here in the comport init function */
+xParams.pxComHandle = &com;             /* the location of the com port needs to be put here */
+xParams.pxTxTask = &xDisplayTask;       /* the task handle needs to be put here */
 
-    // get the keypad output q
+    /* get the keypad output queue and get it ready to put it in the decoder task */
     xKeypadQueue = xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, com, &xDisplayTask);
     xDecoderP.xKeypadQueue = xKeypadQueue;
     
-    // get the decoder output queue
+    /* get the decoder output queue and put get ready to give it to the servo task as an input queue */
     servoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDecoderP );
     xStartServoTasks( mainCOM_TEST_TASK_PRIORITY, servoQueue );
-    
-    /* start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
-    and return the comport handler into the uart location
-    */
-      
-    //xParams.xTxQueue = xKeypadQueue;    
+        
     vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600, xParams );
 
-    
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
 	vTaskStartScheduler( );

@@ -12,6 +12,7 @@
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdbool.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -23,56 +24,59 @@
 QueueHandle_t xOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
 
+
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION_PROTO( vDecoderTask, pvParameters );
 
+/*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION( vDecoderTask, pvParamaters )
 {
-char8 cButton;
-uint8_t usSend = 0;
-struct xServoQueueParams xToServo;
+char8 cButton;                      /* the button pressed */
+bool bSend = false;                 /* if we are sending a value to the servo task then this is true, else false */
+struct xServoQueueParams xToServo;  /* sending stuff to the servos means it needs to be packaged up into a struct */
+( void ) pvParamaters;              /* get rid of warnings */
     
-    struct xDecoderParams xParams = *( (struct xDecoderParams* ) pvParamaters );
-    ( void ) xParams; /* get rid of warnings */
-    for(;;)
+for(;;)
     {
+        /* do nothing until something is received in the queue */
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
+            /* I only have one servo for now */
             xToServo.usServoNumber = 1;
             
             switch( cButton )
             {
                 case 'a':
                     xToServo.xDirection = ADD;
-                    usSend = 1;
+                    bSend = true;
                     break;
                 case 'b':
                     xToServo.xDirection = SUB;
-                    usSend = 1;
+                    bSend = true;
                     break;
                 default:
-                    usSend = 0;
+                /* all other button pressed don't mean anything with one servo */
+                    bSend = false;
                     break;
                 
             }
             
-            if( usSend == 1 )
+            if( true == bSend )
+            {
+                if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&xToServo, ( TickType_t ) portMAX_DELAY ) )
                 {
-                if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&xToServo, ( TickType_t ) 100 ) )
-                {
-               
+                    /* error sending to the servo queue */
                 }
             }
         }
-        //vParTestToggleLED(1);
     }
 }
 
 /*-----------------------------------------------------------------------*/
-QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xParams )
+QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xInputParams )
 {
-    xKeypadInputQueue = xParams.xKeypadQueue;
-    xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) &xParams, priority, NULL );
+    xKeypadInputQueue = xInputParams.xKeypadQueue;
+    xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) &xInputParams, priority, NULL );
     xOutputQueue = xQueueCreate( 10, sizeof( struct xServoQueueParams ) );
     return xOutputQueue;
 }

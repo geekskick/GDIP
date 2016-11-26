@@ -51,25 +51,26 @@ uint16_t usGetMidPoint( void )
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
 static portTASK_FUNCTION( vServoTask, pvParamaters )
 {
-    
-( void ) pvParamaters;              /* stops warnings */
-struct xServoQueueParams xInputValue;             /* input from the queue */
-uint16_t ulCurrentVal = usGetCurrentPosition();
+static const uint16_t ulSERVO_SPEED = 50;          /* how far to move the servos, randomly chosen  */
+( void ) pvParamaters;                              /* stops warnings */  
+struct xServoQueueParams xInputValue;               /* input from the queue */
+uint16_t ulCurrentVal = usGetCurrentPosition();     /* the current servo position needs to be initialised before it's modified by the add/subtract */
 
-
-    // the meat of the task
+    /* the meat of the task */
     for (;;)
     {
         /* block forever to get the value from the queue */
         if( pdTRUE == xQueueReceive( inputQueue, &xInputValue, portMAX_DELAY ) )
         {
-            if( xInputValue.xDirection == ADD )
+            /* for now arbitrarily move the servo by a value, I need to find a way of making compare 
+            values to degrees of servo movement */
+            if( ADD == xInputValue.xDirection )
             {
-                ulCurrentVal += 100;
+                ulCurrentVal += ulSERVO_SPEED;
             }
-            else if( xInputValue.xDirection == SUB )
+            else if( SUB == xInputValue.xDirection )
             {
-                ulCurrentVal -= 100;   
+                ulCurrentVal -= ulSERVO_SPEED;   
             }  
             
             /*  Set the Duty Cycle to within limits, and not over the set period */

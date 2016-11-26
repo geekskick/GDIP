@@ -16,11 +16,9 @@
 struct xDecoderParams
 {
     QueueHandle_t xKeypadQueue;
-    char8         *cpDisplayTaskName;
-    char8         *cpWaypointManagerTaskName;
 };
 
-QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xParams );
+QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xInputParams );
     
 #endif
 
