@@ -10,15 +10,16 @@
  * ========================================
 */
 
-#ifndef SERVO_H
-#define SERVO_H
+#ifndef SERVOQUEUE_H
+#define SERVOQUEUE_H
+  
+enum xServoDirection{ ADD, SUB };
+struct xServoQueueParams
+{
+    uint8_t usServoNumber;
+    enum xServoDirection xDirection;    
+};
     
-/* depth of the queue is ten bytes */
-#define SERVO_QUEUE_SIZE 10
-
-QueueHandle_t xStartServoTasks( int priority, QueueHandle_t xInputQueue );
-uint16_t usGetMidPoint( void );
-
 #endif
 
 /* [] END OF FILE */

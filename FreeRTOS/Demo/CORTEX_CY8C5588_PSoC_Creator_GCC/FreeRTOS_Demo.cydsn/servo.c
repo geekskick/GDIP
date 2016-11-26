@@ -24,6 +24,7 @@
 
 /* to save the location */
 #include "currentposition.h"
+#include "servoqueueparams.h"
 
 #define SERVO_MAX 8192u    /* servo max value, calculated as per SSD, where the servo also seems to see 2.5 as 2ms */
 #define SERVO_MIN 1638u    /* servo min value, calculated as per SSD, where the servo also seems to see 0.5 as 1ms */
@@ -34,7 +35,7 @@ static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
 
 /*-----------------------------------------------------------------------*/
 /* the queue which the task will receive from */
-static QueueHandle_t outputQueue = NULL;
+static QueueHandle_t inputQueue = NULL;
 static uint16_t usServoPeriod = 0;
 
 /*-----------------------------------------------------------------------*/
@@ -52,28 +53,38 @@ static portTASK_FUNCTION( vServoTask, pvParamaters )
 {
     
 ( void ) pvParamaters;              /* stops warnings */
-uint16_t inputValue = 0;             /* input from the queue */
+struct xServoQueueParams xInputValue;             /* input from the queue */
+uint16_t ulCurrentVal = usGetCurrentPosition();
+
 
     // the meat of the task
     for (;;)
     {
         /* block forever to get the value from the queue */
-        if( pdTRUE == xQueueReceive( outputQueue, &inputValue, portMAX_DELAY ) )
+        if( pdTRUE == xQueueReceive( inputQueue, &xInputValue, portMAX_DELAY ) )
         {
+            if( xInputValue.xDirection == ADD )
+            {
+                ulCurrentVal += 100;
+            }
+            else if( xInputValue.xDirection == SUB )
+            {
+                ulCurrentVal -= 100;   
+            }  
             
             /*  Set the Duty Cycle to within limits, and not over the set period */
-            if( ( inputValue <= SERVO_MAX ) &&
-                ( inputValue >= SERVO_MIN ) &&
-                ( inputValue < usServoPeriod ) 
+            if( ( ulCurrentVal <= SERVO_MAX ) &&
+                ( ulCurrentVal >= SERVO_MIN ) &&
+                ( ulCurrentVal < usServoPeriod ) 
             )
             { 
                 /* save in the shared resource */
-                vSetCurrentPosition( inputValue );
+                vSetCurrentPosition( ulCurrentVal );
             
                 /* when using HW disable interurpts */
                 taskENTER_CRITICAL();
                 
-                servoPWM_WriteCompare( inputValue );
+                servoPWM_WriteCompare( ulCurrentVal );
                 
                 /* re-enable interrupts */
                 taskEXIT_CRITICAL();
@@ -86,16 +97,16 @@ uint16_t inputValue = 0;             /* input from the queue */
 }
 /*-----------------------------------------------------------------------*/
 /* init */
-QueueHandle_t* xStartServoTasks( int priority )
+QueueHandle_t xStartServoTasks( int priority, QueueHandle_t xInputQueue )
 {
 
     /* at this point the scheduler isn't runing so no need to enter critical here */
     usServoPeriod = servoPWM_ReadPeriod();
 
-    outputQueue = xQueueCreate( SERVO_QUEUE_SIZE, sizeof( uint16 ) );
+    inputQueue = xInputQueue;
     xTaskCreate( vServoTask, "ServoMove", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) NULL);
     
-    return &outputQueue;
+    return inputQueue;
 }
 
 /* [] END OF FILE */

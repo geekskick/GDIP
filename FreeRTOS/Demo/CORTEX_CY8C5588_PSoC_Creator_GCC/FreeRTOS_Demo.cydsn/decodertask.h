@@ -10,15 +10,18 @@
  * ========================================
 */
 
-#ifndef SERVO_H
-#define SERVO_H
+#ifndef DECODERTASK_H
+#define DECODERTASK_H
+
+struct xDecoderParams
+{
+    QueueHandle_t xKeypadQueue;
+    char8         *cpDisplayTaskName;
+    char8         *cpWaypointManagerTaskName;
+};
+
+QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xParams );
     
-/* depth of the queue is ten bytes */
-#define SERVO_QUEUE_SIZE 10
-
-QueueHandle_t xStartServoTasks( int priority, QueueHandle_t xInputQueue );
-uint16_t usGetMidPoint( void );
-
 #endif
 
 /* [] END OF FILE */

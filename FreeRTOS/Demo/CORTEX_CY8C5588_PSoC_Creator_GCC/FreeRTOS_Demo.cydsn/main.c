@@ -82,6 +82,7 @@
 #include "partest.h"
 #include "keypad.h"
 #include "currentposition.h"
+#include "decodertask.h"
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
@@ -103,27 +104,34 @@ int main( void )
 
     /* the servo task will create a queue, this will be it's location. 
     Needs to be static so that the other tasks can use it */
-static QueueHandle_t *servoQueue = NULL;
-static xComPortHandle com;
-static QueueHandle_t *pxKeypadQueue = NULL;
+QueueHandle_t servoQueue = NULL;  //q to the servos
+static xComPortHandle com;                  //serial port
+QueueHandle_t xKeypadQueue = NULL;   // q from the keypad
+struct xDecoderParams xDecoderP;     // params to the decoder task
+struct xComParams xParams;
+static TaskHandle_t xDisplayTask;
+xParams.pxComHandle = &com; //the location of the com port 
+xParams.pxTxTask = &xDisplayTask;
+
+    // get the keypad output q
+    xKeypadQueue = xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, com, &xDisplayTask);
+    xDecoderP.xKeypadQueue = xKeypadQueue;
     
-    pxKeypadQueue = xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 1, com );
-    servoQueue = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY - 1 );
+    // get the decoder output queue
+    servoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDecoderP );
+    xStartServoTasks( mainCOM_TEST_TASK_PRIORITY, servoQueue );
     
     /* start the comms with a baudrate of 9600 and the address of the servo queue which it'll be writing to
     and return the comport handler into the uart location
     */
-    
-    struct xComParams xParams;
-    xParams.pxComHandle = &com;
-    xParams.pxTxQueue = pxKeypadQueue;
-    xParams.pxRxdQueue = servoQueue;
-    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 9600, xParams );
+      
+    //xParams.xTxQueue = xKeypadQueue;    
+    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600, xParams );
 
     
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
-	vTaskStartScheduler();
+	vTaskStartScheduler( );
 
 	/* Should never reach here as the kernel will now be running.  If
 	vTaskStartScheduler() does return then it is very likely that there was

@@ -45,8 +45,8 @@
 #define KEYPAD_COL_3 KEYPAD_ROW_3
   
 /* it's a 4x4 keypad */
-#define  KEYPAD_ROW_COUNT 4
-#define  KEYPAD_COL_COUNT KEYPAD_ROW_COUNT
+#define KEYPAD_ROW_COUNT 4
+#define KEYPAD_COL_COUNT KEYPAD_ROW_COUNT
 
 /* incases of error in conversion */
 #define KEYPAD_ERROR 0xFF
@@ -62,6 +62,7 @@ const char *KEYPAD_BUTTONS_ORDERED = "abodefchijglmnkp";    /* these are in the 
                                                                 where the 3rd columns' rows seems to have been shifted downwards by 1 */
 static QueueHandle_t outputQueue = NULL;                    /* The output values are put into this queue */
 static xComPortHandle serialCom;                            /* the output serial comport */
+static TaskHandle_t *taskToNotify = NULL;
 
 /* to access the port values by index define then in an array to make it easier to use in code.
 also, const and static so that it's stored in flash */
@@ -137,6 +138,7 @@ Send it to the queue as the button's ASCII value
 */
 static portTASK_FUNCTION( vKeypadTask, pvParamaters )
 {
+    TaskHandle_t disp =*taskToNotify;
 ( void ) pvParamaters;                                          /* stops warnings */
 uint8_t  usColumnInput = 0;                                     /* The input value will go here  when read in */
 uint8_t  usRow;                                                 /* The row being energised */
@@ -180,6 +182,17 @@ TickType_t xLastWakeTime;                                       /* For measuring
                     in addition in the vSerialPutString the length is fixed as 
                     1 since it's only 1 character for this task. 
                     */
+                    if( disp == NULL )
+                    {
+                        //disp = xTaskGetHandle( "COMTx" );
+                        disp = *taskToNotify;
+                        vParTestToggleLED(1);
+                    }
+                    else
+                    {
+                        xTaskNotify( disp, ( uint32_t )cButton, eSetValueWithOverwrite );
+                    }
+                    
                     if( pdFALSE == xQueueSend( outputQueue, ( void* )&cButton, 0 ) )
                     {
                         vParTestToggleLED(0);
@@ -197,15 +210,16 @@ TickType_t xLastWakeTime;                                       /* For measuring
 
 /*-----------------------------------------------------------------------*/
 /* init */
-QueueHandle_t* xStartKeypadTask( int priority, xComPortHandle com )
+QueueHandle_t xStartKeypadTask( int priority, xComPortHandle com, TaskHandle_t *xTxTask )
 {
     serialCom = com;
+    taskToNotify = xTxTask;
     
     /* init the queue */
     outputQueue = xQueueCreate( KEYPAD_QUEUE_SIZE, sizeof(signed char) );
     xTaskCreate( vKeypadTask, "Keypad", configMINIMAL_STACK_SIZE, NULL, priority, ( TaskHandle_t * ) NULL );
     
-    return &outputQueue;
+    return outputQueue;
 }
 
 /* [] END OF FILE */

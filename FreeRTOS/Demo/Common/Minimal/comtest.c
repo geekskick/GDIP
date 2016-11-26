@@ -131,8 +131,9 @@ void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct 
     *(xParams.pxComHandle) = xHandle;
 
     /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
-	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) xParams.pxRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
-    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) xParams.pxTxQueue, uxPriority, ( TaskHandle_t * ) NULL );
+	//xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) &xParams.xRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
+    //xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) &xParams.xTxQueue, uxPriority, ( TaskHandle_t * ) xParams.pxTxTask );
+    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) xParams.pxTxTask );
 
     /* the length of the place holder text is only calculated once to save repeatition later */
     usPOS_MSG_LEN = strlen(cPOS_MSG);
@@ -148,7 +149,7 @@ char buffer[comBUFFER_LEN] = { 0 };    /* a buffer to store the user input */
 uint8_t bufferLoc = 0;      /* index of the next free location in the buffer */
 
 	/* cast the params passed in as a pointer to a queue */
-	QueueHandle_t *ipInputQueue = ( QueueHandle_t* ) pvParameters;
+	QueueHandle_t xInputQueue = *( ( QueueHandle_t* ) pvParameters );
 
 	for( ;; )
 	{
@@ -163,12 +164,12 @@ uint8_t bufferLoc = 0;      /* index of the next free location in the buffer */
         if( cByteRxed == '\r' || bufferLoc == comBUFFER_LEN - 1 ){
             
             /* first convert the recieved text into a number and send to the queue if it's valid */
-            int iNumRxd = atoi(buffer);
+            int iNumRxd = atoi( buffer );
             
-            if(ipInputQueue != NULL )
+            if( xInputQueue != NULL )
             {
                 /* for now dont worry about a time out if the queue is full, dont think it'll ever get there */
-                xQueueSend( *ipInputQueue, (void *)&iNumRxd, 0 );
+                xQueueSend( xInputQueue, ( void * )&iNumRxd, 0 );
             }
             
             /* reset the buffer to 0s and point to the start of it */
@@ -190,14 +191,14 @@ void vSerialPrint(const char8* cBuffer, const char8 cButton)
 
     /* clear the screen and reset to the top using the VT100 escape commands
     http://www.termsys.demon.co.uk/vtansi.htm */
-    vSerialPutString( xHandle, (const signed char*)"\033[2J", strlen("\033[2J") );
-    vSerialPutString( xHandle, (const signed char*)"\033[0;0H", strlen("\033[0;0H") );
+    vSerialPutString( xHandle, ( const signed char* )"\033[2J", strlen( "\033[2J" ) );
+    vSerialPutString( xHandle, ( const signed char* )"\033[0;0H", strlen( "\033[0;0H" ) );
            
     /*the display logic */
-    vSerialPutString( xHandle, (const signed char*)cBuffer, strlen(cBuffer) );
-    vSerialPutString( xHandle, (const signed char*)"\n", 1 );
-    vSerialPutString( xHandle, (const signed char*)cBTN_MSG, usBTN_MSG_LEN );
-    vSerialPutString( xHandle, (const signed char*)&cButton , 1 );
+    vSerialPutString( xHandle, ( const signed char* )cBuffer, strlen( cBuffer ) );
+    vSerialPutString( xHandle, ( const signed char* )"\n", 1 );
+    vSerialPutString( xHandle, ( const signed char* )cBTN_MSG, usBTN_MSG_LEN );
+    vSerialPutString( xHandle, ( const signed char* )&cButton , 1 );
 }
 /*-----------------------------------------------------------*/
 /* prints to the LCD display */
@@ -208,6 +209,7 @@ void vScreenPrint(const char8* cBuffer, const char8 cButton)
     keep the interrupts enabled but stop the scheduler to do all the screen displaying at once 
     */
     portENTER_CRITICAL();
+    
     LCD_DisplayOff();
     LCD_ClearDisplay();
     
@@ -233,7 +235,10 @@ uint16_t     usCurrentPos = 0;                   /* will be parsed to make a str
 uint16_t     usPreviousPos = 0;
 TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
 char8 cButton = 'X';                            /* when no button is pressed display this */
-QueueHandle_t *pxToDisplay = (QueueHandle_t*) pvParameters; /* the incoming character to display */
+//QueueHandle_t xToDisplay = *( ( QueueHandle_t* ) pvParameters ); /* the incoming character to display */
+TaskHandle_t xFromKeyboard = *( ( TaskHandle_t * )  pvParameters );
+uint32_t ulBtn = 0, prvBtn = 0;
+
 
     vScreenPrint( buffer, cButton );
     vScreenPrint( buffer, cButton );
@@ -246,10 +251,13 @@ QueueHandle_t *pxToDisplay = (QueueHandle_t*) pvParameters; /* the incoming char
         
         /* only display things differently if there is a change, if there's no change then 
         don't bother displaying on screen or serial */
-        if ( pdTRUE == xQueueReceive( *pxToDisplay, &cButton, (TickType_t) 100 ) ) 
+        ulBtn = ulTaskNotifyTake( pdTRUE, ( TickType_t ) 0 );
+        if( ulBtn != 0 )
         {
+            cButton = ( char8 ) ulBtn;
             vScreenPrint( buffer, cButton );  
             vSerialPrint( buffer, cButton );
+            prvBtn = ulBtn;
         }
         
         /* The servo position is returned as a uint16_t, 

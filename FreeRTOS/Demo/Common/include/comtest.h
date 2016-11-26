@@ -72,10 +72,12 @@
 
     /* as there are a few variables goin to the com tasks, 
     use this struct to pass them around */
-struct xComParams{
-    QueueHandle_t* pxRxdQueue;
-    QueueHandle_t* pxTxQueue;
-    xComPortHandle* pxComHandle;
+struct xComParams
+{
+    QueueHandle_t xRxdQueue;
+    QueueHandle_t xTxQueue;
+    xComPortHandle *pxComHandle;
+    TaskHandle_t *pxTxTask;
 };
 void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct xComParams xParams );
 
