@@ -42,7 +42,7 @@ for(;;)
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
             /* I only have one servo for now */
-            xToServo.usServoNumber = 1;
+            xToServo.xServoNumber = BaseRotation;
             
             switch( cButton )
             {

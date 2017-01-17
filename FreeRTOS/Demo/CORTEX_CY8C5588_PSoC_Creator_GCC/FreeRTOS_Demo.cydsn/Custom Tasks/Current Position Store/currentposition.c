@@ -42,7 +42,7 @@ and a point to them mean I wotn have to repeat myself
 */
 void vGetArmPosition( arm_position_t* pxOut );
 void vSetArmPosition( arm_position_t* pxIn );
-void ( *positonFunct ) ( arm_position_t *xArg ); /* the fn pointer */
+void ( *positonFunct_t ) ( arm_position_t *xArg ); /* the fn pointer */
 
 /************************************************************/
 /* The generic mutex Take/Give function */
@@ -76,7 +76,7 @@ void vBase( void ( *funct ) ( uint16_t *usArg ), uint16_t *usArg )
 /************************************************************/
 /* The generic mutex Take/Give function */
 
-void vBaseFunction( void ( *positionFunct ) ( arm_position_t *pxArg ), arm_position_t *pxArg )
+void vBaseFunction( void ( *positionFunct_t ) ( arm_position_t *pxArg ), arm_position_t *pxArg )
 {
      /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -85,7 +85,7 @@ void vBaseFunction( void ( *positionFunct ) ( arm_position_t *pxArg ), arm_posit
     {
         if( pdTRUE == xSemaphoreTake( xGatekeeper, ( TickType_t ) 20 ) ) // 20 ms block time arbitrarily picked for now
         {
-            postionFunct( pxArg );
+            postionFunct_t( pxArg );
             xSemaphoreGive( xGatekeeper );
         }
     }
@@ -97,7 +97,7 @@ void vBaseFunction( void ( *positionFunct ) ( arm_position_t *pxArg ), arm_posit
         if( xGatekeeper != NULL )
         {
             xInitialised = true;
-            vBase( positionFunct, pxArg );
+            vBase( positionFunct_t, pxArg );
         }
     }  
 }

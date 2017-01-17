@@ -13,7 +13,7 @@
 #ifndef DECODERTASK_H
 #define DECODERTASK_H
 
-struct xDecoderParams
+struct xDecoderParams_t
 {
     QueueHandle_t xKeypadQueue;
 };
