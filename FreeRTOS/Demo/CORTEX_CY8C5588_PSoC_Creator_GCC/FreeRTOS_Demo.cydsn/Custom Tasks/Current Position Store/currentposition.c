@@ -18,22 +18,21 @@
 #include <stdbool.h>
 
 #include "currentposition.h"
-#include "serial.h"
 
 /************************************************************/
-static uint16_t usCurrentPosition = 0;           /* shared resource */
+static uint16_t usCurrentPosition = 0;          /* shared resource */
 static xSemaphoreHandle xGatekeeper = NULL;     /* mutex */
 static bool xInitialised = false;               /* if the mutex is created this is true */
 
-static arm_position_t xCurrentPositon = 0;
+static arm_position_t xCurrentPosition;
 
 /************************************************************/
-/* internal functions and a point to them mean I wotn have to repeat myself 
+/* internal functions and a point to them mean I wont have to repeat myself 
     when writing code to access the mutex etc
 */
 void vGet( uint16_t* out );
 void vSet( uint16_t* in );
-void ( *funct ) ( uint16_t *usArg ); /* the fn pointer */
+//void ( *funct ) ( uint16_t *usArg ); /* the fn pointer */
 
 /************************************************************/
 /* internal functions for enitre arm set up 
@@ -42,7 +41,7 @@ and a point to them mean I wotn have to repeat myself
 */
 void vGetArmPosition( arm_position_t* pxOut );
 void vSetArmPosition( arm_position_t* pxIn );
-void ( *positonFunct_t ) ( arm_position_t *xArg ); /* the fn pointer */
+//void ( *positonFunct_t ) ( arm_position_t *xArg ); /* the fn pointer */
 
 /************************************************************/
 /* The generic mutex Take/Give function */
@@ -76,7 +75,7 @@ void vBase( void ( *funct ) ( uint16_t *usArg ), uint16_t *usArg )
 /************************************************************/
 /* The generic mutex Take/Give function */
 
-void vBaseFunction( void ( *positionFunct_t ) ( arm_position_t *pxArg ), arm_position_t *pxArg )
+void vBaseFunction( void ( *positionFunct ) ( arm_position_t *pxArg ), arm_position_t *pxArg )
 {
      /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -85,7 +84,7 @@ void vBaseFunction( void ( *positionFunct_t ) ( arm_position_t *pxArg ), arm_pos
     {
         if( pdTRUE == xSemaphoreTake( xGatekeeper, ( TickType_t ) 20 ) ) // 20 ms block time arbitrarily picked for now
         {
-            postionFunct_t( pxArg );
+            positionFunct( pxArg );
             xSemaphoreGive( xGatekeeper );
         }
     }
@@ -97,7 +96,7 @@ void vBaseFunction( void ( *positionFunct_t ) ( arm_position_t *pxArg ), arm_pos
         if( xGatekeeper != NULL )
         {
             xInitialised = true;
-            vBase( positionFunct_t, pxArg );
+            vBaseFunction( positionFunct, pxArg );
         }
     }  
 }

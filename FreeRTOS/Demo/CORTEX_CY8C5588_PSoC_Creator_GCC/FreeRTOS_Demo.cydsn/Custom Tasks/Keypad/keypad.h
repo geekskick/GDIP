@@ -25,8 +25,13 @@
 #define KEYPAD_QUEUE_SIZE 10                /* the depth of the output queue, 10 is more than enough */
 #define KEYPAD_TASK_PERIODICITYms 200       /* how often the whole keypad needs to be scanned for button press */
     
-QueueHandle_t xStartKeypadTask( int priority, xComPortHandle com, TaskHandle_t *xTxTask );
-void vSetDisplayTaskHandle( xTaskHandle xDisplayTask );
+typedef struct xKeypadParams
+{
+    QueueHandle_t *pxOutputQueue;
+} xKeypadParams_t;
+
+QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t xParams );
+void vSetDisplayTaskHandle( TaskHandle_t xDisplayTask );
     
 #endif
 

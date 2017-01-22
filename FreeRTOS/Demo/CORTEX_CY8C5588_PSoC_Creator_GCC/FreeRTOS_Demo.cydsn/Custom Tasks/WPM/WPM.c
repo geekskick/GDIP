@@ -12,12 +12,14 @@
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdbool.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
 
 #include "WPM.h"
-#include "currentposition.h" // This file contains the arm position struct definition
+#include "Custom Tasks/Current Position Store/currentposition.h"
+//#include "currentposition.h" // This file contains the arm position struct definition
 
 // The number of positions the user can store and therefore the depth of the stack
 #define SAVED_POSITIONS_MAX 10
@@ -35,7 +37,15 @@ struct action_args{
 	direction_t *pxCurrentDirection;
 	uint8_t *pusNextFreeStackPosition;
 	uint8_t *pusCurrentStackPosition;
-}
+};
+
+/* The stack items are not pointers so it can't be set to NULL etc,
+ * so if the stack item is used then it'll be is_used = true 
+ */
+struct stack_item_t{
+    arm_position_t arm_position;
+    bool is_used;
+};
 
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
@@ -43,19 +53,19 @@ static portTASK_FUNCTION_PROTO( vWPMTask, pvParameters );
 
 /*-----------------------------------------------------------------------*/
 /* The action functions */
-static void wpm_action_stop( struct action_args args );
-static void wpm_action_save( struct action_args args );
-static void wpm_action_clear( struct action_args args );
-static void wpm_action_reset( struct action_args args );
-static void wpm_action_run( struct action_args args );
+void wpm_action_stop( struct action_args args );
+void wpm_action_save( struct action_args args );
+void wpm_action_clear( struct action_args args );
+void wpm_action_reset( struct action_args args );
+void wpm_action_run( struct action_args args );
 
 /*-----------------------------------------------------------------------*/
 /* the queue which the task will receive from */
-static QueueHandle_t outputQueue = NULL;
+QueueHandle_t xWPMOutputQueue = NULL;
 
 /*-----------------------------------------------------------------------*/
 /* The stack of saved positions */
-static arm_position_t[SAVED_POSITIONS_MAX] xStack = { 0, };
+static struct stack_item_t xStack[SAVED_POSITIONS_MAX];
 
 /*-----------------------------------------------------------------------*/
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
@@ -68,7 +78,7 @@ uint32_t uNotificationValue = WPM_NOTIFICATION_NONE;
 direction_t xDirection = FORWARD;
 action_t xNextAction = NONE;
 
-uint8_t usNextFreeStackPosition = 0;
+uint8_t usNextFreeStackPosition = 0,
 		usCurrentStackPosition = 0;
 
 bool bNotifcationRxd = false;
@@ -77,7 +87,7 @@ struct action_args action_package;
 action_package.pxNextAction = &xNextAction;
 action_package.pxCurrentDirection = &xDirection;
 action_package.pusCurrentStackPosition = &usCurrentStackPosition;
-action_package.pusNextFreeStackPosition = &usNextFreeStackPosition
+action_package.pusNextFreeStackPosition = &usNextFreeStackPosition;
 
     /* the meat of the task */
     for (;;)
@@ -94,7 +104,7 @@ action_package.pusNextFreeStackPosition = &usNextFreeStackPosition
         			break;
 
         		case WPM_NOTIFICATION_SAVE:
-        			wpm_action_sacve( action_package );
+        			wpm_action_save( action_package );
         			break;
 
         		case WPM_NOTIFICATION_RESET:
@@ -127,20 +137,20 @@ action_package.pusNextFreeStackPosition = &usNextFreeStackPosition
 }
 
 /*-----------------------------------------------------------------------*/
-static void wpm_action_stop( struct action_args args )
+void wpm_action_stop( struct action_args args )
 {
-	args.pxNextAction = NONE;
+	*( args.pxNextAction ) = NONE;
 }
 
 /*-----------------------------------------------------------------------*/
-static void wpm_action_reset( struct action_args args )
+void wpm_action_reset( struct action_args args )
 {
-	args.pxCurrentDirection = BACK;
-	args.pxNextAction = RUN;
+	*( args.pxCurrentDirection ) = BACK;
+	*( args.pxNextAction ) = RUN;
 }
 
 /*-----------------------------------------------------------------------*/
-static void wpm_action_save( struct action_args args )
+void wpm_action_save( struct action_args args )
 {
 	arm_position_t xCurrentPosition; 
 	// xCurrentPosition = getCurrentPos(); something like this
@@ -148,55 +158,82 @@ static void wpm_action_save( struct action_args args )
 	// Prevent overflow
 	if( *( args.pusNextFreeStackPosition ) != SAVED_POSITIONS_MAX )
 	{
-		xStack[*( args.pusNextFreeStackPosition )++] = xCurrentPosition;
+        if( !xStack[*( args.pusNextFreeStackPosition )].is_used )
+        {
+        /* save the arm position then move to the next high up item in the stack */
+		xStack[*( args.pusNextFreeStackPosition )].arm_position = xCurrentPosition;
+        xStack[*( args.pusNextFreeStackPosition )].is_used = true;
+        *( args.pusNextFreeStackPosition ) += 1;
+        }
+        else
+        {
+            // if it gets here then there is an error with the stack positioning
+            // and something is used but the index pointers think otherwise
+        }
 	}
 	else
 	{
 		// if it gets here then the stack is full
 	}
-	args.pxNextAction = NONE;
+	*( args.pxNextAction ) = NONE;
 }
 
 /*-----------------------------------------------------------------------*/
-static void wpm_action_clear( struct action_args args )
+void wpm_action_clear( struct action_args args )
 {
 
 	// Prevent underflow
 	if( *( args.pusNextFreeStackPosition ) > 0 )
 	{
-		xStack[*( args.pusNextFreeStackPosition )--] = NULL;
+        /* mark it as not used then decrement the pointer value */
+		xStack[*( args.pusNextFreeStackPosition )].is_used = false;
+        *( args.pusNextFreeStackPosition ) -= 1;
 	}
 	else
 	{
-		// if it gets here then the stack is aldready empty
+		// if it gets here then the stack is already empty
 	}
-	args.pxNextAction = NONE;
+	*( args.pxNextAction ) = NONE;
 }
 
 /*-----------------------------------------------------------------------*/
-static void wpm_action_run( struct action_args args )
+void wpm_action_run( struct action_args args )
 {
+    // ge tthe next stack item index,might be an error if this next item is unused? suck it and see
 	int16_t sNextStack = *(args.pusCurrentStackPosition) + ( *( args.pxCurrentDirection ) == FORWARD ? 1 : -1 ); 
 
+    // range check
 	if( sNextStack >= 0 && sNextStack < SAVED_POSITIONS_MAX )
 	{
 		*( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
 		
-		// Write to the output queue here
+        if( xStack[*( args.pusCurrentStackPosition )].is_used )
+        {
+            // Write to the output queue here
+            
+        }
+		else 
+        {
+            // not at the top of the max stack items but at the top of the currently allocated slots
+            // probably do nothing here
+        }
+        
 	}
 	else
 	{
+        // stop in case of reaching start/end of stack
 		*args.pxNextAction = NONE;
 	}
 }
 
 /*-----------------------------------------------------------------------*/
 /* init */
-QueueHandle_t xStartWPMTask( int priority, QueueHandle_t xOutputQueue )
+TaskHandle_t xStartWPMTask( int priority, xWPMParams_t xParams )
 {
-    outputQueue = xOutputQueue;
-
+    xWPMOutputQueue = *( xParams.pxServoInputQueue );
+    TaskHandle_t rc;
     //this stack size will need changing as it needs more room for the stack of positions
-    return xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) NULL);
+    xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) rc );
+    return rc;
 }
 

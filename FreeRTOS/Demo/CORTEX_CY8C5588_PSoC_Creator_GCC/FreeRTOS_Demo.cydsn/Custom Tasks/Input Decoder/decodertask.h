@@ -12,13 +12,15 @@
 
 #ifndef DECODERTASK_H
 #define DECODERTASK_H
+    
+#define DECODER_INPUT_QUEUE_SIZE 10
 
-struct xDecoderParams_t
+typedef struct xDecoderParams
 {
-    QueueHandle_t xKeypadQueue;
-};
+    QueueHandle_t *pxDecoderOutputQueue;
+}xDecoderParams_t;
 
-QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xInputParams );
+QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t xInputParams );
     
 #endif
 

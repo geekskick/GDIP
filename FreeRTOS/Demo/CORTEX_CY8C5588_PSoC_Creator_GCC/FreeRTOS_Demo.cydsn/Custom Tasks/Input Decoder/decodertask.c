@@ -17,13 +17,12 @@
 #include "task.h"
 #include "queue.h"
 
-#include "ServoQueueParams.h"
+#include "Custom Tasks/Servo/ServoQueueParams.h"
 #include "decodertask.h"
 #include "partest.h"
 
-QueueHandle_t xOutputQueue = NULL;
+QueueHandle_t xKPOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
-
 
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION_PROTO( vDecoderTask, pvParameters );
@@ -33,7 +32,7 @@ static portTASK_FUNCTION( vDecoderTask, pvParamaters )
 {
 char8 cButton;                      /* the button pressed */
 bool bSend = false;                 /* if we are sending a value to the servo task then this is true, else false */
-struct xServoQueueParams xToServo;  /* sending stuff to the servos means it needs to be packaged up into a struct */
+xServoQueueParams_t xToServo;  /* sending stuff to the servos means it needs to be packaged up into a struct */
 ( void ) pvParamaters;              /* get rid of warnings */
     
 for(;;)
@@ -42,7 +41,7 @@ for(;;)
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
             /* I only have one servo for now */
-            xToServo.xServoNumber = BaseRotation;
+            xToServo.xServo = BaseRotation;
             
             switch( cButton )
             {
@@ -63,7 +62,7 @@ for(;;)
             
             if( true == bSend )
             {
-                if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&xToServo, ( TickType_t ) portMAX_DELAY ) )
+                if( pdFALSE == xQueueSend( xKPOutputQueue, ( void* )&xToServo, ( TickType_t ) portMAX_DELAY ) )
                 {
                     /* error sending to the servo queue */
                 }
@@ -73,12 +72,13 @@ for(;;)
 }
 
 /*-----------------------------------------------------------------------*/
-QueueHandle_t xStartDecoderTask( int priority, struct xDecoderParams xInputParams )
+QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t xParams )
 {
-    xKeypadInputQueue = xInputParams.xKeypadQueue;
-    xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) &xInputParams, priority, NULL );
-    xOutputQueue = xQueueCreate( 10, sizeof( struct xServoQueueParams ) );
-    return xOutputQueue;
+    /* create the input q and attache the output queue */
+    xKeypadInputQueue = xQueueCreate( DECODER_INPUT_QUEUE_SIZE, sizeof(signed char) );
+    xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) &xParams, priority, NULL );
+    xKPOutputQueue = *(xParams.pxDecoderOutputQueue);
+    return xKPOutputQueue;
 }
 
 /* [] END OF FILE */

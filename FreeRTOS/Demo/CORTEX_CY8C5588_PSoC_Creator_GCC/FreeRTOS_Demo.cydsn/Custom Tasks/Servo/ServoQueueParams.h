@@ -14,16 +14,22 @@
 #define SERVOQUEUE_H
   
 /* you can only add or substract from a servo value */
-enum xServoDirection_t{ ADD, SUB };
-enum xServoNumber_t{ BaseRotation = 0, BaseElevation, Elbow, WristRoll, WristPitch, Grabber, END };
+typedef enum xServoDirection{ ADD, SUB } xServoDirection_t;
+typedef enum xServoNumber{ BaseRotation = 0, BaseElevation, Elbow, WristRoll, WristPitch, Grabber, END } xServoNumber_t;
 
 /* this struct is sent from the decoder task to the servo task */
-struct xServoQueueParams
+typedef struct xServoQueueParams
 {
-    enum xServoNumber_t    xServo;        /* which servo im talking about */
-    enum xServoDirection_t xDirection;    /* add or substract */
-};
-    
+    xServoNumber_t    xServo;        /* which servo im talking about */
+    xServoDirection_t xDirection;    /* add or substract */
+} xServoQueueParams_t;
+
+typedef struct xServoInputQueues
+{
+    QueueHandle_t *pxFromWPM;
+    QueueHandle_t *pxFromKeypad;
+} xServoInputQueues_t;
+
 #endif
 
 /* [] END OF FILE */

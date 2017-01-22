@@ -78,11 +78,16 @@
 /* Common Demo includes. */
 #include "serial.h"
 #include "comtest.h"
-#include "servo.h"
 #include "partest.h"
-#include "keypad.h"
-#include "currentposition.h"
-#include "decodertask.h"
+
+/* GDIP Includes */
+#include "Custom Tasks/Servo/servo.h"
+#include "Custom Tasks/Servo/ServoQueueParams.h"
+#include "Custom Tasks/Keypad/keypad.h"
+#include "Custom Tasks/Current Position Store/currentposition.h"
+#include "Custom Tasks/Input Decoder/decodertask.h"
+#include "Custom Tasks/WPM/WPM.h"
+
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
@@ -98,30 +103,43 @@ static void prvHardwareSetup( void );
 
 /*---------------------------------------------------------------------------*/
 int main( void )
-{
+{   
+static QueueHandle_t xDecoderServoQueue = NULL;    /* queue decoder -> servo */
+static QueueHandle_t xKeypadDecoderQueue = NULL;   /* queue keypad -> decoder */
+static QueueHandle_t xWPMServoQueue = NULL;        /* queue WPM -> servos */
+    
+xDecoderParams_t    xDParams;       /* params to the decoder task */
+xKeypadParams_t     xKParams;       /* params to the keypad task */
+xServoInputQueues_t xServoInputs;   /* the queues to imput into the servo task */
+xWPMParams_t        xWPMParams;     /* params to the WPM task */
+    
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 	prvHardwareSetup();
-
-/* there is a lot of wasted memory here and pointers could be used in place of some repetition, so clean this up 
-    if there is any issue with memory */
-QueueHandle_t servoQueue = NULL;        /* queue to the servos */
-static xComPortHandle com;              /* serial port needs to be static as it's written to from another location */
-QueueHandle_t xKeypadQueue = NULL;      /* queue from the keypad */
-struct xDecoderParams xDecoderP;        /* params to the decoder task */
-struct xComParams xParams;              /* params to the comtask */
-static TaskHandle_t xDisplayTask;       /* the display task handle is put here in the comport init function */
-xParams.pxComHandle = &com;             /* the location of the com port needs to be put here */
-xParams.pxTxTask = &xDisplayTask;       /* the task handle needs to be put here */
-
-    /* get the keypad output queue and get it ready to put it in the decoder task */
-    xKeypadQueue = xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, com, &xDisplayTask);
-    xDecoderP.xKeypadQueue = xKeypadQueue;
+    
+    /* The tasks return their input queues, so they must be started back to front in the pipeline */
+    
+    /* start the servo task and get it's input queues */
+    xServoInputs = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY );
+    xWPMServoQueue = xServoInputs.pxFromWPM;
+    xDecoderServoQueue = xServoInputs.pxFromKeypad;
+    
+    /* the decoder and the WPM will use an input queue each */
+    xDParams.pxDecoderOutputQueue = &xDecoderServoQueue;
+    xWPMParams.pxServoInputQueue = &xWPMServoQueue;
+    
+    /* start the decoder task */
+    xKeypadDecoderQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDParams );
+    xKParams.pxOutputQueue = &xKeypadDecoderQueue;
+    
+    //xStartWPMTask( mainCOM_TEST_TASK_PRIORITY, xWPMParams );
+    
+    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, xKParams );
     
     /* get the decoder output queue and put get ready to give it to the servo task as an input queue */
-    servoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDecoderP );
-    xStartServoTasks( mainCOM_TEST_TASK_PRIORITY, servoQueue );
-        
-    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600, xParams );
+    xDecoderServoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDParams );
+    
+    /* 9600 baudrate */
+    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600 );
 
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
@@ -134,7 +152,6 @@ xParams.pxTxTask = &xDisplayTask;       /* the task handle needs to be put here 
 	for( ;; );
 }
 /*---------------------------------------------------------------------------*/
-
 void prvHardwareSetup( void )
 {
 /* Port layer functions that need to be copied into the vector table. */
@@ -149,40 +166,63 @@ const uint16_t usMidPoint = usGetMidPoint();
 	CyRamVectors[ 14 ] = ( cyisraddress ) xPortPendSVHandler;
 	CyRamVectors[ 15 ] = ( cyisraddress ) xPortSysTickHandler;
 
-	/* Start-up the peripherals. */
-
 	/* Start the UART. */
 	UART_Start();
     
     /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
     pwmClock_Start();
-    servoPWM_Start();
+    baseRotationPWM_Start();
+    baseElevationPWM_Start();
+    elbowPWM_Start();
+    wristPitchPWM_Start();
+    wristRollPWM_Start();
+    grabberPWM_Start();
    
     /* init the servo to middle and the built in led to on */
     builtInLED_Write(1);
-    servoPWM_WriteCompare( usMidPoint );
-    vSetCurrentPosition( usMidPoint );
+    baseRotationPWM_WriteCompare( usMidPoint );
+    baseElevationPWM_WriteCompare( usMidPoint );
+    elbowPWM_WriteCompare( usMidPoint );
+    wristPitchPWM_WriteCompare( usMidPoint );
+    wristRollPWM_WriteCompare( usMidPoint );
+    grabberPWM_WriteCompare( usMidPoint );
+    
+    arm_position_t xTempPosition = {
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint
+    };
+    
+    vSetCurrentArmPosition( xTempPosition );
+    //vSetCurrentPosition( usMidPoint );
     
     LCD_Start();
     LCD_DisplayOn();
 
 }
-/*---------------------------------------------------------------------------*/
 
+/*---------------------------------------------------------------------------*/
 void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 {
+/* stop warnings */
+( void )pxTask;
+
 	/* The stack space has been execeeded for a task, considering allocating more. */
 	taskDISABLE_INTERRUPTS();
     UART_PutString("Stack Overflow from ");
     UART_PutString(pcTaskName);
 	for( ;; );
 }
-/*---------------------------------------------------------------------------*/
 
+/*---------------------------------------------------------------------------*/
 void vApplicationMallocFailedHook( void )
 {
 	/* The heap space has been execeeded. */
 	taskDISABLE_INTERRUPTS();
 	for( ;; );
 }
+
 /*---------------------------------------------------------------------------*/

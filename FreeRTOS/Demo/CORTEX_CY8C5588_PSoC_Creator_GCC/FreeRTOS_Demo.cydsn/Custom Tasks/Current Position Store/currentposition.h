@@ -13,15 +13,17 @@
 #ifndef CURRENTPOSITION_H
 #define CURRENTPOSITION_H
 
+#include <stdint.h>
+    
 /* Using this struct the whole arm can be described in terms of where the servos are */
 typedef struct {
 	uint16_t usBaseRotation, 
-			 usBaseAngle,
-			 usElbowAngle,
+			 usBaseElevation,
+			 usElbow,
 			 usWristPitch,
 			 usWristRoll,
 			 usGrabber;
-} arm_position_t
+} arm_position_t;
     
 // Leave the original functions in for testing
 uint16_t usGetCurrentPosition( void );

@@ -13,10 +13,12 @@
 #ifndef SERVO_H
 #define SERVO_H
     
+#include "servoqueueparams.h"
+    
 /* depth of the queue is ten bytes */
 #define SERVO_QUEUE_SIZE 10
 
-QueueHandle_t xStartServoTasks( int priority, QueueHandle_t xInputQueue );
+xServoInputQueues_t xStartServoTasks( int priority );
 uint16_t usGetMidPoint( void );
 
 #endif

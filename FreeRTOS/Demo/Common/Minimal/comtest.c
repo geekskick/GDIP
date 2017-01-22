@@ -79,7 +79,9 @@
 #include "comtest.h"
 #include "partest.h"
 
-#include "currentposition.h"
+//#include "currentposition.h"
+#include "Custom Tasks/Current Position Store/currentposition.h"
+#include "Custom Tasks/Display/globaldisplay.h"
 
 #define comSTACK_SIZE				configMINIMAL_STACK_SIZE
 #define comBUFFER_LEN				( 10 )
@@ -93,30 +95,28 @@ static void vSerialPrint(const char8* cBuffer, const char8 cButton);
 static void vScreenPrint(const char8* cBuffer, const char8 cButton);
 
 /*-----------------------------------------------------------*/
-static xComPortHandle xHandle = NULL;
-
 static const char8* cBTN_MSG = "Button:";    /* boilerplate text for displaying */
 static const char8* cPOS_MSG = "Servo:";
 static uint8_t usBTN_MSG_LEN;
 static uint8_t usPOS_MSG_LEN;
+static xComPortHandle xCPHandle;
+static xTaskHandle xTHandle;
 
 /*-----------------------------------------------------------*/
 
-void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, struct xComParams xParams )
+void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate )
 {
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
-    xHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
-    
-    /* for the other tasks to use vSerialPutString() they need to know the comport handle */
-    *(xParams.pxComHandle) = xHandle;
-
-    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow,
-    Also, put the task handle in the structs pointer location for use in notifications */
+    xCPHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    vSetDisplayComPortHandle( xCPHandle );
+   
+    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
     
     // commented out for debugging
 	//xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) &xParams.xRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
-    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) xParams.pxTxTask );    
-
+    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) &xTHandle );
+    vSetDisplayTaskHandle( xTHandle );
+    
     /* in displaying writing to the comport you need to know the length of the string, it's const so calculate this only once. */
     usBTN_MSG_LEN = strlen( cBTN_MSG );
     usPOS_MSG_LEN = strlen( cPOS_MSG );
@@ -137,7 +137,7 @@ uint8_t bufferLoc = 0;      /* index of the next free location in the buffer */
 	{
 		/* Block on the queue that contains received bytes until a byte is
 		available. */
-		xSerialGetChar( xHandle, &cByteRxed, portMAX_DELAY ); 
+		xSerialGetChar( xCPHandle, &cByteRxed, portMAX_DELAY ); 
         
         /* turn the light on to show that it's in this part of the process */
         //vParTestToggleLED(0);
@@ -173,14 +173,14 @@ void vSerialPrint(const char8* cBuffer, const char8 cButton)
 
     /* clear the screen and reset to the top using the VT100 escape commands
     http://www.termsys.demon.co.uk/vtansi.htm */
-    vSerialPutString( xHandle, ( const signed char* )"\033[2J", strlen( "\033[2J" ) );
-    vSerialPutString( xHandle, ( const signed char* )"\033[0;0H", strlen( "\033[0;0H" ) );
+    vSerialPutString( xCPHandle, ( const signed char* )"\033[2J", strlen( "\033[2J" ) );
+    vSerialPutString( xCPHandle, ( const signed char* )"\033[0;0H", strlen( "\033[0;0H" ) );
            
     /*the display logic */
-    vSerialPutString( xHandle, ( const signed char* )cBuffer, strlen( cBuffer ) );
-    vSerialPutString( xHandle, ( const signed char* )"\n", 1 );
-    vSerialPutString( xHandle, ( const signed char* )cBTN_MSG, usBTN_MSG_LEN );
-    vSerialPutString( xHandle, ( const signed char* )&cButton , 1 );
+    vSerialPutString( xCPHandle, ( const signed char* )cBuffer, strlen( cBuffer ) );
+    vSerialPutString( xCPHandle, ( const signed char* )"\n", 1 );
+    vSerialPutString( xCPHandle, ( const signed char* )cBTN_MSG, usBTN_MSG_LEN );
+    vSerialPutString( xCPHandle, ( const signed char* )&cButton , 1 );
 }
 /*-----------------------------------------------------------*/
 /* prints to the LCD display */
@@ -239,6 +239,8 @@ uint32_t ulBtn;                                 /* the returned notifcation valu
             vSerialPrint( buffer, cButton );
 
         }
+        
+        //also check the queue for debug messages
         
         /* The servo position is returned as a uint16_t, 
         so safely change this to a string before sending it */

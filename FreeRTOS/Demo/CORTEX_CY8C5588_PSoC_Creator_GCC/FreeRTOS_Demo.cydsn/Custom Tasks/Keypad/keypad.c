@@ -20,6 +20,7 @@
 #include "partest.h"
 
 #include "keypad.h"
+#include "Custom Tasks/Display/globaldisplay.h"
 
    /* The keypad output rows one at a time are the same as the columns 
      Keypad layout in rows and columns
@@ -60,9 +61,10 @@ static portTASK_FUNCTION_PROTO( vKeypadTask, pvParameters );
 
 const char *KEYPAD_BUTTONS_ORDERED = "abodefchijglmnkp";    /* these are in the wrong order due to a suspected wiring fault in the keypad 
                                                                 where the 3rd columns' rows seems to have been shifted downwards by 1 */
-static QueueHandle_t outputQueue = NULL;                    /* The output values are put into this queue */
-static xComPortHandle xSerialCom;                           /* the output serial comport */
-static TaskHandle_t *xTaskToNotify = NULL;                  /* the task to notify when a button is pressed */
+
+QueueHandle_t xOutputQueue = NULL;                    /* The output values are put into this queue */
+xComPortHandle xSerialCom;                            /* the output serial comport */
+TaskHandle_t *pxTaskToNotify = NULL;                  /* the task to notify when a button is pressed */
 
 /* to access the port values by index define then in an array to make it easier to use in code.
 also, const and static so that it's stored in flash */
@@ -138,7 +140,7 @@ Send it to the queue as the button's ASCII value
 */
 static portTASK_FUNCTION( vKeypadTask, pvParamaters )
 {
-TaskHandle_t xDispTask = NULL;   
+TaskHandle_t xDispTask = xGetDisplayTaskHandle();
 ( void ) pvParamaters;                                          /* stops warnings */
 uint8_t  usColumnInput = 0;                                     /* The input value will go here  when read in */
 uint8_t  usRow;                                                 /* The row being energised */
@@ -182,7 +184,7 @@ TickType_t xLastWakeTime;                                       /* For measuring
                     so keep trying to get the taskhandle until a value one is put in the correct location */
                     if( xDispTask == NULL )
                     {
-                        xDispTask = *xTaskToNotify;
+                        xDispTask = *pxTaskToNotify;
                         /* for debugging */
                         vParTestToggleLED(1);
                         
@@ -194,14 +196,14 @@ TickType_t xLastWakeTime;                                       /* For measuring
                         hopefully this does it normally and just prefixes the value with 0's. If not look here for errors
                         in the display not sending out the correct letter
                         */
-                        xTaskNotify( xDispTask, ( uint32_t )cButton, eSetValueWithOverwrite );
+                        xTaskNotify( xDispTask , ( uint32_t )cButton, eSetValueWithOverwrite );
                     }
                     
                     /* The qeueue timeout is 0, so if it's full then dont wait, 
                     in addition in the vSerialPutString the length is fixed as 
                     1 since it's only 1 character for this task. 
                     */
-                    if( pdFALSE == xQueueSend( outputQueue, ( void* )&cButton, 0 ) )
+                    if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&cButton, 0 ) )
                     {
                         /* for debugging */
                         vParTestToggleLED(0);
@@ -219,16 +221,14 @@ TickType_t xLastWakeTime;                                       /* For measuring
 
 /*-----------------------------------------------------------------------*/
 /* init */
-QueueHandle_t xStartKeypadTask( int priority, xComPortHandle xCom, TaskHandle_t *xTxTask )
+QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t xParams )
 {
-    xSerialCom = xCom;
-    xTaskToNotify = xTxTask;
-    
+
     /* init the queue */
-    outputQueue = xQueueCreate( KEYPAD_QUEUE_SIZE, sizeof(signed char) );
+    xOutputQueue = *( xParams.pxOutputQueue );
     xTaskCreate( vKeypadTask, "Keypad", configMINIMAL_STACK_SIZE, NULL, priority, ( TaskHandle_t * ) NULL );
     
-    return outputQueue;
+    return NULL;
 }
 
 /* [] END OF FILE */
