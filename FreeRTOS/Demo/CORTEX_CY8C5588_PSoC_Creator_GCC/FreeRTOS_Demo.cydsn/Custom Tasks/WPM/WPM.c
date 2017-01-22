@@ -32,7 +32,7 @@
 typedef enum directions { FORWARD, BACK } direction_t;
 typedef enum actions	{ STOP, SAVE, RESET, RUN, CLEAR, NONE } action_t;
 
-struct action_args{
+struct xActionArgs{
 	action_t 	*pxNextAction;
 	direction_t *pxCurrentDirection;
 	uint8_t *pusNextFreeStackPosition;
@@ -53,11 +53,11 @@ static portTASK_FUNCTION_PROTO( vWPMTask, pvParameters );
 
 /*-----------------------------------------------------------------------*/
 /* The action functions */
-void wpm_action_stop( struct action_args args );
-void wpm_action_save( struct action_args args );
-void wpm_action_clear( struct action_args args );
-void wpm_action_reset( struct action_args args );
-void wpm_action_run( struct action_args args );
+void prvActionStop( struct xActionArgs args );
+void prvActionSave( struct xActionArgs args );
+void prvActionClear( struct xActionArgs args );
+void prvActionReset( struct xActionArgs args );
+void prvActionRun( struct xActionArgs args );
 
 /*-----------------------------------------------------------------------*/
 /* the queue which the task will receive from */
@@ -83,11 +83,11 @@ uint8_t usNextFreeStackPosition = 0,
 
 bool bNotifcationRxd = false;
 
-struct action_args action_package;
-action_package.pxNextAction = &xNextAction;
-action_package.pxCurrentDirection = &xDirection;
-action_package.pusCurrentStackPosition = &usCurrentStackPosition;
-action_package.pusNextFreeStackPosition = &usNextFreeStackPosition;
+struct xActionArgs xActionPckg;
+xActionPckg.pxNextAction = &xNextAction;
+xActionPckg.pxCurrentDirection = &xDirection;
+xActionPckg.pusCurrentStackPosition = &usCurrentStackPosition;
+xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
 
     /* the meat of the task */
     for (;;)
@@ -100,24 +100,24 @@ action_package.pusNextFreeStackPosition = &usNextFreeStackPosition;
         	switch( uNotificationValue )
         	{
         		case WPM_NOTIFICATION_STOP:
-        			wpm_action_stop( action_package );
+        			prvActionStop( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_SAVE:
-        			wpm_action_save( action_package );
+        			prvActionSave( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_RESET:
-        			wpm_action_reset( action_package );
+        			prvActionReset( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_RUN:
         			xDirection = FORWARD;
-        			wpm_action_run( action_package );
+        			prvActionRun( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_CLEAR:
-        			wpm_action_clear( action_package );
+        			prvActionClear( xActionPckg );
         			break;
 
         		default:
@@ -129,7 +129,7 @@ action_package.pusNextFreeStackPosition = &usNextFreeStackPosition;
         } 
         else if( xNextAction == RUN)
         {
-        	wpm_action_run( action_package );
+        	prvActionRun( xActionPckg );
         }
         
     }
@@ -137,20 +137,20 @@ action_package.pusNextFreeStackPosition = &usNextFreeStackPosition;
 }
 
 /*-----------------------------------------------------------------------*/
-void wpm_action_stop( struct action_args args )
+void prvActionStop( struct xActionArgs args )
 {
 	*( args.pxNextAction ) = NONE;
 }
 
 /*-----------------------------------------------------------------------*/
-void wpm_action_reset( struct action_args args )
+void prvActionReset( struct xActionArgs args )
 {
 	*( args.pxCurrentDirection ) = BACK;
 	*( args.pxNextAction ) = RUN;
 }
 
 /*-----------------------------------------------------------------------*/
-void wpm_action_save( struct action_args args )
+void prvActionSave( struct xActionArgs args )
 {
 	arm_position_t xCurrentPosition; 
 	// xCurrentPosition = getCurrentPos(); something like this
@@ -179,7 +179,7 @@ void wpm_action_save( struct action_args args )
 }
 
 /*-----------------------------------------------------------------------*/
-void wpm_action_clear( struct action_args args )
+void prvActionClear( struct xActionArgs args )
 {
 
 	// Prevent underflow
@@ -197,7 +197,7 @@ void wpm_action_clear( struct action_args args )
 }
 
 /*-----------------------------------------------------------------------*/
-void wpm_action_run( struct action_args args )
+void prvActionRun( struct xActionArgs args )
 {
     // ge tthe next stack item index,might be an error if this next item is unused? suck it and see
 	int16_t sNextStack = *(args.pusCurrentStackPosition) + ( *( args.pxCurrentDirection ) == FORWARD ? 1 : -1 ); 
@@ -233,7 +233,7 @@ TaskHandle_t xStartWPMTask( int priority, xWPMParams_t xParams )
     xWPMOutputQueue = *( xParams.pxServoInputQueue );
     TaskHandle_t rc;
     //this stack size will need changing as it needs more room for the stack of positions
-    xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) rc );
+    xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) &rc );
     return rc;
 }
 

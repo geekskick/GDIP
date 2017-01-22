@@ -35,20 +35,56 @@ static xTaskHandle xComTask;
 /* internal functions and a point to them mean I wont have to repeat myself 
     when writing code to access the mutex etc
 */
-void vGetCom( xComPortHandle *out );
-void vSetCom( xComPortHandle *in );
-void vComBase( void ( *comFunct ) ( xComPortHandle *xCom ), xComPortHandle *xArg );
+void prvVGetCom( xComPortHandle *out );
+void prvVSetCom( xComPortHandle *in );
+void prvVComBase( void ( *comFunct ) ( xComPortHandle *xCom ), xComPortHandle *xArg );
 
-void vGetTask( xTaskHandle *out );
-void vSetTask( xTaskHandle *in );
-void vTaskBase( void ( *taskFunct ) ( xTaskHandle *xTask ), xTaskHandle *xArg );
+void prvVGetTask( xTaskHandle *out );
+void prvVSetTask( xTaskHandle *in );
+void prvVTaskBase( void ( *taskFunct ) ( xTaskHandle *xTask ), xTaskHandle *xArg );
 
-void vGetQ( QueueHandle_t *out );
-void vSetQ( QueueHandle_t *in );
-void vQueueBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg );
+void prvVGetQ( QueueHandle_t *out );
+void prvVSetQ( QueueHandle_t *in );
+void prvVQBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg );
 
 /*-----------------------------------------------------------------------------*/
-void vComBase( void ( *comFunct ) ( xComPortHandle *xCom ), xComPortHandle *xArg )
+void prvVSetQ( QueueHandle_t *in )
+{
+    xDispQueue = *in;
+}
+
+/*-----------------------------------------------------------------------------*/
+void prvVGetQ( QueueHandle_t *out )
+{
+    *out = xDispQueue;
+}
+
+/*-----------------------------------------------------------------------------*/
+void prvVSetTask( xTaskHandle *in )
+{
+    xComTask = *in;
+}
+
+/*-----------------------------------------------------------------------------*/
+void prvVGetTask( xTaskHandle *out )
+{
+    *out = xComTask;
+}
+
+/*-----------------------------------------------------------------------------*/
+void prvVGetCom( xComPortHandle *out )
+{
+    *out = xComPort;
+}
+
+/*-----------------------------------------------------------------------------*/
+void prvVSetCom( xComPortHandle *in )
+{
+    xComPort = *in;
+}
+
+/*-----------------------------------------------------------------------------*/
+void prvVComBase( void ( *comFunct ) ( xComPortHandle *xCom ), xComPortHandle *xArg )
 {
     /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -69,13 +105,13 @@ void vComBase( void ( *comFunct ) ( xComPortHandle *xCom ), xComPortHandle *xArg
         if( xGatekeeper != NULL )
         {
             xInitialised = true;
-            vQueueBase( comFunct, xArg );
+            prvVComBase( comFunct, xArg );
         }
     } 
 }
 
 /*-----------------------------------------------------------------------------*/
-void vTaskBase( void ( *taskFunct ) ( xTaskHandle *xTask ), xTaskHandle *xArg )
+void prvVTaskBase( void ( *taskFunct ) ( xTaskHandle *xTask ), xTaskHandle *xArg )
 {
     /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -96,13 +132,13 @@ void vTaskBase( void ( *taskFunct ) ( xTaskHandle *xTask ), xTaskHandle *xArg )
         if( xGatekeeper != NULL )
         {
             xInitialised = true;
-            vQueueBase( taskFunct, xArg );
+            prvVTaskBase( taskFunct, xArg );
         }
     } 
 }
 
 /*-----------------------------------------------------------------------------*/
-void vQueueBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg )
+void prvVQBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg )
 {
     /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -123,7 +159,7 @@ void vQueueBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg )
         if( xGatekeeper != NULL )
         {
             xInitialised = true;
-            vQueueBase( QFunct, xArg );
+            prvVQBase( QFunct, xArg );
         }
     }      
 }
@@ -132,7 +168,7 @@ void vQueueBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg )
 xTaskHandle xGetDisplayTaskHandle( void )
 {
     xTaskHandle rc;
-    vTaskBase( &vGetTask, &rc );
+    prvVTaskBase( &prvVGetTask, &rc );
     return rc;
 }
 
@@ -140,7 +176,7 @@ xTaskHandle xGetDisplayTaskHandle( void )
 QueueHandle_t xGetDisplayInputQueue( void )
 {
     QueueHandle_t rc;
-    vQueueBase( &vGetQ, &rc );
+    prvVQBase( &prvVGetQ, &rc );
     return rc;
 }
 
@@ -148,27 +184,26 @@ QueueHandle_t xGetDisplayInputQueue( void )
 xComPortHandle xGetDisplayComPortHandle( void )
 {
     xComPortHandle rc;
-    vComBase( &vGetCom, &rc );
+    prvVComBase( &prvVGetCom, &rc );
     return rc;
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayTaskHandle( xTaskHandle xNewHandle )
 {
-    vTaskBase( &vSetTask, &xNewHandle );  
+    prvVTaskBase( &prvVSetTask, &xNewHandle );  
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayInputQueue( QueueHandle_t xNewQueue )
 {
-    vQueueBase( &vSetQ, &xNewQueue );
+    prvVQBase( &prvVSetQ, &xNewQueue );
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayComPortHandle( xComPortHandle xNewHandle )
 {
-    vComBase( &vSetCom, &xNewHandle );
-    
+    prvVComBase( &prvVSetCom, &xNewHandle );
 }
     
 /* [] END OF FILE */

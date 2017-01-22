@@ -42,8 +42,8 @@ static uint16_t usServoPeriod = 0;
 
 /*-----------------------------------------------------------------------*/
 /* Each value can either be added to or subtract from */
-uint16_t prv_add ( uint16_t usLHS, uint16_t usRHS );
-uint16_t prv_sub ( uint16_t usLHS, uint16_t usRHS );
+uint16_t prvAdd ( uint16_t usLHS, uint16_t usRHS );
+uint16_t prvSub ( uint16_t usLHS, uint16_t usRHS );
 
 /*-----------------------------------------------------------------------*/
 /* function pointers to write compare */
@@ -77,8 +77,8 @@ arm_position_t xCurrentPosition = xGetCurrentPosition();
             /* Are we moving the servo left or right */
             switch( xInputValue.xDirection )
             {
-                case SUB: pusDirectionFunction = &prv_sub; break;
-                case ADD: pusDirectionFunction = &prv_add; break;
+                case SUB: pusDirectionFunction = &prvSub; break;
+                case ADD: pusDirectionFunction = &prvAdd; break;
                 default: break;
             }
 
@@ -172,13 +172,13 @@ uint16_t usGetMidPoint( void )
 
 /*-----------------------------------------------------------------------*/
 /* helper functions */
-uint16_t prv_add ( uint16_t usLHS, uint16_t usRHS )
+uint16_t prvAdd ( uint16_t usLHS, uint16_t usRHS )
 {
     // dont bother checking for overflow
     return usLHS + usRHS;
 }
 
-uint16_t prv_sub ( uint16_t usLHS, uint16_t usRHS )
+uint16_t prvSub ( uint16_t usLHS, uint16_t usRHS )
 {
     // dont bother checking for underflow
     return usLHS - usRHS;

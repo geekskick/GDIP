@@ -32,7 +32,6 @@ static arm_position_t xCurrentPosition;
 */
 void vGet( uint16_t* out );
 void vSet( uint16_t* in );
-//void ( *funct ) ( uint16_t *usArg ); /* the fn pointer */
 
 /************************************************************/
 /* internal functions for enitre arm set up 
@@ -41,7 +40,6 @@ and a point to them mean I wotn have to repeat myself
 */
 void vGetArmPosition( arm_position_t* pxOut );
 void vSetArmPosition( arm_position_t* pxIn );
-//void ( *positonFunct_t ) ( arm_position_t *xArg ); /* the fn pointer */
 
 /************************************************************/
 /* The generic mutex Take/Give function */
