@@ -31,6 +31,7 @@ static QueueHandle_t xDispQueue;
 static xComPortHandle xComPort;
 static xTaskHandle xComTask;
 
+typedef enum { ComPort, Task, Queue } type_to_get_t;
 /*-----------------------------------------------------------------------------*/
 /* internal functions and a point to them mean I wont have to repeat myself 
     when writing code to access the mutex etc
@@ -46,6 +47,61 @@ void prvVTaskBase( void ( *taskFunct ) ( xTaskHandle *xTask ), xTaskHandle *xArg
 void prvVGetQ( QueueHandle_t *out );
 void prvVSetQ( QueueHandle_t *in );
 void prvVQBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg );
+
+void prvGenericSet( type_to_get_t xType, void *in );
+void prvGenericGet( type_to_get_t xType, void *in );
+
+/*-----------------------------------------------------------------------------*/
+/* untested, might not compile */
+void prvGenericSet( type_to_get_t xType, void *in )
+{
+	switch( xType )
+	{
+		case ComPort: 	xComPort = *( xComPortHandle* )in; 	break;
+		case Queue: 	xDispQueue = *( QueueHandle_t* )in; break;
+		case Task: 		xComTask = *( xTaskHandle* )in; 	break;
+		default: break;
+	}
+}
+
+void prvGenericGet( type_to_get_t xType, void *out )
+{
+	switch( xType )
+	{
+		case ComPort: 	*out = ( void* )&xComPort; 		break;
+		case Queue: 	*out = ( void* )&xDispQueue; 	break;
+		case Task: 		*out = ( void* )&xComTask; 		break;
+		default: break;
+	}
+
+}
+
+void prvGenericBase( void ( *GFunct ) ( void *pcThingToGetSet ), type_to_get_t xType, void * pxArg )
+{
+
+    /* If the mutex hasn't been initialised then don't allow access to the resource, 
+     * make an attempt to create the mutex, and if it's created call the function again. 
+    */
+    if( xInitialised )
+    {
+        if( pdTRUE == xSemaphoreTake( xGatekeeper, ( TickType_t ) 20 ) ) // 20 ms block time arbitrarily picked for now
+        {
+            GFunct( xType, pxArg );
+            xSemaphoreGive( xGatekeeper );
+        }
+    }
+    else 
+    {
+        /* here it isn't initialised so initialise the mutex, and if successful recursively
+        attempt to perform the action again */
+        xGatekeeper = xSemaphoreCreateMutex();
+        if( xGatekeeper != NULL )
+        {
+            xInitialised = true;
+            prvGenericBase( GFunct, xType, pxArg );
+        }
+    }   
+}
 
 /*-----------------------------------------------------------------------------*/
 void prvVSetQ( QueueHandle_t *in )
@@ -168,7 +224,8 @@ void prvVQBase( void ( *QFunct ) ( QueueHandle_t *xCom ), QueueHandle_t *xArg )
 xTaskHandle xGetDisplayTaskHandle( void )
 {
     xTaskHandle rc;
-    prvVTaskBase( &prvVGetTask, &rc );
+    prvGenericBase( &prvGenericGet, Task, ( void* )&rc );
+    //prvVTaskBase( &prvVGetTask, &rc );
     return rc;
 }
 
@@ -176,7 +233,8 @@ xTaskHandle xGetDisplayTaskHandle( void )
 QueueHandle_t xGetDisplayInputQueue( void )
 {
     QueueHandle_t rc;
-    prvVQBase( &prvVGetQ, &rc );
+    prvGenericBase( &prvGenericGet, Queue, ( void* )&rc );
+    //prvVQBase( &prvVGetQ, &rc );
     return rc;
 }
 
@@ -184,26 +242,30 @@ QueueHandle_t xGetDisplayInputQueue( void )
 xComPortHandle xGetDisplayComPortHandle( void )
 {
     xComPortHandle rc;
-    prvVComBase( &prvVGetCom, &rc );
+    prvGenericBase( &prvGenericGet, ComPort, ( void* )&rc );
+    //prvVComBase( &prvVGetCom, &rc );
     return rc;
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayTaskHandle( xTaskHandle xNewHandle )
 {
-    prvVTaskBase( &prvVSetTask, &xNewHandle );  
+	prvGenericBase( &prvGenericSet, Task, ( void* )&xNewHandle );
+    //prvVTaskBase( &prvVSetTask, &xNewHandle );  
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayInputQueue( QueueHandle_t xNewQueue )
 {
-    prvVQBase( &prvVSetQ, &xNewQueue );
+	prvGenericBase( &prvGenericSet, Queue, ( void* )&xNewHandle );
+    //prvVQBase( &prvVSetQ, &xNewQueue );
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayComPortHandle( xComPortHandle xNewHandle )
 {
-    prvVComBase( &prvVSetCom, &xNewHandle );
+	prvGenericBase( &prvGenericSet, ComPort, ( void* )&xNewHandle );
+    //prvVComBase( &prvVSetCom, &xNewHandle );
 }
     
 /* [] END OF FILE */
