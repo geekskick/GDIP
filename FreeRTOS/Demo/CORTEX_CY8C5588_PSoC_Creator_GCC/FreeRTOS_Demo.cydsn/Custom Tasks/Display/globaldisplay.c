@@ -64,19 +64,19 @@ void prvGenericSet( type_to_get_t xType, void *in )
 	}
 }
 
-void prvGenericGet( type_to_get_t xType, void *out )
+void prvGenericGet( type_to_get_t xType, void* out )
 {
 	switch( xType )
 	{
-		case ComPort: 	*out = ( void* )&xComPort; 		break;
-		case Queue: 	*out = ( void* )&xDispQueue; 	break;
-		case Task: 		*out = ( void* )&xComTask; 		break;
+		case ComPort: 	*( xComPortHandle* )out = &xComPort; 	break;
+		case Queue: 	*( QueueHandle_t* )out = &xDispQueue; 	break;
+		case Task: 		*( xTaskHandle* )out = &xComTask; 		break;
 		default: break;
 	}
 
 }
 
-void prvGenericBase( void ( *GFunct ) ( void *pcThingToGetSet ), type_to_get_t xType, void * pxArg )
+void prvGenericBase( void ( *GFunct ) ( type_to_get_t xType, void *pcThingToGetSet ), type_to_get_t xType, void* pxArg )
 {
 
     /* If the mutex hasn't been initialised then don't allow access to the resource, 
@@ -257,7 +257,7 @@ void vSetDisplayTaskHandle( xTaskHandle xNewHandle )
 /*------------------------------------------------------------------*/
 void vSetDisplayInputQueue( QueueHandle_t xNewQueue )
 {
-	prvGenericBase( &prvGenericSet, Queue, ( void* )&xNewHandle );
+	prvGenericBase( &prvGenericSet, Queue, ( void* )&xNewQueue );
     //prvVQBase( &prvVSetQ, &xNewQueue );
 }
 

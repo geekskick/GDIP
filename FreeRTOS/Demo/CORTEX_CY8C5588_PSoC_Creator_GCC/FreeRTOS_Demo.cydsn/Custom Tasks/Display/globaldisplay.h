@@ -13,6 +13,8 @@
 #ifndef GLOB_DISP_H
 #define GLOB_DISP_H
     
+#warning "This functionality isn't fully created"
+  
     /*
 This functionality needs more thought - any task should be able to write to the 
 display a message or send a notification. If theyr just get the queue and use it, there might 
