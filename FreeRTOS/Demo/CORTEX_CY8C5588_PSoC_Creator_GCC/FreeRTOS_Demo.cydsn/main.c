@@ -92,14 +92,24 @@
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
 
-/* Task priorities. */
-#define mainCOM_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
+/* 
+ * Task priorities. These are assigned as a 'suck it and see' for now - static 
+ * analysis of a task's worst case execution time is very difficult, and 
+ * as this isn't intended to be a truly HARD RTOS then it's not THAT important.
+ * Where a higher priority value means a higher priority task.
+ */
+#define mainDISPLAY_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
+#define mainKEYPAD_TASK_PRIORITY                ( tskIDLE_PRIORITY + 2 )
+#define mainDECODER_TASK_PRIORITY               ( tskIDLE_PRIORITY + 3 )
+#define mainWPM_TASK_PRIORITY                   ( tskIDLE_PRIORITY + 4 )
+#define mainSERVO_TASK_PRIORITY                 ( tskIDLE_PRIORITY + 5 )
 
 /*---------------------------------------------------------------------------*/
 /*
  * Installs the RTOS interrupt handlers and starts the peripherals.
  */
 static void prvHardwareSetup( void );
+static void prvServoSetup( void );
 
 /*---------------------------------------------------------------------------*/
 int main( void )
@@ -119,7 +129,7 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     /* The tasks return their input queues, so they must be started back to front in the pipeline */
     
     /* start the servo task and get it's input queues */
-    xStartServoTasks( mainCOM_TEST_TASK_PRIORITY, &xServoInputs );
+    xStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
     xWPMServoQueue = xServoInputs.pxFromWPM;
     xDecoderServoQueue = xServoInputs.pxFromKeypad;
     
@@ -128,19 +138,16 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     xWPMParams.pxServoInputQueue = &xWPMServoQueue;
     
     /* start the decoder task */
-    xKeypadDecoderQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, *xDParams );
+    xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, *xDParams );
     xKParams.pxOutputQueue = &xKeypadDecoderQueue;
     
-    //xStartWPMTask( mainCOM_TEST_TASK_PRIORITY, *xWPMParams );
+    //xStartWPMTask( mainWPM_TASK_PRIORITY, *xWPMParams );
     
-    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, *xKParams );
+    xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, *xKParams );
     
-    /* get the decoder output queue and put get ready to give it to the servo task as an input queue */
-    xDecoderServoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, *xDParams );
-    
-    /* 9600 baudrate */
+    /* 9600 baudrate. This will go up to full speed!  */
     // this functionality isn't fully defined yet
-    //vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600 );
+    // vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600 );
 
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
@@ -152,26 +159,12 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
 	including the idle task that is created within vTaskStartScheduler() itself. */
 	for( ;; );
 }
+
 /*---------------------------------------------------------------------------*/
-void prvHardwareSetup( void )
+static void prvServoSetup( void )
 {
-/* Port layer functions that need to be copied into the vector table. */
-extern void xPortPendSVHandler( void );
-extern void xPortSysTickHandler( void );
-extern void vPortSVCHandler( void );
-extern cyisraddress CyRamVectors[];
 const uint16_t usMidPoint = usGetMidPoint();
 
-	/* Install the OS Interrupt Handlers. */
-	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
-	CyRamVectors[ 14 ] = ( cyisraddress ) xPortPendSVHandler;
-	CyRamVectors[ 15 ] = ( cyisraddress ) xPortSysTickHandler;
-
-	/* Start the UART. */
-	UART_Start();
-    
-    /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
-    pwmClock_Start();
     baseRotationPWM_Start();
     baseElevationPWM_Start();
     elbowPWM_Start();
@@ -179,15 +172,15 @@ const uint16_t usMidPoint = usGetMidPoint();
     wristRollPWM_Start();
     grabberPWM_Start();
    
-    /* init the servo to middle and the built in led to on */
-    builtInLED_Write(1);
+    /* init the servo to middle */
     baseRotationPWM_WriteCompare( usMidPoint );
     baseElevationPWM_WriteCompare( usMidPoint );
     elbowPWM_WriteCompare( usMidPoint );
     wristPitchPWM_WriteCompare( usMidPoint );
     wristRollPWM_WriteCompare( usMidPoint );
     grabberPWM_WriteCompare( usMidPoint );
-    
+
+    /* the arms is in the mid point position - so put it in the storage area */
     arm_position_t xTempPosition = {
         usMidPoint,
         usMidPoint,
@@ -199,9 +192,36 @@ const uint16_t usMidPoint = usGetMidPoint();
     
     vSetCurrentArmPosition( xTempPosition );
     //vSetCurrentPosition( usMidPoint );
+}
+
+/*---------------------------------------------------------------------------*/
+void prvHardwareSetup( void )
+{
+/* Port layer functions that need to be copied into the vector table. */
+extern void xPortPendSVHandler( void );
+extern void xPortSysTickHandler( void );
+extern void vPortSVCHandler( void );
+extern cyisraddress CyRamVectors[];
+
+	/* Install the OS Interrupt Handlers. */
+	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
+	CyRamVectors[ 14 ] = ( cyisraddress ) xPortPendSVHandler;
+	CyRamVectors[ 15 ] = ( cyisraddress ) xPortSysTickHandler;
+
+	/* Start the UART. */
+	UART_Start();
     
-    LCD_Start();
-    LCD_DisplayOn();
+    /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
+    pwmClock_Start();
+
+    /* start the servos */
+    prvServoSetup();
+
+    builtInLED_Write(1);
+    
+    // not bothered about lcd for now
+    //LCD_Start();
+    //LCD_DisplayOn();
 
 }
 
