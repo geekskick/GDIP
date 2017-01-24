@@ -111,7 +111,7 @@
 static void prvHardwareSetup( void );
 static void prvServoSetup( void );
 
-/*---------------------------------------------------------------------------*/
+/*———————————————————jhgfds,mgfdfhjmng——————————————————*/
 int main( void )
 {   
 static QueueHandle_t xDecoderServoQueue = NULL;    /* queue decoder -> servo */
