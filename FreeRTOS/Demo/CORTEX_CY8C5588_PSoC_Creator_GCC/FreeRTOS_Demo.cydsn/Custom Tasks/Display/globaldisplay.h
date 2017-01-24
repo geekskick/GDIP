@@ -40,6 +40,7 @@ xTaskHandle xGetDisplayTaskHandle( void );
 void vSetDisplayTaskHandle( xTaskHandle xNewHandle );
 void vSetDisplayInputQueue( QueueHandle_t xNewQueue );
 void vSetDisplayComPortHandle( xComPortHandle xNewHandle );
+//create task aslo
 
 void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength );	// not implemented
 void vNotifyDisplayQueue( const uint32_t uNotificationValue ); // not implemented

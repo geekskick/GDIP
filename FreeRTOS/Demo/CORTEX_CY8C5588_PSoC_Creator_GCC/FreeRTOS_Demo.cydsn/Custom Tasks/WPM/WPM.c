@@ -228,9 +228,9 @@ void prvActionRun( struct xActionArgs args )
 
 /*-----------------------------------------------------------------------*/
 /* init */
-TaskHandle_t xStartWPMTask( int priority, xWPMParams_t xParams )
+TaskHandle_t xStartWPMTask( int priority, xWPMParams_t *pxParams )
 {
-    xWPMOutputQueue = *( xParams.pxServoInputQueue );
+    xWPMOutputQueue = *( xParams->pxServoInputQueue );
     TaskHandle_t rc;
     //this stack size will need changing as it needs more room for the stack of positions
     xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) &rc );

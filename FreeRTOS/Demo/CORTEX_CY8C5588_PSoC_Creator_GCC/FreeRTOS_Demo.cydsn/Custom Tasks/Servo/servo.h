@@ -18,7 +18,7 @@
 /* depth of the queue is ten bytes */
 #define SERVO_QUEUE_SIZE 10
 
-xServoInputQueues_t xStartServoTasks( int priority );
+void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput )
 uint16_t usGetMidPoint( void );
 
 #endif

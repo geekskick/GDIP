@@ -25,7 +25,7 @@ typedef struct WPMParams
     QueueHandle_t *pxServoInputQueue;
 } xWPMParams_t;
 
-TaskHandle_t xStartWPMTask( int priority, xWPMParams_t xParams );
+TaskHandle_t xStartWPMTask( int priority, xWPMParams_t *pxParams );
 
 #endif
 

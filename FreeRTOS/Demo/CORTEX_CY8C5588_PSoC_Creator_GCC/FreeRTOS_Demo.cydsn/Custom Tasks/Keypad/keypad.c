@@ -221,13 +221,14 @@ TickType_t xLastWakeTime;                                       /* For measuring
 
 /*-----------------------------------------------------------------------*/
 /* init */
-QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t xParams )
+QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t *pxParams )
 {
 
     /* init the queue */
-    xOutputQueue = *( xParams.pxOutputQueue );
+    xOutputQueue = *( pxParams->pxOutputQueue );
     xTaskCreate( vKeypadTask, "Keypad", configMINIMAL_STACK_SIZE, NULL, priority, ( TaskHandle_t * ) NULL );
     
+    // not input queue
     return NULL;
 }
 

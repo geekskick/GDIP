@@ -30,7 +30,7 @@ typedef struct xKeypadParams
     QueueHandle_t *pxOutputQueue;
 } xKeypadParams_t;
 
-QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t xParams );
+QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t *pxParams );
 void vSetDisplayTaskHandle( TaskHandle_t xDisplayTask );
     
 #endif

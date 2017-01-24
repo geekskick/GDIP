@@ -134,10 +134,8 @@ arm_position_t xCurrentPosition = xGetCurrentPosition();
 
 /*-----------------------------------------------------------------------*/
 /* init */
-xServoInputQueues_t xStartServoTasks( int priority )
+void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput )
 {
-    xServoInputQueues_t rc;
-
     /* at this point the scheduler isn't runing so no need to enter critical here */
     
     /* all the servos have the same period so only need to read it once */
@@ -153,12 +151,11 @@ xServoInputQueues_t xStartServoTasks( int priority )
     inputFromDecoderTaskQueue = xQueueCreate( 10, sizeof( xServoQueueParams_t ) );
     inputFromWPMQueue = xQueueCreate( 10, sizeof( xServoQueueParams_t ) );
     
-    rc.pxFromKeypad = &inputFromDecoderTaskQueue;
-    rc.pxFromWPM = &inputFromWPMQueue;
+    pxOutput->pxFromKeypad = &inputFromDecoderTaskQueue;
+    pxOutput->pxFromWPM = &inputFromWPMQueue;
     
     xTaskCreate( vServoTask, "ServoMove", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) NULL);
     
-    return rc;
 }
 
 /*-----------------------------------------------------------------------*/

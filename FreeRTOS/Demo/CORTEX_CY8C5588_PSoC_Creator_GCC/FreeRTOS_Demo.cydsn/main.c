@@ -119,7 +119,7 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     /* The tasks return their input queues, so they must be started back to front in the pipeline */
     
     /* start the servo task and get it's input queues */
-    xServoInputs = xStartServoTasks( mainCOM_TEST_TASK_PRIORITY );
+    xStartServoTasks( mainCOM_TEST_TASK_PRIORITY, &xServoInputs );
     xWPMServoQueue = xServoInputs.pxFromWPM;
     xDecoderServoQueue = xServoInputs.pxFromKeypad;
     
@@ -128,18 +128,19 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     xWPMParams.pxServoInputQueue = &xWPMServoQueue;
     
     /* start the decoder task */
-    xKeypadDecoderQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDParams );
+    xKeypadDecoderQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, *xDParams );
     xKParams.pxOutputQueue = &xKeypadDecoderQueue;
     
-    //xStartWPMTask( mainCOM_TEST_TASK_PRIORITY, xWPMParams );
+    //xStartWPMTask( mainCOM_TEST_TASK_PRIORITY, *xWPMParams );
     
-    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, xKParams );
+    xStartKeypadTask( mainCOM_TEST_TASK_PRIORITY + 2, *xKParams );
     
     /* get the decoder output queue and put get ready to give it to the servo task as an input queue */
-    xDecoderServoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, xDParams );
+    xDecoderServoQueue = xStartDecoderTask( mainCOM_TEST_TASK_PRIORITY + 1, *xDParams );
     
     /* 9600 baudrate */
-    vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600 );
+    // this functionality isn't fully defined yet
+    //vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600 );
 
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */

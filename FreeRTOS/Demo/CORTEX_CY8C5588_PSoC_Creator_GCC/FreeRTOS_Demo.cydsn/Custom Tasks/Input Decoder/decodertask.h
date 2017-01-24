@@ -20,7 +20,7 @@ typedef struct xDecoderParams
     QueueHandle_t *pxDecoderOutputQueue;
 }xDecoderParams_t;
 
-QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t xInputParams );
+QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxInputParams );
     
 #endif
 
