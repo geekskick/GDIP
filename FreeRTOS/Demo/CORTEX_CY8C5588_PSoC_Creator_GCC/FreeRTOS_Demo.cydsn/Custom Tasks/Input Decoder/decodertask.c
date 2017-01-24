@@ -32,7 +32,7 @@ QueueHandle_t xKeypadInputQueue = NULL;
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION_PROTO( vDecoderTask, pvParameters );
 void prvCreateServoMovementStruct( xServoNumber_t xServo, xServoDirection_t xDirectionToMove, xServoQueueParams_t *pxQueueArgs );
-
+bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION( vDecoderTask, pvParamaters )
@@ -47,34 +47,14 @@ for(;;)
         /* do nothing until something is received in the queue */
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
-            bSend = true;
-            
-            switch( cButton )
-            {
-                case 'a':
-                    prvCreateServoMovementStruct( BaseRotation, ADD, &xToServo );
-                    break;
-                case 'b':
-                    prvCreateServoMovementStruct( BaseRotation, SUB, &xToServo );
-                    break;
-                case 'c':
-                    prvCreateServoMovementStruct( BaseElevation, ADD, &xToServo );
-                    break;
-                case 'd':
-                    prvCreateServoMovementStruct( BaseElevation, SUB, &xToServo );
-                    break;
-                default:
-                /* all other button pressed don't mean anything servo */
-                    bSend = false;
-                    break;
-                
-            }
+            prvManualModeDecoder( &xToServo, cButton );
             
             if( true == bSend )
             {
                 if( pdFALSE == xQueueSend( xDecoderOutputQueue, ( void* )&xToServo, ( TickType_t ) portMAX_DELAY ) )
                 {
                     /* error sending to the servo queue */
+
                 }
             }
         }
@@ -82,13 +62,14 @@ for(;;)
 }
 
 /*-----------------------------------------------------------------------*/
-QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t xParams )
+QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
 {
     /* create the input q and attache the output queue */
     xKeypadInputQueue = xQueueCreate( DECODER_INPUT_QUEUE_SIZE, sizeof(signed char) );
-    xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) &xParams, priority, NULL );
-    xDecoderOutputQueue = *(xParams.pxDecoderOutputQueue);
-    return xDecoderOutputQueue;
+    xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) pxParams, priority, NULL );
+    xDecoderOutputQueue = *(xParams->pxDecoderOutputQueue);
+
+    return xKeypadInputQueue;
 }
 
 /*-----------------------------------------------------------------------*/
@@ -96,6 +77,59 @@ void prvCreateServoMovementStruct( xServoNumber_t xServo, xServoDirection_t xDir
 {
     pxQueueArgs->xDirection = xDirectionToMove;
     pxQueueArgs->xServo = xServo;
+}
+
+/*-----------------------------------------------------------------------*/
+bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
+{
+	bool bSend = true;
+            
+    switch( cButton )
+    {
+        case 'a':
+            prvCreateServoMovementStruct( BaseRotation, ADD, pxToServo );
+            break;
+        case 'b':
+            prvCreateServoMovementStruct( BaseRotation, SUB, pxToServo );
+            break;
+        case 'c':
+            prvCreateServoMovementStruct( BaseElevation, ADD, pxToServo );
+            break;
+        case 'd':
+            prvCreateServoMovementStruct( BaseElevation, SUB, pxToServo );
+            break;
+        case 'e':
+            prvCreateServoMovementStruct( Elbow, ADD, pxToServo );
+            break;
+        case 'f':
+            prvCreateServoMovementStruct( Elbow, SUB, pxToServo );
+            break;
+        case 'g':
+            prvCreateServoMovementStruct( WristRoll, ADD, pxToServo );
+            break;
+        case 'h':
+            prvCreateServoMovementStruct( WristRoll, SUB, pxToServo );
+            break;
+        case 'i':
+            prvCreateServoMovementStruct( WristPitch, ADD, pxToServo );
+            break;
+        case 'j':
+            prvCreateServoMovementStruct( WristPitch, SUB, pxToServo );
+            break;
+        case 'k':
+            prvCreateServoMovementStruct( Grabber, ADD, pxToServo );
+            break;
+        case 'l':
+            prvCreateServoMovementStruct( Grabber, SUB, pxToServo );
+            break;
+        default:
+        /* all other button pressed don't mean anything servo */
+            bSend = false;
+            break;
+        
+    }
+
+    return bSend;
 }
 
 /* [] END OF FILE */
