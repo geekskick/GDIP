@@ -219,6 +219,9 @@ extern cyisraddress CyRamVectors[];
 
     builtInLED_Write(1);
     
+    tuningADC_Start();
+    tuningADC_StartConvert();
+    
     // not bothered about lcd for now
     //LCD_Start();
     //LCD_DisplayOn();

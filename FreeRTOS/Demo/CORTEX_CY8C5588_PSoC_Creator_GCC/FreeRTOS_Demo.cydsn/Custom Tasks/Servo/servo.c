@@ -54,7 +54,7 @@ void ( *pvWriteCompareFunctions[END] ) ( uint16_t newValue );
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
 static portTASK_FUNCTION( vServoTask, pvParamaters )
 {
-static const uint16_t usSERVO_SPEED = 50;           /* how far to move the servos, randomly chosen  */
+static uint16_t usSERVO_SPEED = 50;           /* how far to move the servos, randomly chosen  */
 ( void ) pvParamaters;                              /* stops warnings */  
 xServoQueueParams_t xInputValue;             /* input from the queue */
 uint16_t usNewValue = 0;
@@ -68,6 +68,7 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
 
 // not tested
  xArmPosition_t xCurrentPosition = xGetCurrentPosition();
+char buff[10];
 
     /* the meat of the task */
     for (;;)
@@ -75,7 +76,16 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
         /* block forever to get the value from the queue */
         if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, portMAX_DELAY ) )
         {
-            vWriteToComPort( "Rx'd from the decoder\r\n", strlen(  "Rx'd from the decoder\r\n" ));
+           // the servo is an 8 bit ADC value, so i need to safely convert to 16 bits here, 
+            usSERVO_SPEED =( 0x00FF & tuningADC_GetResult8() );
+            
+            // debugging output
+            vWriteToComPort( "Rx'd from the decoder, speed is ", strlen(  "Rx'd from the decoder, speed is " ));
+            memset(buff, 0, 10);
+            itoa(usSERVO_SPEED, buff, 10);
+            vWriteToComPort( buff, strlen(  buff ));
+            vWriteToComPort( "\r\n" , strlen( "\r\n"  ));
+            // end of debugging output
             
             /* Are we moving the servo left or right */
             switch( xInputValue.xDirection )
@@ -116,13 +126,11 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
                 } 
 
                 /* save in the shared resource */
-                // not tested
                 vSetCurrentArmPosition( xCurrentPosition );
             
                 /* when using HW disable interurpts */
                 taskENTER_CRITICAL();
                 
-                // not tested
                 pvWriteCompareFunctions[xInputValue.xServo]( usNewValue );
                 
                 /* re-enable interrupts */

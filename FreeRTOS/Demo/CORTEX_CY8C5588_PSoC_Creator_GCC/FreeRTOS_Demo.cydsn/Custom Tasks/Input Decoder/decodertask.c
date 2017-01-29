@@ -48,6 +48,7 @@ for(;;)
         /* do nothing until something is received in the queue */
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
+            // debugging 
             vWriteToComPort( "Rx'd from keypad: ", strlen( "Rx'd from keypad: ") );
             vWriteToComPort( &cButton, 1 );
             vWriteToComPort( "\r\n", 2 );
@@ -63,6 +64,7 @@ for(;;)
                 }
                 else
                 {
+                    // debugging
                     vWriteToComPort( "Sent to servo\r\n", strlen( "Sent to servo\r\n") );
                 }
             }

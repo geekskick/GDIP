@@ -11,223 +11,6 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_493\Debug\keypad.o">
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\UART.h" />
-<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\Common\include\partest.h" />
-<dep name="..\..\Common\include\serial.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<dep name="..\..\..\Source\include\FreeRTOS.h" />
-<dep name="..\..\..\Source\include\deprecated_definitions.h" />
-<dep name="..\..\..\Source\include\list.h" />
-<dep name="..\..\..\Source\include\mpu_wrappers.h" />
-<dep name="..\..\..\Source\include\portable.h" />
-<dep name="..\..\..\Source\include\projdefs.h" />
-<dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\task.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Display\globaldisplay.h" />
-<dep name=".\Custom Tasks\Keypad\keypad.c" />
-<dep name=".\Custom Tasks\Keypad\keypad.h" />
-<dep name=".\FreeRTOSConfig.h" />
-<dep name=".\device.h" />
-<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-</file>
-<file name=".\Generated_Source\PSoC5\CyDmac.h" />
-<file name=".\Generated_Source\PSoC5\CyFlash.h" />
-<file name=".\Generated_Source\PSoC5\CyLib.h" />
-<file name=".\Generated_Source\PSoC5\CySpc.h" />
-<file name=".\Generated_Source\PSoC5\LCD.h" />
-<file name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<file name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<file name=".\Generated_Source\PSoC5\UART.h" />
-<file name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<file name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
-<file name=".\Generated_Source\PSoC5\baseElevationPin.h" />
-<file name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
-<file name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
-<file name=".\Generated_Source\PSoC5\baseRotationPin.h" />
-<file name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<file name=".\Generated_Source\PSoC5\builtInLED.h" />
-<file name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<file name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<file name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<file name=".\Generated_Source\PSoC5\core_cm3.h" />
-<file name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<file name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<file name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<file name=".\Generated_Source\PSoC5\cyPm.h" />
-<file name=".\Generated_Source\PSoC5\cydevice.h" />
-<file name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<file name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<file name=".\Generated_Source\PSoC5\cyfitter.h" />
-<file name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<file name=".\Generated_Source\PSoC5\cypins.h" />
-<file name=".\Generated_Source\PSoC5\cytypes.h" />
-<file name=".\Generated_Source\PSoC5\elbowPWM.h" />
-<file name=".\Generated_Source\PSoC5\elbowPin.h" />
-<file name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
-<file name=".\Generated_Source\PSoC5\grabberPWM.h" />
-<file name=".\Generated_Source\PSoC5\grabberPin.h" />
-<file name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
-<file name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<file name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<file name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<file name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<file name=".\Generated_Source\PSoC5\project.h" />
-<file name=".\Generated_Source\PSoC5\pwmClock.h" />
-<file name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<file name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<file name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
-<file name=".\Generated_Source\PSoC5\wristPitchPin.h" />
-<file name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
-<file name=".\Generated_Source\PSoC5\wristRollPWM.h" />
-<file name=".\Generated_Source\PSoC5\wristRollPin.h" />
-<file name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<file name="..\..\Common\include\partest.h" />
-<file name="..\..\Common\include\serial.h" />
-<file name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<file name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<file name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<file name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<file name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<file name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<file name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<file name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<file name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<file name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<file name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<file name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<file name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<file name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<file name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<file name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<file name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<file name="..\..\..\Source\include\FreeRTOS.h" />
-<file name="..\..\..\Source\include\deprecated_definitions.h" />
-<file name="..\..\..\Source\include\list.h" />
-<file name="..\..\..\Source\include\mpu_wrappers.h" />
-<file name="..\..\..\Source\include\portable.h" />
-<file name="..\..\..\Source\include\projdefs.h" />
-<file name="..\..\..\Source\include\queue.h" />
-<file name="..\..\..\Source\include\task.h" />
-<file name=".\Custom Tasks\Display\globaldisplay.h" />
-<file name=".\Custom Tasks\Keypad\keypad.c" />
-<file name=".\Custom Tasks\Keypad\keypad.h" />
-<file name=".\FreeRTOSConfig.h" />
-<file name=".\device.h" />
-<file name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\servo.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -272,6 +55,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -339,10 +127,119 @@
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
+<file name=".\Generated_Source\PSoC5\CyDmac.h" />
+<file name=".\Generated_Source\PSoC5\CyFlash.h" />
+<file name=".\Generated_Source\PSoC5\CyLib.h" />
+<file name=".\Generated_Source\PSoC5\CySpc.h" />
+<file name=".\Generated_Source\PSoC5\LCD.h" />
+<file name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<file name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<file name=".\Generated_Source\PSoC5\UART.h" />
+<file name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<file name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
+<file name=".\Generated_Source\PSoC5\baseElevationPin.h" />
+<file name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
+<file name=".\Generated_Source\PSoC5\baseRotationPin.h" />
+<file name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\builtInLED.h" />
+<file name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<file name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<file name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<file name=".\Generated_Source\PSoC5\core_cm3.h" />
+<file name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<file name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<file name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<file name=".\Generated_Source\PSoC5\cyPm.h" />
+<file name=".\Generated_Source\PSoC5\cydevice.h" />
+<file name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<file name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<file name=".\Generated_Source\PSoC5\cyfitter.h" />
+<file name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<file name=".\Generated_Source\PSoC5\cypins.h" />
+<file name=".\Generated_Source\PSoC5\cytypes.h" />
+<file name=".\Generated_Source\PSoC5\elbowPWM.h" />
+<file name=".\Generated_Source\PSoC5\elbowPin.h" />
+<file name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\grabberPWM.h" />
+<file name=".\Generated_Source\PSoC5\grabberPin.h" />
+<file name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<file name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<file name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<file name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<file name=".\Generated_Source\PSoC5\project.h" />
+<file name=".\Generated_Source\PSoC5\pwmClock.h" />
+<file name=".\Generated_Source\PSoC5\tuningADC.h" />
+<file name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<file name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<file name=".\Generated_Source\PSoC5\tuningPin.h" />
+<file name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<file name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<file name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
+<file name=".\Generated_Source\PSoC5\wristPitchPin.h" />
+<file name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\wristRollPWM.h" />
+<file name=".\Generated_Source\PSoC5\wristRollPin.h" />
+<file name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<file name="..\..\Common\include\partest.h" />
+<file name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<file name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<file name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<file name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<file name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<file name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<file name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<file name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<file name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<file name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<file name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<file name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<file name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<file name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<file name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<file name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<file name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<file name="..\..\..\Source\include\FreeRTOS.h" />
+<file name="..\..\..\Source\include\deprecated_definitions.h" />
+<file name="..\..\..\Source\include\list.h" />
+<file name="..\..\..\Source\include\mpu_wrappers.h" />
+<file name="..\..\..\Source\include\portable.h" />
+<file name="..\..\..\Source\include\projdefs.h" />
+<file name="..\..\..\Source\include\queue.h" />
+<file name="..\..\..\Source\include\task.h" />
 <file name=".\Custom Tasks\Current Position Store\currentposition.h" />
+<file name=".\Custom Tasks\Display\globaldisplay.h" />
 <file name=".\Custom Tasks\Servo\servo.c" />
 <file name=".\Custom Tasks\Servo\servo.h" />
 <file name=".\Custom Tasks\Servo\servoqueueparams.h" />
+<file name=".\FreeRTOSConfig.h" />
+<file name=".\device.h" />
+<file name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -387,6 +284,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -461,11 +363,242 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
 </file>
 <file name="..\..\Common\include\comtest.h" />
+<file name="..\..\Common\include\serial.h" />
 <file name="..\..\..\Source\include\semphr.h" />
 <file name=".\Custom Tasks\Input Decoder\decodertask.h" />
+<file name=".\Custom Tasks\Keypad\keypad.h" />
 <file name=".\Custom Tasks\WPM\WPM.h" />
 <file name=".\main.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o">
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\LCD.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\semphr.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\Custom Tasks\Current Position Store\currentposition.c" />
+<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\device.h" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+</file>
+<file name=".\Custom Tasks\Current Position Store\currentposition.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\globaldisplay.o">
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\LCD.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<dep name="..\..\Common\include\serial.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\semphr.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\Custom Tasks\Display\globaldisplay.c" />
+<dep name=".\Custom Tasks\Display\globaldisplay.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\device.h" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+</file>
+<file name=".\Custom Tasks\Display\globaldisplay.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\decodertask.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -510,6 +643,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -577,7 +715,7 @@
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name=".\Custom Tasks\Input Decoder\decodertask.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\globaldisplay.o">
+<file name=".\CortexM3\ARM_GCC_493\Debug\keypad.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -621,6 +759,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -629,117 +772,6 @@
 <dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
 <dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
 <dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\Common\include\serial.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<dep name="..\..\..\Source\include\FreeRTOS.h" />
-<dep name="..\..\..\Source\include\deprecated_definitions.h" />
-<dep name="..\..\..\Source\include\list.h" />
-<dep name="..\..\..\Source\include\mpu_wrappers.h" />
-<dep name="..\..\..\Source\include\portable.h" />
-<dep name="..\..\..\Source\include\projdefs.h" />
-<dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\semphr.h" />
-<dep name="..\..\..\Source\include\task.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Display\globaldisplay.c" />
-<dep name=".\Custom Tasks\Display\globaldisplay.h" />
-<dep name=".\FreeRTOSConfig.h" />
-<dep name=".\device.h" />
-<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-</file>
-<file name=".\Custom Tasks\Display\globaldisplay.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\comtest.o">
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\UART.h" />
-<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\Common\include\comtest.h" />
 <dep name="..\..\Common\include\partest.h" />
 <dep name="..\..\Common\include\serial.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
@@ -791,123 +823,14 @@
 <dep name="..\..\..\Source\include\queue.h" />
 <dep name="..\..\..\Source\include\task.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
 <dep name=".\Custom Tasks\Display\globaldisplay.h" />
-<dep name=".\FreeRTOSConfig.h" />
-<dep name=".\device.h" />
-<dep name="..\..\Common\Minimal\comtest.c" />
-<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-</file>
-<file name="..\..\Common\Minimal\comtest.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o">
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\UART.h" />
-<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<dep name="..\..\..\Source\include\FreeRTOS.h" />
-<dep name="..\..\..\Source\include\deprecated_definitions.h" />
-<dep name="..\..\..\Source\include\list.h" />
-<dep name="..\..\..\Source\include\mpu_wrappers.h" />
-<dep name="..\..\..\Source\include\portable.h" />
-<dep name="..\..\..\Source\include\projdefs.h" />
-<dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\semphr.h" />
-<dep name="..\..\..\Source\include\task.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Current Position Store\currentposition.c" />
-<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
+<dep name=".\Custom Tasks\Keypad\keypad.c" />
+<dep name=".\Custom Tasks\Keypad\keypad.h" />
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
-<file name=".\Custom Tasks\Current Position Store\currentposition.c" />
+<file name=".\Custom Tasks\Keypad\keypad.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\WPM.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -952,6 +875,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1406,6 +1334,71 @@
 <dep name=".\Generated_Source\PSoC5\pwmClock.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\pwmClock.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\tuningADC.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\tuningADC.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_INT.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_INT.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\tuningADC_INT.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_IRQ.o">
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\tuningADC_IRQ.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_PM.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_PM.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\tuningADC_PM.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_theACLK.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\tuningADC_theACLK.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\tuningPin.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\tuningPin.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_RX.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1550,6 +1543,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1656,6 +1654,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1763,6 +1766,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1871,6 +1879,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1975,6 +1988,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2084,6 +2102,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2194,6 +2217,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2305,6 +2333,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2414,6 +2447,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2524,6 +2562,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2589,6 +2632,123 @@
 </file>
 <file name="..\..\Common\include\blocktim.h" />
 <file name="..\..\Common\Minimal\blocktim.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\comtest.o">
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\LCD.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<dep name="..\..\Common\include\comtest.h" />
+<dep name="..\..\Common\include\partest.h" />
+<dep name="..\..\Common\include\serial.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
+<dep name=".\Custom Tasks\Display\globaldisplay.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\device.h" />
+<dep name="..\..\Common\Minimal\comtest.c" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+</file>
+<file name="..\..\Common\Minimal\comtest.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\countsem.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -2633,6 +2793,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2743,6 +2908,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2851,6 +3021,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2961,6 +3136,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3070,6 +3250,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3178,6 +3363,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3286,6 +3476,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3396,6 +3591,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3504,6 +3704,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3609,6 +3814,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3715,6 +3925,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3821,6 +4036,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3929,6 +4149,11 @@
 <dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_IRQ.h" />
+<dep name=".\Generated_Source\PSoC5\tuningADC_theACLK.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin.h" />
+<dep name=".\Generated_Source\PSoC5\tuningPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4263,6 +4488,12 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\wristPitchPin.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\wristRollPin.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\grabberPin.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\tuningPin.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\tuningADC.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_INT.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_PM.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_IRQ.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\tuningADC_theACLK.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" />
 </file>
@@ -4399,6 +4630,12 @@
 <name_val_pair name="Generated_Source\PSoC5\wristRollPin.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Generated_Source\PSoC5\grabberPin.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Custom Tasks\Display\globaldisplay.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\tuningPin.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\tuningADC.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\tuningADC_INT.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\tuningADC_PM.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\tuningADC_IRQ.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\tuningADC_theACLK.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 </name>
 </genericCmdLineData>
 <codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\NGGMLGM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C5888LTI-LP097 -s C:\Users\NGGMLGM\Documents\UWE\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
@@ -5257,6 +5494,155 @@
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cyprimitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyenums.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinsdata.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinpicture.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinutils.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\ADC_SAR_v3_0.cysym</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\ADC_SAR_v3_0.pdf</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\ADC_SAR_v3_0.cycdx</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\ADC_SAR_v3_0.cystate</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cyadcsarcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cyadcsarcontrol.designer.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cyadcsarcustomizer.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cyadcsarparameters.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cydictparser.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cyclockreader.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\Resources.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\cyadcsarcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\Custom\Resources.resx</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\PSoC5\ADC_SAR_v3_0.cydmacap</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\PSoC5\ADC_SAR_v3_0.cysch</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\PSoC5\API\ADC_SAR.c</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\PSoC5\API\ADC_SAR.h</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\PSoC5\API\ADC_SAR_INT.c</v>
+<v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\ADC_SAR_v3_0\PSoC5\API\ADC_SAR_PM.c</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\Custom\cy_analog_virtualmux_v1_0.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.primitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\cy_isr_v1_70.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\PSoC5\API\intc.c</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_isr_v1_70\PSoC5\API\intc.h</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\cy_clock_v2_10.cyprimitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\cy_clock_v2_10.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\cy_clock_v2_10.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\cy_clock_v2_10.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\API\clk.c</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\API\clk.h</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_clock_v2_10\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_psoc5_sar_v2_0\cy_psoc5_sar_v2_0.cyprimitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_psoc5_sar_v2_0\cy_psoc5_sar_v2_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\Custom\cy_analog_virtualmux_v1_0.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\Custom\cy_analog_virtualmux_v1_0.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.primitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\Custom\cy_analog_virtualmux_v1_0.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.primitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\cy_vref_v1_60.cyprimitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\cy_vref_v1_60.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\cy_vref_v1_60.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\cy_vref_v1_60.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\cy_vref_v1_60.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\Custom\cyvrefidcontrol.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\Custom\cyvrefidcontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_vref_v1_60\Custom\cyvrefidcontrol.resx</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\cy_analog_noconnect_v1_0.primitive</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_noconnect_v1_0\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\Custom\custom.cs</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.cysym</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.cystate</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0</v>
+<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\Custom\custom.cs</v>
 <v>.\FreeRTOS_Demo.cydwr</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cm3gcc.ld</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3RealView.scat</v>
@@ -5486,6 +5872,17 @@
 <v>Generated_Source\PSoC5\grabberPin_aliases.h</v>
 <v>Generated_Source\PSoC5\grabberPin.c</v>
 <v>Generated_Source\PSoC5\grabberPin.h</v>
+<v>Generated_Source\PSoC5\tuningPin_aliases.h</v>
+<v>Generated_Source\PSoC5\tuningPin.c</v>
+<v>Generated_Source\PSoC5\tuningPin.h</v>
+<v>Generated_Source\PSoC5\tuningADC.c</v>
+<v>Generated_Source\PSoC5\tuningADC.h</v>
+<v>Generated_Source\PSoC5\tuningADC_INT.c</v>
+<v>Generated_Source\PSoC5\tuningADC_PM.c</v>
+<v>Generated_Source\PSoC5\tuningADC_IRQ.c</v>
+<v>Generated_Source\PSoC5\tuningADC_IRQ.h</v>
+<v>Generated_Source\PSoC5\tuningADC_theACLK.c</v>
+<v>Generated_Source\PSoC5\tuningADC_theACLK.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -5495,7 +5892,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="131301633035228003" />
+<deps_time v="131301680441638003" />
 <top_block v="TopDesign" />
 <last_generation v="1" />
 <pdl_path v="C:\Users\NGGMLGM\Documents\Cypress\PDL\2.1.0" />
@@ -5503,7 +5900,7 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131301663475478003" />
+<deps_time v="131301688574818003" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="718b6b01-68ba-4a17-b632-d38dc61ebb3b">
@@ -5513,13 +5910,10 @@
 <v>Default</v>
 </tree_states_tab_names>
 <tree_states>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Cypress Component Catalog">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Cypress Component Catalog\Analog\ADC\SAR ADC [v3.0]">
 <ExpandedNodeIds>
 <v>Cypress Component Catalog</v>
 <v>Cypress Component Catalog\Analog</v>
-<v>Cypress Component Catalog\Analog\DAC</v>
-<v>Cypress Component Catalog\CapSense</v>
-<v>Cypress Component Catalog\Communications</v>
 <v>Cypress Component Catalog\Communications\File System</v>
 <v>Cypress Component Catalog\Communications\I2C</v>
 <v>Cypress Component Catalog\Communications\SPI</v>
@@ -5527,43 +5921,42 @@
 <v>Cypress Component Catalog\Power Supervision</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>Cypress Component Catalog\Analog\DAC\Current DAC (8-bit) [v2.0]</v>
-<v>Cypress Component Catalog\Analog\DAC\Dithered VDAC (9 to12 bits) [v2.10]</v>
-<v>Cypress Component Catalog\Analog\DAC\Voltage DAC (8-bit) [v1.90]</v>
-<v>Cypress Component Catalog\Analog\DAC\Waveform DAC (8-bit) [v2.10]</v>
+<v>Cypress Component Catalog</v>
+<v>Cypress Component Catalog\Analog</v>
+<v>Cypress Component Catalog\Analog\ADC</v>
+<v>Cypress Component Catalog\Analog\Amplifiers</v>
+<v>Cypress Component Catalog\Analog\Analog MUX</v>
+<v>Cypress Component Catalog\Analog\Comparators</v>
+<v>Cypress Component Catalog\Analog\DAC</v>
 <v>Cypress Component Catalog\Analog\Manual Routing</v>
 <v>Cypress Component Catalog\Analog\Mixer [v2.0]</v>
 <v>Cypress Component Catalog\Analog\Sample/Track and Hold [v1.40]</v>
 <v>Cypress Component Catalog\Analog\VRef [v1.70]</v>
 <v>Cypress Component Catalog\CapSense</v>
-<v>Cypress Component Catalog\CapSense\CapSense_CSD [v3.50]</v>
 <v>Cypress Component Catalog\Communications</v>
-<v>Cypress Component Catalog\Communications\CAN Controller Macro [v3.0]</v>
-<v>Cypress Component Catalog\Communications\File System</v>
-<v>Cypress Component Catalog\Communications\File System\emFile SPI Mode [v1.20]</v>
-<v>Cypress Component Catalog\Communications\I2C</v>
-<v>Cypress Component Catalog\Communications\I2C\EZI2C Slave [v2.0]</v>
-<v>Cypress Component Catalog\Communications\I2C\I2C [v3.50]</v>
-<v>Cypress Component Catalog\Communications\I2C\I2C Master (Fixed Function) [v3.50]</v>
-<v>Cypress Component Catalog\Communications\I2C\I2C Master (UDB) [v3.50]</v>
-<v>Cypress Component Catalog\Communications\I2C\I2C Slave (Fixed Function) [v3.50]</v>
-<v>Cypress Component Catalog\Communications\I2C\I2C Slave (UDB) [v3.50]</v>
-<v>Cypress Component Catalog\Communications\I2S</v>
-<v>Cypress Component Catalog\Communications\LIN [v3.40]</v>
-<v>Cypress Component Catalog\Communications\LIN Slave Macro [v3.40]</v>
-<v>Cypress Component Catalog\Communications\MDIO Interface</v>
-<v>Cypress Component Catalog\Communications\SMBus/PMBus Slave</v>
-<v>Cypress Component Catalog\Communications\Software Transmit UART [v1.50]</v>
-<v>Cypress Component Catalog\Communications\SPDIF Transmitter [v1.20]</v>
-<v>Cypress Component Catalog\Communications\SPI</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Master [v2.50]</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Master Bidirectional mode Macro [v2.50]</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Master Full Duplex mode Macro [v2.50]</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Slave [v2.70]</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Slave Bidirectional mode Macro [v2.70]</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Slave Full Duplex mode Macro [v2.70]</v>
-<v>Cypress Component Catalog\Communications\SPI\SPI Slave Multislave Mode macro [v2.70]</v>
-<v>Cypress Component Catalog\Communications\UART [v2.50]</v>
+<v>Cypress Component Catalog\Digital</v>
+<v>Cypress Component Catalog\Display</v>
+<v>Cypress Component Catalog\Filters</v>
+<v>Cypress Component Catalog\Ports and Pins</v>
+<v>Cypress Component Catalog\Power Supervision</v>
+<v>Cypress Component Catalog\Power Supervision\Power Monitor - 8 Rails [v1.60]</v>
+<v>Cypress Component Catalog\Power Supervision\Power Monitor - 16 Rails [v1.60]</v>
+<v>Cypress Component Catalog\Power Supervision\Power Monitor - 32 Rails [v1.60]</v>
+<v>Cypress Component Catalog\Power Supervision\Power Monitor [v1.60]</v>
+<v>Cypress Component Catalog\Power Supervision\Trim and Margin - 8 Rails [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Trim and Margin - 16 Rails [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Trim and Margin - 24 Rails [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Trim and Margin [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Fault Detector - 8 Rails [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Fault Detector - 16 Rails [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Fault Detector - 32 Rails [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Fault Detector [v3.0]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Sequencer - 8 Rails [v3.40]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Sequencer - 16 Rails [v3.40]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Sequencer - 32 Rails [v3.40]</v>
+<v>Cypress Component Catalog\Power Supervision\Voltage Sequencer [v3.40]</v>
+<v>Cypress Component Catalog\System</v>
+<v>Cypress Component Catalog\Thermal Management</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
