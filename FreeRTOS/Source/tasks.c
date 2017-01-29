@@ -82,6 +82,8 @@ task.h is included from an application file. */
 #include "timers.h"
 #include "StackMacros.h"
 
+#include "Custom Tasks/Error/ErrorMode.h"
+
 /* Lint e961 and e750 are suppressed as a MISRA exception justified because the
 MPU ports require MPU_WRAPPERS_INCLUDED_FROM_API_FILE to be defined for the
 header files above, but not in this file, in order to generate the correct
@@ -2693,6 +2695,9 @@ void vTaskSwitchContext( void )
 
 		/* Check for stack overflow, if configured. */
 		taskCHECK_FOR_STACK_OVERFLOW();
+        
+        /* Check for an error set by a task */
+        gdipCheckForErrorCondition();
 
 		/* Select a new task to run using either the generic C or port
 		optimised asm code. */

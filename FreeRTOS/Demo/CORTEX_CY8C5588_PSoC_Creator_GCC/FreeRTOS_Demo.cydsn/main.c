@@ -112,7 +112,7 @@
 static void prvHardwareSetup( void );
 static void prvServoSetup( void );
 
-/*———————————————————jhgfds,mgfdfhjmng——————————————————*/
+/*---------------------------------------------------------------------------*/
 int main( void )
 {   
 static QueueHandle_t xDecoderServoQueue = NULL;    /* queue decoder -> servo */
@@ -124,24 +124,24 @@ xKeypadParams_t     xKParams;       /* params to the keypad task */
 xServoInputQueues_t xServoInputs;   /* the queues to imput into the servo task */
 xWPMParams_t        xWPMParams;     /* params to the WPM task */
     
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+    /* the 2nd stage boot software sets up the hardware on the device */
 	prvHardwareSetup();
     
     /* The tasks return their input queues, so they must be started back to front in the pipeline */
     
     /* the display task is different as it's effectively a singleton and provides an accessor for it.*/
     //vStartDisplayTask( mainDISPLAY_TEST_TASK_PRIORITY, NULL );
+    /* for debugging and when the com port is required  */
+    vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY, 9600 );
     
-    /* start the servo task and get it's input queues */
     vStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
-    xWPMServoQueue = *(xServoInputs.pxFromWPM);
-    xDecoderServoQueue = *(xServoInputs.pxFromKeypad);
+    xWPMServoQueue = *( xServoInputs.pxFromWPM );
+    xDecoderServoQueue = *( xServoInputs.pxFromKeypad );
     
     /* the decoder and the WPM will use an input queue each */
     xDParams.pxDecoderOutputQueue = &xDecoderServoQueue;
     xWPMParams.pxServoInputQueue = &xWPMServoQueue;
     
-    /* start the decoder task */
     xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, &xDParams );
     xKParams.pxOutputQueue = &xKeypadDecoderQueue;
     
@@ -149,10 +149,6 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     
     xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, &xKParams );
     
-    /* 9600 baudrate. This will go up to full speed!  */
-    // this functionality isn't fully defined yet
-    vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY - 1, 9600 );
-
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
 	vTaskStartScheduler( );
