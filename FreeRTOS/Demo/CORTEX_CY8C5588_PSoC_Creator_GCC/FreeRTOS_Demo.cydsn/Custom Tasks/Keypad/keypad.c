@@ -56,14 +56,14 @@
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vKeypadTask, pvParameters );
+uint8_t prvusGetBitSet( uint8_t usToTest );
+signed char prvcButtonToASCII( uint8_t usRow, uint8_t usColumn );
 
 /*-----------------------------------------------------------------------*/
-
 const char *KEYPAD_BUTTONS_ORDERED = "abodefchijglmnkp";    /* these are in the wrong order due to a suspected wiring fault in the keypad 
                                                                 where the 3rd columns' rows seems to have been shifted downwards by 1 */
 
 QueueHandle_t xOutputQueue = NULL;                    /* The output values are put into this queue */
-xComPortHandle xSerialCom;                            /* the output serial comport */
 TaskHandle_t *pxTaskToNotify = NULL;                  /* the task to notify when a button is pressed */
 
 /* to access the port values by index define then in an array to make it easier to use in code.
@@ -82,7 +82,7 @@ static const uint8_t usLOOKUP_COL[KEYPAD_COL_COUNT] =
 /* This function gets the index of the bit set in the value passed in. If more than one, or none
 then return KEYPAD_ERROR value
 */
-uint8_t usGetBitSet( uint8_t usToTest )
+uint8_t prvusGetBitSet( uint8_t usToTest )
 {
 uint8_t usReturn;                    /* The return value */
 int i;                               /* iterator */
@@ -110,7 +110,7 @@ uint8_t usNumBitsSet = 0;            /* count of the number of bits set in the b
 }
 
 /*-----------------------------------------------------------------------*/
-static signed char cButtonToASCII( uint8_t usRow, uint8_t usColumn )
+signed char prvcButtonToASCII( uint8_t usRow, uint8_t usColumn )
 {
 uint8_t usRowBitSet;                    /* The bit set in the row */
 uint8_t uscolBitSet;                    /* The bit set in the col */
@@ -118,7 +118,7 @@ uint8_t usIndex;                        /* The index into the KEYPAD_BUTTONS whi
 signed char cReturn = KEYPAD_ERROR_SC;  /* the return value is error at init */
     
     usRowBitSet = usRow;
-    uscolBitSet = usGetBitSet(usColumn);
+    uscolBitSet = prvusGetBitSet(usColumn);
     
     /* If there are no errors in the bit set detection then use the formula 
         index = 4r+c where r = the row energised and c is the column return. 
@@ -175,7 +175,7 @@ TickType_t xLastWakeTime;                                       /* For measuring
             */
             if( usColumnInput != 0 )
             {
-                cButton = cButtonToASCII( usRow, usColumnInput );   
+                cButton = prvcButtonToASCII( usRow, usColumnInput );   
                
                 /* in case of an error on the ascii conversion and bit shifting make it conditional */
                 if( cButton != KEYPAD_ERROR_SC )
