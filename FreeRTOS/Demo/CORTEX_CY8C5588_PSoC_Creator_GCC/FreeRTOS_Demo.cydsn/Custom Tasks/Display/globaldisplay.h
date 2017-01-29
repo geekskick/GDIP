@@ -33,18 +33,18 @@ vSendToDisplayQueue( sBuff, strlen( sBuff ) );
 #define DISPLAY_QUEUE_LEN	10  // 10 messages in the queue 
 
 // might not need these functions after all
-QueueHandle_t xGetDisplayInputQueue( void );
-xComPortHandle xGetDisplayComPortHandle( void );
-xTaskHandle xGetDisplayTaskHandle( void );
+//QueueHandle_t xGetDisplayInputQueue( void );
+//xComPortHandle xGetDisplayComPortHandle( void );
+//xTaskHandle xGetDisplayTaskHandle( void );
 
-void vSetDisplayTaskHandle( xTaskHandle xNewHandle );
-void vSetDisplayInputQueue( QueueHandle_t xNewQueue );
-void vSetDisplayComPortHandle( xComPortHandle xNewHandle );
+//void vSetDisplayTaskHandle( xTaskHandle xNewHandle );
+//void vSetDisplayInputQueue( QueueHandle_t xNewQueue );
+//void vSetDisplayComPortHandle( xComPortHandle xNewHandle );
 //create task aslo
 
 void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength );	// not implemented
 void vNotifyDisplayQueue( const uint32_t uNotificationValue ); // not implemented
-void vWriteToComPort( const char*sMessage, const size_t ulMessageLength ); //not implememented, maybe not needed?
+void vWriteToComPort( const signed char*sMessage, const size_t ulMessageLength ); //not implememented, maybe not needed?
 
 void vConvertIntToString( const int iInt, char*sOutputBuffer); //not implemented
     

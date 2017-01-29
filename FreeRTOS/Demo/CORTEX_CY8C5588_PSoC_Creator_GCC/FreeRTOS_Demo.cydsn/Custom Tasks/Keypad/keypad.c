@@ -29,7 +29,7 @@
      ROW_1 |  10  11  12  13
      ROW_2 |  20  21  22  23
      ROW_3 |  30  31  32  33
-    -------------------------
+    ------------------------
      COL_x |  0   1   2   3
     
     each col and row has it's own pin on the connector so the following bitmasks will apply
@@ -180,29 +180,36 @@ TickType_t xLastWakeTime;                                       /* For measuring
                 /* in case of an error on the ascii conversion and bit shifting make it conditional */
                 if( cButton != KEYPAD_ERROR_SC )
                 {
-                    /* the display task might not be initialied at the very start, 
-                    so keep trying to get the taskhandle until a value one is put in the correct location */
+                    /*
+                    the display task might not be initialied at the very start, 
+                    so keep trying to get the taskhandle until a value one is put in the correct location 
                     if( xDispTask == NULL )
                     {
                         xDispTask = *pxTaskToNotify;
-                        /* for debugging */
+                        for debugging 
                         vParTestToggleLED(1);
                         
                     }
                     else
                     {
-                        /* at this point the xDispTask handle is valid, so send the notifcation, overwriting
+                        at this point the xDispTask handle is valid, so send the notifcation, overwriting
                         the current notification. it accepts a 32bit value so cast the ascii to 32 bits in the process.
                         hopefully this does it normally and just prefixes the value with 0's. If not look here for errors
                         in the display not sending out the correct letter
-                        */
+                        
                         xTaskNotify( xDispTask , ( uint32_t )cButton, eSetValueWithOverwrite );
                     }
+                    */
                     
                     /* The qeueue timeout is 0, so if it's full then dont wait, 
                     in addition in the vSerialPutString the length is fixed as 
                     1 since it's only 1 character for this task. 
                     */
+                    vWriteToComPort( "Button pressed: ", strlen("button pressed: ") );
+                    vWriteToComPort( &cButton, 1 );
+                    vWriteToComPort( "\r\n", 2 );
+                    //vParTestToggleLED(0);
+                    
                     if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&cButton, 0 ) )
                     {
                         /* for debugging */

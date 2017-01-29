@@ -106,16 +106,18 @@ static xTaskHandle xTHandle;
 
 void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate )
 {
+    ( void )uxPriority; //stop warnings
+    
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
     xCPHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
-    vSetDisplayComPortHandle( xCPHandle );
+    //vSetDisplayComPortHandle( xCPHandle );
    
     /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
     
     // commented out for debugging
 	//xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) &xParams.xRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
-    xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) &xTHandle );
-    vSetDisplayTaskHandle( xTHandle );
+    //xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) &xTHandle );
+    //vSetDisplayTaskHandle( xTHandle );
     
     /* in displaying writing to the comport you need to know the length of the string, it's const so calculate this only once. */
     usBTN_MSG_LEN = strlen( cBTN_MSG );

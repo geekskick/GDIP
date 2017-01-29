@@ -20,6 +20,7 @@
 #include "Custom Tasks/Servo/ServoQueueParams.h"
 #include "decodertask.h"
 #include "partest.h"
+#include "Custom Tasks/Display/globaldisplay.h"
 
 /* the keyad queue is sending an ascii character, so convert it to a number
  * but masking the lower nibble to turn it from a 0x61 = a, into 0x01 etc
@@ -47,6 +48,10 @@ for(;;)
         /* do nothing until something is received in the queue */
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
+            vWriteToComPort( "Rx'd from keypad: ", strlen( "Rx'd from keypad: ") );
+            vWriteToComPort( &cButton, 1 );
+            vWriteToComPort( "\r\n", 2 );
+            
             bSend = prvManualModeDecoder( &xToServo, cButton );
             
             if( true == bSend )
@@ -55,6 +60,10 @@ for(;;)
                 {
                     /* error sending to the servo queue */
 
+                }
+                else
+                {
+                    vWriteToComPort( "Sent to servo\r\n", strlen( "Sent to servo\r\n") );
                 }
             }
         }

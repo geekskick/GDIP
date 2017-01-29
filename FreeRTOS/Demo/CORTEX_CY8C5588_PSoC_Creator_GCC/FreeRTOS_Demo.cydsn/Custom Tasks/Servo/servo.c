@@ -25,6 +25,7 @@
 /* to save the location */
 #include "Custom Tasks/Current Position Store/currentposition.h"
 #include "servoqueueparams.h"
+#include "Custom Tasks/Display/globaldisplay.h"
 
 #define SERVO_MAX 8192u    /* servo max value, calculated as per SSD, where the servo also seems to see 2.5 as 2ms */
 #define SERVO_MIN 1638u    /* servo min value, calculated as per SSD, where the servo also seems to see 0.5 as 1ms */
@@ -74,6 +75,8 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
         /* block forever to get the value from the queue */
         if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, portMAX_DELAY ) )
         {
+            vWriteToComPort( "Rx'd from the decoder\r\n", strlen(  "Rx'd from the decoder\r\n" ));
+            
             /* Are we moving the servo left or right */
             switch( xInputValue.xDirection )
             {

@@ -265,7 +265,16 @@ void vSetDisplayInputQueue( QueueHandle_t xNewQueue )
 void vSetDisplayComPortHandle( xComPortHandle xNewHandle )
 {
 	prvGenericBase( &prvGenericSet, ComPort, ( void* )&xNewHandle );
+    vSerialPutString( xComPort, "Com port handle stored\n", strlen("Com port handle stored\n") );
+    
     //prvVComBase( &prvVSetCom, &xNewHandle );
+}
+
+/*------------------------------------------------------------------*/
+void vWriteToComPort( const signed char *sMessage, const size_t ulMessageLength )
+{
+    //void vSerialPutString( xComPortHandle pxPort, const signed char * const pcString, unsigned short usStringLength );
+    vSerialPutString( /*xComPort*/0, sMessage, ulMessageLength );
 }
     
 /* [] END OF FILE */

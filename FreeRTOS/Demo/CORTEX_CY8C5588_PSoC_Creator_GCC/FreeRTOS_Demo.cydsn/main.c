@@ -130,8 +130,8 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     
     /* start the servo task and get it's input queues */
     vStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
-    xWPMServoQueue = xServoInputs.pxFromWPM;
-    xDecoderServoQueue = xServoInputs.pxFromKeypad;
+    xWPMServoQueue = *(xServoInputs.pxFromWPM);
+    xDecoderServoQueue = *(xServoInputs.pxFromKeypad);
     
     /* the decoder and the WPM will use an input queue each */
     xDParams.pxDecoderOutputQueue = &xDecoderServoQueue;
@@ -147,7 +147,7 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     
     /* 9600 baudrate. This will go up to full speed!  */
     // this functionality isn't fully defined yet
-    // vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY - 1, 9600 );
+    vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY - 1, 9600 );
 
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
