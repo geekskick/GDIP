@@ -66,7 +66,7 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
                                     // care about it have to check with a timeout of 0
 
 // not tested
-arm_position_t xCurrentPosition = xGetCurrentPosition();
+ xArmPosition_t xCurrentPosition = xGetCurrentPosition();
 
     /* the meat of the task */
     for (;;)

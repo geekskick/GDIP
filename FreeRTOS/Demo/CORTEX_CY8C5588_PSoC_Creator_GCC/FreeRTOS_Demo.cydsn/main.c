@@ -129,7 +129,7 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     /* The tasks return their input queues, so they must be started back to front in the pipeline */
     
     /* start the servo task and get it's input queues */
-    xStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
+    vStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
     xWPMServoQueue = xServoInputs.pxFromWPM;
     xDecoderServoQueue = xServoInputs.pxFromKeypad;
     
@@ -138,12 +138,12 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     xWPMParams.pxServoInputQueue = &xWPMServoQueue;
     
     /* start the decoder task */
-    xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, *xDParams );
+    xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, &xDParams );
     xKParams.pxOutputQueue = &xKeypadDecoderQueue;
     
     //xStartWPMTask( mainWPM_TASK_PRIORITY, *xWPMParams );
     
-    xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, *xKParams );
+    xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, &xKParams );
     
     /* 9600 baudrate. This will go up to full speed!  */
     // this functionality isn't fully defined yet
@@ -181,7 +181,7 @@ const uint16_t usMidPoint = usGetMidPoint();
     grabberPWM_WriteCompare( usMidPoint );
 
     /* the arms is in the mid point position - so put it in the storage area */
-    arm_position_t xTempPosition = {
+     xArmPosition_t xTempPosition = {
         usMidPoint,
         usMidPoint,
         usMidPoint,

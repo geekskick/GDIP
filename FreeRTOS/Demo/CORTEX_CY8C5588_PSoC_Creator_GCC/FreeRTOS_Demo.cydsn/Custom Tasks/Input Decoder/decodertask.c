@@ -47,7 +47,7 @@ for(;;)
         /* do nothing until something is received in the queue */
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
-            prvManualModeDecoder( &xToServo, cButton );
+            bSend = prvManualModeDecoder( &xToServo, cButton );
             
             if( true == bSend )
             {
@@ -67,7 +67,7 @@ QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
     /* create the input q and attache the output queue */
     xKeypadInputQueue = xQueueCreate( DECODER_INPUT_QUEUE_SIZE, sizeof(signed char) );
     xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) pxParams, priority, NULL );
-    xDecoderOutputQueue = *(xParams->pxDecoderOutputQueue);
+    xDecoderOutputQueue = *(pxParams->pxDecoderOutputQueue);
 
     return xKeypadInputQueue;
 }
@@ -80,7 +80,7 @@ void prvCreateServoMovementStruct( xServoNumber_t xServo, xServoDirection_t xDir
 }
 
 /*-----------------------------------------------------------------------*/
-bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
+bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
 {
 	bool bSend = true;
             

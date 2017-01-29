@@ -22,8 +22,8 @@
     */
 
     
-#define KEYPAD_QUEUE_SIZE 10                /* the depth of the output queue, 10 is more than enough */
-#define KEYPAD_TASK_PERIODICITYms 200       /* how often the whole keypad needs to be scanned for button press */
+#define KEYPAD_QUEUE_SIZE           10         /* the depth of the output queue, 10 is more than enough */
+#define KEYPAD_TASK_PERIODICITYms   200       /* how often the whole keypad needs to be scanned for button press */
     
 typedef struct xKeypadParams
 {

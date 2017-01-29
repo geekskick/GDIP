@@ -23,14 +23,14 @@ typedef struct {
 			 usWristPitch,
 			 usWristRoll,
 			 usGrabber;
-} arm_position_t;
+}  xArmPosition_t;
     
 // Leave the original functions in for testing
 uint16_t usGetCurrentPosition( void );
 void    vSetCurrentPosition( uint16_t usNewPosition );
 
-void vSetCurrentArmPosition( arm_position_t xNewPosition );
-arm_position_t xGetCurrentPosition( void );
+void vSetCurrentArmPosition(  xArmPosition_t xNewPosition );
+ xArmPosition_t xGetCurrentPosition( void );
     
 #endif
 

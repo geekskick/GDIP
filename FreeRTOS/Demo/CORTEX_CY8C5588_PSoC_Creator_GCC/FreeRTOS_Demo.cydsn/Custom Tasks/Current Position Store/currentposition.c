@@ -24,7 +24,7 @@ static uint16_t usCurrentPosition = 0;          /* shared resource */
 static xSemaphoreHandle xGatekeeper = NULL;     /* mutex */
 static bool xInitialised = false;               /* if the mutex is created this is true */
 
-static arm_position_t xCurrentPosition;
+static  xArmPosition_t xCurrentPosition;
 
 /************************************************************/
 /* internal functions and a point to them mean I wont have to repeat myself 
@@ -38,8 +38,8 @@ void vSet( uint16_t* in );
 and a point to them mean I wotn have to repeat myself 
     when writing code to access the mutex etc
 */
-void vGetArmPosition( arm_position_t* pxOut );
-void vSetArmPosition( arm_position_t* pxIn );
+void vGetArmPosition(  xArmPosition_t* pxOut );
+void vSetArmPosition(  xArmPosition_t* pxIn );
 
 /************************************************************/
 /* The generic mutex Take/Give function */
@@ -73,7 +73,7 @@ void vBase( void ( *funct ) ( uint16_t *usArg ), uint16_t *usArg )
 /************************************************************/
 /* The generic mutex Take/Give function */
 
-void vBaseFunction( void ( *positionFunct ) ( arm_position_t *pxArg ), arm_position_t *pxArg )
+void vBaseFunction( void ( *positionFunct ) (  xArmPosition_t *pxArg ),  xArmPosition_t *pxArg )
 {
      /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
@@ -105,7 +105,7 @@ void vGet( uint16_t *usOut )
     *usOut = usCurrentPosition;
 }
 
-void vGetArmPosition( arm_position_t* pxOut )
+void vGetArmPosition(  xArmPosition_t* pxOut )
 {
     *pxOut = xCurrentPosition;
 }
@@ -117,7 +117,7 @@ void vSet( uint16_t *usIn )
     usCurrentPosition = *usIn;
 }
 
-void vSetArmPosition( arm_position_t* pxIn )
+void vSetArmPosition(  xArmPosition_t* pxIn )
 {
     xCurrentPosition = *pxIn;
 }
@@ -129,7 +129,7 @@ void vSetCurrentPosition( uint16_t usNewPosition )
     vBase( &vSet, &usNewPosition );
 }
 
-void vSetCurrentArmPosition( arm_position_t xNewPosition )
+void vSetCurrentArmPosition(  xArmPosition_t xNewPosition )
 {
 	vBaseFunction( &vSetArmPosition, &xNewPosition );
 }
@@ -144,9 +144,9 @@ uint16_t rc = 0xFFFF; /* Initialise to an out of range value */
     return rc;
 }
 
-arm_position_t xGetCurrentPosition( void )
+ xArmPosition_t xGetCurrentPosition( void )
 {
-arm_position_t rc;
+ xArmPosition_t rc;
 
 	vBaseFunction( &vGetArmPosition ,&rc );
 	return rc;

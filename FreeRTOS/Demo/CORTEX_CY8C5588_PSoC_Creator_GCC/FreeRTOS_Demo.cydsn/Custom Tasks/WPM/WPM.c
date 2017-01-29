@@ -43,7 +43,7 @@ struct xActionArgs{
  * so if the stack item is used then it'll be is_used = true 
  */
 struct stack_item_t{
-    arm_position_t arm_position;
+     xArmPosition_t arm_position;
     bool is_used;
 };
 
@@ -152,7 +152,7 @@ void prvActionReset( struct xActionArgs args )
 /*-----------------------------------------------------------------------*/
 void prvActionSave( struct xActionArgs args )
 {
-	arm_position_t xCurrentPosition; 
+	 xArmPosition_t xCurrentPosition; 
 	// xCurrentPosition = getCurrentPos(); something like this
 
 	// Prevent overflow
@@ -230,7 +230,7 @@ void prvActionRun( struct xActionArgs args )
 /* init */
 TaskHandle_t xStartWPMTask( int priority, xWPMParams_t *pxParams )
 {
-    xWPMOutputQueue = *( xParams->pxServoInputQueue );
+    xWPMOutputQueue = *( pxParams->pxServoInputQueue );
     TaskHandle_t rc;
     //this stack size will need changing as it needs more room for the stack of positions
     xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) &rc );
