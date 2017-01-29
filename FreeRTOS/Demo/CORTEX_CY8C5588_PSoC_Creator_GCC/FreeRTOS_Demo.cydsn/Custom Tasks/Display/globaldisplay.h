@@ -30,8 +30,8 @@ xTaskHandle xGetDisplayTaskHandle( void );
 void vSetDisplayComPortHandle( xComPortHandle xNewHandle );
 
 /* usage */
-void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength );	// not implemented
-void vNotifyDisplayQueue( const uint32_t uNotificationValue ); // not implemented
+void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength );	
+void vNotifyDisplayQueue( const uint32_t uNotificationValue ); 
 void vWriteToComPort( const signed char*sMessage, const size_t ulMessageLength );
 
 void vStartDisplayTask( int iPriority, xDisplayParams_t *pxParams );
