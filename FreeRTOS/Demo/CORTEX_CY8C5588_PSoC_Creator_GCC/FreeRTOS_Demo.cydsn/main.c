@@ -87,6 +87,7 @@
 #include "Custom Tasks/Current Position Store/currentposition.h"
 #include "Custom Tasks/Input Decoder/decodertask.h"
 #include "Custom Tasks/WPM/WPM.h"
+#include "Custom Tasks/Display/globaldisplay.h"
 
 /*---------------------------------------------------------------------------*/
 /* The number of nano seconds between each processor clock. */
@@ -127,6 +128,9 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
 	prvHardwareSetup();
     
     /* The tasks return their input queues, so they must be started back to front in the pipeline */
+    
+    /* the display task is different as it's effectively a singleton and provides an accessor for it.*/
+    //vStartDisplayTask( mainDISPLAY_TEST_TASK_PRIORITY, NULL );
     
     /* start the servo task and get it's input queues */
     vStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
