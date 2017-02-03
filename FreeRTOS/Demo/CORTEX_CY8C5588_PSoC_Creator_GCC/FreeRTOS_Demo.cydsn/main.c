@@ -72,6 +72,13 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : 8
+Version        : 2
+Date           : 3rd Jan 2017
+Changes Made   : 
+    Initialisation of the debounce tuning 
+    pot for development added.
 *****************************************/
 
 #include <device.h>
@@ -226,8 +233,11 @@ extern cyisraddress CyRamVectors[];
 
     builtInLED_Write(1);
     
-    tuningADC_Start();
-    tuningADC_StartConvert();
+    tuningServoStepADC_Start();
+    tuningDebounceADC_Start();
+    
+    tuningDebounceADC_StartConvert();
+    tuningServoStepADC_StartConvert();
     
     // not bothered about lcd for now
     //LCD_Start();

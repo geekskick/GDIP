@@ -72,7 +72,7 @@ char buff[10];
         if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, portMAX_DELAY ) )
         {
            // the servo is an 8 bit ADC value, so i need to safely convert to 16 bits here, 
-            usSERVO_SPEED =( 0x00FF & tuningADC_GetResult8() );
+            usSERVO_SPEED =( 0x00FF & tuningServoStepADC_GetResult8() );
             
             // debugging output
             vWriteToComPort( "Rx'd from the decoder, speed is ", strlen(  "Rx'd from the decoder, speed is " ));

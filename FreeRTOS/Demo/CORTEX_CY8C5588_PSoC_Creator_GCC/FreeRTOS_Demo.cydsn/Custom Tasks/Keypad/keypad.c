@@ -4,17 +4,25 @@ Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
 *****************************************
-Change ID      : 8
+Change ID      : 9
 Version        : 2
 Date           : 3rd Jan 2017
 Changes Made   : 
     Changed keypad button detection from 
     checking a button press every 200ms
     to checking every 20ms - as a debounce.
+*****************************************
+Change ID      : 8
+Version        : 3
+Date           : 3rd Jan 2017
+Changes Made   : 
+    Debounce is variable based on tuning pot value
+    then sent to the com port for debugging.
 *****************************************/
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -194,8 +202,8 @@ signed char cPreviousPressed = KEYPAD_NO_PRESS;                 /* the previous 
        are rows which need checking don't check them all at the same point, space it out 
        evenly so there is time between each row/col check
     */
-const TickType_t xFrequency = KEYPAD_TASK_PERIODICITYms;    /* The milliseconds between each row check */
-TickType_t xLastWakeTime;                                       /* For measuring the wait */
+TickType_t xFrequency = KEYPAD_TASK_PERIODICITYms;    /* The milliseconds between each row check */
+TickType_t xLastWakeTime;                             /* For measuring the wait */
     
     /* The variable needs to be initialised before use in the vTaskDelayUntil() function */
     xLastWakeTime = xTaskGetTickCount();
@@ -212,7 +220,9 @@ TickType_t xLastWakeTime;                                       /* For measuring
         if( cPreviousPressed == KEYPAD_NO_PRESS && cRecentPressed != KEYPAD_NO_PRESS )
         {
             cPreviousPressed = cRecentPressed;
-            vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+            xFrequency = ( TickType_t )tuningDebounceADC_GetResult8();
+            vTaskDelayUntil( &xLastWakeTime, xFrequency );
+            
         }  
         /* button has been pressed for more than 2 loops of the task, 
            therefore it counts as a valid, debounced task */
@@ -222,6 +232,10 @@ TickType_t xLastWakeTime;                                       /* For measuring
             vWriteToComPort( "Button pressed: ", strlen("button pressed: ") );
             vWriteToComPort( &cRecentPressed, 1 );
             vWriteToComPort( "\r\n", 2 );
+            vWriteToComPort( "debounce: ", strlen("debounce: ") );
+            char buff[10];
+            sprintf( buff, "%d\r\n", xFrequency );
+            vWriteToComPort( buff, strlen( buff ) );
             
             /* The qeueue timeout is 0, so if it's full then dont wait, 
             in addition in the vSerialPutString the length is fixed as 
