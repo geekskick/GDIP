@@ -1,14 +1,9 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+/************ CHANGE LOG ****************
+Change ID      : NA
+Version        : 1
+Date           : 3rd Jan 2017
+Changes Made   : Initial Issue
+*****************************************/
 
 #ifndef SERVO_H
 #define SERVO_H

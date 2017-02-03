@@ -1,14 +1,9 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+/************ CHANGE LOG ****************
+Change ID      : NA
+Version        : 1
+Date           : 3rd Jan 2017
+Changes Made   : Initial Issue
+*****************************************/
 
 #ifndef KEYPAD_H
 #define KEYPAD_H
@@ -23,7 +18,7 @@
 
     
 #define KEYPAD_QUEUE_SIZE           10         /* the depth of the output queue, 10 is more than enough */
-#define KEYPAD_TASK_PERIODICITYms   200       /* how often the whole keypad needs to be scanned for button press */
+
     
 typedef struct xKeypadParams
 {

@@ -66,6 +66,13 @@
 
     1 tab == 4 spaces!
 */
+    
+/************ CHANGE LOG ****************
+Change ID      : NA
+Version        : 1
+Date           : 3rd Jan 2017
+Changes Made   : Initial Issue
+*****************************************/
 
 #include <device.h>
 

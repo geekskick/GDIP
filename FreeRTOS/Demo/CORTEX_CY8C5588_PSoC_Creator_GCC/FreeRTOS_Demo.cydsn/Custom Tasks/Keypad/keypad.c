@@ -1,20 +1,24 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+/************ CHANGE LOG ****************
+Change ID      : NA
+Version        : 1
+Date           : 3rd Jan 2017
+Changes Made   : Initial Issue
+*****************************************
+Change ID      : 8
+Version        : 2
+Date           : 3rd Jan 2017
+Changes Made   : 
+    Changed keypad button detection from 
+    checking a button press every 200ms
+    to checking every 20ms - as a debounce.
+*****************************************/
 
 /* Scheduler include files. */
 #include <stdlib.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
+#include <stdbool.h>
 
 #include "serial.h" // for the serial print
 #include "partest.h"
@@ -50,14 +54,18 @@
 #define KEYPAD_COL_COUNT KEYPAD_ROW_COUNT
 
 /* incases of error in conversion */
-#define KEYPAD_ERROR 0xFF
+#define KEYPAD_ERROR    0xFF
 #define KEYPAD_ERROR_SC '\0' /* signed char version needed */
+#define KEYPAD_NO_PRESS 0x00
+
+#define KEYPAD_TASK_PERIODICITYms   20       /* how often the whole keypad needs to be scanned for button press */
 
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vKeypadTask, pvParameters );
 uint8_t prvusGetBitSet( uint8_t usToTest );
 signed char prvcButtonToASCII( uint8_t usRow, uint8_t usColumn );
+signed char prvcDetectSinglePress( void );
 
 /*-----------------------------------------------------------------------*/
 const char *KEYPAD_BUTTONS_ORDERED = "abodefchijglmnkp";    /* these are in the wrong order due to a suspected wiring fault in the keypad 
@@ -110,6 +118,43 @@ uint8_t usNumBitsSet = 0;            /* count of the number of bits set in the b
 }
 
 /*-----------------------------------------------------------------------*/
+signed char prvcDetectSinglePress( void )
+{
+uint8_t  usColumnInput = 0;               /* The input value will go here  when read in */
+uint8_t  usRow = 0;                       /* The row being energised */
+signed char cPressed = KEYPAD_NO_PRESS;   /* The ascii version of the button press needs to be signed char for the vSerialPutString in debugging */
+    
+    
+    /* Iterate over the rows of the keypad, energizing them in turn and polling for the column input */
+    for( usRow = 0; usRow < KEYPAD_ROW_COUNT; usRow++ )
+    {      
+        /* using the pins needs the isr's all disabled so mark it as a critical section of code */
+        portENTER_CRITICAL();
+        keypadOutPins_Write( usLOOKUP_ROW[usRow] );
+        
+        usColumnInput = keypadInPins_Read();
+        portEXIT_CRITICAL();
+        
+        /* if there was a button press detected then convert to ASCII and store as the recent press.
+        */
+        if( usColumnInput != 0 )
+        {
+            cPressed = prvcButtonToASCII( usRow, usColumnInput ); 
+            if( cPressed != KEYPAD_ERROR_SC )
+            {
+                break; /* no need to do anything else as a button detected */
+            }
+            
+            /* an error now means no press */
+            cPressed = KEYPAD_NO_PRESS;
+        }
+    }
+    
+    return cPressed;
+    
+}
+
+/*-----------------------------------------------------------------------*/
 signed char prvcButtonToASCII( uint8_t usRow, uint8_t usColumn )
 {
 uint8_t usRowBitSet;                    /* The bit set in the row */
@@ -133,6 +178,7 @@ signed char cReturn = KEYPAD_ERROR_SC;  /* the return value is error at init */
     }
     return cReturn;
 }
+
 /*-----------------------------------------------------------------------*/
 /* The main task function energises the keypad row by row and polls the columns
 returned. If a column is 1 then that means that at the row/column cominbation a button is pressed.
@@ -140,17 +186,15 @@ Send it to the queue as the button's ASCII value
 */
 static portTASK_FUNCTION( vKeypadTask, pvParamaters )
 {
-TaskHandle_t xDispTask = xGetDisplayTaskHandle();
 ( void ) pvParamaters;                                          /* stops warnings */
-uint8_t  usColumnInput = 0;                                     /* The input value will go here  when read in */
-uint8_t  usRow;                                                 /* The row being energised */
-signed char cButton;                                            /* The ascii version of the button press needs to be signed char for the vSerialPutString in debugging */
+signed char cRecentPressed = KEYPAD_NO_PRESS;                   /* The ascii version of the button press needs to be signed char for the vSerialPutString in debugging */
+signed char cPreviousPressed = KEYPAD_NO_PRESS;                 /* the previous button press for debouncing */ 
 
     /* The whole keypad needs to be checked every KEYPAD_TASK_PERIODICITYms. As there are
        are rows which need checking don't check them all at the same point, space it out 
        evenly so there is time between each row/col check
     */
-const TickType_t xFrequency = KEYPAD_TASK_PERIODICITYms / 4;    /* The milliseconds between each row check */
+const TickType_t xFrequency = KEYPAD_TASK_PERIODICITYms;    /* The milliseconds between each row check */
 TickType_t xLastWakeTime;                                       /* For measuring the wait */
     
     /* The variable needs to be initialised before use in the vTaskDelayUntil() function */
@@ -159,48 +203,45 @@ TickType_t xLastWakeTime;                                       /* For measuring
     /* the meat of the task */
     for (;;)
     {
-        /* Iterate over the rows of the keypad, energizing them in turn and polling for the column input */
-        for( usRow = 0; usRow < KEYPAD_ROW_COUNT; usRow++ )
-        {      
-            /* using the pins needs the isr's all disabled dso mark it as a critical section of code */
-            portENTER_CRITICAL();
-            keypadOutPins_Write( usLOOKUP_ROW[usRow] );
+        cRecentPressed = KEYPAD_NO_PRESS;
+        
+        cRecentPressed = prvcDetectSinglePress();
+        
+        /* If no previous press detected, but a press has been found
+           then wait for the debounce period and check the keypad again */
+        if( cPreviousPressed == KEYPAD_NO_PRESS && cRecentPressed != KEYPAD_NO_PRESS )
+        {
+            cPreviousPressed = cRecentPressed;
+            vTaskDelayUntil( &xLastWakeTime, xFrequency );   
+        }  
+        /* button has been pressed for more than 2 loops of the task, 
+           therefore it counts as a valid, debounced task */
+        else if( cRecentPressed == cPreviousPressed && cRecentPressed != KEYPAD_NO_PRESS )
+        {
+            /* debugging */
+            vWriteToComPort( "Button pressed: ", strlen("button pressed: ") );
+            vWriteToComPort( &cRecentPressed, 1 );
+            vWriteToComPort( "\r\n", 2 );
             
-            usColumnInput = keypadInPins_Read();
-            portEXIT_CRITICAL();
-            
-            /* if there are no bits set on the input then no buttons are pressed in that row, 
-            if there are then convert it to ascii and write to the output queue, and for debugging, to the 
-            serial port too.
+            /* The qeueue timeout is 0, so if it's full then dont wait, 
+            in addition in the vSerialPutString the length is fixed as 
+            1 since it's only 1 character for this task. 
             */
-            if( usColumnInput != 0 )
+            if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&cRecentPressed, 0 ) )
             {
-                cButton = prvcButtonToASCII( usRow, usColumnInput );   
-               
-                /* in case of an error on the ascii conversion and bit shifting make it conditional */
-                if( cButton != KEYPAD_ERROR_SC )
-                {
-                    /* debugging */
-                    vWriteToComPort( "Button pressed: ", strlen("button pressed: ") );
-                    vWriteToComPort( &cButton, 1 );
-                    vWriteToComPort( "\r\n", 2 );
-                    
-                    /* The qeueue timeout is 0, so if it's full then dont wait, 
-                    in addition in the vSerialPutString the length is fixed as 
-                    1 since it's only 1 character for this task. 
-                    */
-                    if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&cButton, 0 ) )
-                    {
-                        /* error in sending to queue */
-                    }          
-                } 
+                /* error in sending to queue */
             }
             
-            vTaskDelayUntil( &xLastWakeTime, xFrequency );
         }
         
-    }
-    
+        /* No button press has been detected most recently, so clear the previous
+           and start checking again
+        */
+        else
+        {
+            cPreviousPressed = KEYPAD_NO_PRESS;
+        }         
+    }   
 }
 
 /*-----------------------------------------------------------------------*/
