@@ -3,6 +3,14 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 6th Feb 2017
+Changes Made   : 
+    Subscription to the mode manager.
+    Declarations for the callback created,
+    still need to implement init mode stuff.
 *****************************************/
 
 /* Scheduler include files. */
@@ -16,19 +24,34 @@ Changes Made   : Initial Issue
 #include "decodertask.h"
 #include "partest.h"
 #include "Custom Tasks/Display/globaldisplay.h"
-
-/* the keyad queue is sending an ascii character, so convert it to a number
- * but masking the lower nibble to turn it from a 0x61 = a, into 0x01 etc
- */
-#define MAP_IDX(val) ( ( uint8_t )val &0x0F )
+#include "Custom Tasks/Mode Manager/modeManager.h"
 
 QueueHandle_t xDecoderOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
+bool ( *prvModeDecoder )( xServoQueueParams_t *pxToServo, char8 cbutton );
 
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION_PROTO( vDecoderTask, pvParameters );
 void prvCreateServoMovementStruct( xServoNumber_t xServo, xServoDirection_t xDirectionToMove, xServoQueueParams_t *pxQueueArgs );
 bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
+bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
+bool prvTrainingModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
+bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
+void prvOnModeChange( xMode_t xNewMode );
+
+/*-----------------------------------------------------------------------*/
+void prvOnModeChange( xMode_t xNewMode )
+{
+    #warning INCOMPLETE MODE CHANGE
+    switch( xNewMode )
+    {
+        case INIT: prvModeDecoder = &prvManualModeDecoder; break;
+        case MANUAL: prvModeDecoder = &prvManualModeDecoder; break;
+        case TRAINING: prvModeDecoder = &prvManualModeDecoder; break;
+        case AUTO: prvModeDecoder = &prvManualModeDecoder; break;
+        default: break;
+    }
+}
 
 /*-----------------------------------------------------------------------*/
 static portTASK_FUNCTION( vDecoderTask, pvParamaters )
@@ -48,7 +71,7 @@ for(;;)
             vWriteToComPort( &cButton, 1 );
             vWriteToComPort( "\r\n", 2 );
             
-            bSend = prvManualModeDecoder( &xToServo, cButton );
+            bSend = prvModeDecoder( &xToServo, cButton );
             
             if( true == bSend )
             {
@@ -75,6 +98,11 @@ QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
     xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) pxParams, priority, NULL );
     xDecoderOutputQueue = *(pxParams->pxDecoderOutputQueue);
 
+    //needs to be init mode once made
+    prvModeDecoder = &prvManualModeDecoder;
+    
+    vSubscribeToModeChange( &prvOnModeChange );
+    
     return xKeypadInputQueue;
 }
 
