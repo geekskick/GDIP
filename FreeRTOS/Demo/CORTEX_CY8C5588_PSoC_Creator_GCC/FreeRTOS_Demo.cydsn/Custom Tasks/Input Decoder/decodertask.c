@@ -42,15 +42,40 @@ void prvOnModeChange( xMode_t xNewMode );
 /*-----------------------------------------------------------------------*/
 void prvOnModeChange( xMode_t xNewMode )
 {
+    /* Init mode just sends button presses the the screen, and does a mode change if the
+    relevant button is pressed. The arm is moved to position on startup by the main's servoStart
+    function */
     #warning INCOMPLETE MODE CHANGE
     switch( xNewMode )
     {
-        case INIT: prvModeDecoder = &prvManualModeDecoder; break;
-        case MANUAL: prvModeDecoder = &prvManualModeDecoder; break;
-        case TRAINING: prvModeDecoder = &prvManualModeDecoder; break;
-        case AUTO: prvModeDecoder = &prvManualModeDecoder; break;
+        case INIT:      prvModeDecoder = &prvInitModeDecoder;   break;
+        case MANUAL:    prvModeDecoder = &prvManualModeDecoder; break;
+        case TRAINING:  prvModeDecoder = &prvManualModeDecoder; break;
+        case AUTO:  prvModeDecoder = &prvManualModeDecoder;     break;
         default: break;
     }
+}
+
+/*-----------------------------------------------------------------------*/
+bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
+{
+    bool bSend = false; // Don't move a servo at all in init mode
+            
+    switch( cbutton )
+    {
+        case 'p':
+            vModeChange();
+            break;
+        default:
+            vSendToDisplayQueue( &cbutton, 1 );
+        /* all other button pressed don't mean anything servo */
+
+            break;
+        
+    }
+
+    return bSend;
+    
 }
 
 /*-----------------------------------------------------------------------*/
@@ -156,6 +181,8 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
         case 'l':
             prvCreateServoMovementStruct( Grabber, SUB, pxToServo );
             break;
+        case 'p':
+            vModeChange();
         default:
         /* all other button pressed don't mean anything servo */
             bSend = false;
