@@ -11,6 +11,12 @@ Changes Made   :
     Subscription to the mode manager.
     Declarations for the callback created,
     still need to implement init mode stuff.
+*****************************************
+Change ID      : NA
+Version        : 3
+Date           : 7th Feb 2017
+Changes Made   : 
+    Init Mode decoder created
 *****************************************/
 
 /* Scheduler include files. */

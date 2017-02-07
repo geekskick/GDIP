@@ -477,20 +477,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\PSoC 5LP Architecture TRM</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CY8C58LP Family Datasheet</v>
 <v>GDIP Workspace\FreeRTOS_Demo\System Reference Guides</v>
-<v>GDIP Workspace\FreeRTOS_Demo\System Reference Guides\cy_boot_v5_50</v>
-<v>GDIP Workspace\FreeRTOS_Demo\ADC_SAR_v3_0</v>
-<v>GDIP Workspace\FreeRTOS_Demo\ADC_SAR_v3_0\ADC_SAR_v3_0.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CharLCD_v2_20.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_clock_v2_20.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_constant_v1_0</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_isr_v1_70</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_pins_v2_20</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\PWM_v3_30</v>
-<v>GDIP Workspace\FreeRTOS_Demo\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>GDIP Workspace</v>
@@ -498,20 +484,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\PSoC 5LP Architecture TRM</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CY8C58LP Family Datasheet</v>
 <v>GDIP Workspace\FreeRTOS_Demo\System Reference Guides</v>
-<v>GDIP Workspace\FreeRTOS_Demo\System Reference Guides\cy_boot_v5_50</v>
-<v>GDIP Workspace\FreeRTOS_Demo\ADC_SAR_v3_0</v>
-<v>GDIP Workspace\FreeRTOS_Demo\ADC_SAR_v3_0\ADC_SAR_v3_0.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CharLCD_v2_20.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_clock_v2_20.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_constant_v1_0</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_isr_v1_70</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_pins_v2_20</v>
-<v>GDIP Workspace\FreeRTOS_Demo\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\PWM_v3_30</v>
-<v>GDIP Workspace\FreeRTOS_Demo\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>GDIP Workspace\FreeRTOS_Demo\UART_v2_50.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -535,7 +507,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="918, 531" SelectedTabbedMdiWindow="031cab1e-20c1-4d13-b7c0-9648f8f56171"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /><DocumentWindow Key="e90c515c-6a29-4f56-9bb0-540a3f804c4f" Guid="898e6bd5-1da1-4c19-8968-f816c4503d95" /><DocumentWindow Key="f39391c2-54c6-42be-9464-e45bdd55eac8" Guid="4de95da9-c73a-4254-b42c-1c2179f5d46c" /><DocumentWindow Key="b1d64ee7-f635-4040-9c45-289d20ac3bd9" Guid="ff2a92d1-42bc-4879-a11c-1c4598d331bb" /><DocumentWindow Key="5cafff9f-0b17-41df-a86d-ee7312076b65" Guid="031cab1e-20c1-4d13-b7c0-9648f8f56171" /><DocumentWindow Key="e2609f51-23ad-4811-8f30-c647c30d2f19" Guid="a062909b-aa87-4095-996f-4707bb795a03" /><DocumentWindow Key="c38d5703-45d7-43e6-90f4-9f56470e8766" Guid="f94fbee1-f628-4cf5-b4da-537c8711a0f9" /><DocumentWindow Key="b2aec8de-b29d-418e-85e1-bdf5b5803487" Guid="194849f7-a0f7-4c5e-8caa-2dcb040b0e1e" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="918, 531" SelectedTabbedMdiWindow="6427ab7b-9117-46c6-af6a-5a7822b653de"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /><DocumentWindow Key="b9ab46c5-bc01-4808-9cf1-9679aa61b4cb" Guid="31d564d6-5c8d-46f4-8fd3-714700d67af4" /><DocumentWindow Key="c656ade7-667d-4113-9d1b-a9665c11bc14" Guid="f55972bb-fb27-4379-bce9-81e8adbc83cc" /><DocumentWindow Key="d632406f-220f-4411-932d-6a178be42462" Guid="0e6e12dc-6c5c-4027-8058-d8f78efddf3b" /><DocumentWindow Key="a9673d1d-2ff4-4f6a-9086-db1868cdad18" Guid="6427ab7b-9117-46c6-af6a-5a7822b653de" /><DocumentWindow Key="e357d1fd-32ab-4032-8211-b4bab57b84be" Guid="6e7e4688-fc35-437e-8232-decd55d0ed80" /><DocumentWindow Key="4fee9f54-8522-4ef7-9d82-db6a3d0eaf99" Guid="0936cbb1-778c-4290-9ca7-6e839edc8e99" /><DocumentWindow Key="191784d4-f714-447b-aac5-52a09e056f68" Guid="51f50bad-6fdb-463c-af3d-d61c57be157b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
