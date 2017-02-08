@@ -253,7 +253,7 @@ uint32_t ulBtn;                                 /* the returned notifcation valu
         
         /* The servo position is returned as a uint16_t, 
         so safely change this to a string before sending it */
-        usCurrentPos = usGetCurrentPosition();
+        //usCurrentPos = usGetCurrentPosition();
         
         if( usPreviousPos != usCurrentPos )
         {

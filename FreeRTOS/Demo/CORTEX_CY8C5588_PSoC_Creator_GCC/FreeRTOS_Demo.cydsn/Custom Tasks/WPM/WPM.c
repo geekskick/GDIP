@@ -14,7 +14,6 @@ Changes Made   : Initial Issue
 
 #include "WPM.h"
 #include "Custom Tasks/Current Position Store/currentposition.h"
-//#include "currentposition.h" // This file contains the arm position struct definition
 
 // The number of positions the user can store and therefore the depth of the stack
 #define SAVED_POSITIONS_MAX 10
@@ -42,9 +41,11 @@ struct stack_item_t{
     bool is_used;
 };
 
+
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vWPMTask, pvParameters );
+void prvIncreaseStackDepth( void );
 
 /*-----------------------------------------------------------------------*/
 /* The action functions */
@@ -60,7 +61,8 @@ QueueHandle_t xWPMOutputQueue = NULL;
 
 /*-----------------------------------------------------------------------*/
 /* The stack of saved positions */
-static struct stack_item_t xStack[SAVED_POSITIONS_MAX];
+static struct stack_item_t *pxStack;
+int16_t iCurrentSize = 0;
 
 /*-----------------------------------------------------------------------*/
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
@@ -147,17 +149,16 @@ void prvActionReset( struct xActionArgs args )
 /*-----------------------------------------------------------------------*/
 void prvActionSave( struct xActionArgs args )
 {
-	 xArmPosition_t xCurrentPosition; 
-	// xCurrentPosition = getCurrentPos(); something like this
+	xArmPosition_t xCurrentPosition = xGetCurrentPosition();
 
-	// Prevent overflow
-	if( *( args.pusNextFreeStackPosition ) != SAVED_POSITIONS_MAX )
+	// Check for re-assignment of stack size
+	if( *( args.pusNextFreeStackPosition ) != iCurrentSize )
 	{
-        if( !xStack[*( args.pusNextFreeStackPosition )].is_used )
+        if( !pxStack[*( args.pusNextFreeStackPosition )].is_used )
         {
         /* save the arm position then move to the next high up item in the stack */
-		xStack[*( args.pusNextFreeStackPosition )].arm_position = xCurrentPosition;
-        xStack[*( args.pusNextFreeStackPosition )].is_used = true;
+		pxStack[*( args.pusNextFreeStackPosition )].arm_position = xCurrentPosition;
+        pxStack[*( args.pusNextFreeStackPosition )].is_used = true;
         *( args.pusNextFreeStackPosition ) += 1;
         }
         else
@@ -168,7 +169,8 @@ void prvActionSave( struct xActionArgs args )
 	}
 	else
 	{
-		// if it gets here then the stack is full
+		prvIncreaseStackDepth();
+        prvActionSave( args );
 	}
 	*( args.pxNextAction ) = NONE;
 }
@@ -181,7 +183,7 @@ void prvActionClear( struct xActionArgs args )
 	if( *( args.pusNextFreeStackPosition ) > 0 )
 	{
         /* mark it as not used then decrement the pointer value */
-		xStack[*( args.pusNextFreeStackPosition )].is_used = false;
+		pxStack[*( args.pusNextFreeStackPosition )].is_used = false;
         *( args.pusNextFreeStackPosition ) -= 1;
 	}
 	else
@@ -198,11 +200,11 @@ void prvActionRun( struct xActionArgs args )
 	int16_t sNextStack = *(args.pusCurrentStackPosition) + ( *( args.pxCurrentDirection ) == FORWARD ? 1 : -1 ); 
 
     // range check
-	if( sNextStack >= 0 && sNextStack < SAVED_POSITIONS_MAX )
+	if( sNextStack >= 0 && sNextStack < iCurrentSize )
 	{
 		*( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
 		
-        if( xStack[*( args.pusCurrentStackPosition )].is_used )
+        if( pxStack[*( args.pusCurrentStackPosition )].is_used )
         {
             // Write to the output queue here
             
@@ -226,9 +228,18 @@ void prvActionRun( struct xActionArgs args )
 TaskHandle_t xStartWPMTask( int priority, xWPMParams_t *pxParams )
 {
     xWPMOutputQueue = *( pxParams->pxServoInputQueue );
+    iCurrentSize = 10; // arbitrarily chosen
+    pxStack = calloc( iCurrentSize, sizeof( pxStack ) );
     TaskHandle_t rc;
     //this stack size will need changing as it needs more room for the stack of positions
     xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) &rc );
     return rc;
 }
 
+/*-----------------------------------------------------------------------*/
+void prvIncreaseStackDepth( void )
+{
+    iCurrentSize *= 2;
+    pxStack = realloc( pxStack, iCurrentSize );
+    
+}
