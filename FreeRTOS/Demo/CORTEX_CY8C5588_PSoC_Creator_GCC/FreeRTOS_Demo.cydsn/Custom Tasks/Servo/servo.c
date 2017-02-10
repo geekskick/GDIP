@@ -49,8 +49,8 @@ void ( *pvWriteCompareFunctions[END] ) ( uint16_t newValue );
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
 static portTASK_FUNCTION( vServoTask, pvParamaters )
 {
-static uint16_t usSERVO_SPEED = 50;           /* how far to move the servos, randomly chosen  */
-( void ) pvParamaters;                              /* stops warnings */  
+const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on each step, chosen through user experience with the device  */
+( void ) pvParamaters;                       /* stops warnings */  
 xServoQueueParams_t xInputValue;             /* input from the queue */
 uint16_t usNewValue = 0;
 uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
@@ -61,27 +61,16 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
                                     // nofified of a change a notifacation, which the modules who 
                                     // care about it have to check with a timeout of 0
 
-// not tested
  xArmPosition_t xCurrentPosition = xGetCurrentPosition();
-char buff[10];
 
     /* the meat of the task */
     for (;;)
     {
+        
         /* block forever to get the value from the queue */
-        if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, portMAX_DELAY ) )
+        if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, ( TickType_t ) portMAX_DELAY ) )
         {
-           // the servo is an 8 bit ADC value, so i need to safely convert to 16 bits here, 
-            usSERVO_SPEED =( 0x00FF & tuningServoStepADC_GetResult8() );
-            
-            // debugging output
-            vWriteToComPort( "Rx'd from the decoder, speed is ", strlen(  "Rx'd from the decoder, speed is " ));
-            memset(buff, 0, 10);
-            itoa(usSERVO_SPEED, buff, 10);
-            vWriteToComPort( buff, strlen(  buff ));
-            vWriteToComPort( "\r\n" , strlen( "\r\n"  ));
-            // end of debugging output
-            
+          
             /* Are we moving the servo left or right */
             switch( xInputValue.xDirection )
             {
@@ -130,7 +119,9 @@ char buff[10];
                 
                 /* re-enable interrupts */
                 taskEXIT_CRITICAL();
-            }           
+            }  
+            
+            usNewValue = 0;
        
         }
         

@@ -17,6 +17,13 @@ Version        : 3
 Date           : 7th Feb 2017
 Changes Made   : 
     Init Mode decoder created
+*****************************************
+Change ID      : NA
+Version        : 4
+Date           : 10th Feb 2017
+Changes Made   : 
+    Light turns off when queue fails to 
+    send.
 *****************************************/
 
 /* Scheduler include files. */
@@ -97,24 +104,16 @@ for(;;)
         /* do nothing until something is received in the queue */
         if( pdTRUE == xQueueReceive( xKeypadInputQueue, &cButton, portMAX_DELAY ) )
         {
-            // debugging 
-            vWriteToComPort( "Rx'd from keypad: ", strlen( "Rx'd from keypad: ") );
-            vWriteToComPort( &cButton, 1 );
-            vWriteToComPort( "\r\n", 2 );
             
             bSend = prvModeDecoder( &xToServo, cButton );
             
             if( true == bSend )
             {
-                if( pdFALSE == xQueueSend( xDecoderOutputQueue, ( void* )&xToServo, ( TickType_t ) portMAX_DELAY ) )
+                if( pdFALSE == xQueueSend( xDecoderOutputQueue, ( void* )&xToServo, ( TickType_t ) 10 ) )
                 {
                     /* error sending to the servo queue */
+                    vParTestSetLED( 0, 0 );
 
-                }
-                else
-                {
-                    // debugging
-                    vWriteToComPort( "Sent to servo\r\n", strlen( "Sent to servo\r\n") );
                 }
             }
         }

@@ -18,6 +18,14 @@ Date           : 3rd Jan 2017
 Changes Made   : 
     Debounce is variable based on tuning pot value
     then sent to the com port for debugging.
+*****************************************
+Change ID      : NA
+Version        : 4
+Date           : 10th Feb 2017
+Changes Made   : 
+    Tuning pot removed as value found 
+    through trial and error testing.
+    Debug statements removed
 *****************************************/
 
 /* Scheduler include files. */
@@ -66,7 +74,7 @@ Changes Made   :
 #define KEYPAD_ERROR_SC '\0' /* signed char version needed */
 #define KEYPAD_NO_PRESS 0x00
 
-#define KEYPAD_TASK_PERIODICITYms   20       /* how often the whole keypad needs to be scanned for button press */
+#define KEYPAD_TASK_PERIODICITYms   10       /* how often the whole keypad needs to be scanned for button press */
 
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
@@ -150,11 +158,13 @@ signed char cPressed = KEYPAD_NO_PRESS;   /* The ascii version of the button pre
             cPressed = prvcButtonToASCII( usRow, usColumnInput ); 
             if( cPressed != KEYPAD_ERROR_SC )
             {
+                //vParTestToggleLED(1);
                 break; /* no need to do anything else as a button detected */
             }
-            
-            /* an error now means no press */
-            cPressed = KEYPAD_NO_PRESS;
+            else {
+                /* an error now means no press */
+                cPressed = KEYPAD_NO_PRESS;
+            }
         }
     }
     
@@ -211,7 +221,8 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
     /* the meat of the task */
     for (;;)
     {
-        cRecentPressed = KEYPAD_NO_PRESS;
+        /* provide a debounce for the switch */
+        vTaskDelayUntil( &xLastWakeTime, xFrequency );
         
         cRecentPressed = prvcDetectSinglePress();
         
@@ -220,31 +231,26 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
         if( cPreviousPressed == KEYPAD_NO_PRESS && cRecentPressed != KEYPAD_NO_PRESS )
         {
             cPreviousPressed = cRecentPressed;
-            xFrequency = ( TickType_t )tuningDebounceADC_GetResult8();
-            vTaskDelayUntil( &xLastWakeTime, xFrequency );
-            
         }  
+        
         /* button has been pressed for more than 2 loops of the task, 
            therefore it counts as a valid, debounced task */
         else if( cRecentPressed == cPreviousPressed && cRecentPressed != KEYPAD_NO_PRESS )
         {
             /* debugging */
-            vWriteToComPort( "Button pressed: ", strlen("button pressed: ") );
-            vWriteToComPort( &cRecentPressed, 1 );
-            vWriteToComPort( "\r\n", 2 );
-            vWriteToComPort( "debounce: ", strlen("debounce: ") );
-            char buff[10];
-            sprintf( buff, "%d\r\n", xFrequency );
-            vWriteToComPort( buff, strlen( buff ) );
+            //vParTestToggleLED(0);
             
             /* The qeueue timeout is 0, so if it's full then dont wait, 
             in addition in the vSerialPutString the length is fixed as 
             1 since it's only 1 character for this task. 
             */
-            if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&cRecentPressed, 0 ) )
+            
+            if( pdFALSE == xQueueSend( xOutputQueue, ( void* )&cRecentPressed, portMAX_DELAY ) )
             {
-                /* error in sending to queue */
+                // error in sending to queue 
+                vParTestSetLED(1, 0);
             }
+            cPreviousPressed = KEYPAD_NO_PRESS;
             
         }
         

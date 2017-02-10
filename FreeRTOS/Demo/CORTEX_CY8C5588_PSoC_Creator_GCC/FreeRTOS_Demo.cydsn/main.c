@@ -79,6 +79,12 @@ Date           : 3rd Jan 2017
 Changes Made   : 
     Initialisation of the debounce tuning 
     pot for development added.
+*****************************************
+Change ID      : NA
+Version        : 3
+Date           : 10th Feb 2017
+Changes Made   : 
+    tuning HW removed
 *****************************************/
 
 #include <device.h>
@@ -146,7 +152,7 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     /* the display task is different as it's effectively a singleton and provides an accessor for it.*/
     //vStartDisplayTask( mainDISPLAY_TEST_TASK_PRIORITY, NULL );
     /* for debugging and when the com port is required  */
-    vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY, 9600 );
+    //vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY, 9600 );
     
     vStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
     xWPMServoQueue = *( xServoInputs.pxFromWPM );
@@ -205,7 +211,6 @@ const uint16_t usMidPoint = usGetMidPoint();
     };
     
     vSetCurrentArmPosition( xTempPosition );
-    //vSetCurrentPosition( usMidPoint );
 }
 
 /*---------------------------------------------------------------------------*/
@@ -233,11 +238,6 @@ extern cyisraddress CyRamVectors[];
 
     builtInLED_Write(1);
     
-    tuningServoStepADC_Start();
-    tuningDebounceADC_Start();
-    
-    tuningDebounceADC_StartConvert();
-    tuningServoStepADC_StartConvert();
     
     // not bothered about lcd for now
     //LCD_Start();

@@ -3,7 +3,16 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 10th Feb 2017
+Changes Made   : 
+    Length of queue changed to account for 
+    quicker keypad task
 *****************************************/
+
+
 
 #ifndef GLOB_DISP_H
 #define GLOB_DISP_H
@@ -11,7 +20,7 @@ Changes Made   : Initial Issue
 #include "serial.h"
 
 #define DISPLAY_MAX_MSG_LEN 16	// A 16 x 2 lcd screen
-#define DISPLAY_QUEUE_LEN	10  // 10 messages in the queue 
+#define DISPLAY_QUEUE_LEN	100 // 100 messages in the queue 
 
 typedef struct displayParams
 {
