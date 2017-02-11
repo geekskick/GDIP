@@ -90,9 +90,13 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
     for (;;)
     {
         //wait for the notification
-        // bNotificationRxd == xTaskNotifyWait( something here );
+        xTaskNotifyWait( ULONG_MAX,             /* Clear all on entry */
+                         ULONG_MAX,             /* Reset the notification value to 0 on exit. */
+                         &uNotificationValue,   /* Notified value pass out in ulNotifiedValue. */
+                         0 );                   /* dont block */
 
-        if( pdTRUE == bNotifcationRxd )
+        // if rx'd
+        if( uNotificationValue != 0 )
         {
         	switch( uNotificationValue )
         	{
@@ -121,10 +125,8 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         			/* unknown notifcation rx'd */
         			break;
         	}
-
-
         } 
-        else if( xNextAction == RUN)
+        else if( xNextAction == RUN )
         {
         	prvActionRun( xActionPckg );
         }
@@ -199,14 +201,15 @@ void prvActionRun( struct xActionArgs args )
     // ge tthe next stack item index,might be an error if this next item is unused? suck it and see
 	int16_t sNextStack = *(args.pusCurrentStackPosition) + ( *( args.pxCurrentDirection ) == FORWARD ? 1 : -1 ); 
 
-    // range check
-	if( sNextStack >= 0 && sNextStack < iCurrentSize )
+    // range check needs at least one item in the stach
+	if( sNextStack > 0 && sNextStack < iCurrentSize )
 	{
 		*( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
 		
         if( pxStack[*( args.pusCurrentStackPosition )].is_used )
         {
             // Write to the output queue here
+            xQueueSend( xWPMOutputQueue, &pxStack[*( args.pusCurrentStackPosition )].arm_position, portMAX_DELAY );
             
         }
 		else 

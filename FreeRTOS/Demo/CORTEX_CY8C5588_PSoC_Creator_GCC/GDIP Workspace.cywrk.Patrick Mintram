@@ -29,6 +29,7 @@
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\Flash Security</v>
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\EEPROM</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\BlockQ.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\blocktim.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\comtest.h</v>
@@ -48,6 +49,7 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\QPeek.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\semtest.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\serial.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\croutine.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\FreeRTOS.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\list.h</v>
@@ -85,6 +87,7 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\PollQ.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\QPeek.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\semtest.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\croutine.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\heap_2.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\list.c</v>
@@ -269,6 +272,13 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\project.h</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\projdefs.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\queue.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\semphr.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\StackMacros.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\task.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\currentposition.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Header Files\decodertask.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\device.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\ErrorMode.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\FreeRTOSConfig.h</v>
@@ -294,6 +304,12 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\QPeek.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\semtest.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\croutine.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\heap_2.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\list.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\port.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\queue.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\tasks.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\currentposition.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\decodertask.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\ErrorMode.c</v>
@@ -305,18 +321,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Serial.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\servo.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\WPM.c</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin\baseElevationPin.c</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin\baseElevationPin.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin\baseElevationPin_aliases.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM\baseElevationPWM.c</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM\baseElevationPWM.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM\baseElevationPWM_PM.c</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPin</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPin\baseRotationPin.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -437,52 +441,6 @@
 <VisibleNodeIds>
 <v>GDIP Workspace</v>
 <v>GDIP Workspace\FreeRTOS_Demo</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseElevationPin.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseElevationPWM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseElevationPWM_PM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseRotationPin.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseRotationPWM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseRotationPWM_PM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\BlockQ.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\blocktim.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\builtInLED.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\comtest.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\countsem.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\croutine.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\currentposition.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\death.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\decodertask.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\dynamic.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\elbowPin.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\elbowPWM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\elbowPWM_PM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\ErrorMode.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\flash.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\flop.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\GenQTest.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\globaldisplay.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\grabberPin.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\grabberPWM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\grabberPWM_PM.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\heap_2.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\integer.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\keypad.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\keypadInPins.lst</v>
-<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\keypadOutPins.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

@@ -38,9 +38,11 @@ Changes Made   :
 #include "partest.h"
 #include "Custom Tasks/Display/globaldisplay.h"
 #include "Custom Tasks/Mode Manager/modeManager.h"
+#include "Custom Tasks/WPM/WPM.h"
 
 QueueHandle_t xDecoderOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
+TaskHandle_t xWPMTask = NULL;
 bool ( *prvModeDecoder )( xServoQueueParams_t *pxToServo, char8 cbutton );
 
 /*-----------------------------------------------------------------------*/
@@ -48,7 +50,7 @@ static portTASK_FUNCTION_PROTO( vDecoderTask, pvParameters );
 void prvCreateServoMovementStruct( xServoNumber_t xServo, xServoDirection_t xDirectionToMove, xServoQueueParams_t *pxQueueArgs );
 bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
-bool prvTrainingModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
+bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 void prvOnModeChange( xMode_t xNewMode );
 
@@ -57,38 +59,15 @@ void prvOnModeChange( xMode_t xNewMode )
 {
     /* Init mode just sends button presses the the screen, and does a mode change if the
     relevant button is pressed. The arm is moved to position on startup by the main's servoStart
-    function */
-    #warning INCOMPLETE MODE CHANGE
+    function. Context switch is prevented here by the mode manager disabling interrupts */
     switch( xNewMode )
     {
         case INIT:      prvModeDecoder = &prvInitModeDecoder;   break;
         case MANUAL:    prvModeDecoder = &prvManualModeDecoder; break;
-        case TRAINING:  prvModeDecoder = &prvManualModeDecoder; break;
-        case AUTO:  prvModeDecoder = &prvManualModeDecoder;     break;
+        case TRAINING:  prvModeDecoder = &prvTrgModeDecoder;    break;
+        case AUTO:      prvModeDecoder = &prvAutoModeDecoder;   break;
         default: break;
     }
-}
-
-/*-----------------------------------------------------------------------*/
-bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
-{
-    bool bSend = false; // Don't move a servo at all in init mode
-            
-    switch( cbutton )
-    {
-        case 'p':
-            vModeChange();
-            break;
-        default:
-            vSendToDisplayQueue( &cbutton, 1 );
-        /* all other button pressed don't mean anything servo */
-
-            break;
-        
-    }
-
-    return bSend;
-    
 }
 
 /*-----------------------------------------------------------------------*/
@@ -127,7 +106,8 @@ QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
     xKeypadInputQueue = xQueueCreate( DECODER_INPUT_QUEUE_SIZE, sizeof(signed char) );
     xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) pxParams, priority, NULL );
     xDecoderOutputQueue = *(pxParams->pxDecoderOutputQueue);
-
+    xWPMTask = pxParams->xWPMTaskHandle;
+    
     //needs to be init mode once made
     prvModeDecoder = &prvManualModeDecoder;
     
@@ -186,7 +166,7 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
         case 'l':
             prvCreateServoMovementStruct( Grabber, SUB, pxToServo );
             break;
-        case 'p':
+        case 'm':
             vModeChange();
         default:
         /* all other button pressed don't mean anything servo */
@@ -196,6 +176,122 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
     }
 
     return bSend;
+}
+
+/*-----------------------------------------------------------------------*/
+bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
+{
+	bool bSend = true;
+            
+    switch( cButton )
+    {
+        case 'a':
+            prvCreateServoMovementStruct( BaseRotation, ADD, pxToServo );
+            break;
+        case 'b':
+            prvCreateServoMovementStruct( BaseRotation, SUB, pxToServo );
+            break;
+        case 'c':
+            prvCreateServoMovementStruct( BaseElevation, ADD, pxToServo );
+            break;
+        case 'd':
+            prvCreateServoMovementStruct( BaseElevation, SUB, pxToServo );
+            break;
+        case 'e':
+            prvCreateServoMovementStruct( Elbow, ADD, pxToServo );
+            break;
+        case 'f':
+            prvCreateServoMovementStruct( Elbow, SUB, pxToServo );
+            break;
+        case 'g':
+            prvCreateServoMovementStruct( WristRoll, ADD, pxToServo );
+            break;
+        case 'h':
+            prvCreateServoMovementStruct( WristRoll, SUB, pxToServo );
+            break;
+        case 'i':
+            prvCreateServoMovementStruct( WristPitch, ADD, pxToServo );
+            break;
+        case 'j':
+            prvCreateServoMovementStruct( WristPitch, SUB, pxToServo );
+            break;
+        case 'k':
+            prvCreateServoMovementStruct( Grabber, ADD, pxToServo );
+            break;
+        case 'l':
+            prvCreateServoMovementStruct( Grabber, SUB, pxToServo );
+            break;
+        case 'm':
+            vModeChange();
+            break;
+        case 'o': // save waypoint o row doesnt work!
+            xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+            break;
+        case 'p': // clear last waypoint should be clear but button doesnt work
+            xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+            break;
+        default:
+        /* all other button pressed don't mean anything servo */
+            bSend = false;
+            break;
+        
+    }
+
+    return bSend;
+}
+
+/*-----------------------------------------------------------------------*/
+bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
+{
+	bool bSend = true;
+            
+    switch( cButton )
+    {
+        case 'm':
+            vModeChange();
+            break;
+            case 'n': //stop
+            xTaskNotify( xWPMTask, WPM_NOTIFICATION_STOP, eSetValueWithOverwrite );
+            //vModeChange();
+            break;
+            case 'l': // reset o row doesnt work
+            xTaskNotify( xWPMTask, WPM_NOTIFICATION_RESET, eSetValueWithOverwrite );
+            //vModeChange();
+            break;
+            case 'p': // run
+            xTaskNotify( xWPMTask, WPM_NOTIFICATION_RUN, eSetValueWithOverwrite );
+            //vModeChange();
+            break;
+        default:
+        /* all other button pressed don't mean anything servo */
+            bSend = false;
+            break;
+        
+    }
+
+    return bSend;
+}
+
+/*-----------------------------------------------------------------------*/
+bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
+{
+    bool bSend = false; // Don't move a servo at all in init mode
+            
+    switch( cbutton )
+    {
+        case 'm':
+            vModeChange();
+            break;
+        default:
+            vSendToDisplayQueue( &cbutton, 1 );
+        /* all other button pressed don't mean anything servo */
+
+            break;
+        
+    }
+
+    return bSend;
+    
 }
 
 /* [] END OF FILE */

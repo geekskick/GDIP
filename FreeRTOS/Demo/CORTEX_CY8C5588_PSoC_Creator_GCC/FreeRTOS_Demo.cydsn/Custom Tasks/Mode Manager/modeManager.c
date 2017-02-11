@@ -7,6 +7,7 @@ Changes Made   : Initial Issue
 
 #include "modeManager.h"
 #include <stdint.h>
+#include "portmacro.h"
 
 //----------------------------
 xMode_t xCurrentMode = INIT;
@@ -19,6 +20,8 @@ void prvNotify( void );
 //----------------------------
 void vModeChange( void )
 {
+    portENTER_CRITICAL();
+    
     if( xCurrentMode == AUTO ) 
     {
         xCurrentMode = MANUAL;   
@@ -29,17 +32,18 @@ void vModeChange( void )
     }
     
     prvNotify();
+    portEXIT_CRITICAL();
 }
 
 //----------------------------
 void prvNotify( void )
 {
     uint8_t i;
-    for( i = 0; i <= iNumberSubscribers; i++ )
+    for( i = 0; i < iNumberSubscribers; i++ )
     {
         callbacks[i]( xCurrentMode );
         
-    }   
+    }  
 }
 //----------------------------
 void vSubscribeToModeChange( void ( *fn )( xMode_t ) )

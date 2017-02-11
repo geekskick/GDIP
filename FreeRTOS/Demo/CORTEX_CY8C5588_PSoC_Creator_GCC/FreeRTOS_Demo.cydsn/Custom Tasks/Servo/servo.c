@@ -21,14 +21,21 @@ Changes Made   : Initial Issue
 #include "Custom Tasks/Current Position Store/currentposition.h"
 #include "servoqueueparams.h"
 #include "Custom Tasks/Display/globaldisplay.h"
+#include "Custom Tasks/Mode Manager/modeManager.h"
 
 #define SERVO_MAX 8192u    /* servo max value, calculated as per SSD, where the servo also seems to see 2.5 as 2ms */
 #define SERVO_MIN 1638u    /* servo min value, calculated as per SSD, where the servo also seems to see 0.5 as 1ms */
+
+const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on each step, chosen through user experience with the device  */
 
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
 uint16_t usGetMidPoint( void );
+void prvModeChange( xMode_t xNewMode );
+void ( *prvGetAndSend )( xArmPosition_t *pxArmPos );
+void prvAutoModeRx( xArmPosition_t *pxArmPos );
+void prvOtherModeRx( xArmPosition_t *pxArmPos );
 
 /*-----------------------------------------------------------------------*/
 /* the queue which the task will receive from */
@@ -46,29 +53,50 @@ uint16_t prvSub ( uint16_t usLHS, uint16_t usRHS );
 void ( *pvWriteCompareFunctions[END] ) ( uint16_t newValue );
 
 /*-----------------------------------------------------------------------*/
-/* the main function reads from the queue and sets the PWM duty  to the passed in value */
-static portTASK_FUNCTION( vServoTask, pvParamaters )
+void prvModeChange( xMode_t xNewMode )
 {
-const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on each step, chosen through user experience with the device  */
-( void ) pvParamaters;                       /* stops warnings */  
-xServoQueueParams_t xInputValue;             /* input from the queue */
-uint16_t usNewValue = 0;
-uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
-
-QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Decoder task queue, 
-                                    // need to create a global mode variable to poll to check this, 
-                                    // perhaps get the mode to send to everything that wants to be 
-                                    // nofified of a change a notifacation, which the modules who 
-                                    // care about it have to check with a timeout of 0
-
- xArmPosition_t xCurrentPosition = xGetCurrentPosition();
-
-    /* the meat of the task */
-    for (;;)
+    switch( xNewMode )
     {
+        case AUTO:  prvGetAndSend = &prvAutoModeRx; break;
+        default:    prvGetAndSend = &prvOtherModeRx; break;
+    }
+    
+}
+
+/*-----------------------------------------------------------------------*/
+void prvAutoModeRx( xArmPosition_t *pxArmPos )
+{
+static xArmPosition_t xInputValue;             /* input from the queue */
+
+    if( pdTRUE == xQueueReceive( inputFromWPMQueue, &xInputValue, ( TickType_t ) portMAX_DELAY ) )
+    {
+         /* save in the shared resource */
+        *pxArmPos = xInputValue;
+        vSetCurrentArmPosition( *pxArmPos );
+                
+        /* when using HW disable interurpts */
+        taskENTER_CRITICAL();
         
-        /* block forever to get the value from the queue */
-        if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, ( TickType_t ) portMAX_DELAY ) )
+        pvWriteCompareFunctions[BaseElevation]( xInputValue.usBaseElevation );
+        pvWriteCompareFunctions[BaseRotation]( xInputValue.usBaseRotation );
+        pvWriteCompareFunctions[Elbow]( xInputValue.usElbow );
+        pvWriteCompareFunctions[WristPitch]( xInputValue.usWristPitch );
+        pvWriteCompareFunctions[WristRoll]( xInputValue.usWristRoll );
+        pvWriteCompareFunctions[Grabber]( xInputValue.usGrabber );
+        
+        /* re-enable interrupts */
+        taskEXIT_CRITICAL();
+    }
+}
+
+/*-----------------------------------------------------------------------*/
+void prvOtherModeRx( xArmPosition_t *pxCurrentPosition )
+{
+static xServoQueueParams_t xInputValue;             /* input from the queue */
+static uint16_t usNewValue = 0;
+static uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
+
+    if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, ( TickType_t ) portMAX_DELAY ) )
         {
           
             /* Are we moving the servo left or right */
@@ -82,12 +110,12 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
             /* get the proposed new position of the correct servo */
             switch( xInputValue.xServo )
             {
-                case BaseRotation:  usNewValue = pusDirectionFunction( xCurrentPosition.usBaseRotation, usSERVO_SPEED );    break;
-                case BaseElevation: usNewValue = pusDirectionFunction( xCurrentPosition.usBaseElevation, usSERVO_SPEED );   break;
-                case WristRoll:     usNewValue = pusDirectionFunction( xCurrentPosition.usWristRoll, usSERVO_SPEED );       break;
-                case Elbow:         usNewValue = pusDirectionFunction( xCurrentPosition.usElbow, usSERVO_SPEED );           break;
-                case WristPitch:    usNewValue = pusDirectionFunction( xCurrentPosition.usWristPitch, usSERVO_SPEED );      break;
-                case Grabber:       usNewValue = pusDirectionFunction( xCurrentPosition.usGrabber, usSERVO_SPEED );         break;
+                case BaseRotation:  usNewValue = pusDirectionFunction( pxCurrentPosition->usBaseRotation, usSERVO_SPEED );    break;
+                case BaseElevation: usNewValue = pusDirectionFunction( pxCurrentPosition->usBaseElevation, usSERVO_SPEED );   break;
+                case WristRoll:     usNewValue = pusDirectionFunction( pxCurrentPosition->usWristRoll, usSERVO_SPEED );       break;
+                case Elbow:         usNewValue = pusDirectionFunction( pxCurrentPosition->usElbow, usSERVO_SPEED );           break;
+                case WristPitch:    usNewValue = pusDirectionFunction( pxCurrentPosition->usWristPitch, usSERVO_SPEED );      break;
+                case Grabber:       usNewValue = pusDirectionFunction( pxCurrentPosition->usGrabber, usSERVO_SPEED );         break;
                 default: break;
             } 
             
@@ -100,33 +128,45 @@ QueueHandle_t *pQueueToListenTo;    // This queue will either be the WPM or Deco
                 /* update the arm position since it's within limits */
                 switch( xInputValue.xServo )
                 {
-                    case BaseRotation:  xCurrentPosition.usBaseRotation = usNewValue;   break;
-                    case BaseElevation: xCurrentPosition.usBaseElevation = usNewValue;  break;
-                    case WristRoll:     xCurrentPosition.usWristRoll = usNewValue;      break;
-                    case Elbow:         xCurrentPosition.usElbow = usNewValue;          break;
-                    case WristPitch:    xCurrentPosition.usWristPitch = usNewValue;     break;
-                    case Grabber:       xCurrentPosition.usGrabber = usNewValue;        break;
+                    case BaseRotation:  pxCurrentPosition->usBaseRotation = usNewValue;   break;
+                    case BaseElevation: pxCurrentPosition->usBaseElevation = usNewValue;  break;
+                    case WristRoll:     pxCurrentPosition->usWristRoll = usNewValue;      break;
+                    case Elbow:         pxCurrentPosition->usElbow = usNewValue;          break;
+                    case WristPitch:    pxCurrentPosition->usWristPitch = usNewValue;     break;
+                    case Grabber:       pxCurrentPosition->usGrabber = usNewValue;        break;
                     default: break;
                 } 
-
+                
                 /* save in the shared resource */
-                vSetCurrentArmPosition( xCurrentPosition );
-            
+                vSetCurrentArmPosition( *pxCurrentPosition );
+                
                 /* when using HW disable interurpts */
                 taskENTER_CRITICAL();
                 
                 pvWriteCompareFunctions[xInputValue.xServo]( usNewValue );
                 
-                /* re-enable interrupts */
+                 /* re-enable interrupts */
                 taskEXIT_CRITICAL();
-            }  
-            
-            usNewValue = 0;
-       
+            }
         }
+}
+
         
-    }
-    
+/* the main function reads from the queue and sets the PWM duty  to the passed in value */
+static portTASK_FUNCTION( vServoTask, pvParamaters )
+{
+
+( void ) pvParamaters;                       /* stops warnings */  
+
+ xArmPosition_t xCurrentPosition = xGetCurrentPosition();
+
+    /* the meat of the task */
+    for (;;)
+    {
+        
+        prvGetAndSend( &xCurrentPosition );
+ 
+    } 
 }
 
 /*-----------------------------------------------------------------------*/
@@ -150,6 +190,9 @@ void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput )
     
     pxOutput->pxFromKeypad = &inputFromDecoderTaskQueue;
     pxOutput->pxFromWPM = &inputFromWPMQueue;
+    
+    prvGetAndSend = &prvOtherModeRx;
+    vSubscribeToModeChange( &prvModeChange );
     
     xTaskCreate( vServoTask, "ServoMove", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) NULL);
     

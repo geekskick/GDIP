@@ -13,6 +13,7 @@ Changes Made   : Initial Issue
 typedef struct xDecoderParams
 {
     QueueHandle_t *pxDecoderOutputQueue;
+    TaskHandle_t xWPMTaskHandle;
 }xDecoderParams_t;
 
 QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxInputParams );

@@ -120,10 +120,10 @@ Changes Made   :
  * Where a higher priority value means a higher priority task.
  */
 #define mainDISPLAY_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
-#define mainKEYPAD_TASK_PRIORITY                ( tskIDLE_PRIORITY + 2 )
-#define mainDECODER_TASK_PRIORITY               ( tskIDLE_PRIORITY + 3 )
-#define mainWPM_TASK_PRIORITY                   ( tskIDLE_PRIORITY + 4 )
-#define mainSERVO_TASK_PRIORITY                 ( tskIDLE_PRIORITY + 5 )
+#define mainKEYPAD_TASK_PRIORITY                ( tskIDLE_PRIORITY + 1 )
+#define mainDECODER_TASK_PRIORITY               ( tskIDLE_PRIORITY + 1 )
+#define mainWPM_TASK_PRIORITY                   ( tskIDLE_PRIORITY + 1 )
+#define mainSERVO_TASK_PRIORITY                 ( tskIDLE_PRIORITY + 1 )
 
 /*---------------------------------------------------------------------------*/
 /*
@@ -162,10 +162,12 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     xDParams.pxDecoderOutputQueue = &xDecoderServoQueue;
     xWPMParams.pxServoInputQueue = &xWPMServoQueue;
     
+    xDParams.xWPMTaskHandle = xStartWPMTask( mainWPM_TASK_PRIORITY, &xWPMParams );
+    
     xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, &xDParams );
     xKParams.pxOutputQueue = &xKeypadDecoderQueue;
     
-    //xStartWPMTask( mainWPM_TASK_PRIORITY, *xWPMParams );
+    
     
     xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, &xKParams );
     
