@@ -208,7 +208,7 @@ void prvActionRun( struct xActionArgs args )
     // range check needs at least one item in the stach
 	if( sNextStack >= 0 && sNextStack < iCurrentSize )
 	{
-        if( pxStack[*( args.pusCurrentStackPosition )].is_used )  
+        if( pxStack[sNextStack].is_used )  
         {
             *( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
             xArmPosition_t temp = pxStack[*( args.pusCurrentStackPosition )].arm_position;
@@ -217,7 +217,10 @@ void prvActionRun( struct xActionArgs args )
             {
                 vSetErrorConditon( "WPM Q Fail \r\n", strlen("WPM Q Fail \r\n") );   
             }
-            
+            else
+            {
+                *args.pxNextAction = RUN;   
+            }
         }
 		else 
         {
