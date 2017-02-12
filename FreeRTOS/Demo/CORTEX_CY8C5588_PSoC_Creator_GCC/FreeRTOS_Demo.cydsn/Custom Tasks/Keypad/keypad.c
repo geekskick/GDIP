@@ -273,7 +273,7 @@ QueueHandle_t xStartKeypadTask( int priority, xKeypadParams_t *pxParams )
 
     /* init the queue */
     xOutputQueue = *( pxParams->pxOutputQueue );
-    xTaskCreate( vKeypadTask, "Keypad", configMINIMAL_STACK_SIZE, NULL, priority, ( TaskHandle_t * ) NULL );
+    xTaskCreate( vKeypadTask, "Keypad", configMINIMAL_STACK_SIZE, NULL, priority, &xKPHandle );
     
     // not input queue
     return NULL;

@@ -79,7 +79,7 @@ action_t xNextAction = NONE;
 uint8_t usNextFreeStackPosition = 0,
 		usCurrentStackPosition = 0;
 
-bool bNotifcationRxd = false;
+//bool bNotifcationRxd = false;
 
 struct xActionArgs xActionPckg;
 xActionPckg.pxNextAction = &xNextAction;
@@ -152,7 +152,7 @@ void prvActionReset( struct xActionArgs args )
 /*-----------------------------------------------------------------------*/
 void prvActionSave( struct xActionArgs args )
 {
-    struct stack_item_t **ppxStack;
+   // struct stack_item_t **ppxStack;
 	xArmPosition_t xCurrentPosition = xGetCurrentPosition();
 
 	// Check for re-assignment of stack size
@@ -173,14 +173,10 @@ void prvActionSave( struct xActionArgs args )
             // and something is used but the index pointers think otherwise
         }
         
-        int t = *( args.pusCurrentStackPosition );
-        struct stack_item_t st = pxStack[t];
-        xArmPosition_t temp = pxStack[t].arm_position;
 	}
 	else
 	{
-		prvIncreaseStackDepth();
-        prvActionSave( args );
+		// Full stack!
 	}
 	*( args.pxNextAction ) = NONE;
 }
@@ -212,10 +208,9 @@ void prvActionRun( struct xActionArgs args )
     // range check needs at least one item in the stach
 	if( sNextStack >= 0 && sNextStack < iCurrentSize )
 	{
-		*( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
-		
-        if( pxStack[*( args.pusCurrentStackPosition )].is_used )            
+        if( pxStack[*( args.pusCurrentStackPosition )].is_used )  
         {
+            *( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
             xArmPosition_t temp = pxStack[*( args.pusCurrentStackPosition )].arm_position;
             // Write to the output queue here
             if( pdFALSE == xQueueSend( xWPMOutputQueue, &pxStack[*( args.pusCurrentStackPosition )].arm_position, portMAX_DELAY ) )
@@ -226,14 +221,15 @@ void prvActionRun( struct xActionArgs args )
         }
 		else 
         {
-            // not at the top of the max stack items but at the top of the currently allocated slots
-            // probably do nothing here
+            // Not at the top of the max stack items but at the top of the currently allocated slots
+            // Stop this loop
+            *args.pxNextAction = NONE;
         }
         
 	}
 	else
 	{
-        // stop in case of reaching start/end of stack
+        // Stop in case of reaching start/end of stack
 		*args.pxNextAction = NONE;
 	}
 }

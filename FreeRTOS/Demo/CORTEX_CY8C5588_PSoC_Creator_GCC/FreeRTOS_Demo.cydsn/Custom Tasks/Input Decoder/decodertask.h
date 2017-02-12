@@ -14,6 +14,7 @@ typedef struct xDecoderParams
 {
     QueueHandle_t *pxDecoderOutputQueue;
     TaskHandle_t xWPMTaskHandle;
+    TaskHandle_t *pxKeypadHandle;
 }xDecoderParams_t;
 
 QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxInputParams );

@@ -163,12 +163,11 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     xWPMParams.pxServoInputQueue = &xWPMServoQueue;
     
     xDParams.xWPMTaskHandle = xStartWPMTask( mainWPM_TASK_PRIORITY, &xWPMParams );
+    xDParams.pxKeypadHandle = &xKPHandle;
     
     xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, &xDParams );
     xKParams.pxOutputQueue = &xKeypadDecoderQueue;
-    
-    
-    
+     
     xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, &xKParams );
     
 	/* Will only get here if there was insufficient memory to create the idle

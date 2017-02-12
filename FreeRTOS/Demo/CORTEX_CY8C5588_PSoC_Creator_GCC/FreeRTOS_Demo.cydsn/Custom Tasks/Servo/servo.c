@@ -68,7 +68,7 @@ void prvAutoModeRx( xArmPosition_t *pxArmPos )
 {
 static xArmPosition_t xInputValue;             /* input from the queue */
 
-    if( pdTRUE == xQueueReceive( inputFromWPMQueue, &xInputValue, ( TickType_t ) portMAX_DELAY ) )
+    if( pdTRUE == xQueueReceive( inputFromWPMQueue, &xInputValue, ( TickType_t ) 0 ) )
     {
          /* save in the shared resource */
         *pxArmPos = xInputValue;
@@ -96,7 +96,7 @@ static xServoQueueParams_t xInputValue;             /* input from the queue */
 static uint16_t usNewValue = 0;
 static uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
 
-    if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, ( TickType_t ) portMAX_DELAY ) )
+    if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, ( TickType_t ) 0 ) )
         {
           
             /* Are we moving the servo left or right */

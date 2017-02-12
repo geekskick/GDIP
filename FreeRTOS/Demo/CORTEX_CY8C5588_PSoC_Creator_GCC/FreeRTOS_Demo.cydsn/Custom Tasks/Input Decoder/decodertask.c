@@ -44,6 +44,7 @@ Changes Made   :
 QueueHandle_t xDecoderOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
 TaskHandle_t xWPMTask = NULL;
+TaskHandle_t *pxKPTask = NULL;
 bool ( *prvModeDecoder )( xServoQueueParams_t *pxToServo, char8 cbutton );
 
 /*-----------------------------------------------------------------------*/
@@ -54,6 +55,7 @@ bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 void prvOnModeChange( xMode_t xNewMode );
+void prvCriticalPress( void );
 
 /*-----------------------------------------------------------------------*/
 void prvOnModeChange( xMode_t xNewMode )
@@ -109,6 +111,7 @@ QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
     xTaskCreate( vDecoderTask, "Decoder", configMINIMAL_STACK_SIZE, ( void * ) pxParams, priority, NULL );
     xDecoderOutputQueue = *(pxParams->pxDecoderOutputQueue);
     xWPMTask = pxParams->xWPMTaskHandle;
+    pxKPTask = pxParams->pxKeypadHandle;
     
     //needs to be init mode once made
     prvModeDecoder = &prvManualModeDecoder;
@@ -170,7 +173,8 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             break;
         case 'm':
             vModeChange();
-            bSend = false;
+            prvCriticalPress();
+
         default:
         /* all other button pressed don't mean anything servo */
             bSend = false;
@@ -181,6 +185,16 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
     return bSend;
 }
 
+/*-----------------------------------------------------------------------*/
+void prvCriticalPress( void )
+{
+    if( NULL != pxKPTask )
+    {
+        vTaskSuspend( *pxKPTask );
+        vTaskDelay( ( TickType_t ) 500 ); //half a second delay
+        vTaskResume( *pxKPTask );
+    }  
+}
 /*-----------------------------------------------------------------------*/
 bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
 {
@@ -226,14 +240,17 @@ bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             break;
         case 'm':
             vModeChange();
+            prvCriticalPress();
             bSend = false;
             break;
         case 'o': // save waypoint o row doesnt work!
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+            prvCriticalPress();
             bSend = false;
             break;
         case 'p': // clear last waypoint should be clear but button doesnt work
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+            prvCriticalPress();
             bSend = false;
             break;
         default:
@@ -259,14 +276,17 @@ bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             break;
         case 'n': //stop
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_STOP, eSetValueWithOverwrite );
+            prvCriticalPress();
             bSend = false;
             break;
         case 'l': // reset o row doesnt work
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_RESET, eSetValueWithOverwrite );
+            prvCriticalPress();
             bSend = false;
             break;
         case 'p': // run
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_RUN, eSetValueWithOverwrite );
+            prvCriticalPress();
             bSend = false;
             break;
         default:
@@ -288,6 +308,7 @@ bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
     {
         case 'm':
             vModeChange();
+            prvCriticalPress();
             break;
         default:
             vSendToDisplayQueue( &cbutton, 1 );

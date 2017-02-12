@@ -66,15 +66,7 @@ void vErrorConditionHook( void )
     wristRollPWM_WriteCompare( usMidPoint );
     grabberPWM_WriteCompare( usMidPoint );
 
-    /* the arms is in the mid point position - so put it in the storage area */
-     xArmPosition_t xTempPosition = {
-        usMidPoint,
-        usMidPoint,
-        usMidPoint,
-        usMidPoint,
-        usMidPoint,
-        usMidPoint
-    };
+    
     
     }
 }

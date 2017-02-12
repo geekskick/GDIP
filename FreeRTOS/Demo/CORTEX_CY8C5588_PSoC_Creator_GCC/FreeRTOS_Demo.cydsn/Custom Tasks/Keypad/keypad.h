@@ -19,6 +19,7 @@ Changes Made   : Initial Issue
     
 #define KEYPAD_QUEUE_SIZE           10         /* the depth of the output queue, 10 is more than enough */
 
+TaskHandle_t xKPHandle;
     
 typedef struct xKeypadParams
 {
