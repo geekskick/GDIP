@@ -24,6 +24,13 @@ Date           : 10th Feb 2017
 Changes Made   : 
     Light turns off when queue fails to 
     send.
+*****************************************
+Change ID      : NA
+Version        : 5
+Date           : 12th Feb 2017
+Changes Made   : 
+    All modes decoders in place. Critical
+    button presses to prevent extra mode changing
 *****************************************/
 
 /* Scheduler include files. */
@@ -56,6 +63,7 @@ bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton );
 void prvOnModeChange( xMode_t xNewMode );
 void prvCriticalPress( void );
+extern void vModeChange( void );
 
 /*-----------------------------------------------------------------------*/
 void prvOnModeChange( xMode_t xNewMode )
@@ -272,6 +280,7 @@ bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
     {
         case 'm':
             vModeChange();
+            prvCriticalPress();
             bSend = false;
             break;
         case 'n': //stop

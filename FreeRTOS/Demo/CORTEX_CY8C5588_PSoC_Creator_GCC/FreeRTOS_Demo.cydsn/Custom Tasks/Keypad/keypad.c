@@ -26,6 +26,12 @@ Changes Made   :
     Tuning pot removed as value found 
     through trial and error testing.
     Debug statements removed
+*****************************************
+Change ID      : NA
+Version        : 5
+Date           : 12th Feb 2017
+Changes Made   : 
+    task handle saved in global
 *****************************************/
 
 /* Scheduler include files. */

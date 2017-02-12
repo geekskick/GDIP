@@ -3,6 +3,12 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 12th Feb 2017
+Changes Made   : 
+    The keypad task handle is passed in.
 *****************************************/
 
 #ifndef DECODERTASK_H

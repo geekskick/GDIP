@@ -3,6 +3,14 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 12th Feb 2017
+Changes Made   : 
+    The task handle is saved in a shared area.
+    No protection around it as only one task
+    needs to use it
 *****************************************/
 
 #ifndef KEYPAD_H

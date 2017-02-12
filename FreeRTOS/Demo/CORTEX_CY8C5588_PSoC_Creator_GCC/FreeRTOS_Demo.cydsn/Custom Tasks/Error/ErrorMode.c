@@ -3,6 +3,12 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 12th Feb 2017
+Changes Made   : 
+    Error mode leds turn on
 *****************************************/
 #include "FreeRTOS.h"
 #include "task.h"
@@ -49,6 +55,9 @@ void vErrorConditionHook( void )
     for(;;)
     {
         UART_PutString( sErrorMessage );
+        
+        autoModeLED_Write( 1 );
+        trgModeLED_Write( 1 );
         const uint16_t usMidPoint = usGetMidPoint();
 
     baseRotationPWM_Start();

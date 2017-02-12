@@ -3,6 +3,13 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 12th Feb 2017
+Changes Made   : 
+    mode change switches between input
+    queues.
 *****************************************/
 
 /* Scheduler include files. */
@@ -26,8 +33,6 @@ Changes Made   : Initial Issue
 #define SERVO_MAX 8192u    /* servo max value, calculated as per SSD, where the servo also seems to see 2.5 as 2ms */
 #define SERVO_MIN 1638u    /* servo min value, calculated as per SSD, where the servo also seems to see 0.5 as 1ms */
 
-const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on each step, chosen through user experience with the device  */
-
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vServoTask, pvParameters );
@@ -37,18 +42,17 @@ void ( *prvGetAndSend )( xArmPosition_t *pxArmPos );
 void prvAutoModeRx( xArmPosition_t *pxArmPos );
 void prvOtherModeRx( xArmPosition_t *pxArmPos );
 
-/*-----------------------------------------------------------------------*/
-/* the queue which the task will receive from */
-static QueueHandle_t inputFromDecoderTaskQueue = NULL;
-static QueueHandle_t inputFromWPMQueue = NULL;
-static uint16_t usServoPeriod = 0;
-
-/*-----------------------------------------------------------------------*/
 /* Each value can either be added to or subtract from */
 uint16_t prvAdd ( uint16_t usLHS, uint16_t usRHS );
 uint16_t prvSub ( uint16_t usLHS, uint16_t usRHS );
 
 /*-----------------------------------------------------------------------*/
+/* the queue which the task will receive from */
+static QueueHandle_t inputFromDecoderTaskQueue = NULL;
+static QueueHandle_t inputFromWPMQueue = NULL;
+static uint16_t usServoPeriod = 0;
+const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on each step, chosen through user experience with the device  */
+
 /* function pointers to write compare */
 void ( *pvWriteCompareFunctions[END] ) ( uint16_t newValue );
 
@@ -68,6 +72,7 @@ void prvAutoModeRx( xArmPosition_t *pxArmPos )
 {
 static xArmPosition_t xInputValue;             /* input from the queue */
 
+    // Must have no block time as it will cause the mode change to have no effect
     if( pdTRUE == xQueueReceive( inputFromWPMQueue, &xInputValue, ( TickType_t ) 0 ) )
     {
          /* save in the shared resource */
@@ -96,6 +101,7 @@ static xServoQueueParams_t xInputValue;             /* input from the queue */
 static uint16_t usNewValue = 0;
 static uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
 
+    // Must have no block time as it will cause the mode change to have no effect
     if( pdTRUE == xQueueReceive( inputFromDecoderTaskQueue, &xInputValue, ( TickType_t ) 0 ) )
         {
           

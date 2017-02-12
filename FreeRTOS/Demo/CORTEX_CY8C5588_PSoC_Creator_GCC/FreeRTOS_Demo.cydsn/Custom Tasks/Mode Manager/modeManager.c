@@ -3,6 +3,16 @@ Change ID      : NA
 Version        : 1
 Date           : 6th Feb 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 2
+Date           : 12th Feb 2017
+Changes Made   : 
+    LEDs indicate mode
+    00 = Man
+    10 = Trg
+    01 = Auto
+    11 = Error
 *****************************************/
 
 #include "modeManager.h"
@@ -29,6 +39,17 @@ void vModeChange( void )
     else
     {
         xCurrentMode++;   
+    }
+    
+    trgModeLED_Write( 0 );
+    autoModeLED_Write( 0 );
+    if( xCurrentMode == AUTO )
+    {
+        autoModeLED_Write( 1 );
+    }
+    else if (xCurrentMode == TRAINING )
+    {
+        trgModeLED_Write( 1 );
     }
     
     prvNotify();

@@ -3,6 +3,16 @@ Change ID      : NA
 Version        : 1
 Date           : 3rd Jan 2017
 Changes Made   : Initial Issue
+*****************************************
+Change ID      : NA
+Version        : 3
+Date           : 12th Feb 2017
+Changes Made   : 
+    Waypoints stored in a giant array
+    as dynamic memory allocation is
+    abstracted away by freertos. 
+    Clearing a waypoint, and stop 
+    not tested
 *****************************************/
 
 /* Scheduler include files. */
@@ -19,8 +29,12 @@ Changes Made   : Initial Issue
 // The number of positions the user can store and therefore the depth of the stack
 #define SAVED_POSITIONS_MAX 50
 
-// Wait for 200ms before timing out while waiting for notifications
-#define NOTIFY_WAIT_TIM_OUT 200 
+/* Wait for 420ms before timing out while waiting for notifications
+This has been chosen as the servo speed is 0.14seconds per 60 degress.
+over 180 degrees this means a slowest time of 420 ms for the servo to move the whole distance. 
+rounded up to 500 so that there is a pause and to account for tolerances. */
+#define NOTIFY_WAIT_TIM_OUT ( TickType_t ) 420 
+
 
 /*-----------------------------------------------------------------------*/
 /* The arm can move through the saved way points either forwards or backwards */
@@ -42,13 +56,11 @@ struct stack_item_t{
     bool is_used;
 };
 
-
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vWPMTask, pvParameters );
 void prvIncreaseStackDepth( void );
 
-/*-----------------------------------------------------------------------*/
 /* The action functions */
 void prvActionStop( struct xActionArgs args );
 void prvActionSave( struct xActionArgs args );
@@ -60,7 +72,6 @@ void prvActionRun( struct xActionArgs args );
 /* the queue which the task will receive from */
 QueueHandle_t xWPMOutputQueue = NULL;
 
-/*-----------------------------------------------------------------------*/
 /* The stack of saved positions */
 static struct stack_item_t pxStack[SAVED_POSITIONS_MAX];
 int16_t iCurrentSize = SAVED_POSITIONS_MAX;
@@ -94,7 +105,7 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         xTaskNotifyWait( ULONG_MAX,             /* Clear all on entry */
                          ULONG_MAX,             /* Reset the notification value to 0 on exit. */
                          &uNotificationValue,   /* Notified value pass out in ulNotifiedValue. */
-                         0 );                   /* dont block */
+                         NOTIFY_WAIT_TIM_OUT ); /* How long between the servo movements */
 
         // if rx'd
         if( uNotificationValue != 0 )
@@ -211,15 +222,14 @@ void prvActionRun( struct xActionArgs args )
         if( pxStack[sNextStack].is_used )  
         {
             *( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
-            xArmPosition_t temp = pxStack[*( args.pusCurrentStackPosition )].arm_position;
-            // Write to the output queue here
+            
             if( pdFALSE == xQueueSend( xWPMOutputQueue, &pxStack[*( args.pusCurrentStackPosition )].arm_position, portMAX_DELAY ) )
             {
                 vSetErrorConditon( "WPM Q Fail \r\n", strlen("WPM Q Fail \r\n") );   
             }
             else
             {
-                *args.pxNextAction = RUN;   
+                *args.pxNextAction = RUN; 
             }
         }
 		else 

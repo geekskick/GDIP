@@ -11,7 +11,7 @@ Changes Made   : Initial Issue
 #define MODE_SUBSCRIBERS_MAX 5
     
 typedef enum xMode{
-    INIT = 0, MANUAL, TRAINING, AUTO
+    INIT = 0, MANUAL = 1, TRAINING = 2, AUTO = 3
 }xMode_t;
 
 void vSubscribeToModeChange( void ( *fn )( xMode_t ) );
