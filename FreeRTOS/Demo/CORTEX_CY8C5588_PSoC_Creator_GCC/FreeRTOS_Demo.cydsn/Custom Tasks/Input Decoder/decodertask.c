@@ -39,6 +39,7 @@ Changes Made   :
 #include "Custom Tasks/Display/globaldisplay.h"
 #include "Custom Tasks/Mode Manager/modeManager.h"
 #include "Custom Tasks/WPM/WPM.h"
+#include "Custom Tasks/Error/ErrorMode.h"
 
 QueueHandle_t xDecoderOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
@@ -92,6 +93,7 @@ for(;;)
                 {
                     /* error sending to the servo queue */
                     vParTestSetLED( 0, 0 );
+                    vSetErrorConditon( "Decoder Q Fail \r\n", strlen("Decoder Q Fail \r\n") );
 
                 }
             }
@@ -168,6 +170,7 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             break;
         case 'm':
             vModeChange();
+            bSend = false;
         default:
         /* all other button pressed don't mean anything servo */
             bSend = false;
@@ -223,12 +226,15 @@ bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             break;
         case 'm':
             vModeChange();
+            bSend = false;
             break;
         case 'o': // save waypoint o row doesnt work!
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+            bSend = false;
             break;
         case 'p': // clear last waypoint should be clear but button doesnt work
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+            bSend = false;
             break;
         default:
         /* all other button pressed don't mean anything servo */
@@ -249,18 +255,19 @@ bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
     {
         case 'm':
             vModeChange();
+            bSend = false;
             break;
-            case 'n': //stop
+        case 'n': //stop
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_STOP, eSetValueWithOverwrite );
-            //vModeChange();
+            bSend = false;
             break;
-            case 'l': // reset o row doesnt work
+        case 'l': // reset o row doesnt work
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_RESET, eSetValueWithOverwrite );
-            //vModeChange();
+            bSend = false;
             break;
-            case 'p': // run
+        case 'p': // run
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_RUN, eSetValueWithOverwrite );
-            //vModeChange();
+            bSend = false;
             break;
         default:
         /* all other button pressed don't mean anything servo */

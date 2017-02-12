@@ -41,6 +41,7 @@ Changes Made   :
 
 #include "keypad.h"
 #include "Custom Tasks/Display/globaldisplay.h"
+#include "Custom Tasks/Error/ErrorMode.h"
 
    /* The keypad output rows one at a time are the same as the columns 
      Keypad layout in rows and columns
@@ -249,6 +250,7 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
             {
                 // error in sending to queue 
                 vParTestSetLED(1, 0);
+                vSetErrorConditon( "Keypad Q Fail \r\n", strlen("Keypad Q Fail \r\n") );
             }
             cPreviousPressed = KEYPAD_NO_PRESS;
             

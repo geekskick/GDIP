@@ -186,7 +186,7 @@ void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput )
     pvWriteCompareFunctions[Grabber] = &grabberPWM_WriteCompare;
 
     inputFromDecoderTaskQueue = xQueueCreate( 10, sizeof( xServoQueueParams_t ) );
-    inputFromWPMQueue = xQueueCreate( 10, sizeof( xServoQueueParams_t ) );
+    inputFromWPMQueue = xQueueCreate( 10, sizeof( xArmPosition_t ) );
     
     pxOutput->pxFromKeypad = &inputFromDecoderTaskQueue;
     pxOutput->pxFromWPM = &inputFromWPMQueue;

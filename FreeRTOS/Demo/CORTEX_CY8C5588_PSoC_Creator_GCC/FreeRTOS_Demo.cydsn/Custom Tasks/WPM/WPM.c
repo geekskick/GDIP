@@ -14,9 +14,10 @@ Changes Made   : Initial Issue
 
 #include "WPM.h"
 #include "Custom Tasks/Current Position Store/currentposition.h"
+#include "Custom Tasks/Error/ErrorMode.h"
 
 // The number of positions the user can store and therefore the depth of the stack
-#define SAVED_POSITIONS_MAX 10
+#define SAVED_POSITIONS_MAX 50
 
 // Wait for 200ms before timing out while waiting for notifications
 #define NOTIFY_WAIT_TIM_OUT 200 
@@ -61,8 +62,8 @@ QueueHandle_t xWPMOutputQueue = NULL;
 
 /*-----------------------------------------------------------------------*/
 /* The stack of saved positions */
-static struct stack_item_t *pxStack;
-int16_t iCurrentSize = 0;
+static struct stack_item_t pxStack[SAVED_POSITIONS_MAX];
+int16_t iCurrentSize = SAVED_POSITIONS_MAX;
 
 /*-----------------------------------------------------------------------*/
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
@@ -151,6 +152,7 @@ void prvActionReset( struct xActionArgs args )
 /*-----------------------------------------------------------------------*/
 void prvActionSave( struct xActionArgs args )
 {
+    struct stack_item_t **ppxStack;
 	xArmPosition_t xCurrentPosition = xGetCurrentPosition();
 
 	// Check for re-assignment of stack size
@@ -158,9 +160,11 @@ void prvActionSave( struct xActionArgs args )
 	{
         if( !pxStack[*( args.pusNextFreeStackPosition )].is_used )
         {
+        int t = *( args.pusNextFreeStackPosition );
         /* save the arm position then move to the next high up item in the stack */
-		pxStack[*( args.pusNextFreeStackPosition )].arm_position = xCurrentPosition;
-        pxStack[*( args.pusNextFreeStackPosition )].is_used = true;
+		pxStack[t].arm_position = xCurrentPosition;
+        pxStack[t].is_used = true;
+        *( args.pusCurrentStackPosition ) = *( args.pusNextFreeStackPosition );
         *( args.pusNextFreeStackPosition ) += 1;
         }
         else
@@ -168,6 +172,10 @@ void prvActionSave( struct xActionArgs args )
             // if it gets here then there is an error with the stack positioning
             // and something is used but the index pointers think otherwise
         }
+        
+        int t = *( args.pusCurrentStackPosition );
+        struct stack_item_t st = pxStack[t];
+        xArmPosition_t temp = pxStack[t].arm_position;
 	}
 	else
 	{
@@ -202,14 +210,18 @@ void prvActionRun( struct xActionArgs args )
 	int16_t sNextStack = *(args.pusCurrentStackPosition) + ( *( args.pxCurrentDirection ) == FORWARD ? 1 : -1 ); 
 
     // range check needs at least one item in the stach
-	if( sNextStack > 0 && sNextStack < iCurrentSize )
+	if( sNextStack >= 0 && sNextStack < iCurrentSize )
 	{
 		*( args.pusCurrentStackPosition ) = ( uint8_t )sNextStack;
 		
-        if( pxStack[*( args.pusCurrentStackPosition )].is_used )
+        if( pxStack[*( args.pusCurrentStackPosition )].is_used )            
         {
+            xArmPosition_t temp = pxStack[*( args.pusCurrentStackPosition )].arm_position;
             // Write to the output queue here
-            xQueueSend( xWPMOutputQueue, &pxStack[*( args.pusCurrentStackPosition )].arm_position, portMAX_DELAY );
+            if( pdFALSE == xQueueSend( xWPMOutputQueue, &pxStack[*( args.pusCurrentStackPosition )].arm_position, portMAX_DELAY ) )
+            {
+                vSetErrorConditon( "WPM Q Fail \r\n", strlen("WPM Q Fail \r\n") );   
+            }
             
         }
 		else 
@@ -231,18 +243,33 @@ void prvActionRun( struct xActionArgs args )
 TaskHandle_t xStartWPMTask( int priority, xWPMParams_t *pxParams )
 {
     xWPMOutputQueue = *( pxParams->pxServoInputQueue );
-    iCurrentSize = 10; // arbitrarily chosen
-    pxStack = calloc( iCurrentSize, sizeof( pxStack ) );
+    iCurrentSize = SAVED_POSITIONS_MAX; // arbitrarily chosen
+    int i;
+    
+    xArmPosition_t temp;
+    temp.usBaseElevation = 0;
+    temp.usBaseRotation = 0;
+    temp.usElbow = 0;
+    temp.usGrabber = 0;
+    temp.usWristPitch = 0;
+    temp.usWristRoll = 0;
+    
+    for( i = 0; i < SAVED_POSITIONS_MAX; i++)
+    {
+        pxStack[i].is_used = false;
+        pxStack[i].arm_position = temp;
+               
+    }
     TaskHandle_t rc;
     //this stack size will need changing as it needs more room for the stack of positions
-    xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) &rc );
+    xTaskCreate( vWPMTask, "WPM", configMINIMAL_STACK_SIZE + ( sizeof( struct stack_item_t) * SAVED_POSITIONS_MAX ), ( void* ) NULL , priority, ( TaskHandle_t* ) &rc );
     return rc;
 }
 
 /*-----------------------------------------------------------------------*/
 void prvIncreaseStackDepth( void )
 {
-    iCurrentSize *= 2;
-    pxStack = realloc( pxStack, iCurrentSize );
+    //iCurrentSize += SAVED_POSITIONS_MAX;
+    //pxStack = realloc( pxStack, iCurrentSize );
     
 }

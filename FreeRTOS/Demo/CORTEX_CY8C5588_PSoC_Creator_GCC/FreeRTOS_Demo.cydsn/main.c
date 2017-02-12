@@ -231,6 +231,7 @@ extern cyisraddress CyRamVectors[];
 
 	/* Start the UART. */
 	UART_Start();
+    //UART_PutString( "Starting\r\n");
     
     /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
     pwmClock_Start();

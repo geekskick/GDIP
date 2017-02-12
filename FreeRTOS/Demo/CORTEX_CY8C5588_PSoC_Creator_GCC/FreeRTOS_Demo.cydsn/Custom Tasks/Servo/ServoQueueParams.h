@@ -7,6 +7,8 @@ Changes Made   : Initial Issue
 
 #ifndef SERVOQUEUE_H
 #define SERVOQUEUE_H
+    
+    #include "queue.h"
   
 /* you can only add or substract from a servo value */
 typedef enum xServoDirection{ ADD, SUB } xServoDirection_t;

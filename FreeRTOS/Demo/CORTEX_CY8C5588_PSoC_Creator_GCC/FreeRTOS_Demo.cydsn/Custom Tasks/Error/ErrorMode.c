@@ -11,9 +11,12 @@ Changes Made   : Initial Issue
 #include <stdbool.h>
 #include <stdio.h>
 
+#include "Custom Tasks/Current Position Store/currentposition.h"
+#include "Custom Tasks/Servo/servo.h"
+
 
 /*---------------------------------------------------------------------------*/
-char *sErrorMessage[ERROR_MSG_MAX_LEN] = { 0, };
+char sErrorMessage[ERROR_MSG_MAX_LEN] = { 0, };
 bool bError = false;
 
 /*---------------------------------------------------------------------------*/
@@ -32,16 +35,9 @@ void gdipCheckForErrorCondition( void )
 void vSetErrorConditon( const char* sMsg, const size_t ulMsgLen )
 {
     taskENTER_CRITICAL();
-    unsigned int i = 0;
-    
-    //copy the string
-    while( i < ERROR_MSG_MAX_LEN && i < ulMsgLen )
-    {
-        sErrorMessage[i] = sMsg[i];
-        i += 1;
-    }
-    
-    bError = true;
+
+    strcpy( sErrorMessage, sMsg );
+
     taskEXIT_CRITICAL();
      
 };
@@ -49,8 +45,36 @@ void vSetErrorConditon( const char* sMsg, const size_t ulMsgLen )
 /*---------------------------------------------------------------------------*/
 void vErrorConditionHook( void )
 {
+    taskDISABLE_INTERRUPTS();
     for(;;)
     {
-        
+        UART_PutString( sErrorMessage );
+        const uint16_t usMidPoint = usGetMidPoint();
+
+    baseRotationPWM_Start();
+    baseElevationPWM_Start();
+    elbowPWM_Start();
+    wristPitchPWM_Start();
+    wristRollPWM_Start();
+    grabberPWM_Start();
+   
+    /* init the servo to middle */
+    baseRotationPWM_WriteCompare( usMidPoint );
+    baseElevationPWM_WriteCompare( usMidPoint );
+    elbowPWM_WriteCompare( usMidPoint );
+    wristPitchPWM_WriteCompare( usMidPoint );
+    wristRollPWM_WriteCompare( usMidPoint );
+    grabberPWM_WriteCompare( usMidPoint );
+
+    /* the arms is in the mid point position - so put it in the storage area */
+     xArmPosition_t xTempPosition = {
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint
+    };
+    
     }
 }
