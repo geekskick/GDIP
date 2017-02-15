@@ -320,7 +320,7 @@ bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
             prvCriticalPress();
             break;
         default:
-            vSendToDisplayQueue( &cbutton, 1 );
+            vSendToDisplayQueue( &cbutton, 1, btnAccept );
         /* all other button pressed don't mean anything servo */
 
             break;

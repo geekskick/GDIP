@@ -27,6 +27,22 @@ typedef struct displayParams
     QueueHandle_t *pxInputQueue;
  } xDisplayParams_t;
 
+typedef enum
+{   baseElevation, baseRotation, elbow, wristPitch, wristRoll, grabber,  // servo position updates
+    mode, // mode change
+    wpmPointsRemaining,  // waypoint info
+    btnPress, btnAccept, btnReject, // keypad feedback
+    error 
+} xDisplayMsg_t;
+
+typedef struct displayQueueParams
+{
+    char msg[DISPLAY_MAX_MSG_LEN];
+    int iMsgLen;
+    xDisplayMsg_t type;
+    
+} xDisplayQueueParams;
+
 /* accessors */
 QueueHandle_t xGetDisplayInputQueue( void );
 xComPortHandle xGetDisplayComPortHandle( void );
@@ -34,11 +50,12 @@ xTaskHandle xGetDisplayTaskHandle( void );
 void vSetDisplayComPortHandle( xComPortHandle xNewHandle );
 
 /* usage */
-void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength );	
+void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength, const xDisplayMsg_t xType );	
 void vNotifyDisplayQueue( const uint32_t uNotificationValue ); 
 void vWriteToComPort( const signed char*sMessage, const size_t ulMessageLength );
 
 void vStartDisplayTask( int iPriority, xDisplayParams_t *pxParams );
+int iConvertIntToString( int iNum, char* dst );
 
 //void vConvertIntToString( const int iInt, char*sOutputBuffer); //not implemented
     

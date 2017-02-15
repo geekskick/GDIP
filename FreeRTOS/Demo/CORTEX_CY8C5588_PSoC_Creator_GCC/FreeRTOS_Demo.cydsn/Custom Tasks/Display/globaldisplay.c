@@ -43,6 +43,7 @@ static portTASK_FUNCTION( vDisplayTask, pvParamaters )
 {
 ( void ) pvParamaters; // stop warnings
 char sMessageToDisplay[DISPLAY_MAX_MSG_LEN];
+xDisplayQueueParams xInput;
 
     /* the meat of the task goes here */
     for(;;)
@@ -50,8 +51,26 @@ char sMessageToDisplay[DISPLAY_MAX_MSG_LEN];
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
         memset( sMessageToDisplay, 0, DISPLAY_MAX_MSG_LEN );
-        if( pdTRUE == xQueueReceive( xDispQueue, sMessageToDisplay, 0 ) )
+        if( pdTRUE == xQueueReceive( xDispQueue, &xInput, 0 ) )
         {
+            portENTER_CRITICAL();
+            LCD_ClearDisplay();
+            portEXIT_CRITICAL();
+            
+            switch( xInput.type )
+            {
+            case btnPress:
+                portENTER_CRITICAL();
+                LCD_Position( 0, 0 );
+                portEXIT_CRITICAL();
+                
+                portENTER_CRITICAL();
+                LCD_PrintString( xInput.msg );
+                portEXIT_CRITICAL();
+                break;
+            default:
+                break;
+            }
             /* msg rxd from the queue so write to screen */
         }
     }
@@ -171,17 +190,18 @@ void vWriteToComPort( const signed char *sMessage, const size_t ulMessageLength 
 /*------------------------------------------------------------------*/
 /* The queue location might be used by different tasks at different times, 
  so use the mutex to lock access to it to prevent weird stuff being displayed */
-void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength )
+void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength, const xDisplayMsg_t xType )
 {
     /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
      */
     if( xInitialised )
     {
+        xDisplayQueueParams temp = { sMessage, ulMessageLength, xType };
         if( pdTRUE == xSemaphoreTake( xGatekeeper, ( TickType_t ) 20 ) ) // 20 ms block time arbitrarily picked for now
         {
             /* no time out in sending to the queue, arbitrarily picked for now */
-            if( pdFALSE == xQueueSend( xDispQueue, ( void* )sMessage, 0 ) )
+            if( pdFALSE == xQueueSend( xDispQueue, ( void* )&temp, 0 ) )
             {
                 /* there has been an error in sending to the queue */
             }
@@ -196,19 +216,26 @@ void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength )
         if( xGatekeeper != NULL )
         {
             xInitialised = true;
-            vSendToDisplayQueue( sMessage, ulMessageLength );
+            vSendToDisplayQueue( sMessage, ulMessageLength, xType );
         }
     } 
     
 }
 
 /*------------------------------------------------------------------*/
+int iConvertIntToString( int iNum, char* dst )
+{
+    memset( dst, 0, DISPLAY_MAX_MSG_LEN );
+    snprintf( dst, DISPLAY_MAX_MSG_LEN, "%d", iNum );
+    return strlen( dst );
+}
+/*------------------------------------------------------------------*/
 void vStartDisplayTask( int iPriority, xDisplayParams_t *pxParams )
 {
-    xDispQueue = xQueueCreate( DISPLAY_MAX_MSG_LEN, DISPLAY_QUEUE_LEN );
+    xDispQueue = xQueueCreate( sizeof( xDisplayQueueParams ), DISPLAY_QUEUE_LEN );
     pxParams->pxInputQueue = &xDispQueue;
     
-    xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE, NULL, iPriority, ( TaskHandle_t* ) NULL );
+    xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE, NULL, iPriority, ( TaskHandle_t* ) &xDispTask );
 }
 
 /*------------------------------------------------------------------*/

@@ -214,6 +214,8 @@ static portTASK_FUNCTION( vKeypadTask, pvParamaters )
 ( void ) pvParamaters;                                          /* stops warnings */
 signed char cRecentPressed = KEYPAD_NO_PRESS;                   /* The ascii version of the button press needs to be signed char for the vSerialPutString in debugging */
 signed char cPreviousPressed = KEYPAD_NO_PRESS;                 /* the previous button press for debouncing */ 
+char msg[DISPLAY_MAX_MSG_LEN];
+xDisplayQueueParams xToDisplay;
 
     /* The whole keypad needs to be checked every KEYPAD_TASK_PERIODICITYms. As there are
        are rows which need checking don't check them all at the same point, space it out 
@@ -258,6 +260,10 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
                 vParTestSetLED(1, 0);
                 vSetErrorConditon( "Keypad Q Fail \r\n", strlen("Keypad Q Fail \r\n") );
             }
+            memset( msg, 0, DISPLAY_MAX_MSG_LEN );
+            strcpy( msg, &cRecentPressed );
+            vSendToDisplayQueue( msg, strlen(msg), btnPress );
+            
             cPreviousPressed = KEYPAD_NO_PRESS;
             
         }

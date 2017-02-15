@@ -150,7 +150,7 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
     /* The tasks return their input queues, so they must be started back to front in the pipeline */
     
     /* the display task is different as it's effectively a singleton and provides an accessor for it.*/
-    //vStartDisplayTask( mainDISPLAY_TEST_TASK_PRIORITY, NULL );
+    vStartDisplayTask( mainDISPLAY_TEST_TASK_PRIORITY, NULL );
     /* for debugging and when the com port is required  */
     //vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY, 9600 );
     
@@ -241,8 +241,8 @@ extern cyisraddress CyRamVectors[];
     builtInLED_Write(1);
     
     // not bothered about lcd for now
-    //LCD_Start();
-    //LCD_DisplayOn();
+    LCD_Start();
+    LCD_DisplayOn();
 
 }
 
