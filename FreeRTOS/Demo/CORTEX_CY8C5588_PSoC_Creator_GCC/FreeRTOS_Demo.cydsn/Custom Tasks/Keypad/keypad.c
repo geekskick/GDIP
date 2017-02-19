@@ -78,7 +78,7 @@ Changes Made   :
 
 /* incases of error in conversion */
 #define KEYPAD_ERROR    0xFF
-#define KEYPAD_ERROR_SC '\0' /* signed char version needed */
+#define KEYPAD_ERROR_SC 0xFF /* signed char version needed */
 #define KEYPAD_NO_PRESS 0x00
 
 #define KEYPAD_TASK_PERIODICITYms   10       /* how often the whole keypad needs to be scanned for button press */
@@ -106,7 +106,7 @@ static const uint8_t usLOOKUP_ROW[KEYPAD_ROW_COUNT] =
 
 static const uint8_t usLOOKUP_COL[KEYPAD_COL_COUNT] = 
 {
-    KEYPAD_COL_0,KEYPAD_COL_1, KEYPAD_COL_2, KEYPAD_COL_3
+    KEYPAD_COL_0, KEYPAD_COL_1, KEYPAD_COL_2, KEYPAD_COL_3
 };
 
 /*-----------------------------------------------------------------------*/
@@ -260,8 +260,8 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
                 vParTestSetLED(1, 0);
                 vSetErrorConditon( "Keypad Q Fail \r\n", strlen("Keypad Q Fail \r\n") );
             }
-            memset( msg, 0, DISPLAY_MAX_MSG_LEN );
-            strcpy( msg, &cRecentPressed );
+            memset( msg, '\0', DISPLAY_MAX_MSG_LEN );
+            msg[0] = cRecentPressed;
             vSendToDisplayQueue( msg, strlen(msg), btnPress );
             
             cPreviousPressed = KEYPAD_NO_PRESS;

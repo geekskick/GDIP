@@ -243,6 +243,7 @@ extern cyisraddress CyRamVectors[];
     // not bothered about lcd for now
     LCD_Start();
     LCD_DisplayOn();
+    LCD_PrintString( "Hello");
 
 }
 

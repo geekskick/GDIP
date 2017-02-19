@@ -50,23 +50,26 @@ xDisplayQueueParams xInput;
     {
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
-        memset( sMessageToDisplay, 0, DISPLAY_MAX_MSG_LEN );
-        if( pdTRUE == xQueueReceive( xDispQueue, &xInput, 0 ) )
+        //memset( sMessageToDisplay, 0, DISPLAY_MAX_MSG_LEN );
+        if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
             portENTER_CRITICAL();
             LCD_ClearDisplay();
             portEXIT_CRITICAL();
+            xInput.msg[xInput.iMsgLen] = '\0';
             
             switch( xInput.type )
             {
             case btnPress:
-                portENTER_CRITICAL();
-                LCD_Position( 0, 0 );
-                portEXIT_CRITICAL();
                 
-                portENTER_CRITICAL();
-                LCD_PrintString( xInput.msg );
-                portEXIT_CRITICAL();
+                portDISABLE_INTERRUPTS();
+                LCD_Position( 0, 0 );
+                portENABLE_INTERRUPTS();
+                
+                portDISABLE_INTERRUPTS();
+                LCD_PrintString( xInput.msg ); 
+                portENABLE_INTERRUPTS();
+                
                 break;
             default:
                 break;
@@ -192,18 +195,24 @@ void vWriteToComPort( const signed char *sMessage, const size_t ulMessageLength 
  so use the mutex to lock access to it to prevent weird stuff being displayed */
 void vSendToDisplayQueue( const char* sMessage, const size_t ulMessageLength, const xDisplayMsg_t xType )
 {
+static xDisplayQueueParams temp;
     /* If the mutex hasn't been initialised then don't allow access to the resource, 
      * make an attempt to create the mutex, and if it's created call the function again. 
      */
     if( xInitialised )
     {
-        xDisplayQueueParams temp = { sMessage, ulMessageLength, xType };
+        strcpy( temp.msg, sMessage );
+        temp.iMsgLen = ulMessageLength;
+        temp.type = xType;
         if( pdTRUE == xSemaphoreTake( xGatekeeper, ( TickType_t ) 20 ) ) // 20 ms block time arbitrarily picked for now
         {
             /* no time out in sending to the queue, arbitrarily picked for now */
-            if( pdFALSE == xQueueSend( xDispQueue, ( void* )&temp, 0 ) )
+            if( xDispQueue != 0 )
             {
-                /* there has been an error in sending to the queue */
+                if( pdFALSE == xQueueSend( xDispQueue, ( void* )&temp, portMAX_DELAY ) )
+                {
+                    /* there has been an error in sending to the queue */
+                }
             }
             xSemaphoreGive( xGatekeeper );
         }
@@ -232,10 +241,10 @@ int iConvertIntToString( int iNum, char* dst )
 /*------------------------------------------------------------------*/
 void vStartDisplayTask( int iPriority, xDisplayParams_t *pxParams )
 {
-    xDispQueue = xQueueCreate( sizeof( xDisplayQueueParams ), DISPLAY_QUEUE_LEN );
+    xDispQueue = xQueueCreate( DISPLAY_QUEUE_LEN, sizeof( xDisplayQueueParams ) );
     pxParams->pxInputQueue = &xDispQueue;
     
-    xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE, NULL, iPriority, ( TaskHandle_t* ) &xDispTask );
+    xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE * 2, NULL, iPriority, ( TaskHandle_t* ) &xDispTask );
 }
 
 /*------------------------------------------------------------------*/
