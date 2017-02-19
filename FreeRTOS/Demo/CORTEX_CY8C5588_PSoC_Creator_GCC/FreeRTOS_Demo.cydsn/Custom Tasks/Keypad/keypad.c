@@ -262,7 +262,7 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
             }
             memset( msg, '\0', DISPLAY_MAX_MSG_LEN );
             msg[0] = cRecentPressed;
-            vSendToDisplayQueue( msg, strlen(msg), btnPress );
+            //vSendToDisplayQueue( msg, strlen(msg), btnPress );
             
             cPreviousPressed = KEYPAD_NO_PRESS;
             

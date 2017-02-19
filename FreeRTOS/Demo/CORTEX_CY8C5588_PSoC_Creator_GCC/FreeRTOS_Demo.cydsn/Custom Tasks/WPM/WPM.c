@@ -25,6 +25,7 @@ Changes Made   :
 #include "WPM.h"
 #include "Custom Tasks/Current Position Store/currentposition.h"
 #include "Custom Tasks/Error/ErrorMode.h"
+#include "Custom Tasks/Display/globaldisplay.h"
 
 // The number of positions the user can store and therefore the depth of the stack
 #define SAVED_POSITIONS_MAX 50
@@ -113,23 +114,28 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         	switch( uNotificationValue )
         	{
         		case WPM_NOTIFICATION_STOP:
+                    vSendToDisplayQueue( "Stopping", strlen( "Stopping" ), wpmStop );
         			prvActionStop( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_SAVE:
+                    vSendToDisplayQueue( "Saving", strlen( "Saving" ), wpmSave );
         			prvActionSave( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_RESET:
+                    vSendToDisplayQueue( "Resetting", strlen( "Resetting" ), wpmReset );
         			prvActionReset( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_RUN:
+                    vSendToDisplayQueue( "Running", strlen( "Running" ), wpmRun );
         			xDirection = FORWARD;
         			prvActionRun( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_CLEAR:
+                    vSendToDisplayQueue( "Clearing", strlen( "Clearing" ), wpmClear );
         			prvActionClear( xActionPckg );
         			break;
 
@@ -137,6 +143,9 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         			/* unknown notifcation rx'd */
         			break;
         	}
+            static char buff[DISPLAY_MAX_MSG_LEN];
+            iConvertIntToString( SAVED_POSITIONS_MAX - usNextFreeStackPosition, buff );
+            vSendToDisplayQueue( buff, strlen( buff ), wpmPointsRemaining );
         } 
         else if( xNextAction == RUN )
         {
@@ -230,6 +239,9 @@ void prvActionRun( struct xActionArgs args )
             else
             {
                 *args.pxNextAction = RUN; 
+                char buff[DISPLAY_MAX_MSG_LEN];
+                iConvertIntToString( *( args.pusCurrentStackPosition ), buff );
+                vSendToDisplayQueue( buff, strlen( buff ), wpmCurrentPoint );
             }
         }
 		else 

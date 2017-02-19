@@ -39,52 +39,92 @@ void prvGenericBase( void ( *GFunct ) ( xTypeToGet_t xType, void *pcThingToGetSe
 static portTASK_FUNCTION_PROTO( vDisplayTask, pvParameters );
 void prvDisplayOnModeChange( xMode_t  xNewMode);
 
+char topLine[16], bottomLine[16];
+const uint8_t prviCurrentPoint = 14;
+const uint8_t prviPointsRemaining = 14;
+
 /*-----------------------------------------------------------------------------*/
 /* displays on the screen */
 static portTASK_FUNCTION( vDisplayTask, pvParamaters )
 {
 ( void ) pvParamaters; // stop warnings
-char sMessageToDisplay[DISPLAY_MAX_MSG_LEN];
 xDisplayQueueParams xInput;
+
+int i = 0;
+    for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+    {
+        topLine[i] = bottomLine[i] = ' ';   
+    }
 
     /* the meat of the task goes here */
     for(;;)
     {
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
+        memset( xInput.msg, 0, DISPLAY_MAX_MSG_LEN );
+        
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
-            portENTER_CRITICAL();
-            LCD_ClearDisplay();
-            portEXIT_CRITICAL();
-            xInput.msg[xInput.iMsgLen] = '\0';
+            // make sure it's null terminated within bounds
+            //xInput.msg[( xInput.iMsgLen >= DISPLAY_MAX_MSG_LEN? DISPLAY_MAX_MSG_LEN - 1 : xInput.iMsgLen )] = ' ';
             
             switch( xInput.type )
             {
-            case btnPress:
-                
-                portDISABLE_INTERRUPTS();
-                LCD_Position( 0, 0 );
-                portENABLE_INTERRUPTS();
-                
-                portDISABLE_INTERRUPTS();
-                LCD_PrintString( xInput.msg ); 
-                portENABLE_INTERRUPTS();
-                
-                break;
+
+            case wpmClear:
+            case wpmSave:
             case mode:
-                portDISABLE_INTERRUPTS();
-                LCD_Position( 1, 0 );
-                portENABLE_INTERRUPTS();
-                
-                portDISABLE_INTERRUPTS();
-                LCD_PrintString( xInput.msg ); 
-                portENABLE_INTERRUPTS();
+                {
+                int i = 0;
+                for( i = 0; i < prviPointsRemaining; i++ )
+                {
+                    bottomLine[i] = ' ';   
+                }
+                strcpy( bottomLine, xInput.msg );
+                }
+                break;
+            case wpmPointsRemaining:
+                bottomLine[prviPointsRemaining] = ' ';
+                bottomLine[prviPointsRemaining + 1] = ' ';
+                strcpy( bottomLine + prviPointsRemaining, xInput.msg );
+                break;
+            case wpmCurrentPoint:
+                topLine[prviCurrentPoint] = ' ';
+                topLine[prviCurrentPoint + 1] = ' ';
+                strcpy( topLine + prviCurrentPoint, xInput.msg );
                 break;
             default:
                 break;
             }
-            /* msg rxd from the queue so write to screen */
+            portDISABLE_INTERRUPTS();
+            LCD_ClearDisplay();
+            portENABLE_INTERRUPTS();
+            
+            portDISABLE_INTERRUPTS();
+            LCD_Position( 0, 0 );
+            portENABLE_INTERRUPTS();
+            
+            int i = 0;
+            for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+            { 
+                portDISABLE_INTERRUPTS();
+                LCD_PutChar( topLine[i] );
+                portENABLE_INTERRUPTS();
+            }
+            
+            
+            portDISABLE_INTERRUPTS();
+            LCD_Position( 1, 0 );
+            portENABLE_INTERRUPTS();
+            
+            
+            for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+            { 
+                portDISABLE_INTERRUPTS();
+                LCD_PutChar( bottomLine[i] );
+                portENABLE_INTERRUPTS();
+            }
+            
         }
     }
 }
@@ -98,19 +138,19 @@ bool bSend = false;
     switch( xNewMode )
     {
     case AUTO:
-        strcpy( buff, "Auto selected" );
+        strcpy( buff, "Auto" );
         bSend = true;
         break;
     case MANUAL:
-        strcpy( buff, "Manual selected" );
+        strcpy( buff, "Manual" );
         bSend = true;
         break;
     case TRAINING:
-        strcpy( buff, "Trg selected" );
+        strcpy( buff, "Trg" );
         bSend = true;
         break;
     case INIT:
-        strcpy( buff, "Init selected" );
+        strcpy( buff, "Init" );
         bSend = true;
         break;
         
@@ -121,7 +161,8 @@ bool bSend = false;
     
     if ( bSend )
     {
-    vSendToDisplayQueue( buff, strlen(buff), mode );
+        vSendToDisplayQueue( buff, strlen(buff), mode );
+        memset( buff, 0, DISPLAY_MAX_MSG_LEN );
     }
 }
 /*-----------------------------------------------------------------------------*/
@@ -183,7 +224,6 @@ xTaskHandle xGetDisplayTaskHandle( void )
 {
     xTaskHandle rc;
     prvGenericBase( &prvGenericGet, Task, ( void* )&rc );
-    //prvVTaskBase( &prvVGetTask, &rc );
     return rc;
 }
 
@@ -192,7 +232,6 @@ QueueHandle_t xGetDisplayInputQueue( void )
 {
     QueueHandle_t rc;
     prvGenericBase( &prvGenericGet, Queue, ( void* )&rc );
-    //prvVQBase( &prvVGetQ, &rc );
     return rc;
 }
 
@@ -201,7 +240,6 @@ xComPortHandle xGetDisplayComPortHandle( void )
 {
     xComPortHandle rc;
     prvGenericBase( &prvGenericGet, ComPort, ( void* )&rc );
-    //prvVComBase( &prvVGetCom, &rc );
     return rc;
 }
 
@@ -209,14 +247,12 @@ xComPortHandle xGetDisplayComPortHandle( void )
 void vSetDisplayTaskHandle( xTaskHandle xNewHandle )
 {
 	prvGenericBase( &prvGenericSet, Task, ( void* )&xNewHandle );
-    //prvVTaskBase( &prvVSetTask, &xNewHandle );  
 }
 
 /*------------------------------------------------------------------*/
 void vSetDisplayInputQueue( QueueHandle_t xNewQueue )
 {
 	prvGenericBase( &prvGenericSet, Queue, ( void* )&xNewQueue );
-    //prvVQBase( &prvVSetQ, &xNewQueue );
 }
 
 /*------------------------------------------------------------------*/
@@ -249,9 +285,8 @@ static xDisplayQueueParams temp;
         strcpy( temp.msg, sMessage );
         temp.iMsgLen = ulMessageLength;
         temp.type = xType;
-        if( pdTRUE == xSemaphoreTake( xGatekeeper, ( TickType_t ) 20 ) ) // 20 ms block time arbitrarily picked for now
+        if( pdTRUE == xSemaphoreTake( xGatekeeper, portMAX_DELAY ) ) 
         {
-            /* no time out in sending to the queue, arbitrarily picked for now */
             if( xDispQueue != 0 )
             {
                 if( pdFALSE == xQueueSend( xDispQueue, ( void* )&temp, portMAX_DELAY ) )
@@ -290,7 +325,7 @@ void vStartDisplayTask( int iPriority, xDisplayParams_t *pxParams )
     pxParams->pxInputQueue = &xDispQueue;
     vSubscribeToModeChange( &prvDisplayOnModeChange );
     
-    xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE * 2, NULL, iPriority, ( TaskHandle_t* ) &xDispTask );
+    xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE * 4, NULL, iPriority, ( TaskHandle_t* ) &xDispTask );
 }
 
 /*------------------------------------------------------------------*/

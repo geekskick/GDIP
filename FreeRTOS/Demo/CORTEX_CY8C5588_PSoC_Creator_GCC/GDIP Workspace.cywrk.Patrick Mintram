@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GDIP Workspace\FreeRTOS_Demo\Header Files\modeManager.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GDIP Workspace\FreeRTOS_Demo\Source Files\ErrorMode.c">
 <ExpandedNodeIds>
 <v>GDIP Workspace</v>
 <v>GDIP Workspace\FreeRTOS_Demo</v>
@@ -250,27 +250,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\project.h</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\countsem.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\crhook.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\death.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\dynamic.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\flash.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\flop.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\GenQTest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\integer.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\IntQueue.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\mevents.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\partest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\PollQ.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\print.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\QPeek.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\semtest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\serial.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\croutine.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\FreeRTOS.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\list.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\mpu_wrappers.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\portable.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\portmacro.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\projdefs.h</v>
@@ -298,6 +277,27 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\death.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\dynamic.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\flash.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\flop.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\GenQTest.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\integer.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\PollQ.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\QPeek.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\semtest.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\croutine.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\heap_2.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\list.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\port.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\queue.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\tasks.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\currentposition.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\decodertask.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\ErrorMode.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\globaldisplay.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\keypad.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\main.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\modeManager.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\ParTest.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -475,13 +475,20 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Display\globaldisplay.c" />
-<name v="..\Common\Minimal\BlockQ.c" />
 <name v=".\FreeRTOS_Demo.cydsn\main.c" />
 <name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
 <name v=".\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5\Cm3Start.c" />
 <name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Input Decoder\decodertask.c" />
 <name v=".\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cydwr" />
 <name v=".\FreeRTOS_Demo.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\Source\queue.c" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Display\globaldisplay.h" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Mode Manager\modeManager.h" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Mode Manager\modeManager.c" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\WPM\WPM.h" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\WPM\WPM.c" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Error\ErrorMode.c" />
+<name v="..\..\Source\portable\GCC\ARM_CM3\port.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -489,7 +496,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1398, 620" SelectedTabbedMdiWindow="9e56934f-873b-40a5-99c8-0ed3e59a4201"><DocumentWindow Key="57b855bf-7ca0-401e-82c1-a868c8da1254" Guid="9e56934f-873b-40a5-99c8-0ed3e59a4201" /><DocumentWindow Key="28072676-a80c-48ba-87b2-d688dc820d05" Guid="e7c68045-4dd7-4d1d-b644-748150c2d842" /><DocumentWindow Key="4aec9c0f-6010-4261-a10a-ba2b6230a53c" Guid="e04d7724-66d6-4bb8-910f-7c05428c0976" /><DocumentWindow Key="ab029711-af83-47a0-997d-0dfbb9bdfa9a" Guid="dbdfb27d-b8e8-48bb-acbd-d5cdecc9e7ab" /><DocumentWindow Key="04857821-a957-46a2-98dc-4a86e7840772" Guid="d3ca79f6-1b6b-4c9f-a197-1c53e36734a4" /><DocumentWindow Key="6c95f735-62b7-4de2-9780-dff607dbbce1" Guid="327c57e5-3c66-4e5d-a3c7-deb52601465e" /><DocumentWindow Key="ef7c2c6e-2eb1-4447-88ba-502fc0b0ea29" Guid="f920b4f5-53ff-4687-a35a-12a1b80d2901" /><DocumentWindow Key="9cdf3313-15c4-4a03-9b56-a18249b30a94" Guid="fc470a28-59f2-439d-a0ac-b07960ee05e4" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1398, 620" SelectedTabbedMdiWindow="c9a8dc82-c333-46d4-a174-2f0411b8ba8c"><DocumentWindow Key="46907dbe-dcc5-4b01-ac55-48580caaceae" Guid="c9a8dc82-c333-46d4-a174-2f0411b8ba8c" /><DocumentWindow Key="695c3915-9d68-4c02-ab38-27273d2f5eb4" Guid="224454b6-ed5a-4894-bc37-079860c7e1c2" /><DocumentWindow Key="fe2332fa-c595-4b76-9773-ff9c20ba018a" Guid="28c83e5e-27da-49da-a110-7415d261df28" /><DocumentWindow Key="03b50344-fef7-41e7-9ccf-3a6e86ac8a57" Guid="3123f574-41c3-4b5e-bdcd-4e1ff1bdcd2f" /><DocumentWindow Key="00a876cb-14f2-4def-b863-17847b95ab0c" Guid="633278a7-0689-447c-9db6-88085514c2ff" /><DocumentWindow Key="f00efe20-b2c9-43cb-9c91-f0df7a31aa3c" Guid="28123ec4-3441-47cd-8240-6fc8387a818f" /><DocumentWindow Key="cd6942f4-c306-4e26-ad36-dbec7f0e21f3" Guid="f72f267f-920d-45c0-aafd-11c65bf6a91b" /><DocumentWindow Key="8ce7a058-619f-40a2-91d6-895f61635193" Guid="c1f4fe31-da21-4344-a4ea-7b4ff10b0f23" /><DocumentWindow Key="e14929c6-e699-47ab-be4b-79af957f5db0" Guid="772c047a-f4da-4542-a48c-114ce2596f1e" /><DocumentWindow Key="f453f477-0cfa-4252-a823-51709b3c3465" Guid="5fb063ab-dbc6-42fb-bc9b-b437108dbd65" /><DocumentWindow Key="4cf0e0bc-348e-4628-b8e7-bef335bf7178" Guid="2e30e7f3-db98-4cd1-abab-92057d92849a" /><DocumentWindow Key="8a0b4b23-5217-4783-b664-a316f762ac96" Guid="9a750369-67b8-408a-bb1d-5e9f42f593b6" /><DocumentWindow Key="a98dc355-5259-471e-9bc4-df6748c41eac" Guid="b08a7158-e496-40a2-b152-7c155e806f2b" /><DocumentWindow Key="46c75967-e7e9-4fa6-8c91-d494711d82a1" Guid="6d17b06b-c42c-4341-a8cd-2f0e046eac2b" /><DocumentWindow Key="e6fe4117-d61f-450c-9eb9-f7eb126cb3d1" Guid="1d187999-3551-483f-b1a4-2d11bdff38eb" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

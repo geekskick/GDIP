@@ -251,8 +251,8 @@ bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             prvCriticalPress();
             bSend = false;
             break;
-        case 'o': // save waypoint o row doesnt work!
-            xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
+        case 'n': // save waypoint o row doesnt work!
+            xTaskNotify( xWPMTask, WPM_NOTIFICATION_CLEAR, eSetValueWithOverwrite );
             prvCriticalPress();
             bSend = false;
             break;

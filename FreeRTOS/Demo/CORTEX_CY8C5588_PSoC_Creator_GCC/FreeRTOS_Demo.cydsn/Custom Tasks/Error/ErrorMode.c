@@ -52,14 +52,21 @@ void vSetErrorConditon( const char* sMsg, const size_t ulMsgLen )
 void vErrorConditionHook( void )
 {
     taskDISABLE_INTERRUPTS();
-    for(;;)
-    {
-        UART_PutString( sErrorMessage );
-        
-        autoModeLED_Write( 1 );
-        trgModeLED_Write( 1 );
-        const uint16_t usMidPoint = usGetMidPoint();
+    
+    // Display message
+    UART_PutString( sErrorMessage );
+    LCD_ClearDisplay();
+    LCD_Position( 0, 0 );
+    LCD_PrintString( "Error: " );
+    LCD_Position( 1, 0 );
+    LCD_PrintString( sErrorMessage );
+    
+    // Handle LED
+    autoModeLED_Write( 1 );
+    trgModeLED_Write( 1 );
+    const uint16_t usMidPoint = usGetMidPoint();
 
+    // Incase the PWM has stopped in a task
     baseRotationPWM_Start();
     baseElevationPWM_Start();
     elbowPWM_Start();
@@ -74,8 +81,6 @@ void vErrorConditionHook( void )
     wristPitchPWM_WriteCompare( usMidPoint );
     wristRollPWM_WriteCompare( usMidPoint );
     grabberPWM_WriteCompare( usMidPoint );
-
     
-    
-    }
+    for(;;){}
 }

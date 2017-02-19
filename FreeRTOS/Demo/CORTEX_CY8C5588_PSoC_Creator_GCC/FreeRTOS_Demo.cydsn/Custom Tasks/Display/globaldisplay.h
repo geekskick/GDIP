@@ -30,7 +30,7 @@ typedef struct displayParams
 typedef enum
 {   baseElevation, baseRotation, elbow, wristPitch, wristRoll, grabber,  // servo position updates
     mode, // mode change
-    wpmPointsRemaining,  // waypoint info
+    wpmPointsRemaining, wpmSave, wpmClear, wpmRun, wpmStop, wpmReset, wpmCurrentPoint, // waypoint info
     btnPress, btnAccept, btnReject, // keypad feedback
     error 
 } xDisplayMsg_t;
