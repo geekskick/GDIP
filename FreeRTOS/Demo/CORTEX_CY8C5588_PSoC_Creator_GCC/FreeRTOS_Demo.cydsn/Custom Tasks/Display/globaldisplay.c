@@ -15,6 +15,7 @@ Changes Made   : Initial Issue
 #include "serial.h"
 #include "semphr.h"
 #include "globaldisplay.h"
+#include "../Custom Tasks/Mode Manager/modeManager.h"
 
 /*-----------------------------------------------------------------------------*/
 /* the type of the thing to be get/set */
@@ -36,6 +37,7 @@ void prvGenericSet( xTypeToGet_t xType, void *in );
 void prvGenericGet( xTypeToGet_t xType, void *in );
 void prvGenericBase( void ( *GFunct ) ( xTypeToGet_t xType, void *pcThingToGetSet ), xTypeToGet_t xType, void* pxArg );
 static portTASK_FUNCTION_PROTO( vDisplayTask, pvParameters );
+void prvDisplayOnModeChange( xMode_t  xNewMode);
 
 /*-----------------------------------------------------------------------------*/
 /* displays on the screen */
@@ -50,7 +52,6 @@ xDisplayQueueParams xInput;
     {
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
-        //memset( sMessageToDisplay, 0, DISPLAY_MAX_MSG_LEN );
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
             portENTER_CRITICAL();
@@ -71,6 +72,15 @@ xDisplayQueueParams xInput;
                 portENABLE_INTERRUPTS();
                 
                 break;
+            case mode:
+                portDISABLE_INTERRUPTS();
+                LCD_Position( 1, 0 );
+                portENABLE_INTERRUPTS();
+                
+                portDISABLE_INTERRUPTS();
+                LCD_PrintString( xInput.msg ); 
+                portENABLE_INTERRUPTS();
+                break;
             default:
                 break;
             }
@@ -79,6 +89,41 @@ xDisplayQueueParams xInput;
     }
 }
 
+/*-----------------------------------------------------------------------------*/
+void prvDisplayOnModeChange( xMode_t  xNewMode)
+{
+static char buff[DISPLAY_MAX_MSG_LEN];
+bool bSend = false;
+
+    switch( xNewMode )
+    {
+    case AUTO:
+        strcpy( buff, "Auto selected" );
+        bSend = true;
+        break;
+    case MANUAL:
+        strcpy( buff, "Manual selected" );
+        bSend = true;
+        break;
+    case TRAINING:
+        strcpy( buff, "Trg selected" );
+        bSend = true;
+        break;
+    case INIT:
+        strcpy( buff, "Init selected" );
+        bSend = true;
+        break;
+        
+     default:
+        
+        break;
+    }
+    
+    if ( bSend )
+    {
+    vSendToDisplayQueue( buff, strlen(buff), mode );
+    }
+}
 /*-----------------------------------------------------------------------------*/
 void prvGenericSet( xTypeToGet_t xType, void *in )
 {
@@ -243,6 +288,7 @@ void vStartDisplayTask( int iPriority, xDisplayParams_t *pxParams )
 {
     xDispQueue = xQueueCreate( DISPLAY_QUEUE_LEN, sizeof( xDisplayQueueParams ) );
     pxParams->pxInputQueue = &xDispQueue;
+    vSubscribeToModeChange( &prvDisplayOnModeChange );
     
     xTaskCreate( vDisplayTask, "Display", configMINIMAL_STACK_SIZE * 2, NULL, iPriority, ( TaskHandle_t* ) &xDispTask );
 }
