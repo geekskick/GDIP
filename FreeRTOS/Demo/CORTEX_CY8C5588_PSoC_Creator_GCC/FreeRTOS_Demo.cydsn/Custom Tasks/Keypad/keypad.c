@@ -32,6 +32,13 @@ Version        : 5
 Date           : 12th Feb 2017
 Changes Made   : 
     task handle saved in global
+*****************************************
+Change ID      : NA
+Version        : 6
+Date           : 21st Feb 2017
+Changes Made   : 
+    The cap removed from the pin so 
+    now the letters are in order
 *****************************************/
 
 /* Scheduler include files. */
@@ -78,7 +85,7 @@ Changes Made   :
 
 /* incases of error in conversion */
 #define KEYPAD_ERROR    0xFF
-#define KEYPAD_ERROR_SC 0xFF /* signed char version needed */
+#define KEYPAD_ERROR_SC '\0' /* signed char version needed */
 #define KEYPAD_NO_PRESS 0x00
 
 #define KEYPAD_TASK_PERIODICITYms   10       /* how often the whole keypad needs to be scanned for button press */
@@ -91,8 +98,7 @@ signed char prvcButtonToASCII( uint8_t usRow, uint8_t usColumn );
 signed char prvcDetectSinglePress( void );
 
 /*-----------------------------------------------------------------------*/
-const char *KEYPAD_BUTTONS_ORDERED = "abodefchijglmnkp";    /* these are in the wrong order due to a suspected wiring fault in the keypad 
-                                                                where the 3rd columns' rows seems to have been shifted downwards by 1 */
+const char *KEYPAD_BUTTONS_ORDERED = "abcdefghijklmnop";  
 
 QueueHandle_t xOutputQueue = NULL;                    /* The output values are put into this queue */
 TaskHandle_t *pxTaskToNotify = NULL;                  /* the task to notify when a button is pressed */
@@ -260,8 +266,8 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
                 vParTestSetLED(1, 0);
                 vSetErrorConditon( "Keypad Q Fail \r\n", strlen("Keypad Q Fail \r\n") );
             }
-            memset( msg, '\0', DISPLAY_MAX_MSG_LEN );
-            msg[0] = cRecentPressed;
+            //memset( msg, '\0', DISPLAY_MAX_MSG_LEN );
+            //msg[0] = cRecentPressed;
             //vSendToDisplayQueue( msg, strlen(msg), btnPress );
             
             cPreviousPressed = KEYPAD_NO_PRESS;

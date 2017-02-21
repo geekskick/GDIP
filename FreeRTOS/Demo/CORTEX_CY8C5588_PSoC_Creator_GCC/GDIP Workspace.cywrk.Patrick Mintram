@@ -298,6 +298,12 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\main.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\modeManager.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\ParTest.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Serial.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\servo.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\WPM.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\autoModeLED</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -408,6 +414,58 @@
 <VisibleNodeIds>
 <v>GDIP Workspace</v>
 <v>GDIP Workspace\FreeRTOS_Demo</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\autoModeLED.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseElevationPin.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseElevationPWM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseElevationPWM_PM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseRotationPin.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseRotationPWM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\baseRotationPWM_PM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\BlockQ.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\blocktim.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\builtInLED.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\comtest.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\countsem.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\croutine.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\currentposition.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\death.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\decodertask.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\dynamic.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\elbowPin.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\elbowPWM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\elbowPWM_PM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\ErrorMode.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\flash.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\flop.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\GenQTest.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\globaldisplay.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\grabberPin.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\grabberPWM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\grabberPWM_PM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\heap_2.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\integer.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\keypad.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\keypadInPins.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\keypadOutPins.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\list.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -465,7 +523,7 @@
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="30" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.h" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="288" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="294" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 </indicators>
 </CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
@@ -496,7 +554,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1398, 620" SelectedTabbedMdiWindow="c9a8dc82-c333-46d4-a174-2f0411b8ba8c"><DocumentWindow Key="46907dbe-dcc5-4b01-ac55-48580caaceae" Guid="c9a8dc82-c333-46d4-a174-2f0411b8ba8c" /><DocumentWindow Key="695c3915-9d68-4c02-ab38-27273d2f5eb4" Guid="224454b6-ed5a-4894-bc37-079860c7e1c2" /><DocumentWindow Key="fe2332fa-c595-4b76-9773-ff9c20ba018a" Guid="28c83e5e-27da-49da-a110-7415d261df28" /><DocumentWindow Key="03b50344-fef7-41e7-9ccf-3a6e86ac8a57" Guid="3123f574-41c3-4b5e-bdcd-4e1ff1bdcd2f" /><DocumentWindow Key="00a876cb-14f2-4def-b863-17847b95ab0c" Guid="633278a7-0689-447c-9db6-88085514c2ff" /><DocumentWindow Key="f00efe20-b2c9-43cb-9c91-f0df7a31aa3c" Guid="28123ec4-3441-47cd-8240-6fc8387a818f" /><DocumentWindow Key="cd6942f4-c306-4e26-ad36-dbec7f0e21f3" Guid="f72f267f-920d-45c0-aafd-11c65bf6a91b" /><DocumentWindow Key="8ce7a058-619f-40a2-91d6-895f61635193" Guid="c1f4fe31-da21-4344-a4ea-7b4ff10b0f23" /><DocumentWindow Key="e14929c6-e699-47ab-be4b-79af957f5db0" Guid="772c047a-f4da-4542-a48c-114ce2596f1e" /><DocumentWindow Key="f453f477-0cfa-4252-a823-51709b3c3465" Guid="5fb063ab-dbc6-42fb-bc9b-b437108dbd65" /><DocumentWindow Key="4cf0e0bc-348e-4628-b8e7-bef335bf7178" Guid="2e30e7f3-db98-4cd1-abab-92057d92849a" /><DocumentWindow Key="8a0b4b23-5217-4783-b664-a316f762ac96" Guid="9a750369-67b8-408a-bb1d-5e9f42f593b6" /><DocumentWindow Key="a98dc355-5259-471e-9bc4-df6748c41eac" Guid="b08a7158-e496-40a2-b152-7c155e806f2b" /><DocumentWindow Key="46c75967-e7e9-4fa6-8c91-d494711d82a1" Guid="6d17b06b-c42c-4341-a8cd-2f0e046eac2b" /><DocumentWindow Key="e6fe4117-d61f-450c-9eb9-f7eb126cb3d1" Guid="1d187999-3551-483f-b1a4-2d11bdff38eb" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1398, 740" SelectedTabbedMdiWindow="8a51fd64-1956-4150-b72a-a4503c77e3f4"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /><DocumentWindow Key="825f06d0-69f5-4455-9cff-0272d57ececd" Guid="6a25aa8a-7cd2-40d5-a458-8f01913a60ab" /><DocumentWindow Key="349fcc9b-2e2f-49e0-9b19-b4b24fafdec7" Guid="61150552-b4b2-4658-b7b7-c01d2b79fd8a" /><DocumentWindow Key="01da2e89-3152-49ca-8382-ff7c9b9165bd" Guid="8a51fd64-1956-4150-b72a-a4503c77e3f4" /><DocumentWindow Key="b4daab2b-37c8-4f84-a139-ae2c81ba1280" Guid="4504ee98-f398-4493-a3e3-0156b7a1339a" /><DocumentWindow Key="8397989f-730b-479f-93eb-8d747596dafd" Guid="824ba7ee-7add-4645-ae13-0c9dbf0b88dd" /><DocumentWindow Key="f523a020-21ce-49b8-9786-895ecae0b9e1" Guid="0e8c34af-fc55-426a-a6eb-90166df70801" /><DocumentWindow Key="260d5ba2-4250-4a4d-bab2-b711b14c7606" Guid="85137522-33b5-416f-a8e7-f6724f80c456" /><DocumentWindow Key="d29090ee-e149-431a-a779-ca8337005493" Guid="36f4f843-d124-488e-b608-020160bbebc0" /><DocumentWindow Key="eb2df7b8-1d12-4495-a997-0d9a768fb2e5" Guid="58f6925d-bb67-4726-9d68-57589ad2d8b5" /><DocumentWindow Key="a7f733fa-f450-447c-9499-04a54608d172" Guid="88597465-683f-40af-85ea-c405c4821859" /><DocumentWindow Key="f748844a-9693-4edc-af59-55d53b3c6da7" Guid="bcf6e03d-7e70-492f-955c-e1a6c09e9c36" /><DocumentWindow Key="84f7623a-3ff8-46cc-8724-8ff808652501" Guid="711cef24-1c7c-46e7-8d28-31a33f2395cb" /><DocumentWindow Key="5867bda7-d657-42b4-bf72-00f50e952123" Guid="c3059e9a-444c-4c83-8c6d-6de1e08a9f9c" /><DocumentWindow Key="f7f5d8bd-f7b4-4571-8b56-30d0de05eb6f" Guid="571a0266-b2cc-491a-b3ab-5ddd96bf24e0" /><DocumentWindow Key="15605bcd-2662-4059-b39d-649e3553e9cd" Guid="21dc9071-5dbe-4d07-a528-1637a320afb1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
