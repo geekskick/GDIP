@@ -66,242 +66,211 @@
 
     1 tab == 4 spaces!
 */
-
-
-/*
- * This version of comtest. c is for use on systems that have limited stack
- * space and no display facilities.  The complete version can be found in
- * the Demo/Common/Full directory.
- *
- * Creates two tasks that operate on an interrupt driven serial port.  A
- * loopback connector should be used so that everything that is transmitted is
- * also received.  The serial port does not use any flow control.  On a
- * standard 9way 'D' connector pins two and three should be connected together.
- *
- * The first task posts a sequence of characters to the Tx queue, toggling an
- * LED on each successful post.  At the end of the sequence it sleeps for a
- * pseudo-random period before resending the same sequence.
- *
- * The UART Tx end interrupt is enabled whenever data is available in the Tx
- * queue.  The Tx end ISR removes a single character from the Tx queue and
- * passes it to the UART for transmission.
- *
- * The second task blocks on the Rx queue waiting for a character to become
- * available.  When the UART Rx end interrupt receives a character it places
- * it in the Rx queue, waking the second task.  The second task checks that the
- * characters removed from the Rx queue form the same sequence as those posted
- * to the Tx queue, and toggles an LED for each correct character.
- *
- * The receiving task is spawned with a higher priority than the transmitting
- * task.  The receiver will therefore wake every time a character is
- * transmitted so neither the Tx or Rx queue should ever hold more than a few
- * characters.
- *
- */
+    
+/************ CHANGE LOG ****************
+Change ID      : NA
+Version        : 1
+Date           : 3rd Jan 2017
+Changes Made   : Initial Issue
+*****************************************/
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdio.h>
 #include "FreeRTOS.h"
 #include "task.h"
+#include "queue.h"
 
 /* Demo program include files. */
 #include "serial.h"
 #include "comtest.h"
 #include "partest.h"
 
+//#include "currentposition.h"
+#include "Custom Tasks/Current Position Store/currentposition.h"
+#include "Custom Tasks/Display/globaldisplay.h"
+
 #define comSTACK_SIZE				configMINIMAL_STACK_SIZE
-#define comTX_LED_OFFSET			( 0 )
-#define comRX_LED_OFFSET			( 1 )
-#define comTOTAL_PERMISSIBLE_ERRORS ( 2 )
-
-/* The Tx task will transmit the sequence of characters at a pseudo random
-interval.  This is the maximum and minimum block time between sends. */
-#define comTX_MAX_BLOCK_TIME		( ( TickType_t ) 0x96 )
-#define comTX_MIN_BLOCK_TIME		( ( TickType_t ) 0x32 )
-#define comOFFSET_TIME				( ( TickType_t ) 3 )
-
-/* We should find that each character can be queued for Tx immediately and we
-don't have to block to send. */
-#define comNO_BLOCK					( ( TickType_t ) 0 )
-
-/* The Rx task will block on the Rx queue for a long period. */
-#define comRX_BLOCK_TIME			( ( TickType_t ) 0xffff )
-
-/* The sequence transmitted is from comFIRST_BYTE to and including comLAST_BYTE. */
-#define comFIRST_BYTE				( 'A' )
-#define comLAST_BYTE				( 'X' )
-
-#define comBUFFER_LEN				( ( UBaseType_t ) ( comLAST_BYTE - comFIRST_BYTE ) + ( UBaseType_t ) 1 )
-#define comINITIAL_RX_COUNT_VALUE	( 0 )
-
-/* Handle to the com port used by both tasks. */
-static xComPortHandle xPort = NULL;
-
-/* The transmit task as described at the top of the file. */
-static portTASK_FUNCTION_PROTO( vComTxTask, pvParameters );
+#define comBUFFER_LEN				( 10 )
 
 /* The receive task as described at the top of the file. */
 static portTASK_FUNCTION_PROTO( vComRxTask, pvParameters );
+static portTASK_FUNCTION_PROTO( vComTxTask, pvParameters );
 
-/* The LED that should be toggled by the Rx and Tx tasks.  The Rx task will
-toggle LED ( uxBaseLED + comRX_LED_OFFSET).  The Tx task will toggle LED
-( uxBaseLED + comTX_LED_OFFSET ). */
-static UBaseType_t uxBaseLED = 0;
+/*-----------------------------------------------------------*/
+static void vSerialPrint(const char8* cBuffer, const char8 cButton);
+static void vScreenPrint(const char8* cBuffer, const char8 cButton);
 
-/* Check variable used to ensure no error have occurred.  The Rx task will
-increment this variable after every successfully received sequence.  If at any
-time the sequence is incorrect the the variable will stop being incremented. */
-static volatile UBaseType_t uxRxLoops = comINITIAL_RX_COUNT_VALUE;
+/*-----------------------------------------------------------*/
+static const char8* cBTN_MSG = "Button:";    /* boilerplate text for displaying */
+static const char8* cPOS_MSG = "Servo:";
+static uint8_t usBTN_MSG_LEN;
+static uint8_t usPOS_MSG_LEN;
+static xComPortHandle xCPHandle;
+static xTaskHandle xTHandle;
 
 /*-----------------------------------------------------------*/
 
-void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate, UBaseType_t uxLED )
+void vAltStartComTestTasks( UBaseType_t uxPriority, uint32_t ulBaudRate )
 {
+    ( void )uxPriority; //stop warnings
+    
 	/* Initialise the com port then spawn the Rx and Tx tasks. */
-	uxBaseLED = uxLED;
-	xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
-
-	/* The Tx task is spawned with a lower priority than the Rx task. */
-	xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE, NULL, uxPriority - 1, ( TaskHandle_t * ) NULL );
-	xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, NULL, uxPriority, ( TaskHandle_t * ) NULL );
+    xCPHandle = xSerialPortInitMinimal( ulBaudRate, comBUFFER_LEN );
+    //vSetDisplayComPortHandle( xCPHandle );
+   
+    /* create the tasks, the COMTx Task needs a larger stack a it causes a stack overflow */
+    
+    // commented out for debugging
+	//xTaskCreate( vComRxTask, "COMRx", comSTACK_SIZE, ( void* ) &xParams.xRxdQueue,    uxPriority, ( TaskHandle_t * ) NULL );
+    //xTaskCreate( vComTxTask, "COMTx", comSTACK_SIZE * 2, ( void* ) NULL, uxPriority, ( TaskHandle_t * ) &xTHandle );
+    //vSetDisplayTaskHandle( xTHandle );
+    
+    /* in displaying writing to the comport you need to know the length of the string, it's const so calculate this only once. */
+    usBTN_MSG_LEN = strlen( cBTN_MSG );
+    usPOS_MSG_LEN = strlen( cPOS_MSG );
+    
 }
-/*-----------------------------------------------------------*/
-
-static portTASK_FUNCTION( vComTxTask, pvParameters )
-{
-char cByteToSend;
-TickType_t xTimeToWait;
-
-	/* Just to stop compiler warnings. */
-	( void ) pvParameters;
-
-	for( ;; )
-	{
-		/* Simply transmit a sequence of characters from comFIRST_BYTE to
-		comLAST_BYTE. */
-		for( cByteToSend = comFIRST_BYTE; cByteToSend <= comLAST_BYTE; cByteToSend++ )
-		{
-			if( xSerialPutChar( xPort, cByteToSend, comNO_BLOCK ) == pdPASS )
-			{
-				vParTestToggleLED( uxBaseLED + comTX_LED_OFFSET );
-			}
-		}
-
-		/* Turn the LED off while we are not doing anything. */
-		vParTestSetLED( uxBaseLED + comTX_LED_OFFSET, pdFALSE );
-
-		/* We have posted all the characters in the string - wait before
-		re-sending.  Wait a pseudo-random time as this will provide a better
-		test. */
-		xTimeToWait = xTaskGetTickCount() + comOFFSET_TIME;
-
-		/* Make sure we don't wait too long... */
-		xTimeToWait %= comTX_MAX_BLOCK_TIME;
-
-		/* ...but we do want to wait. */
-		if( xTimeToWait < comTX_MIN_BLOCK_TIME )
-		{
-			xTimeToWait = comTX_MIN_BLOCK_TIME;
-		}
-
-		vTaskDelay( xTimeToWait );
-	}
-} /*lint !e715 !e818 pvParameters is required for a task function even if it is not referenced. */
 /*-----------------------------------------------------------*/
 
 static portTASK_FUNCTION( vComRxTask, pvParameters )
 {
-signed char cExpectedByte, cByteRxed;
-BaseType_t xResyncRequired = pdFALSE, xErrorOccurred = pdFALSE;
+signed char cByteRxed;      /* The input byte */
+char buffer[comBUFFER_LEN] = { 0 };    /* a buffer to store the user input */
+uint8_t bufferLoc = 0;      /* index of the next free location in the buffer */
 
-	/* Just to stop compiler warnings. */
-	( void ) pvParameters;
+	/* cast the params passed in as a pointer to a queue */
+	QueueHandle_t xInputQueue = *( ( QueueHandle_t* ) pvParameters );
 
 	for( ;; )
 	{
-		/* We expect to receive the characters from comFIRST_BYTE to
-		comLAST_BYTE in an incrementing order.  Loop to receive each byte. */
-		for( cExpectedByte = comFIRST_BYTE; cExpectedByte <= comLAST_BYTE; cExpectedByte++ )
-		{
-			/* Block on the queue that contains received bytes until a byte is
-			available. */
-			if( xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME ) )
-			{
-				/* Was this the byte we were expecting?  If so, toggle the LED,
-				otherwise we are out on sync and should break out of the loop
-				until the expected character sequence is about to restart. */
-				if( cByteRxed == cExpectedByte )
-				{
-					vParTestToggleLED( uxBaseLED + comRX_LED_OFFSET );
-				}
-				else
-				{
-					xResyncRequired = pdTRUE;
-					break; /*lint !e960 Non-switch break allowed. */
-				}
-			}
-		}
-
-		/* Turn the LED off while we are not doing anything. */
-		vParTestSetLED( uxBaseLED + comRX_LED_OFFSET, pdFALSE );
-
-		/* Did we break out of the loop because the characters were received in
-		an unexpected order?  If so wait here until the character sequence is
-		about to restart. */
-		if( xResyncRequired == pdTRUE )
-		{
-			while( cByteRxed != comLAST_BYTE )
-			{
-				/* Block until the next char is available. */
-				xSerialGetChar( xPort, &cByteRxed, comRX_BLOCK_TIME );
-			}
-
-			/* Note that an error occurred which caused us to have to resync.
-			We use this to stop incrementing the loop counter so
-			sAreComTestTasksStillRunning() will return false - indicating an
-			error. */
-			xErrorOccurred++;
-
-			/* We have now resynced with the Tx task and can continue. */
-			xResyncRequired = pdFALSE;
-		}
-		else
-		{
-			if( xErrorOccurred < comTOTAL_PERMISSIBLE_ERRORS )
-			{
-				/* Increment the count of successful loops.  As error
-				occurring (i.e. an unexpected character being received) will
-				prevent this counter being incremented for the rest of the
-				execution.   Don't worry about mutual exclusion on this
-				variable - it doesn't really matter as we just want it
-				to change. */
-				uxRxLoops++;
-			}
-		}
+		/* Block on the queue that contains received bytes until a byte is
+		available. */
+		xSerialGetChar( xCPHandle, &cByteRxed, portMAX_DELAY ); 
+        
+        /* turn the light on to show that it's in this part of the process */
+        //vParTestToggleLED(0);
+        
+        /* if it's the end of what the user wants to send. or there is no more room then send to the queue */
+        if( cByteRxed == '\r' || bufferLoc == comBUFFER_LEN - 1 ){
+            
+            /* first convert the recieved text into a number and send to the queue if it's valid */
+            int iNumRxd = atoi( buffer );
+            
+            if( xInputQueue != NULL )
+            {
+                /* for now dont worry about a time out if the queue is full, dont think it'll ever get there */
+                xQueueSend( xInputQueue, ( void * )&iNumRxd, 0 );
+            }
+            
+            /* reset the buffer to 0s and point to the start of it */
+            memset( buffer, 0, comBUFFER_LEN );
+            bufferLoc = 0;
+        }
+        else
+        {
+            /* add to the buffer cause the user is still sending characters */
+            buffer[bufferLoc++] = cByteRxed;   
+        }    
 	}
-} /*lint !e715 !e818 pvParameters is required for a task function even if it is not referenced. */
-/*-----------------------------------------------------------*/
-
-BaseType_t xAreComTestTasksStillRunning( void )
-{
-BaseType_t xReturn;
-
-	/* If the count of successful reception loops has not changed than at
-	some time an error occurred (i.e. a character was received out of sequence)
-	and we will return false. */
-	if( uxRxLoops == comINITIAL_RX_COUNT_VALUE )
-	{
-		xReturn = pdFALSE;
-	}
-	else
-	{
-		xReturn = pdTRUE;
-	}
-
-	/* Reset the count of successful Rx loops.  When this function is called
-	again we expect this to have been incremented. */
-	uxRxLoops = comINITIAL_RX_COUNT_VALUE;
-
-	return xReturn;
 }
 
+/*-----------------------------------------------------------*/
+/* prints to serial port */
+void vSerialPrint(const char8* cBuffer, const char8 cButton)
+{
+
+    /* clear the screen and reset to the top using the VT100 escape commands
+    http://www.termsys.demon.co.uk/vtansi.htm */
+    vSerialPutString( xCPHandle, ( const signed char* )"\033[2J", strlen( "\033[2J" ) );
+    vSerialPutString( xCPHandle, ( const signed char* )"\033[0;0H", strlen( "\033[0;0H" ) );
+           
+    /*the display logic */
+    vSerialPutString( xCPHandle, ( const signed char* )cBuffer, strlen( cBuffer ) );
+    vSerialPutString( xCPHandle, ( const signed char* )"\n", 1 );
+    vSerialPutString( xCPHandle, ( const signed char* )cBTN_MSG, usBTN_MSG_LEN );
+    vSerialPutString( xCPHandle, ( const signed char* )&cButton , 1 );
+}
+/*-----------------------------------------------------------*/
+/* prints to the LCD display */
+/* THIS HAS AN INTERMITTANT FAULT; IN THE PRINTSTRING I THINK */
+void vScreenPrint(const char8* cBuffer, const char8 cButton)
+{
+    /* not sure if the LCD API uses interrupts to test the ready flag, so 
+    keep the interrupts enabled but stop the scheduler to do all the screen displaying at once 
+    */
+    portENTER_CRITICAL();
+    
+    LCD_DisplayOff();
+    LCD_ClearDisplay();
+    
+    LCD_Position( 0u , 0u );
+    LCD_PrintString( cBTN_MSG );
+    LCD_Position( 0u, usBTN_MSG_LEN );
+    LCD_PutChar( cButton );
+
+    LCD_Position( 1u, 0u );
+    LCD_PrintString( cPOS_MSG );
+    LCD_Position( 1u, usPOS_MSG_LEN );
+    LCD_PrintString( cBuffer );
+    LCD_DisplayOn();
+
+    portEXIT_CRITICAL();
+}
+/*-----------------------------------------------------------*/
+static portTASK_FUNCTION( vComTxTask, pvParameters )
+{
+( void ) pvParameters;                           /* stop warnings */
+char8 buffer[comBUFFER_LEN] = { 0 };             /* a buffer to store the output in */
+const TickType_t xFreq = 200;                    /* This is going to happen evert 200ms */
+uint16_t     usCurrentPos = 0;                   /* will be parsed to make a string */
+uint16_t     usPreviousPos = 0;                  /* for remembering the previous position */
+TickType_t  xLastWakeTime = xTaskGetTickCount();/* init the tick count */
+char8 cButton = 'X';                            /* when no button is pressed display this */
+uint32_t ulBtn;                                 /* the returned notifcation value */
+
+    /* init the screen */
+    vScreenPrint( buffer, cButton );
+    vScreenPrint( buffer, cButton );
+
+	for( ;; )
+    {
+        
+        /* only display things differently if there is a change or a button press detected, if there's no change then 
+        don't bother displaying on screen or serial, The notification is set to 0 if after a read, and if nothing has 
+        been sending a notification then it'll be 0 too.*/
+        ulBtn = ulTaskNotifyTake( pdTRUE, ( TickType_t ) 0 );
+        if( ulBtn != 0 )
+        {
+            /* the notification value returned is actually an ASCII character so explicitly cast it then refresh */
+            cButton = ( char8 ) ulBtn;
+            vScreenPrint( buffer, cButton );  
+            vSerialPrint( buffer, cButton );
+
+        }
+        
+        //also check the queue for debug messages
+        
+        /* The servo position is returned as a uint16_t, 
+        so safely change this to a string before sending it */
+        //usCurrentPos = usGetCurrentPosition();
+        
+        if( usPreviousPos != usCurrentPos )
+        {
+            
+            /* zero the buffer so that no extra numbers remain */
+            memset( buffer, 0, comBUFFER_LEN );
+            snprintf( buffer, comBUFFER_LEN, "%d", usCurrentPos );
+            
+            vSerialPrint( buffer, cButton );
+            vScreenPrint( buffer, cButton );
+            
+            /* this is now the most recent number */
+            usPreviousPos = usCurrentPos;
+           
+        }
+        
+        /* delay */
+        vTaskDelayUntil( &xLastWakeTime, xFreq );
+	}
+}

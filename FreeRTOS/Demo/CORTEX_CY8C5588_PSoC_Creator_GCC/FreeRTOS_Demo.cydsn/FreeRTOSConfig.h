@@ -106,19 +106,24 @@
 #define configQUEUE_REGISTRY_SIZE		10
 #define configGENERATE_RUN_TIME_STATS	0
 #define configUSE_MALLOC_FAILED_HOOK	1
+    
+// PM added to satisfy usage in blocktim.c
+#define configTIMER_TASK_PRIORITY       0
 
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
 
-#define INCLUDE_vTaskPrioritySet			1
-#define INCLUDE_uxTaskPriorityGet			1
-#define INCLUDE_vTaskDelete					1
+#define INCLUDE_vTaskPrioritySet			0
+#define INCLUDE_uxTaskPriorityGet			0
+#define INCLUDE_vTaskDelete					0
 #define INCLUDE_vTaskCleanUpResources		0
 #define INCLUDE_vTaskSuspend				1
 #define INCLUDE_vTaskDelayUntil				1
 #define INCLUDE_vTaskDelay					1
 #define INCLUDE_uxTaskGetStackHighWaterMark	1
 #define INCLUDE_eTaskGetState				1
+    
+#define INCLUDE_eTaskGetHandle				1
 
 /**
  * Configure the number of priority bits. This is normally

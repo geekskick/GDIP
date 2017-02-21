@@ -93,42 +93,33 @@ long lIndex;
 
 void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
 {
+    ( void ) uxLED;       /* stop warnings */
+    ( void ) xValue;      /* stop warnings */
+    
 	taskENTER_CRITICAL();
-	{
-		switch( uxLED )
-		{
-			case 0:
-				Pin_LED_0_Write( xValue & 0x1 );
-				break;
-			case 1:
-				Pin_LED_1_Write( xValue & 0x1 );
-				break;
-			case 2:
-				Pin_LED_2_Write( xValue & 0x1 );
-				break;
-			case 3:
-				Pin_LED_3_Write( xValue & 0x1 );
-				break;
-			default:
-				/* Do nothing. */
-				break;
-		}
-	}
-	taskEXIT_CRITICAL();
+        builtInLED_Write(xValue);
+	taskEXIT_CRITICAL();  
 	
-	/* Record the output for the sake of toggling. */
-	if( uxLED < partstMAX_LED )
-	{
-		cLedOutput[ uxLED ] = ( xValue & 0x1 );
-	}
 }
 /*---------------------------------------------------------------------------*/
 
 void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
 {
-	if( uxLED < partstMAX_LED )
-	{
-		vParTestSetLED( uxLED, !cLedOutput[ uxLED ] );
-	}
+    ( void ) uxLED;    /* stop warnings */
+    static uint8 state = 0;
+
+    /* if the led is on, then turn it off, else turn it on */
+    if( state == 0 ) 
+    {
+        state = 1;
+    }
+    else{
+        state = 0;
+    }
+        taskENTER_CRITICAL();
+        builtInLED_Write(state);
+	    taskEXIT_CRITICAL();   
+    
+	
 }
 /*---------------------------------------------------------------------------*/

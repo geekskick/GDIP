@@ -66,6 +66,26 @@
 
     1 tab == 4 spaces!
 */
+    
+/************ CHANGE LOG ****************
+Change ID      : NA
+Version        : 1
+Date           : 3rd Jan 2017
+Changes Made   : Initial Issue
+*****************************************
+Change ID      : 8
+Version        : 2
+Date           : 3rd Jan 2017
+Changes Made   : 
+    Initialisation of the debounce tuning 
+    pot for development added.
+*****************************************
+Change ID      : NA
+Version        : 3
+Date           : 10th Feb 2017
+Changes Made   : 
+    tuning HW removed
+*****************************************/
 
 #include <device.h>
 
@@ -77,103 +97,82 @@
 
 /* Common Demo includes. */
 #include "serial.h"
-#include "BlockQ.h"
-#include "blocktim.h"
 #include "comtest.h"
-#include "countsem.h"
-#include "death.h"
-#include "dynamic.h"
-#include "flash.h"
-#include "flop.h"
-#include "GenQTest.h"
-#include "integer.h"
-#include "IntQueue.h"
-#include "mevents.h"
 #include "partest.h"
-#include "PollQ.h"
-#include "print.h"
-#include "QPeek.h"
-#include "semtest.h"
+
+/* GDIP Includes */
+#include "Custom Tasks/Servo/servo.h"
+#include "Custom Tasks/Servo/ServoQueueParams.h"
+#include "Custom Tasks/Keypad/keypad.h"
+#include "Custom Tasks/Current Position Store/currentposition.h"
+#include "Custom Tasks/Input Decoder/decodertask.h"
+#include "Custom Tasks/WPM/WPM.h"
+#include "Custom Tasks/Display/globaldisplay.h"
+
 /*---------------------------------------------------------------------------*/
-
-/* The time between cycles of the 'check' functionality (defined within the
-tick hook. */
-#define mainCHECK_DELAY						( ( TickType_t ) 5000 / portTICK_PERIOD_MS )
-#define mainCOM_LED							( 3 )
-
 /* The number of nano seconds between each processor clock. */
 #define mainNS_PER_CLOCK ( ( unsigned long ) ( ( 1.0 / ( double ) configCPU_CLOCK_HZ ) * 1000000000.0 ) )
 
-/* Task priorities. */
-#define mainQUEUE_POLL_PRIORITY				( tskIDLE_PRIORITY + 2 )
-#define mainCHECK_TASK_PRIORITY				( tskIDLE_PRIORITY + 3 )
-#define mainSEM_TEST_PRIORITY				( tskIDLE_PRIORITY + 1 )
-#define mainBLOCK_Q_PRIORITY				( tskIDLE_PRIORITY + 2 )
-#define mainCREATOR_TASK_PRIORITY           ( tskIDLE_PRIORITY + 3 )
-#define mainINTEGER_TASK_PRIORITY           ( tskIDLE_PRIORITY )
-#define mainGEN_QUEUE_TASK_PRIORITY			( tskIDLE_PRIORITY )
-#define mainCOM_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
-#define mainFLASH_TEST_TASK_PRIORITY		( tskIDLE_PRIORITY + 2 )
-/*---------------------------------------------------------------------------*/
-
-/*
- * Configures the timers and interrupts for the fast interrupt test as
- * described at the top of this file.
+/* 
+ * Task priorities. These are assigned as a 'suck it and see' for now - static 
+ * analysis of a task's worst case execution time is very difficult, and 
+ * as this isn't intended to be a truly HARD RTOS then it's not THAT important.
+ * Where a higher priority value means a higher priority task.
  */
-extern void vSetupTimerTest( void );
+#define mainDISPLAY_TEST_TASK_PRIORITY			( tskIDLE_PRIORITY + 1 )
+#define mainKEYPAD_TASK_PRIORITY                ( tskIDLE_PRIORITY + 1 )
+#define mainDECODER_TASK_PRIORITY               ( tskIDLE_PRIORITY + 1 )
+#define mainWPM_TASK_PRIORITY                   ( tskIDLE_PRIORITY + 1 )
+#define mainSERVO_TASK_PRIORITY                 ( tskIDLE_PRIORITY + 1 )
+
 /*---------------------------------------------------------------------------*/
-
-/*
- * The Check task periodical interrogates each of the running tests to
- * ensure that they are still executing correctly.
- * If all the tests pass, then the LCD is updated with Pass, the number of
- * iterations and the Jitter time calculated but the Fast Interrupt Test.
- * If any one of the tests fail, it is indicated with an error code printed on
- * the display. This indicator won't disappear until the device is reset.
- */
-void vCheckTask( void *pvParameters );
-
 /*
  * Installs the RTOS interrupt handlers and starts the peripherals.
  */
 static void prvHardwareSetup( void );
+static void prvServoSetup( void );
+
 /*---------------------------------------------------------------------------*/
-
-void main( void )
-{
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+int main( void )
+{   
+static QueueHandle_t xDecoderServoQueue = NULL;    /* queue decoder -> servo */
+static QueueHandle_t xKeypadDecoderQueue = NULL;   /* queue keypad -> decoder */
+static QueueHandle_t xWPMServoQueue = NULL;        /* queue WPM -> servos */
+    
+xDecoderParams_t    xDParams;       /* params to the decoder task */
+xKeypadParams_t     xKParams;       /* params to the keypad task */
+xServoInputQueues_t xServoInputs;   /* the queues to imput into the servo task */
+xWPMParams_t        xWPMParams;     /* params to the WPM task */
+    
+    /* the 2nd stage boot software sets up the hardware on the device */
 	prvHardwareSetup();
-
-	/* Start the standard demo tasks.  These are just here to exercise the
-	kernel port and provide examples of how the FreeRTOS API can be used. */
-	vStartBlockingQueueTasks( mainBLOCK_Q_PRIORITY );
-	vCreateBlockTimeTasks();
-	vStartCountingSemaphoreTasks();
-	vStartDynamicPriorityTasks();
-	vStartMathTasks( mainINTEGER_TASK_PRIORITY );
-	vStartGenericQueueTasks( mainGEN_QUEUE_TASK_PRIORITY );
-	vStartIntegerMathTasks( mainINTEGER_TASK_PRIORITY );
-	vStartPolledQueueTasks( mainQUEUE_POLL_PRIORITY );
-	vStartQueuePeekTasks();
-	vStartSemaphoreTasks( mainSEM_TEST_PRIORITY );
-	vStartLEDFlashTasks( mainFLASH_TEST_TASK_PRIORITY );
-	vAltStartComTestTasks( mainCOM_TEST_TASK_PRIORITY, 57600, mainCOM_LED );
-	vStartInterruptQueueTasks();
-
-	/* Start the error checking task. */
-  	( void ) xTaskCreate( vCheckTask, "Check", configMINIMAL_STACK_SIZE, NULL, mainCHECK_TASK_PRIORITY, NULL );
-
-	/* Configure the timers used by the fast interrupt timer test. */
-	vSetupTimerTest();
-
-	/* The suicide tasks must be created last as they need to know how many
-	tasks were running prior to their creation in order to ascertain whether
-	or not the correct/expected number of tasks are running at any given time. */
-	vCreateSuicidalTasks( mainCREATOR_TASK_PRIORITY );
-
+    
+    /* The tasks return their input queues, so they must be started back to front in the pipeline */
+    
+    /* the display task is different as it's effectively a singleton and provides an accessor for it.*/
+    vStartDisplayTask( mainDISPLAY_TEST_TASK_PRIORITY, NULL );
+    /* for debugging and when the com port is required  */
+    //vAltStartComTestTasks( mainDISPLAY_TEST_TASK_PRIORITY, 9600 );
+    
+    vStartServoTasks( mainSERVO_TASK_PRIORITY, &xServoInputs );
+    xWPMServoQueue = *( xServoInputs.pxFromWPM );
+    xDecoderServoQueue = *( xServoInputs.pxFromKeypad );
+    
+    /* the decoder and the WPM will use an input queue each */
+    xDParams.pxDecoderOutputQueue = &xDecoderServoQueue;
+    xWPMParams.pxServoInputQueue = &xWPMServoQueue;
+    
+    xDParams.xWPMTaskHandle = xStartWPMTask( mainWPM_TASK_PRIORITY, &xWPMParams );
+    xDParams.pxKeypadHandle = &xKPHandle;
+    
+    xKeypadDecoderQueue = xStartDecoderTask( mainDECODER_TASK_PRIORITY, &xDParams );
+    xKParams.pxOutputQueue = &xKeypadDecoderQueue;
+     
+    xStartKeypadTask( mainKEYPAD_TASK_PRIORITY, &xKParams );
+    
 	/* Will only get here if there was insufficient memory to create the idle
     task.  The idle task is created within vTaskStartScheduler(). */
-	vTaskStartScheduler();
+	vTaskStartScheduler( );
 
 	/* Should never reach here as the kernel will now be running.  If
 	vTaskStartScheduler() does return then it is very likely that there was
@@ -181,8 +180,41 @@ void main( void )
 	including the idle task that is created within vTaskStartScheduler() itself. */
 	for( ;; );
 }
-/*---------------------------------------------------------------------------*/
 
+/*---------------------------------------------------------------------------*/
+static void prvServoSetup( void )
+{
+const uint16_t usMidPoint = usGetMidPoint();
+
+    baseRotationPWM_Start();
+    baseElevationPWM_Start();
+    elbowPWM_Start();
+    wristPitchPWM_Start();
+    wristRollPWM_Start();
+    grabberPWM_Start();
+   
+    /* init the servo to middle */
+    baseRotationPWM_WriteCompare( usMidPoint );
+    baseElevationPWM_WriteCompare( usMidPoint );
+    elbowPWM_WriteCompare( usMidPoint );
+    wristPitchPWM_WriteCompare( usMidPoint );
+    wristRollPWM_WriteCompare( usMidPoint );
+    grabberPWM_WriteCompare( usMidPoint );
+
+    /* the arms is in the mid point position - so put it in the storage area */
+     xArmPosition_t xTempPosition = {
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint,
+        usMidPoint
+    };
+    
+    vSetCurrentArmPosition( xTempPosition );
+}
+
+/*---------------------------------------------------------------------------*/
 void prvHardwareSetup( void )
 {
 /* Port layer functions that need to be copied into the vector table. */
@@ -196,151 +228,44 @@ extern cyisraddress CyRamVectors[];
 	CyRamVectors[ 14 ] = ( cyisraddress ) xPortPendSVHandler;
 	CyRamVectors[ 15 ] = ( cyisraddress ) xPortSysTickHandler;
 
-	/* Start-up the peripherals. */
-
-	/* Enable and clear the LCD Display. */
-	LCD_Character_Display_Start();
-	LCD_Character_Display_ClearDisplay();
-	LCD_Character_Display_Position( 0, 0 );
-	LCD_Character_Display_PrintString( "www.FreeRTOS.org " );
-	LCD_Character_Display_Position( 1, 0 );
-	LCD_Character_Display_PrintString("CY8C5588AX-060  ");
-
 	/* Start the UART. */
-	UART_1_Start();
+	UART_Start();
+    UART_PutString( "Starting\r\n");
+    
+    /* Start the pwm, as it comprises of a clock and the PWM module both need doing */
+    pwmClock_Start();
 
-	/* Initialise the LEDs. */
-	vParTestInitialise();
+    /* start the servos */
+    prvServoSetup();
 
-	/* Start the PWM modules that drive the IntQueue tests. */
-	High_Frequency_PWM_0_Start();
-	High_Frequency_PWM_1_Start();
+    builtInLED_Write(1);
+    
+    // not bothered about lcd for now
+    LCD_Start();
+    LCD_DisplayOn();
+    LCD_PrintString( "Hello");
 
-	/* Start the timers for the Jitter test. */
-	Timer_20KHz_Start();
-	Timer_48MHz_Start();
 }
+
 /*---------------------------------------------------------------------------*/
-
-void vCheckTask( void *pvParameters )
-{
-unsigned long ulRow = 0;
-TickType_t xDelay = 0;
-unsigned short usErrorCode = 0;
-unsigned long ulIteration = 0;
-extern unsigned short usMaxJitter;
-
-	/* Intialise the sleeper. */
-	xDelay = xTaskGetTickCount();
-
-	for( ;; )
-	{
-		/* Perform this check every mainCHECK_DELAY milliseconds. */
-		vTaskDelayUntil( &xDelay, mainCHECK_DELAY );
-
-		/* Check that all of the Demo tasks are still running. */
-		if( pdTRUE != xAreBlockingQueuesStillRunning() )
-		{
-			usErrorCode |= 0x1;
-		}
-
-		if( pdTRUE != xAreBlockTimeTestTasksStillRunning() )
-		{
-			usErrorCode |= 0x2;
-		}
-
-		if( pdTRUE != xAreCountingSemaphoreTasksStillRunning() )
-		{
-			usErrorCode |= 0x4;
-		}
-
-		if( pdTRUE != xIsCreateTaskStillRunning() )
-		{
-			usErrorCode |= 0x8;
-		}
-
-		if( pdTRUE != xAreDynamicPriorityTasksStillRunning() )
-		{
-			usErrorCode |= 0x10;
-		}
-
-		if( pdTRUE != xAreMathsTaskStillRunning() )
-		{
-			usErrorCode |= 0x20;
-		}
-
-		if( pdTRUE != xAreGenericQueueTasksStillRunning() )
-		{
-			usErrorCode |= 0x40;
-		}
-
-		if( pdTRUE != xAreIntegerMathsTaskStillRunning() )
-		{
-			usErrorCode |= 0x80;
-		}
-
-		if( pdTRUE != xArePollingQueuesStillRunning() )
-		{
-			usErrorCode |= 0x100;
-		}
-
-		if( pdTRUE != xAreQueuePeekTasksStillRunning() )
-		{
-			usErrorCode |= 0x200;
-		}
-
-		if( pdTRUE != xAreSemaphoreTasksStillRunning() )
-		{
-			usErrorCode |= 0x400;
-		}
-
-		if( pdTRUE != xAreComTestTasksStillRunning() )
-		{
-			usErrorCode |= 0x800;
-		}
-
-		if( pdTRUE != xAreIntQueueTasksStillRunning() )
-		{
-			usErrorCode |= 0x1000;
-		}
-
-		/* Clear the display. */
-		LCD_Character_Display_ClearDisplay();
-		if( 0 == usErrorCode )
-		{
-			LCD_Character_Display_Position( ( ulRow ) & 0x1, 0);
-			LCD_Character_Display_PrintString( "Pass: " );
-			LCD_Character_Display_PrintNumber( ulIteration++ );
-			LCD_Character_Display_Position( ( ++ulRow ) & 0x1, 0 );
-			LCD_Character_Display_PrintString( "Jitter(ns):" );
-			LCD_Character_Display_PrintNumber( ( usMaxJitter * mainNS_PER_CLOCK ) );
-		}
-		else
-		{
-			/* Do something to indicate the failure. */
-			LCD_Character_Display_Position( ( ulRow ) & 0x1, 0 );
-			LCD_Character_Display_PrintString( "Fail at: " );
-			LCD_Character_Display_PrintNumber( ulIteration );
-			LCD_Character_Display_Position( ( ++ulRow ) & 0x1, 0 );
-			LCD_Character_Display_PrintString( "Error: 0x" );
-			LCD_Character_Display_PrintHexUint16( usErrorCode );
-		}
-	}
-}
-/*---------------------------------------------------------------------------*/
-
 void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 {
+/* stop warnings */
+( void )pxTask;
+
 	/* The stack space has been execeeded for a task, considering allocating more. */
 	taskDISABLE_INTERRUPTS();
+    UART_PutString("Stack Overflow from ");
+    UART_PutString(pcTaskName);
 	for( ;; );
 }
-/*---------------------------------------------------------------------------*/
 
+/*---------------------------------------------------------------------------*/
 void vApplicationMallocFailedHook( void )
 {
 	/* The heap space has been execeeded. */
 	taskDISABLE_INTERRUPTS();
 	for( ;; );
 }
+
 /*---------------------------------------------------------------------------*/
