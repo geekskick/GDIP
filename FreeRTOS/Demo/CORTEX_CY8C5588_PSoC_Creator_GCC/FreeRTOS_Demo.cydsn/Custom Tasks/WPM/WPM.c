@@ -13,6 +13,14 @@ Changes Made   :
     abstracted away by freertos. 
     Clearing a waypoint, and stop 
     not tested
+*****************************************
+Change ID      : 10
+Version        : 4
+Date           : 2nd March 2017
+Changes Made   : 
+    wpmClear decrements the current pos
+    index and marks the last used
+    as free. Issue#9
 *****************************************/
 
 /* Scheduler include files. */
@@ -60,7 +68,6 @@ struct stack_item_t{
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
 static portTASK_FUNCTION_PROTO( vWPMTask, pvParameters );
-void prvIncreaseStackDepth( void );
 
 /* The action functions */
 void prvActionStop( struct xActionArgs args );
@@ -191,6 +198,7 @@ void prvActionSave( struct xActionArgs args )
         {
             // if it gets here then there is an error with the stack positioning
             // and something is used but the index pointers think otherwise
+            vSetErrorConditon( "Stack positioning", strlen( "Stack positioning" ) );
         }
         
 	}
@@ -209,8 +217,9 @@ void prvActionClear( struct xActionArgs args )
 	if( *( args.pusNextFreeStackPosition ) > 0 )
 	{
         /* mark it as not used then decrement the pointer value */
-		pxStack[*( args.pusNextFreeStackPosition )].is_used = false;
         *( args.pusNextFreeStackPosition ) -= 1;
+		pxStack[*( args.pusNextFreeStackPosition )].is_used = false;
+        *( args.pusCurrentStackPosition ) -= 1;
 	}
 	else
 	{
@@ -287,10 +296,3 @@ TaskHandle_t xStartWPMTask( int priority, xWPMParams_t *pxParams )
     return rc;
 }
 
-/*-----------------------------------------------------------------------*/
-void prvIncreaseStackDepth( void )
-{
-    //iCurrentSize += SAVED_POSITIONS_MAX;
-    //pxStack = realloc( pxStack, iCurrentSize );
-    
-}
