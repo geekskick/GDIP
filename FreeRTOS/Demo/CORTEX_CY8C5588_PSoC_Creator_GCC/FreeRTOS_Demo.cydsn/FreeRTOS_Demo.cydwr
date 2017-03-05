@@ -216,6 +216,7 @@
     <Group key="Pin">
       <Data key="3a0a5806-ffd9-43bc-b395-84692ceed6cb" value="Pin_1" />
       <Data key="5a0faa9c-67b1-44a0-a960-799dcd5df43f" value="grabberPin" />
+      <Data key="5f201d75-5cbd-428d-8c5f-871100ad4525" value="lcdPwrPin" />
       <Data key="6c995067-039e-4d86-ba83-f6c3b328f912" value="wristRollPin" />
       <Data key="8bbe9361-edfa-40ed-bd56-7da6e72919f5" value="tuningServoStepPin" />
       <Data key="8c355381-5a13-422f-9793-56bebe736b6d" value="scl_pin" />
@@ -259,6 +260,11 @@
     <Group key="5a0faa9c-67b1-44a0-a960-799dcd5df43f">
       <Group key="0">
         <Data key="Port Format" value="12,5" />
+      </Group>
+    </Group>
+    <Group key="5f201d75-5cbd-428d-8c5f-871100ad4525">
+      <Group key="0">
+        <Data key="Port Format" value="2,0" />
       </Group>
     </Group>
     <Group key="6c995067-039e-4d86-ba83-f6c3b328f912">

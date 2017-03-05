@@ -51,17 +51,15 @@ static portTASK_FUNCTION( vDisplayTask, pvParamaters )
 xDisplayQueueParams xInput;
 
 int i = 0;
-    for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
-    {
-        topLine[i] = bottomLine[i] = ' ';   
-    }
+    memset( topLine, 0x20, DISPLAY_MAX_MSG_LEN );
+    memset( bottomLine, 0x20, DISPLAY_MAX_MSG_LEN );
 
     /* the meat of the task goes here */
     for(;;)
     {
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
-        memset( xInput.msg, 0, DISPLAY_MAX_MSG_LEN );
+        memset( xInput.msg, 0x20, DISPLAY_MAX_MSG_LEN );
         
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
@@ -75,23 +73,29 @@ int i = 0;
             case wpmSave:
             case mode:
                 {
+                memset( bottomLine, 0x20, prviPointsRemaining );
                 int i = 0;
-                for( i = 0; i < prviPointsRemaining; i++ )
+                /*
+                for( i = 0; i < xInput.iMsgLen; i++ )
                 {
-                    bottomLine[i] = ' ';   
-                }
-                strcpy( bottomLine, xInput.msg );
+                    bottomLine[i] = xInput.msg[i];   
+                }*/
+                
+                strncpy( bottomLine, xInput.msg, xInput.iMsgLen );
+                    
+               
+                //strcpy( bottomLine, xInput.msg );
                 }
                 break;
             case wpmPointsRemaining:
                 bottomLine[prviPointsRemaining] = ' ';
                 bottomLine[prviPointsRemaining + 1] = ' ';
-                strcpy( bottomLine + prviPointsRemaining, xInput.msg );
+                strncpy( bottomLine + prviPointsRemaining, xInput.msg, xInput.iMsgLen );
                 break;
             case wpmCurrentPoint:
                 topLine[prviCurrentPoint] = ' ';
                 topLine[prviCurrentPoint + 1] = ' ';
-                strcpy( topLine + prviCurrentPoint, xInput.msg );
+                strncpy( topLine + prviCurrentPoint, xInput.msg, xInput.iMsgLen);
                 break;
             default:
                 break;
@@ -135,6 +139,8 @@ void prvDisplayOnModeChange( xMode_t  xNewMode)
 static char buff[DISPLAY_MAX_MSG_LEN];
 bool bSend = false;
 
+    memset( buff, 0x00, DISPLAY_MAX_MSG_LEN );
+
     switch( xNewMode )
     {
     case AUTO:
@@ -162,7 +168,6 @@ bool bSend = false;
     if ( bSend )
     {
         vSendToDisplayQueue( buff, strlen(buff), mode );
-        memset( buff, 0, DISPLAY_MAX_MSG_LEN );
     }
 }
 /*-----------------------------------------------------------------------------*/

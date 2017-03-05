@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GDIP Workspace\FreeRTOS_Demo\Source Files\globaldisplay.c">
 <ExpandedNodeIds>
 <v>GDIP Workspace</v>
 <v>GDIP Workspace\FreeRTOS_Demo</v>
@@ -28,8 +28,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\Directives</v>
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\Flash Security</v>
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\EEPROM</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\BlockQ.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\blocktim.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\comtest.h</v>
@@ -49,7 +47,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\QPeek.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\semtest.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\serial.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\croutine.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\FreeRTOS.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\list.h</v>
@@ -73,7 +70,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\ServoQueueParams.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\WPM.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\BlockQ.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\blocktim.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\comtest.c</v>
@@ -87,7 +83,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\PollQ.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\QPeek.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\semtest.c</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\croutine.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\heap_2.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\list.c</v>
@@ -190,6 +185,10 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\LCD_LCDPort\LCD_LCDPort_aliases.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\lcdPwrPin</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\lcdPwrPin\lcdPwrPin.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\lcdPwrPin\lcdPwrPin.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\lcdPwrPin\lcdPwrPin_aliases.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\pwmClock</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\pwmClock\pwmClock.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\pwmClock\pwmClock.h</v>
@@ -264,30 +263,40 @@
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\Flash Security</v>
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\EEPROM</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\BlockQ.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\blocktim.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\comtest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\countsem.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\crhook.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\death.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\dynamic.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\flash.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\flop.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\GenQTest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\integer.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\IntQueue.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\mevents.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\partest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\PollQ.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\print.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\QPeek.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\semtest.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\serial.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\croutine.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\FreeRTOS.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\list.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\currentposition.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\decodertask.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\ErrorMode.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\globaldisplay.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\keypad.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\main.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\modeManager.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\ParTest.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Serial.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\servo.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Source Files\WPM.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\autoModeLED</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\autoModeLED\autoModeLED.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\autoModeLED\autoModeLED.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\autoModeLED\autoModeLED_aliases.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin\baseElevationPin.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin\baseElevationPin.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPin\baseElevationPin_aliases.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM\baseElevationPWM.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM\baseElevationPWM.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseElevationPWM\baseElevationPWM_PM.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPin</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPin\baseRotationPin.c</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPin\baseRotationPin.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPin\baseRotationPin_aliases.h</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPWM</v>
+<v>GDIP Workspace\FreeRTOS_Demo\Generated_Source\PSoC5\baseRotationPWM\baseRotationPWM.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -360,6 +369,7 @@
 <v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
+<v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\lcdPwrPin.lst</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\list.lst</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
 <v>GDIP Workspace\FreeRTOS_Demo\CortexM3\ARM_GCC_493\Debug\Listing Files\modeManager.lst</v>
@@ -455,7 +465,7 @@
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="30" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.h" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="294" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="297" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 </indicators>
 </CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
@@ -465,6 +475,13 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\WPM\WPM.c" />
+<name v=".\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cydwr" />
+<name v=".\FreeRTOS_Demo.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\FreeRTOS_Demo.cydsn\main.c" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Input Decoder\decodertask.c" />
+<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Mode Manager\modeManager.c" />
+<name v=".\FreeRTOS_Demo.cydsn\ParTest.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -472,7 +489,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="941, 440" SelectedTabbedMdiWindow="af8cdb9d-a97f-4169-a7af-2b21b877be61"><DocumentWindow Key="134c36f8-8748-4846-9df2-69bb43e19c63" Guid="af8cdb9d-a97f-4169-a7af-2b21b877be61" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1570, 620" SelectedTabbedMdiWindow="b4a3a955-9b0a-4dd6-95fc-40ffeb5b2819"><DocumentWindow Key="95b0c68d-86c9-4013-8c04-9c1abff3b16d" Guid="c1d29bfb-5a5e-446e-bce5-0ffc7fed1049" /><DocumentWindow Key="f116cb90-bea4-4d0e-b509-b7e76ca95ee0" Guid="de79babe-3a10-433c-a554-283c6601f06b" /><DocumentWindow Key="54405e3e-a532-476e-88c4-4788e128a377" Guid="15fcf274-d1ec-48e3-8d06-6ee9b13d21f5" /><DocumentWindow Key="0dd4196a-0c37-4206-8ac9-04e68c228ba6" Guid="3b915926-145d-4afd-b579-2401ed10e14d" /><DocumentWindow Key="f43c3a64-08ab-4ff5-873e-5eedc6ad654b" Guid="b4a3a955-9b0a-4dd6-95fc-40ffeb5b2819" /><DocumentWindow Key="bb8f0479-dd22-4a37-a4a7-17a7a8cb62f1" Guid="f5eb70a5-55a7-46d2-bf68-0ac7e365bc4a" /><DocumentWindow Key="c1de9d6e-0747-4fff-9dec-6f590361b953" Guid="7191a019-a3f7-4056-bfe5-9304dcbf2e13" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /><DocumentWindow Key="38f8dd2c-aed5-42c8-8fc2-ede16f3eda6d" Guid="4d259a7b-ade3-47f2-b9dd-a21f4a1042b4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
