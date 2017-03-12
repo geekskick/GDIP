@@ -240,7 +240,7 @@
       <Data key="e887b5b1-e747-416b-a086-8910d8e44d24" value="Pin_LED_1" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="txPin" />
       <Data key="fb1b4ee1-703a-4255-bb45-e2cc7333777a" value="pin_servoGND" />
-      <Data key="fdfd3bae-4cd5-4bb9-89bd-e4a92d4d368d" value="trgModeLED" />
+      <Data key="fdfd3bae-4cd5-4bb9-89bd-e4a92d4d368d" value="errorLED" />
     </Group>
   </Group>
   <Group key="Interrupt">
@@ -432,7 +432,7 @@
     </Group>
     <Group key="fdfd3bae-4cd5-4bb9-89bd-e4a92d4d368d">
       <Group key="0">
-        <Data key="Port Format" value="0,4" />
+        <Data key="Port Format" value="1,7" />
       </Group>
     </Group>
     <Group key="UnAssigned Pins">

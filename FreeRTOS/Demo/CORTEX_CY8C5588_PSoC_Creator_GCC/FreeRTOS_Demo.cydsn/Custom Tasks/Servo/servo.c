@@ -32,6 +32,14 @@ Changes Made   :
 
 #define SERVO_MAX 8192u    /* servo max value, calculated as per SSD, where the servo also seems to see 2.5 as 2ms */
 #define SERVO_MIN 1638u    /* servo min value, calculated as per SSD, where the servo also seems to see 0.5 as 1ms */
+#define SERVO_MID SERVO_MIN + ( ( SERVO_MAX-SERVO_MIN ) / 2 )
+
+#define BASE_R_INIT SERVO_MID
+#define BASE_E_INIT SERVO_MID + ( SERVO_MID/2 )
+#define ELBOW_INIT SERVO_MIN
+#define WRIST_R_INIT SERVO_MID
+#define WRIST_P_INIT SERVO_MIN
+#define GRAB_INIT SERVO_MIN
 
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
@@ -204,13 +212,38 @@ void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput )
     
 }
 
+uint16_t usGetServoInitPoint( xServoNumber_t xServo )
+{
+    uint16_t rc = SERVO_MID;
+    
+    switch ( xServo )
+    {
+        case BaseElevation:
+        break;
+        case BaseRotation:
+        break;
+        case WristPitch:
+        break;
+        case WristRoll:
+        break;
+        case Elbow:
+        break;
+        case Grabber:
+        break;
+        default:
+        break;
+    }
+    
+    
+    return rc;
+}
 /*-----------------------------------------------------------------------*/
 /* half way between the servo max value and it's minumum is gotten by 
 * doing the min + (range/2), where range = man - min
 */
 uint16_t usGetMidPoint( void )
 {
-    return SERVO_MIN + ( ( SERVO_MAX-SERVO_MIN ) / 2 );
+    return SERVO_MID;
 }
 
 /*-----------------------------------------------------------------------*/
