@@ -59,12 +59,14 @@ int i = 0;
     /* the meat of the task goes here */
     for(;;)
     {
+       
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
         memset( xInput.msg, 0, DISPLAY_MAX_MSG_LEN );
         
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
+            vTaskSuspendAll();
             // make sure it's null terminated within bounds
             //xInput.msg[( xInput.iMsgLen >= DISPLAY_MAX_MSG_LEN? DISPLAY_MAX_MSG_LEN - 1 : xInput.iMsgLen )] = ' ';
             
@@ -75,56 +77,45 @@ int i = 0;
             case wpmSave:
             case mode:
                 {
-                int i = 0;
-                for( i = 0; i < prviPointsRemaining; i++ )
-                {
-                    bottomLine[i] = ' ';   
-                }
-                strcpy( bottomLine, xInput.msg );
+                //int i = 0;
+                memset( bottomLine, ' ', DISPLAY_MAX_MSG_LEN );
+                strncpy( bottomLine, xInput.msg, xInput.iMsgLen );
                 }
                 break;
             case wpmPointsRemaining:
                 bottomLine[prviPointsRemaining] = ' ';
                 bottomLine[prviPointsRemaining + 1] = ' ';
-                strcpy( bottomLine + prviPointsRemaining, xInput.msg );
+                strncpy( bottomLine + prviPointsRemaining, xInput.msg, xInput.iMsgLen );
                 break;
             case wpmCurrentPoint:
                 topLine[prviCurrentPoint] = ' ';
                 topLine[prviCurrentPoint + 1] = ' ';
-                strcpy( topLine + prviCurrentPoint, xInput.msg );
+                strncpy( topLine + prviCurrentPoint, xInput.msg, xInput.iMsgLen );
                 break;
             default:
                 break;
             }
-            portDISABLE_INTERRUPTS();
-            LCD_ClearDisplay();
-            portENABLE_INTERRUPTS();
             
-            portDISABLE_INTERRUPTS();
+            // The following section of writing to the screen requires critical timing between the screen and the PCB
+            vTaskSuspendAll();
+            LCD_ClearDisplay();
+            
             LCD_Position( 0, 0 );
-            portENABLE_INTERRUPTS();
             
             int i = 0;
             for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
             { 
-                portDISABLE_INTERRUPTS();
                 LCD_PutChar( topLine[i] );
-                portENABLE_INTERRUPTS();
             }
             
-            
-            portDISABLE_INTERRUPTS();
             LCD_Position( 1, 0 );
-            portENABLE_INTERRUPTS();
-            
             
             for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
             { 
-                portDISABLE_INTERRUPTS();
                 LCD_PutChar( bottomLine[i] );
-                portENABLE_INTERRUPTS();
             }
             
+            xTaskResumeAll();
         }
     }
 }
