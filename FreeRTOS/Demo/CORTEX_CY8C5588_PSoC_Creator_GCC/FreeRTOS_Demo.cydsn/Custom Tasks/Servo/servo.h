@@ -21,6 +21,7 @@ Changes Made   :
 
 void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput );
 uint16_t usGetMidPoint( void );
+uint16_t usGetServoInitPoint( xServoNumber_t xServo );
 
 #endif
 

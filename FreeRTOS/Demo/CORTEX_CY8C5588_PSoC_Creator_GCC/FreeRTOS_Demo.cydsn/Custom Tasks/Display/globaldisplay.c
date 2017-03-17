@@ -49,22 +49,26 @@ static portTASK_FUNCTION( vDisplayTask, pvParamaters )
 {
 ( void ) pvParamaters; // stop warnings
 xDisplayQueueParams xInput;
-
+bool update = false;
 int i = 0;
     memset( topLine, 0x20, DISPLAY_MAX_MSG_LEN );
     memset( bottomLine, 0x20, DISPLAY_MAX_MSG_LEN );
 
+    memset( topLine, ' ', DISPLAY_MAX_MSG_LEN );
+    memset(bottomLine, ' ', DISPLAY_MAX_MSG_LEN );
+
     /* the meat of the task goes here */
     for(;;)
     {
+       
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
         memset( xInput.msg, 0x20, DISPLAY_MAX_MSG_LEN );
         
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
-            // make sure it's null terminated within bounds
-            //xInput.msg[( xInput.iMsgLen >= DISPLAY_MAX_MSG_LEN? DISPLAY_MAX_MSG_LEN - 1 : xInput.iMsgLen )] = ' ';
+            
+            update = false;
             
             switch( xInput.type )
             {
@@ -72,63 +76,59 @@ int i = 0;
             case wpmClear:
             case wpmSave:
             case mode:
-                {
-                memset( bottomLine, 0x20, prviPointsRemaining );
-                int i = 0;
-                /*
-                for( i = 0; i < xInput.iMsgLen; i++ )
-                {
-                    bottomLine[i] = xInput.msg[i];   
-                }*/
-                
+                memset( bottomLine, ' ', DISPLAY_MAX_MSG_LEN );
                 strncpy( bottomLine, xInput.msg, xInput.iMsgLen );
-                    
-               
-                //strcpy( bottomLine, xInput.msg );
-                }
+                update = true;
                 break;
+                
             case wpmPointsRemaining:
-                bottomLine[prviPointsRemaining] = ' ';
-                bottomLine[prviPointsRemaining + 1] = ' ';
+                memset(bottomLine + prviPointsRemaining, ' ', DISPLAY_MAX_MSG_LEN - prviPointsRemaining );
                 strncpy( bottomLine + prviPointsRemaining, xInput.msg, xInput.iMsgLen );
+                update = true;
                 break;
+                
             case wpmCurrentPoint:
-                topLine[prviCurrentPoint] = ' ';
-                topLine[prviCurrentPoint + 1] = ' ';
-                strncpy( topLine + prviCurrentPoint, xInput.msg, xInput.iMsgLen);
+                memset(topLine + prviCurrentPoint, ' ', DISPLAY_MAX_MSG_LEN - prviCurrentPoint );
+                strncpy( topLine + prviCurrentPoint, xInput.msg, xInput.iMsgLen );
+                update = true;
                 break;
+                
+            case wpmReset:
+            case wpmRun:
+            case wpmStop:
+                memset( topLine, ' ', prviCurrentPoint );
+                strncpy( topLine, xInput.msg, xInput.iMsgLen );
+           
+                update = true;
+                break;
+                
             default:
                 break;
             }
-            portDISABLE_INTERRUPTS();
-            LCD_ClearDisplay();
-            portENABLE_INTERRUPTS();
             
-            portDISABLE_INTERRUPTS();
-            LCD_Position( 0, 0 );
-            portENABLE_INTERRUPTS();
-            
-            int i = 0;
-            for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
-            { 
-                portDISABLE_INTERRUPTS();
-                LCD_PutChar( topLine[i] );
-                portENABLE_INTERRUPTS();
+            // The following section of writing to the screen requires critical timing between the screen and the PCB
+            if( update )
+            {
+                vTaskSuspendAll();
+                LCD_ClearDisplay();
+                
+                LCD_Position( 0, 0 );
+                
+                int i = 0;
+                for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+                { 
+                    LCD_PutChar( topLine[i] );
+                }
+                
+                LCD_Position( 1, 0 );
+                
+                for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+                { 
+                    LCD_PutChar( bottomLine[i] );
+                }
+                
+                xTaskResumeAll();
             }
-            
-            
-            portDISABLE_INTERRUPTS();
-            LCD_Position( 1, 0 );
-            portENABLE_INTERRUPTS();
-            
-            
-            for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
-            { 
-                portDISABLE_INTERRUPTS();
-                LCD_PutChar( bottomLine[i] );
-                portENABLE_INTERRUPTS();
-            }
-            
         }
     }
 }

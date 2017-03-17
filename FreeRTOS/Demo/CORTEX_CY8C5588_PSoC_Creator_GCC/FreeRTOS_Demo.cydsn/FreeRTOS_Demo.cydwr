@@ -231,6 +231,7 @@
       <Data key="31701add-6005-44d9-ae4e-af20af5e04c1" value="Startup_Release_Switch" />
       <Data key="37701de6-0a57-4c17-a4b1-a74a20972d07" value="elbowPin" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="rxPin" />
+      <Data key="a403a4f6-fc2f-4be7-a474-cddde00a0dcd" value="lcdPwrPin" />
       <Data key="a774cbee-f634-4288-91e6-9ae6a6f16e58/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_Character_Display_LCDPort" />
       <Data key="b3ac9170-30ae-409e-a625-ad268e914172" value="Pin_LED_2" />
       <Data key="c56a79e3-3fdd-4d07-8ca2-7852c404d579" value="baseElevationPin" />
@@ -241,7 +242,7 @@
       <Data key="e887b5b1-e747-416b-a086-8910d8e44d24" value="Pin_LED_1" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="txPin" />
       <Data key="fb1b4ee1-703a-4255-bb45-e2cc7333777a" value="pin_servoGND" />
-      <Data key="fdfd3bae-4cd5-4bb9-89bd-e4a92d4d368d" value="trgModeLED" />
+      <Data key="fdfd3bae-4cd5-4bb9-89bd-e4a92d4d368d" value="errorLED" />
     </Group>
   </Group>
   <Group key="Interrupt">
@@ -368,6 +369,11 @@
         <Data key="Port Format" value="12,6" />
       </Group>
     </Group>
+    <Group key="a403a4f6-fc2f-4be7-a474-cddde00a0dcd">
+      <Group key="0">
+        <Data key="Port Format" value="2,0" />
+      </Group>
+    </Group>
     <Group key="a774cbee-f634-4288-91e6-9ae6a6f16e58/ed092b9b-d398-4703-be89-cebf998501f6">
       <Group key="0">
         <Data key="Port Format" value="2,0" />
@@ -438,7 +444,7 @@
     </Group>
     <Group key="fdfd3bae-4cd5-4bb9-89bd-e4a92d4d368d">
       <Group key="0">
-        <Data key="Port Format" value="0,4" />
+        <Data key="Port Format" value="1,7" />
       </Group>
     </Group>
     <Group key="UnAssigned Pins">

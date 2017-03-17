@@ -31,6 +31,7 @@ void prvNotify( void );
 void vModeChange( void )
 {
     portENTER_CRITICAL();
+    errorLED_Write( 0 );
     
     if( xCurrentMode == AUTO ) 
     {
@@ -39,17 +40,6 @@ void vModeChange( void )
     else
     {
         xCurrentMode++;   
-    }
-    
-    trgModeLED_Write( 0 );
-    autoModeLED_Write( 0 );
-    if( xCurrentMode == AUTO )
-    {
-        autoModeLED_Write( 1 );
-    }
-    else if (xCurrentMode == TRAINING )
-    {
-        trgModeLED_Write( 1 );
     }
     
     prvNotify();

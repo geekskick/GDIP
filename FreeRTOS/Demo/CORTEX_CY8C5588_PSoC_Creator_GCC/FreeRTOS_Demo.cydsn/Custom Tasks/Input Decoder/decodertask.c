@@ -48,6 +48,25 @@ Changes Made   :
 #include "Custom Tasks/WPM/WPM.h"
 #include "Custom Tasks/Error/ErrorMode.h"
 
+#define prvBASE_ROT_P   'd'
+#define prvBASE_ROT_M   'c'
+#define prvBASE_ELE_P   'h'
+#define prvBASE_ELE_M   'g'
+#define prvELBOW_P      'l'
+#define prvELBOW_M      'k'
+#define prvWRIST_ROLL_P 'b'
+#define prvWRIST_ROLL_M 'a'
+#define prvWRIST_PTCH_P 'f'
+#define prvWRIST_PTCH_M 'e'
+#define prvGRAB_OPEN    'j'
+#define prvGRAB_CLOSE   'i'
+#define prvMODE_CH      'm'
+#define prvSAVE         'p'
+#define prvRUN          'p'
+#define prvCLR          'o'
+#define prvSTOP         'n'
+#define prvRST          'o'
+
 QueueHandle_t xDecoderOutputQueue = NULL;
 QueueHandle_t xKeypadInputQueue = NULL;
 TaskHandle_t xWPMTask = NULL;
@@ -122,7 +141,7 @@ QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
     pxKPTask = pxParams->pxKeypadHandle;
     
     //needs to be init mode once made
-    prvModeDecoder = &prvManualModeDecoder;
+    prvModeDecoder = &prvInitModeDecoder;
     
     vSubscribeToModeChange( &prvOnModeChange );
     
@@ -143,43 +162,43 @@ bool prvManualModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             
     switch( cButton )
     {
-        case 'a':
+        case prvBASE_ROT_P:
             prvCreateServoMovementStruct( BaseRotation, ADD, pxToServo );
             break;
-        case 'b':
+        case prvBASE_ROT_M:
             prvCreateServoMovementStruct( BaseRotation, SUB, pxToServo );
             break;
-        case 'c':
+        case prvBASE_ELE_P:
             prvCreateServoMovementStruct( BaseElevation, ADD, pxToServo );
             break;
-        case 'd':
+        case prvBASE_ELE_M:
             prvCreateServoMovementStruct( BaseElevation, SUB, pxToServo );
             break;
-        case 'e':
+        case prvELBOW_P:
             prvCreateServoMovementStruct( Elbow, ADD, pxToServo );
             break;
-        case 'f':
+        case prvELBOW_M:
             prvCreateServoMovementStruct( Elbow, SUB, pxToServo );
             break;
-        case 'g':
+        case prvWRIST_ROLL_P:
             prvCreateServoMovementStruct( WristRoll, ADD, pxToServo );
             break;
-        case 'h':
+        case prvWRIST_ROLL_M:
             prvCreateServoMovementStruct( WristRoll, SUB, pxToServo );
             break;
-        case 'i':
+        case prvWRIST_PTCH_P:
             prvCreateServoMovementStruct( WristPitch, ADD, pxToServo );
             break;
-        case 'j':
+        case prvWRIST_PTCH_M:
             prvCreateServoMovementStruct( WristPitch, SUB, pxToServo );
             break;
-        case 'k':
+        case prvGRAB_OPEN:
             prvCreateServoMovementStruct( Grabber, ADD, pxToServo );
             break;
-        case 'l':
+        case prvGRAB_CLOSE:
             prvCreateServoMovementStruct( Grabber, SUB, pxToServo );
             break;
-        case 'm':
+        case prvMODE_CH:
             vModeChange();
             prvCriticalPress();
 
@@ -210,53 +229,53 @@ bool prvTrgModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             
     switch( cButton )
     {
-        case 'a':
+        case prvBASE_ROT_P:
             prvCreateServoMovementStruct( BaseRotation, ADD, pxToServo );
             break;
-        case 'b':
+        case prvBASE_ROT_M:
             prvCreateServoMovementStruct( BaseRotation, SUB, pxToServo );
             break;
-        case 'c':
+        case prvBASE_ELE_P:
             prvCreateServoMovementStruct( BaseElevation, ADD, pxToServo );
             break;
-        case 'd':
+        case prvBASE_ELE_M:
             prvCreateServoMovementStruct( BaseElevation, SUB, pxToServo );
             break;
-        case 'e':
+        case prvELBOW_P:
             prvCreateServoMovementStruct( Elbow, ADD, pxToServo );
             break;
-        case 'f':
+        case prvELBOW_M:
             prvCreateServoMovementStruct( Elbow, SUB, pxToServo );
             break;
-        case 'g':
+        case prvWRIST_ROLL_P:
             prvCreateServoMovementStruct( WristRoll, ADD, pxToServo );
             break;
-        case 'h':
+        case prvWRIST_ROLL_M:
             prvCreateServoMovementStruct( WristRoll, SUB, pxToServo );
             break;
-        case 'i':
+        case prvWRIST_PTCH_P:
             prvCreateServoMovementStruct( WristPitch, ADD, pxToServo );
             break;
-        case 'j':
+        case prvWRIST_PTCH_M:
             prvCreateServoMovementStruct( WristPitch, SUB, pxToServo );
             break;
-        case 'k':
+        case prvGRAB_OPEN:
             prvCreateServoMovementStruct( Grabber, ADD, pxToServo );
             break;
-        case 'l':
+        case prvGRAB_CLOSE:
             prvCreateServoMovementStruct( Grabber, SUB, pxToServo );
             break;
-        case 'm':
+        case prvMODE_CH:
             vModeChange();
             prvCriticalPress();
             bSend = false;
             break;
-        case 'n': // save waypoint o row doesnt work!
+        case prvCLR: 
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_CLEAR, eSetValueWithOverwrite );
             prvCriticalPress();
             bSend = false;
             break;
-        case 'p': // clear last waypoint should be clear but button doesnt work
+        case prvSAVE: 
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_SAVE, eSetValueWithOverwrite );
             prvCriticalPress();
             bSend = false;
@@ -278,22 +297,22 @@ bool prvAutoModeDecoder( xServoQueueParams_t *pxToServo, char8 cButton )
             
     switch( cButton )
     {
-        case 'm':
+        case prvMODE_CH:
             vModeChange();
             prvCriticalPress();
             bSend = false;
             break;
-        case 'n': //stop
+        case prvSTOP:
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_STOP, eSetValueWithOverwrite );
             prvCriticalPress();
             bSend = false;
             break;
-        case 'l': // reset o row doesnt work
+        case prvRST:
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_RESET, eSetValueWithOverwrite );
             prvCriticalPress();
             bSend = false;
             break;
-        case 'p': // run
+        case prvRUN:
             xTaskNotify( xWPMTask, WPM_NOTIFICATION_RUN, eSetValueWithOverwrite );
             prvCriticalPress();
             bSend = false;
@@ -315,7 +334,7 @@ bool prvInitModeDecoder( xServoQueueParams_t *pxToServo, char8 cbutton )
             
     switch( cbutton )
     {
-        case 'm':
+        case prvMODE_CH:
             vModeChange();
             prvCriticalPress();
             break;

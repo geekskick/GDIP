@@ -897,84 +897,6 @@
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
 <v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cysym</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cystate</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cyprimitive</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\custom.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyenums.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinsdata.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinpicture.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinutils.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cysym</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cystate</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\cy_pins_v2_20.cyprimitive</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\custom.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyenums.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinsdata.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinpicture.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinutils.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cygeneralcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyinputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cymappingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyoutputcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinaliasdialog.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cypinscontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyporcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\Resource1.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\Custom\cyclockingcontrol.resx</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\aliases.h</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.c</v>
-<v>${CyRoot}\psoc\content\cyprimitives\CyPrimitives.cylib\cy_pins_v2_20\PSoC5\API\pins.h</v>
 <v>.\FreeRTOS_Demo.cydwr</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cm3gcc.ld</v>
 <v>${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3RealView.scat</v>
@@ -1145,6 +1067,9 @@
 <v>Generated_Source\PSoC5\autoModeLED_aliases.h</v>
 <v>Generated_Source\PSoC5\autoModeLED.c</v>
 <v>Generated_Source\PSoC5\autoModeLED.h</v>
+<v>Generated_Source\PSoC5\errorLED_aliases.h</v>
+<v>Generated_Source\PSoC5\errorLED.c</v>
+<v>Generated_Source\PSoC5\errorLED.h</v>
 <v>Generated_Source\PSoC5\lcdPwrPin_aliases.h</v>
 <v>Generated_Source\PSoC5\lcdPwrPin.c</v>
 <v>Generated_Source\PSoC5\lcdPwrPin.h</v>
@@ -1157,9 +1082,9 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="131331903870315265" />
+<deps_time v="131342409608668843" />
 <top_block v="TopDesign" />
-<last_generation v="1" />
+<last_generation v="3" />
 <pdl_path v="" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
 </dataGuid>
@@ -1169,8 +1094,7 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_493\Debug\globaldisplay.o">
-<dep name=".\Custom Tasks\Mode Manager\modeManager.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\WPM.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1180,16 +1104,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1207,6 +1127,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1218,8 +1140,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1276,11 +1196,13 @@
 <dep name="..\..\..\Source\include\portable.h" />
 <dep name="..\..\..\Source\include\projdefs.h" />
 <dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\semphr.h" />
 <dep name="..\..\..\Source\include\task.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Display\globaldisplay.c" />
+<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
 <dep name=".\Custom Tasks\Display\globaldisplay.h" />
+<dep name=".\Custom Tasks\Error\ErrorMode.h" />
+<dep name=".\Custom Tasks\WPM\WPM.c" />
+<dep name=".\Custom Tasks\WPM\WPM.h" />
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
@@ -1295,16 +1217,12 @@
 <file name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <file name=".\Generated_Source\PSoC5\UART.h" />
 <file name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<file name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<file name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <file name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <file name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <file name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <file name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <file name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <file name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<file name=".\Generated_Source\PSoC5\builtInLED.h" />
-<file name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <file name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1322,6 +1240,8 @@
 <file name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <file name=".\Generated_Source\PSoC5\elbowPin.h" />
 <file name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<file name=".\Generated_Source\PSoC5\errorLED.h" />
+<file name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <file name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <file name=".\Generated_Source\PSoC5\grabberPin.h" />
 <file name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1333,8 +1253,6 @@
 <file name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <file name=".\Generated_Source\PSoC5\project.h" />
 <file name=".\Generated_Source\PSoC5\pwmClock.h" />
-<file name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<file name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <file name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <file name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <file name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1391,10 +1309,12 @@
 <file name="..\..\..\Source\include\portable.h" />
 <file name="..\..\..\Source\include\projdefs.h" />
 <file name="..\..\..\Source\include\queue.h" />
-<file name="..\..\..\Source\include\semphr.h" />
 <file name="..\..\..\Source\include\task.h" />
-<file name=".\Custom Tasks\Display\globaldisplay.c" />
+<file name=".\Custom Tasks\Current Position Store\currentposition.h" />
 <file name=".\Custom Tasks\Display\globaldisplay.h" />
+<file name=".\Custom Tasks\Error\ErrorMode.h" />
+<file name=".\Custom Tasks\WPM\WPM.c" />
+<file name=".\Custom Tasks\WPM\WPM.h" />
 <file name=".\FreeRTOSConfig.h" />
 <file name=".\device.h" />
 <file name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
@@ -1408,16 +1328,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1435,6 +1351,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1446,8 +1364,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1515,11 +1431,10 @@
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
-<file name="..\..\Common\include\partest.h" />
-<file name=".\Custom Tasks\Error\ErrorMode.h" />
-<file name=".\Custom Tasks\Keypad\keypad.c" />
-<file name=".\Custom Tasks\Keypad\keypad.h" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\main.o">
+<file name=".\Custom Tasks\Mode Manager\modeManager.h" />
+<file name="..\..\..\Source\include\semphr.h" />
+<file name=".\Custom Tasks\Display\globaldisplay.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\decodertask.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1529,16 +1444,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1556,6 +1467,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1567,8 +1480,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1577,7 +1488,6 @@
 <dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
 <dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
 <dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\Common\include\comtest.h" />
 <dep name="..\..\Common\include\partest.h" />
 <dep name="..\..\Common\include\serial.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
@@ -1630,28 +1540,23 @@
 <dep name="..\..\..\Source\include\semphr.h" />
 <dep name="..\..\..\Source\include\task.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
 <dep name=".\Custom Tasks\Display\globaldisplay.h" />
+<dep name=".\Custom Tasks\Error\ErrorMode.h" />
+<dep name=".\Custom Tasks\Input Decoder\decodertask.c" />
 <dep name=".\Custom Tasks\Input Decoder\decodertask.h" />
-<dep name=".\Custom Tasks\Keypad\keypad.h" />
+<dep name=".\Custom Tasks\Mode Manager\modeManager.h" />
 <dep name=".\Custom Tasks\Servo\ServoQueueParams.h" />
-<dep name=".\Custom Tasks\Servo\servo.h" />
 <dep name=".\Custom Tasks\WPM\WPM.h" />
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\device.h" />
 <dep name=".\main.c" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-<dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
 </file>
-<file name="..\..\Common\include\comtest.h" />
-<file name=".\Custom Tasks\Current Position Store\currentposition.h" />
+<file name="..\..\Common\include\partest.h" />
+<file name=".\Custom Tasks\Input Decoder\decodertask.c" />
 <file name=".\Custom Tasks\Input Decoder\decodertask.h" />
 <file name=".\Custom Tasks\Servo\ServoQueueParams.h" />
-<file name=".\Custom Tasks\Servo\servo.h" />
-<file name=".\Custom Tasks\WPM\WPM.h" />
-<file name=".\main.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o">
+<file name=".\CortexM3\ARM_GCC_493\Debug\ParTest.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1661,16 +1566,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1688,6 +1589,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1699,8 +1602,116 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<dep name="..\..\Common\include\partest.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\ParTest.c" />
+<dep name=".\device.h" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
+</file>
+<file name=".\ParTest.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o">
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\LCD.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\lcdPwrPin.h" />
+<dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1776,16 +1787,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1803,6 +1810,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1814,8 +1823,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1883,7 +1890,9 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
 </file>
 <file name=".\Custom Tasks\Error\ErrorMode.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\decodertask.o">
+<file name=".\Custom Tasks\Servo\servo.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\keypad.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1893,16 +1902,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -1920,6 +1925,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -1931,8 +1938,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -1994,16 +1999,14 @@
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
 <dep name=".\Custom Tasks\Display\globaldisplay.h" />
 <dep name=".\Custom Tasks\Error\ErrorMode.h" />
-<dep name=".\Custom Tasks\Input Decoder\decodertask.c" />
-<dep name=".\Custom Tasks\Input Decoder\decodertask.h" />
-<dep name=".\Custom Tasks\Mode Manager\modeManager.h" />
-<dep name=".\Custom Tasks\Servo\ServoQueueParams.h" />
-<dep name=".\Custom Tasks\WPM\WPM.h" />
+<dep name=".\Custom Tasks\Keypad\keypad.c" />
+<dep name=".\Custom Tasks\Keypad\keypad.h" />
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
-<file name=".\Custom Tasks\Input Decoder\decodertask.c" />
+<file name=".\Custom Tasks\Keypad\keypad.c" />
+<file name=".\Custom Tasks\Keypad\keypad.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\modeManager.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -2014,16 +2017,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -2041,6 +2040,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -2052,8 +2053,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2080,16 +2079,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -2107,6 +2102,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -2118,8 +2115,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -2190,124 +2185,6 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
 </file>
 <file name=".\Custom Tasks\Servo\servo.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\WPM.o">
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\UART.h" />
-<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\lcdPwrPin.h" />
-<dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\Common\include\serial.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<dep name="..\..\..\Source\include\FreeRTOS.h" />
-<dep name="..\..\..\Source\include\deprecated_definitions.h" />
-<dep name="..\..\..\Source\include\list.h" />
-<dep name="..\..\..\Source\include\mpu_wrappers.h" />
-<dep name="..\..\..\Source\include\portable.h" />
-<dep name="..\..\..\Source\include\projdefs.h" />
-<dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\task.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
-<dep name=".\Custom Tasks\Display\globaldisplay.h" />
-<dep name=".\Custom Tasks\Error\ErrorMode.h" />
-<dep name=".\Custom Tasks\WPM\WPM.c" />
-<dep name=".\Custom Tasks\WPM\WPM.h" />
-<dep name=".\FreeRTOSConfig.h" />
-<dep name=".\device.h" />
-<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-</file>
-<file name=".\Custom Tasks\WPM\WPM.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\Cm3Start.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -2466,17 +2343,6 @@
 <dep name=".\Generated_Source\PSoC5\UART_PM.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\UART_PM.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\autoModeLED.o">
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.c" />
-</file>
-<file name=".\Generated_Source\PSoC5\autoModeLED.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\baseElevationPWM.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -2551,17 +2417,6 @@
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\baseRotationPin.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\builtInLED.o">
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.c" />
-</file>
-<file name=".\Generated_Source\PSoC5\builtInLED.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\cyPm.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -2640,6 +2495,17 @@
 <dep name=".\Generated_Source\PSoC5\elbowPin.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\elbowPin.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\errorLED.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\errorLED.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\grabberPWM.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -2719,17 +2585,6 @@
 <dep name=".\Generated_Source\PSoC5\pwmClock.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\pwmClock.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\trgModeLED.o">
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.c" />
-</file>
-<file name=".\Generated_Source\PSoC5\trgModeLED.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\uartISR_BYTE_RX.o">
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -2830,119 +2685,6 @@
 <dep name=".\Generated_Source\PSoC5\wristRollPin.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\wristRollPin.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\ParTest.o">
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\UART.h" />
-<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
-<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
-<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
-<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
-<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\lcdPwrPin.h" />
-<dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
-<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
-<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
-<dep name="..\..\Common\include\partest.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
-<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
-<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
-<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
-<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
-<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
-<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
-<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
-<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
-<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
-<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
-<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
-<dep name="..\..\..\Source\include\FreeRTOS.h" />
-<dep name="..\..\..\Source\include\deprecated_definitions.h" />
-<dep name="..\..\..\Source\include\list.h" />
-<dep name="..\..\..\Source\include\mpu_wrappers.h" />
-<dep name="..\..\..\Source\include\portable.h" />
-<dep name="..\..\..\Source\include\projdefs.h" />
-<dep name="..\..\..\Source\include\task.h" />
-<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\FreeRTOSConfig.h" />
-<dep name=".\ParTest.c" />
-<dep name=".\device.h" />
-<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-</file>
-<file name=".\ParTest.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\Serial.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -2953,16 +2695,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -2980,6 +2718,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -2991,8 +2731,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3057,7 +2795,7 @@
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name=".\Serial.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\BlockQ.o">
+<file name=".\CortexM3\ARM_GCC_493\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -3067,16 +2805,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3094,6 +2828,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3105,8 +2841,128 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
+<dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristPitchPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
+<dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<dep name="..\..\Common\include\comtest.h" />
+<dep name="..\..\Common\include\partest.h" />
+<dep name="..\..\Common\include\serial.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
+<dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91FR40008\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_AT91SAM7S\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM7_LPC23xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\H8S2329\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\HCS12\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MCF5235\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\MicroBlaze\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC405_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\PPC440_Xilinx\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\78K0R\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\V850ES\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC18F\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h" />
+<dep name="..\..\..\Source\portable\MPLAB\PIC32MX\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM_CM3\portmacro.h" />
+<dep name="..\..\..\Source\portable\Rowley\MSP430F449\portmacro.h" />
+<dep name="..\..\..\Source\portable\SDCC\Cygnal\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\ATMega323\portmacro.h" />
+<dep name="..\..\..\Source\portable\GCC\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\LPC2000\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\MSP430\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR71x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR75x\portmacro.h" />
+<dep name="..\..\..\Source\portable\IAR\STR91x\portmacro.h" />
+<dep name="..\..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h" />
+<dep name="..\..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h" />
+<dep name="..\..\..\Source\portable\Softune\MB96340\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h" />
+<dep name="..\..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\PC\prtmacro.h" />
+<dep name="..\..\..\Source\portable\BCC\16BitDOS\flsh186\prtmacro.h" />
+<dep name="..\..\..\Source\include\FreeRTOS.h" />
+<dep name="..\..\..\Source\include\deprecated_definitions.h" />
+<dep name="..\..\..\Source\include\list.h" />
+<dep name="..\..\..\Source\include\mpu_wrappers.h" />
+<dep name="..\..\..\Source\include\portable.h" />
+<dep name="..\..\..\Source\include\projdefs.h" />
+<dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\semphr.h" />
+<dep name="..\..\..\Source\include\task.h" />
+<dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
+<dep name=".\Custom Tasks\Current Position Store\currentposition.h" />
+<dep name=".\Custom Tasks\Display\globaldisplay.h" />
+<dep name=".\Custom Tasks\Input Decoder\decodertask.h" />
+<dep name=".\Custom Tasks\Keypad\keypad.h" />
+<dep name=".\Custom Tasks\Servo\ServoQueueParams.h" />
+<dep name=".\Custom Tasks\Servo\servo.h" />
+<dep name=".\Custom Tasks\WPM\WPM.h" />
+<dep name=".\FreeRTOSConfig.h" />
+<dep name=".\device.h" />
+<dep name=".\main.c" />
+<dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
+</file>
+<file name="..\..\Common\include\comtest.h" />
+<file name=".\main.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\BlockQ.o">
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\LCD.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
+<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\UART.h" />
+<dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
+<dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin.h" />
+<dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin.h" />
+<dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadInPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins.h" />
+<dep name=".\Generated_Source\PSoC5\keypadOutPins_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\lcdPwrPin.h" />
+<dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\Generated_Source\PSoC5\pwmClock.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3182,16 +3038,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3209,6 +3061,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3220,8 +3074,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3298,16 +3150,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3325,6 +3173,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3336,8 +3186,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3413,16 +3261,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3440,6 +3284,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3451,8 +3297,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3529,16 +3373,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3556,6 +3396,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3567,8 +3409,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3644,16 +3484,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3671,6 +3507,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3682,8 +3520,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3762,16 +3598,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3789,6 +3621,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3800,8 +3634,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3878,16 +3710,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -3905,6 +3733,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -3916,8 +3746,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -3992,16 +3820,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4019,6 +3843,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4030,8 +3856,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4108,16 +3932,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4135,6 +3955,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4146,8 +3968,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4223,16 +4043,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4250,6 +4066,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4261,8 +4079,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4337,16 +4153,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4364,6 +4176,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4375,8 +4189,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4451,16 +4263,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4478,6 +4286,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4489,8 +4299,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4567,16 +4375,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4594,6 +4398,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4605,8 +4411,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4681,16 +4485,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4708,6 +4508,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4719,8 +4521,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4792,16 +4592,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4819,6 +4615,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4830,8 +4628,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -4904,16 +4700,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -4931,6 +4723,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -4942,8 +4736,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -5016,16 +4808,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -5043,6 +4831,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -5054,8 +4844,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -5130,16 +4918,12 @@
 <dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\UART.h" />
 <dep name=".\Generated_Source\PSoC5\UART_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseElevationPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPWM.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin.h" />
 <dep name=".\Generated_Source\PSoC5\baseRotationPin_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
-<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
@@ -5157,6 +4941,8 @@
 <dep name=".\Generated_Source\PSoC5\elbowPWM.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin.h" />
 <dep name=".\Generated_Source\PSoC5\elbowPin_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED.h" />
+<dep name=".\Generated_Source\PSoC5\errorLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPWM.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin.h" />
 <dep name=".\Generated_Source\PSoC5\grabberPin_aliases.h" />
@@ -5168,8 +4954,6 @@
 <dep name=".\Generated_Source\PSoC5\lcdPwrPin_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\pwmClock.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
-<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_RX.h" />
 <dep name=".\Generated_Source\PSoC5\uartISR_BYTE_TX.h" />
 <dep name=".\Generated_Source\PSoC5\wristPitchPWM.h" />
@@ -5247,6 +5031,45 @@
 <file name=".\Generated_Source\PSoC5\cydevicegnu.inc" />
 <file name=".\Generated_Source\PSoC5\cydevicegnu_trm.inc" />
 <file name=".\Generated_Source\PSoC5\cyfittergnu.inc" />
+<file name=".\Generated_Source\PSoC5\builtInLED.h" />
+<file name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\builtInLED.o">
+<dep name=".\Generated_Source\PSoC5\builtInLED.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\builtInLED.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\builtInLED.c" />
+<file name=".\Generated_Source\PSoC5\autoModeLED.h" />
+<file name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
+<file name=".\Generated_Source\PSoC5\trgModeLED.h" />
+<file name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\autoModeLED.o">
+<dep name=".\Generated_Source\PSoC5\autoModeLED.h" />
+<dep name=".\Generated_Source\PSoC5\autoModeLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\autoModeLED.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\autoModeLED.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\trgModeLED.o">
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\trgModeLED.h" />
+<dep name=".\Generated_Source\PSoC5\trgModeLED_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\trgModeLED.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\trgModeLED.c" />
 <file name=".\Generated_Source\PSoC5\tuningDebounceADC.h" />
 <file name=".\Generated_Source\PSoC5\tuningDebounceADC_IRQ.h" />
 <file name=".\Generated_Source\PSoC5\tuningDebounceADC_theACLK.h" />
@@ -5789,7 +5612,6 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\UART_PM.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\UART_INT.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\UART_BOOT.o" />
-<dep name=".\CortexM3\ARM_GCC_493\Debug\builtInLED.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\keypadInPins.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\keypadOutPins.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\LCD.o" />
@@ -5819,8 +5641,7 @@
 <dep name=".\CortexM3\ARM_GCC_493\Debug\cyPm.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\CySpc.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\cyutils.o" />
-<dep name=".\CortexM3\ARM_GCC_493\Debug\trgModeLED.o" />
-<dep name=".\CortexM3\ARM_GCC_493\Debug\autoModeLED.o" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\errorLED.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\lcdPwrPin.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\FreeRTOS_Demo.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" />
@@ -5925,6 +5746,7 @@
 <name_val_pair name="Custom Tasks\Mode Manager\modeManager.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Generated_Source\PSoC5\trgModeLED.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Generated_Source\PSoC5\autoModeLED.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\errorLED.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="Generated_Source\PSoC5\lcdPwrPin.c" v="-mcpu=cortex-m3 -mthumb -I../../../Source/include -I../../../Source/portable/GCC/ARM_CM3 -I../../Common/include &quot;-I.\Custom Tasks&quot; -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 </name>
 </genericCmdLineData>
@@ -5933,25 +5755,32 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131332069207557505" />
+<deps_time v="131342438054832709" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
 <CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
 <debugger_breakpoint_list>
-<CyGuid_da1648eb-f713-4789-813b-89e33e3769c0 type_name="CyDesigner.Common.Debugger.CyWatchpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" variable="rc" access="WRITE" />
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\Generated_Source\PSoC5\Cm3Start.c" linenumber="119" />
-<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="True" hardware="True" temparary="False" filename=".\Custom Tasks\Display\globaldisplay.c" linenumber="68" />
+<CyGuid_76464711-0ae1-4583-b869-f07a0403fc6e type_name="CyDesigner.Common.Debugger.CyFileLineBreakpoint" version="1" hitcount="0" condition="" enabled="False" hardware="True" temparary="False" filename=".\Custom Tasks\Input Decoder\decodertask.c" linenumber="116" />
 </debugger_breakpoint_list>
 </CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>
 <dataGuid v="bf610382-39c6-441f-80b8-b04622ea7845">
 <CyGuid_bf610382-39c6-441f-80b8-b04622ea7845 type_name="CyDesigner.Common.Debugger.CyWatchedVariableList" version="1">
 <debugger_watch_list>
-<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="bottomLine" radix="Default" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="pxStack" radix="Default" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="sNextStack" radix="Default" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="rc" radix="Default" />
 <CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="topLine" radix="Default" />
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="bottomLine" radix="Default" />
 </debugger_watch_list>
 </CyGuid_bf610382-39c6-441f-80b8-b04622ea7845>
+</dataGuid>
+<dataGuid v="718b6b01-68ba-4a17-b632-d38dc61ebb3b">
+<CyGuid_718b6b01-68ba-4a17-b632-d38dc61ebb3b type_name="CyDesigner.Gde.Schematic.Symbolcatalog.CyComponentCatalogControl+CyCompCatalogData" version="1" tab="Cypress">
+<tree_states_tab_names />
+<tree_states />
+</CyGuid_718b6b01-68ba-4a17-b632-d38dc61ebb3b>
 </dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>

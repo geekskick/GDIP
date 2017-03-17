@@ -184,7 +184,6 @@ xWPMParams_t        xWPMParams;     /* params to the WPM task */
 /*---------------------------------------------------------------------------*/
 static void prvServoSetup( void )
 {
-const uint16_t usMidPoint = usGetMidPoint();
 
     baseRotationPWM_Start();
     baseElevationPWM_Start();
@@ -192,25 +191,26 @@ const uint16_t usMidPoint = usGetMidPoint();
     wristPitchPWM_Start();
     wristRollPWM_Start();
     grabberPWM_Start();
-   
-    /* init the servo to middle */
-    baseRotationPWM_WriteCompare( usMidPoint );
-    baseElevationPWM_WriteCompare( usMidPoint );
-    elbowPWM_WriteCompare( usMidPoint );
-    wristPitchPWM_WriteCompare( usMidPoint );
-    wristRollPWM_WriteCompare( usMidPoint );
-    grabberPWM_WriteCompare( usMidPoint );
+    
 
-    /* the arms is in the mid point position - so put it in the storage area */
      xArmPosition_t xTempPosition = {
-        usMidPoint,
-        usMidPoint,
-        usMidPoint,
-        usMidPoint,
-        usMidPoint,
-        usMidPoint
+        usGetServoInitPoint( BaseRotation ),
+        usGetServoInitPoint( BaseElevation ),
+        usGetServoInitPoint( Elbow ),
+        usGetServoInitPoint( WristPitch ),
+        usGetServoInitPoint( WristRoll ),
+        usGetServoInitPoint( Grabber )
     };
     
+
+    /* init the arm */
+    baseRotationPWM_WriteCompare( xTempPosition.usBaseRotation );
+    baseElevationPWM_WriteCompare( xTempPosition.usBaseElevation );
+    elbowPWM_WriteCompare( xTempPosition.usElbow );
+    wristPitchPWM_WriteCompare( xTempPosition.usWristPitch );
+    wristRollPWM_WriteCompare( xTempPosition.usWristRoll );
+    grabberPWM_WriteCompare( xTempPosition.usGrabber );
+
     vSetCurrentArmPosition( xTempPosition );
 }
 
@@ -237,13 +237,14 @@ extern cyisraddress CyRamVectors[];
 
     /* start the servos */
     prvServoSetup();
-
-    builtInLED_Write( 1 );
     lcdPwrPin_Write( 1 );
+    errorLED_Write( 1 );
     
     LCD_Start();
     LCD_DisplayOn();
-    LCD_PrintString( "Hello");
+    LCD_PrintString( "Init Mode" );
+    LCD_Position( 1, 0 );
+    LCD_PrintString( "Mode change only" );
 
 }
 

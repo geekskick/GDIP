@@ -98,7 +98,7 @@ signed char prvcButtonToASCII( uint8_t usRow, uint8_t usColumn );
 signed char prvcDetectSinglePress( void );
 
 /*-----------------------------------------------------------------------*/
-const char *KEYPAD_BUTTONS_ORDERED = "abcdefghijklmnop";  
+const char *KEYPAD_BUTTONS_ORDERED = "ponmlkjihgfedcba";  
 
 QueueHandle_t xOutputQueue = NULL;                    /* The output values are put into this queue */
 TaskHandle_t *pxTaskToNotify = NULL;                  /* the task to notify when a button is pressed */

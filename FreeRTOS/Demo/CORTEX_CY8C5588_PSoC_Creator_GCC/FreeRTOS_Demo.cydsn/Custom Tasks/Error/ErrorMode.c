@@ -62,8 +62,7 @@ void vErrorConditionHook( void )
     LCD_PrintString( sErrorMessage );
     
     // Handle LED
-    autoModeLED_Write( 1 );
-    trgModeLED_Write( 1 );
+    errorLED_Write( 1 );
     const uint16_t usMidPoint = usGetMidPoint();
 
     // Incase the PWM has stopped in a task

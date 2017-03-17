@@ -97,7 +97,8 @@ void vParTestSetLED( unsigned portBASE_TYPE uxLED, signed portBASE_TYPE xValue )
     ( void ) xValue;      /* stop warnings */
     
 	taskENTER_CRITICAL();
-        builtInLED_Write(xValue);
+        //builtInLED_Write(xValue);
+    
 	taskEXIT_CRITICAL();  
 	
 }
