@@ -3088,7 +3088,7 @@ Design Equations
             Interrupt generated: False
             Interrupt mode: NONE
             Drive mode: RES_PULL_DOWN
-            VTrip: CMOS
+            VTrip: EITHER
             Slew: FAST
             Input Sync needed: False
             Output Sync needed: False
@@ -3127,7 +3127,7 @@ Design Equations
             Interrupt generated: False
             Interrupt mode: NONE
             Drive mode: RES_PULL_DOWN
-            VTrip: CMOS
+            VTrip: EITHER
             Slew: FAST
             Input Sync needed: False
             Output Sync needed: False
@@ -3166,7 +3166,7 @@ Design Equations
             Interrupt generated: False
             Interrupt mode: NONE
             Drive mode: RES_PULL_DOWN
-            VTrip: CMOS
+            VTrip: EITHER
             Slew: FAST
             Input Sync needed: False
             Output Sync needed: False
@@ -3205,7 +3205,7 @@ Design Equations
             Interrupt generated: False
             Interrupt mode: NONE
             Drive mode: RES_PULL_DOWN
-            VTrip: CMOS
+            VTrip: EITHER
             Slew: FAST
             Input Sync needed: False
             Output Sync needed: False
@@ -7188,7 +7188,7 @@ Pin : Name = keypadInPins(0)
         Interrupt generated: False
         Interrupt mode: NONE
         Drive mode: RES_PULL_DOWN
-        VTrip: CMOS
+        VTrip: EITHER
         Slew: FAST
         Input Sync needed: False
         Output Sync needed: False
@@ -7228,7 +7228,7 @@ Pin : Name = keypadInPins(1)
         Interrupt generated: False
         Interrupt mode: NONE
         Drive mode: RES_PULL_DOWN
-        VTrip: CMOS
+        VTrip: EITHER
         Slew: FAST
         Input Sync needed: False
         Output Sync needed: False
@@ -7268,7 +7268,7 @@ Pin : Name = keypadInPins(2)
         Interrupt generated: False
         Interrupt mode: NONE
         Drive mode: RES_PULL_DOWN
-        VTrip: CMOS
+        VTrip: EITHER
         Slew: FAST
         Input Sync needed: False
         Output Sync needed: False
@@ -7308,7 +7308,7 @@ Pin : Name = keypadInPins(3)
         Interrupt generated: False
         Interrupt mode: NONE
         Drive mode: RES_PULL_DOWN
-        VTrip: CMOS
+        VTrip: EITHER
         Slew: FAST
         Input Sync needed: False
         Output Sync needed: False

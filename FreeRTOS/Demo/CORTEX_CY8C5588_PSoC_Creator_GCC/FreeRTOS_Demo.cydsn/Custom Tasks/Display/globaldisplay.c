@@ -51,6 +51,8 @@ static portTASK_FUNCTION( vDisplayTask, pvParamaters )
 xDisplayQueueParams xInput;
 bool update = false;
 int i = 0;
+    memset( topLine, 0x20, DISPLAY_MAX_MSG_LEN );
+    memset( bottomLine, 0x20, DISPLAY_MAX_MSG_LEN );
 
     memset( topLine, ' ', DISPLAY_MAX_MSG_LEN );
     memset(bottomLine, ' ', DISPLAY_MAX_MSG_LEN );
@@ -61,7 +63,7 @@ int i = 0;
        
         /* need to set the buffer to be cleared in order to have a 
         correct write to the screen */
-        memset( xInput.msg, 0, DISPLAY_MAX_MSG_LEN );
+        memset( xInput.msg, 0x20, DISPLAY_MAX_MSG_LEN );
         
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
@@ -137,6 +139,8 @@ void prvDisplayOnModeChange( xMode_t  xNewMode)
 static char buff[DISPLAY_MAX_MSG_LEN];
 bool bSend = false;
 
+    memset( buff, 0x00, DISPLAY_MAX_MSG_LEN );
+
     switch( xNewMode )
     {
     case AUTO:
@@ -164,7 +168,6 @@ bool bSend = false;
     if ( bSend )
     {
         vSendToDisplayQueue( buff, strlen(buff), mode );
-        memset( buff, 0, DISPLAY_MAX_MSG_LEN );
     }
 }
 /*-----------------------------------------------------------------------------*/

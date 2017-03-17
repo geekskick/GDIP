@@ -237,6 +237,7 @@ extern cyisraddress CyRamVectors[];
 
     /* start the servos */
     prvServoSetup();
+    lcdPwrPin_Write( 1 );
     errorLED_Write( 1 );
     
     LCD_Start();

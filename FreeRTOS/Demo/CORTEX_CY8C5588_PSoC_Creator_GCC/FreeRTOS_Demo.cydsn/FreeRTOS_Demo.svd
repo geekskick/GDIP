@@ -613,7 +613,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>grabberPWM</name>
+      <name>elbowPWM</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -623,18 +623,18 @@
       </addressBlock>
       <registers>
         <register>
-          <name>grabberPWM_COMPARE_Reg</name>
+          <name>elbowPWM_COMPARE_Reg</name>
           <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x4000652A</addressOffset>
+          <addressOffset>0x40006524</addressOffset>
           <size>16</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>grabberPWM_Control_Reg</name>
+          <name>elbowPWM_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x4000657B</addressOffset>
+          <addressOffset>0x40006575</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -664,9 +664,9 @@
           </fields>
         </register>
         <register>
-          <name>grabberPWM_STATUS_AUX_CTRLDP0</name>
+          <name>elbowPWM_STATUS_AUX_CTRLDP0</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x4000659A</addressOffset>
+          <addressOffset>0x40006594</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -789,9 +789,9 @@
           </fields>
         </register>
         <register>
-          <name>grabberPWM_STATUS_AUX_CTRLDP1</name>
+          <name>elbowPWM_STATUS_AUX_CTRLDP1</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x4000659B</addressOffset>
+          <addressOffset>0x40006595</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>

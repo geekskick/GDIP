@@ -153,6 +153,8 @@ uint8_t  usColumnInput = 0;               /* The input value will go here  when 
 uint8_t  usRow = 0;                       /* The row being energised */
 signed char cPressed = KEYPAD_NO_PRESS;   /* The ascii version of the button press needs to be signed char for the vSerialPutString in debugging */
     
+TickType_t xFrequency = KEYPAD_TASK_PERIODICITYms/4;    /* The milliseconds between each row check */
+TickType_t xLastWakeTime;                             /* For measuring the wait */
     
     /* Iterate over the rows of the keypad, energizing them in turn and polling for the column input */
     for( usRow = 0; usRow < KEYPAD_ROW_COUNT; usRow++ )
@@ -163,6 +165,7 @@ signed char cPressed = KEYPAD_NO_PRESS;   /* The ascii version of the button pre
         
         usColumnInput = keypadInPins_Read();
         portEXIT_CRITICAL();
+        vTaskDelayUntil( &xLastWakeTime, xFrequency );
         
         /* if there was a button press detected then convert to ASCII and store as the recent press.
         */
@@ -237,7 +240,7 @@ TickType_t xLastWakeTime;                             /* For measuring the wait 
     for (;;)
     {
         /* provide a debounce for the switch */
-        vTaskDelayUntil( &xLastWakeTime, xFrequency );
+        //vTaskDelayUntil( &xLastWakeTime, xFrequency );
         
         cRecentPressed = prvcDetectSinglePress();
         

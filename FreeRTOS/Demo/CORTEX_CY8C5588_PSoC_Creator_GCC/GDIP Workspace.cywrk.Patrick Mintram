@@ -28,8 +28,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\Directives</v>
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\Flash Security</v>
 <v>GDIP Workspace\FreeRTOS_Demo\FreeRTOS_Demo.cydwr\EEPROM</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\BlockQ.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\blocktim.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\comtest.h</v>
@@ -49,7 +47,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\QPeek.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\semtest.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Common_Demo\serial.h</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\croutine.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\FreeRTOS.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\Kernel\list.h</v>
@@ -73,7 +70,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\ServoQueueParams.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Header Files\WPM.h</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\BlockQ.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\blocktim.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\comtest.c</v>
@@ -87,7 +83,6 @@
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\PollQ.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\QPeek.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Common_Demo\semtest.c</v>
-<v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\croutine.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\heap_2.c</v>
 <v>GDIP Workspace\FreeRTOS_Demo\Source Files\Kernel\list.c</v>
@@ -500,7 +495,7 @@
 <CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="30" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.h" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 <CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
-<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="294" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="297" DocumentName=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
 </CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
 </indicators>
 </CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>

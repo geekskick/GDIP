@@ -1207,6 +1207,7 @@
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
+<file name=".\Custom Tasks\Mode Manager\modeManager.h" />
 <file name=".\Generated_Source\PSoC5\CyDmac.h" />
 <file name=".\Generated_Source\PSoC5\CyFlash.h" />
 <file name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1317,8 +1318,7 @@
 <file name=".\FreeRTOSConfig.h" />
 <file name=".\device.h" />
 <file name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\globaldisplay.o">
-<dep name=".\Custom Tasks\Mode Manager\modeManager.h" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\keypad.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
@@ -1372,6 +1372,7 @@
 <dep name=".\Generated_Source\PSoC5\wristRollPWM.h" />
 <dep name=".\Generated_Source\PSoC5\wristRollPin.h" />
 <dep name=".\Generated_Source\PSoC5\wristRollPin_aliases.h" />
+<dep name="..\..\Common\include\partest.h" />
 <dep name="..\..\Common\include\serial.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\ColdFire_V2\portmacro.h" />
 <dep name="..\..\..\Source\portable\CodeWarrior\HCS12\portmacro.h" />
@@ -1420,11 +1421,12 @@
 <dep name="..\..\..\Source\include\portable.h" />
 <dep name="..\..\..\Source\include\projdefs.h" />
 <dep name="..\..\..\Source\include\queue.h" />
-<dep name="..\..\..\Source\include\semphr.h" />
 <dep name="..\..\..\Source\include\task.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
-<dep name=".\Custom Tasks\Display\globaldisplay.c" />
 <dep name=".\Custom Tasks\Display\globaldisplay.h" />
+<dep name=".\Custom Tasks\Error\ErrorMode.h" />
+<dep name=".\Custom Tasks\Keypad\keypad.c" />
+<dep name=".\Custom Tasks\Keypad\keypad.h" />
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
@@ -1535,6 +1537,7 @@
 <dep name="..\..\..\Source\include\portable.h" />
 <dep name="..\..\..\Source\include\projdefs.h" />
 <dep name="..\..\..\Source\include\queue.h" />
+<dep name="..\..\..\Source\include\semphr.h" />
 <dep name="..\..\..\Source\include\task.h" />
 <dep name="..\..\..\Source\portable\GCC\ARM_CM3\portmacro.h" />
 <dep name=".\Custom Tasks\Display\globaldisplay.h" />
@@ -1546,6 +1549,7 @@
 <dep name=".\Custom Tasks\WPM\WPM.h" />
 <dep name=".\FreeRTOSConfig.h" />
 <dep name=".\device.h" />
+<dep name=".\main.c" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
 </file>
 <file name="..\..\Common\include\partest.h" />
@@ -1659,6 +1663,7 @@
 <dep name=".\ParTest.c" />
 <dep name=".\device.h" />
 <dep name="..\..\..\Source\portable\GCC\ColdFire_V2\portmacro.h" />
+<dep name=".\CortexM3\ARM_GCC_493\Debug\Custom Tasks\Servo\servoqueueparams.h" />
 </file>
 <file name=".\ParTest.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\currentposition.o">
