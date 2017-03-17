@@ -49,12 +49,11 @@ static portTASK_FUNCTION( vDisplayTask, pvParamaters )
 {
 ( void ) pvParamaters; // stop warnings
 xDisplayQueueParams xInput;
-
+bool update = false;
 int i = 0;
-    for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
-    {
-        topLine[i] = bottomLine[i] = ' ';   
-    }
+
+    memset( topLine, ' ', DISPLAY_MAX_MSG_LEN );
+    memset(bottomLine, ' ', DISPLAY_MAX_MSG_LEN );
 
     /* the meat of the task goes here */
     for(;;)
@@ -66,9 +65,8 @@ int i = 0;
         
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
-            //vTaskSuspendAll();
-            // make sure it's null terminated within bounds
-            //xInput.msg[( xInput.iMsgLen >= DISPLAY_MAX_MSG_LEN? DISPLAY_MAX_MSG_LEN - 1 : xInput.iMsgLen )] = ' ';
+            
+            update = false;
             
             switch( xInput.type )
             {
@@ -76,46 +74,59 @@ int i = 0;
             case wpmClear:
             case wpmSave:
             case mode:
-                {
-                //int i = 0;
                 memset( bottomLine, ' ', DISPLAY_MAX_MSG_LEN );
                 strncpy( bottomLine, xInput.msg, xInput.iMsgLen );
-                }
+                update = true;
                 break;
+                
             case wpmPointsRemaining:
-                bottomLine[prviPointsRemaining] = ' ';
-                bottomLine[prviPointsRemaining + 1] = ' ';
+                memset(bottomLine + prviPointsRemaining, ' ', DISPLAY_MAX_MSG_LEN - prviPointsRemaining );
                 strncpy( bottomLine + prviPointsRemaining, xInput.msg, xInput.iMsgLen );
+                update = true;
                 break;
+                
             case wpmCurrentPoint:
-                topLine[prviCurrentPoint] = ' ';
-                topLine[prviCurrentPoint + 1] = ' ';
+                memset(topLine + prviCurrentPoint, ' ', DISPLAY_MAX_MSG_LEN - prviCurrentPoint );
                 strncpy( topLine + prviCurrentPoint, xInput.msg, xInput.iMsgLen );
+                update = true;
                 break;
+                
+            case wpmReset:
+            case wpmRun:
+            case wpmStop:
+                memset( topLine, ' ', prviCurrentPoint );
+                strncpy( topLine, xInput.msg, xInput.iMsgLen );
+           
+                update = true;
+                break;
+                
             default:
                 break;
             }
             
             // The following section of writing to the screen requires critical timing between the screen and the PCB
-            vTaskSuspendAll();
-            LCD_ClearDisplay();
-            
-            LCD_Position( 0, 0 );
-            
-            int i = 0;
-            for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
-            { 
-                LCD_PutChar( topLine[i] );
+            if( update )
+            {
+                vTaskSuspendAll();
+                LCD_ClearDisplay();
+                
+                LCD_Position( 0, 0 );
+                
+                int i = 0;
+                for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+                { 
+                    LCD_PutChar( topLine[i] );
+                }
+                
+                LCD_Position( 1, 0 );
+                
+                for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
+                { 
+                    LCD_PutChar( bottomLine[i] );
+                }
+                
+                xTaskResumeAll();
             }
-            
-            LCD_Position( 1, 0 );
-            
-            for( i = 0; i < DISPLAY_MAX_MSG_LEN; i++ )
-            { 
-                LCD_PutChar( bottomLine[i] );
-            }
-            
-            xTaskResumeAll();
         }
     }
 }

@@ -84,6 +84,12 @@ QueueHandle_t xWPMOutputQueue = NULL;
 static struct stack_item_t pxStack[SAVED_POSITIONS_MAX];
 int16_t iCurrentSize = SAVED_POSITIONS_MAX;
 
+static const char* prvMSG_ON_SAVE = "Saved";
+static const char* prvMSG_ON_RUN = "Running";
+static const char* prvMSG_ON_CLR = "Cleared";
+static const char* prvMSG_ON_STOP = "Stop";
+static const char* prvMSG_ON_RST = "Reset";
+
 /*-----------------------------------------------------------------------*/
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
 static portTASK_FUNCTION( vWPMTask, pvParamaters )
@@ -121,28 +127,28 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         	switch( uNotificationValue )
         	{
         		case WPM_NOTIFICATION_STOP:
-                    vSendToDisplayQueue( "Stopping", strlen( "Stopping" ), wpmStop );
+                    vSendToDisplayQueue( prvMSG_ON_STOP, strlen( prvMSG_ON_STOP ), wpmStop );
         			prvActionStop( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_SAVE:
-                    vSendToDisplayQueue( "Saving", strlen( "Saving" ), wpmSave );
+                    vSendToDisplayQueue( prvMSG_ON_SAVE, strlen( prvMSG_ON_SAVE ), wpmSave );
         			prvActionSave( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_RESET:
-                    vSendToDisplayQueue( "Resetting", strlen( "Resetting" ), wpmReset );
+                    vSendToDisplayQueue( prvMSG_ON_RST, strlen( prvMSG_ON_RST ), wpmReset );
         			prvActionReset( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_RUN:
-                    vSendToDisplayQueue( "Running", strlen( "Running" ), wpmRun );
+                    vSendToDisplayQueue( prvMSG_ON_RUN, strlen( prvMSG_ON_RUN ), wpmRun );
         			xDirection = FORWARD;
         			prvActionRun( xActionPckg );
         			break;
 
         		case WPM_NOTIFICATION_CLEAR:
-                    vSendToDisplayQueue( "Clearing", strlen( "Clearing" ), wpmClear );
+                    vSendToDisplayQueue( prvMSG_ON_CLR, strlen( prvMSG_ON_CLR ), wpmClear );
         			prvActionClear( xActionPckg );
         			break;
 
@@ -219,7 +225,7 @@ void prvActionClear( struct xActionArgs args )
         /* mark it as not used then decrement the pointer value */
         *( args.pusNextFreeStackPosition ) -= 1;
 		pxStack[*( args.pusNextFreeStackPosition )].is_used = false;
-        *( args.pusCurrentStackPosition ) -= 1;
+        *( args.pusCurrentStackPosition ) = *( args.pusCurrentStackPosition ) > 0 ? *( args.pusCurrentStackPosition )-- : 0;
 	}
 	else
 	{
@@ -258,6 +264,7 @@ void prvActionRun( struct xActionArgs args )
             // Not at the top of the max stack items but at the top of the currently allocated slots
             // Stop this loop
             *args.pxNextAction = NONE;
+            vSendToDisplayQueue( "Complete", strlen( "Complete" ), wpmStop );
         }
         
 	}
@@ -265,6 +272,7 @@ void prvActionRun( struct xActionArgs args )
 	{
         // Stop in case of reaching start/end of stack
 		*args.pxNextAction = NONE;
+        vSendToDisplayQueue( "Complete", strlen( "Complete" ), wpmStop );
 	}
 }
 
