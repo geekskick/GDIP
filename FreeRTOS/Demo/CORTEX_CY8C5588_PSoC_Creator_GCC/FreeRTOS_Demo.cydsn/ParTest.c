@@ -118,7 +118,7 @@ void vParTestToggleLED( unsigned portBASE_TYPE uxLED )
         state = 0;
     }
         taskENTER_CRITICAL();
-        builtInLED_Write(state);
+        //builtInLED_Write(state);
 	    taskEXIT_CRITICAL();   
     
 	
