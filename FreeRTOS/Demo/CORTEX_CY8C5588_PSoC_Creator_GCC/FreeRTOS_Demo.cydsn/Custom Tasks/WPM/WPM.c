@@ -225,7 +225,7 @@ void prvActionClear( struct xActionArgs args )
         /* mark it as not used then decrement the pointer value */
         *( args.pusNextFreeStackPosition ) -= 1;
 		pxStack[*( args.pusNextFreeStackPosition )].is_used = false;
-        *( args.pusCurrentStackPosition ) = *( args.pusCurrentStackPosition ) > 0 ? *( args.pusCurrentStackPosition )-- : 0;
+        *( args.pusCurrentStackPosition ) = *( args.pusCurrentStackPosition ) > 0 ? *( args.pusCurrentStackPosition ) -= 1 : 0;
 	}
 	else
 	{

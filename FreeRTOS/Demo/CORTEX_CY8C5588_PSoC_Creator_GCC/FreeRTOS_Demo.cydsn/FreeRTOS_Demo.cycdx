@@ -146,13 +146,13 @@
     <block name="OneTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="vmCompare" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="PWMUDB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="elbowPWM_COMPARE_Reg" address="0x40006524" bitWidth="16" desc="UDB.D0 - Assigned Compare Value" hidden="false" />
-    <register name="elbowPWM_Control_Reg" address="0x40006575" bitWidth="8" desc="UDB Control Register - Assigned Control Register Value" hidden="false">
+    <register name="grabberPWM_COMPARE_Reg" address="0x4000652A" bitWidth="16" desc="UDB.D0 - Assigned Compare Value" hidden="false" />
+    <register name="grabberPWM_Control_Reg" address="0x4000657B" bitWidth="8" desc="UDB Control Register - Assigned Control Register Value" hidden="false">
       <field name="CTRL_ENABLE" from="7" to="7" access="RW" resetVal="" desc="Enable the PWM" hidden="false" />
       <field name="CTRL_CMPMODE2" from="5" to="3" access="RW" resetVal="" desc="Compare mode 2" hidden="false" />
       <field name="CTRL_CMPMODE1" from="2" to="0" access="RW" resetVal="" desc="Compare mode 1" hidden="false" />
     </register>
-    <register name="elbowPWM_STATUS_AUX_CTRLDP0" address="0x40006594" bitWidth="8" desc="UDB Auxilliary Control Register" hidden="false">
+    <register name="grabberPWM_STATUS_AUX_CTRLDP0" address="0x4000659A" bitWidth="8" desc="UDB Auxilliary Control Register" hidden="false">
       <field name="FIFO0_CLR" from="0" to="0" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="E_FIFO_CLR_0" value="0" desc="Normal FIFO operation" />
         <value name="E_FIFO_CLR_1" value="1" desc="Clear FIFO state" />
@@ -178,7 +178,7 @@
         <value name="E_CNT_START1" value="1" desc="Enable counter" />
       </field>
     </register>
-    <register name="elbowPWM_STATUS_AUX_CTRLDP1" address="0x40006595" bitWidth="8" desc="UDB Auxilliary Control Register" hidden="false">
+    <register name="grabberPWM_STATUS_AUX_CTRLDP1" address="0x4000659B" bitWidth="8" desc="UDB Auxilliary Control Register" hidden="false">
       <field name="FIFO0_CLR" from="0" to="0" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="E_FIFO_CLR_0" value="0" desc="Normal FIFO operation" />
         <value name="E_FIFO_CLR_1" value="1" desc="Clear FIFO state" />
