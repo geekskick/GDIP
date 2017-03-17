@@ -66,7 +66,7 @@ int i = 0;
         
         if( pdTRUE == xQueueReceive( xDispQueue, &xInput, portMAX_DELAY ) )
         {
-            vTaskSuspendAll();
+            //vTaskSuspendAll();
             // make sure it's null terminated within bounds
             //xInput.msg[( xInput.iMsgLen >= DISPLAY_MAX_MSG_LEN? DISPLAY_MAX_MSG_LEN - 1 : xInput.iMsgLen )] = ' ';
             

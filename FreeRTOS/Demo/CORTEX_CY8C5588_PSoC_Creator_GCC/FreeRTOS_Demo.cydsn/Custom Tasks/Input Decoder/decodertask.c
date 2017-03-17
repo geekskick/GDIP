@@ -122,7 +122,7 @@ QueueHandle_t xStartDecoderTask( int priority, xDecoderParams_t *pxParams )
     pxKPTask = pxParams->pxKeypadHandle;
     
     //needs to be init mode once made
-    prvModeDecoder = &prvManualModeDecoder;
+    prvModeDecoder = &prvInitModeDecoder;
     
     vSubscribeToModeChange( &prvOnModeChange );
     
