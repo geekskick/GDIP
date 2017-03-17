@@ -237,11 +237,8 @@ extern cyisraddress CyRamVectors[];
 
     /* start the servos */
     prvServoSetup();
-
-    builtInLED_Write(1);
     errorLED_Write( 1 );
     
-    // not bothered about lcd for now
     LCD_Start();
     LCD_DisplayOn();
     LCD_PrintString( "Init Mode" );

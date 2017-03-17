@@ -230,6 +230,7 @@
       <Data key="31701add-6005-44d9-ae4e-af20af5e04c1" value="Startup_Release_Switch" />
       <Data key="37701de6-0a57-4c17-a4b1-a74a20972d07" value="elbowPin" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="rxPin" />
+      <Data key="a403a4f6-fc2f-4be7-a474-cddde00a0dcd" value="lcdPwrPin" />
       <Data key="a774cbee-f634-4288-91e6-9ae6a6f16e58/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_Character_Display_LCDPort" />
       <Data key="b3ac9170-30ae-409e-a625-ad268e914172" value="Pin_LED_2" />
       <Data key="c56a79e3-3fdd-4d07-8ca2-7852c404d579" value="baseElevationPin" />
@@ -360,6 +361,11 @@
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">
       <Group key="0">
         <Data key="Port Format" value="12,6" />
+      </Group>
+    </Group>
+    <Group key="a403a4f6-fc2f-4be7-a474-cddde00a0dcd">
+      <Group key="0">
+        <Data key="Port Format" value="2,0" />
       </Group>
     </Group>
     <Group key="a774cbee-f634-4288-91e6-9ae6a6f16e58/ed092b9b-d398-4703-be89-cebf998501f6">

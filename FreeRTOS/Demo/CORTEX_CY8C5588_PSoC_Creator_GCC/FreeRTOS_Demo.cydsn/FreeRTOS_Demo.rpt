@@ -1,12 +1,12 @@
-Loading plugins phase: Elapsed time ==> 1s.390ms
+Loading plugins phase: Elapsed time ==> 0s.295ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 3s.671ms
+Elaboration phase: Elapsed time ==> 1s.427ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.077ms
+HDL generation phase: Elapsed time ==> 0s.067ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -23,13 +23,13 @@ HDL generation phase: Elapsed time ==> 0s.077ms
 
 ======================================================================
 Compiling:  FreeRTOS_Demo.v
-Program  :   C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\bin\warp.exe
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\bin\warp.exe
 Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -dcpsoc3 FreeRTOS_Demo.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  FreeRTOS_Demo.v
-Program  :   C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\bin\warp.exe
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\bin\warp.exe
 Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -dcpsoc3 FreeRTOS_Demo.v -verilog
 ======================================================================
 
@@ -40,7 +40,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Patri
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Tue Mar 14 09:47:00 2017
+Fri Mar 17 16:15:51 2017
 
 
 ======================================================================
@@ -50,45 +50,45 @@ Options  :    -yv2 -q10 FreeRTOS_Demo.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Tue Mar 14 09:47:00 2017
+Fri Mar 17 16:15:51 2017
 
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cy_psoc3_inc.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'
-Flattening file 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\std.vhd'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'FreeRTOS_Demo.ctl'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 947, col 46):  Note: Substituting module 'sub_vi_vv' for '-'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 977, col 46):  Note: Substituting module 'add_vi_vv' for '+'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1113, col 55):  Note: Substituting module 'add_vv_vv' for '+'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 48):  Note: Substituting module 'cmp_vv_vv' for '<'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 77):  Note: Substituting module 'cmp_vv_vv' for '<'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1389, col 59):  Note: Substituting module 'cmp_vv_vv' for '<'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1424, col 61):  Note: Substituting module 'cmp_vv_vv' for '/='.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1547, col 106):  Note: Substituting module 'cmp_vv_vv' for '<'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1603, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
-C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1604, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 947, col 46):  Note: Substituting module 'sub_vi_vv' for '-'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v (line 977, col 46):  Note: Substituting module 'add_vi_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1113, col 55):  Note: Substituting module 'add_vv_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 48):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1122, col 77):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1389, col 59):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1424, col 61):  Note: Substituting module 'cmp_vv_vv' for '/='.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1547, col 106):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1603, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v (line 1604, col 68):  Note: Substituting module 'cmp_vv_vv' for '<'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
 
 vlogfe:  No errors.
 
@@ -100,31 +100,31 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Patri
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Tue Mar 14 09:47:00 2017
+Fri Mar 17 16:15:51 2017
 
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\std.vhd'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Linking 'C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\codegentemp\FreeRTOS_Demo.ctl'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
 Linking 'C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\codegentemp\FreeRTOS_Demo.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mcompare.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
 
 tovif:  No errors.
 
@@ -136,32 +136,32 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Patri
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Tue Mar 14 09:47:03 2017
+Fri Mar 17 16:15:53 2017
 
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\std.vhd'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Linking 'C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\codegentemp\FreeRTOS_Demo.ctl'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cypress.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_PWM_v3_30\B_PWM_v3_30.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
 Linking 'C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\codegentemp\FreeRTOS_Demo.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\common\stdlogic\mcompare.vif'.
-Linking 'C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3pkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\common\stdlogic\mcompare.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
@@ -1267,7 +1267,7 @@ Aliasing \UART:BUART:sRX:MODULE_5:g2:a0:newb_2\ to one
 Aliasing \UART:BUART:sRX:MODULE_5:g2:a0:newb_1\ to one
 Aliasing \UART:BUART:sRX:MODULE_5:g2:a0:newb_0\ to zero
 Aliasing \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_0\ to one
-Aliasing tmpOE__builtInLED_net_0 to one
+Aliasing tmpOE__lcdPwrPin_net_0 to one
 Aliasing tmpOE__keypadInPins_net_3 to one
 Aliasing tmpOE__keypadInPins_net_2 to one
 Aliasing tmpOE__keypadInPins_net_1 to one
@@ -1666,7 +1666,7 @@ Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:b_0\[648] = \UART:BUAR
 Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_0\[650] = one[4]
 Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:eq_0\[651] = \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[649]
 Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:eqi_0\[652] = \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[649]
-Removing Lhs of wire tmpOE__builtInLED_net_0[674] = one[4]
+Removing Lhs of wire tmpOE__lcdPwrPin_net_0[674] = one[4]
 Removing Lhs of wire tmpOE__keypadInPins_net_3[680] = one[4]
 Removing Lhs of wire tmpOE__keypadInPins_net_2[681] = one[4]
 Removing Lhs of wire tmpOE__keypadInPins_net_1[682] = one[4]
@@ -2706,18 +2706,18 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp
-Warp Program   : C:\program files (x86)\cypress\psoc creator\4.0\psoc creator\warp\bin\warp.exe
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj" -dcpsoc3 FreeRTOS_Demo.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 4s.406ms
+Warp synthesis phase: Elapsed time ==> 2s.707ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.0.0.432, Family: PSoC3, Started at: Tuesday, 14 March 2017 09:47:04
+cyp3fit: V4.0.0.432, Family: PSoC3, Started at: Friday, 17 March 2017 16:15:53
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Patrick Mintram\Documents\GDIP\GDIP\FreeRTOS\Demo\CORTEX_CY8C5588_PSoC_Creator_GCC\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cyprj -d CY8C5888LTI-LP097 FreeRTOS_Demo.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.032ms
+Design parsing phase: Elapsed time ==> 0s.040ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -3041,7 +3041,7 @@ Design Equations
         {
         }
 
-    Pin : Name = builtInLED(0)
+    Pin : Name = lcdPwrPin(0)
         Attributes:
             In Group/Port: True
             In Sync Option: AUTO
@@ -3071,11 +3071,11 @@ Design Equations
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
             Required Capabilitites: DIGITAL
-            Initial Value: 0
+            Initial Value: 1
             IO Voltage: 0
         PORT MAP (
-            pa_out => builtInLED(0)__PA ,
-            pad => builtInLED(0)_PAD );
+            pa_out => lcdPwrPin(0)__PA ,
+            pad => lcdPwrPin(0)_PAD );
         Properties:
         {
         }
@@ -5250,8 +5250,8 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    0 :    4 :    4 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.093ms
-Tech Mapping phase: Elapsed time ==> 0s.170ms
+Technology Mapping: Elapsed time ==> 0s.076ms
+Tech Mapping phase: Elapsed time ==> 0s.163ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Initial Analog Placement Results:
@@ -5264,7 +5264,6 @@ IO_6@[IOP=(2)][IoId=(6)] : \LCD:LCDPort(5)\ (fixed)
 IO_7@[IOP=(2)][IoId=(7)] : \LCD:LCDPort(6)\ (fixed)
 IO_1@[IOP=(12)][IoId=(1)] : baseElevationPin(0) (fixed)
 IO_0@[IOP=(12)][IoId=(0)] : baseRotationPin(0) (fixed)
-IO_0@[IOP=(0)][IoId=(0)] : builtInLED(0) (fixed)
 IO_2@[IOP=(12)][IoId=(2)] : elbowPin(0) (fixed)
 IO_7@[IOP=(1)][IoId=(7)] : errorLED(0) (fixed)
 IO_5@[IOP=(12)][IoId=(5)] : grabberPin(0) (fixed)
@@ -5276,11 +5275,12 @@ IO_4@[IOP=(3)][IoId=(4)] : keypadOutPins(0) (fixed)
 IO_5@[IOP=(3)][IoId=(5)] : keypadOutPins(1) (fixed)
 IO_6@[IOP=(3)][IoId=(6)] : keypadOutPins(2) (fixed)
 IO_7@[IOP=(3)][IoId=(7)] : keypadOutPins(3) (fixed)
+IO_0@[IOP=(2)][IoId=(0)] : lcdPwrPin(0) (fixed)
 IO_6@[IOP=(12)][IoId=(6)] : rxPin(0) (fixed)
 IO_7@[IOP=(12)][IoId=(7)] : txPin(0) (fixed)
 IO_4@[IOP=(12)][IoId=(4)] : wristPitchPin(0) (fixed)
 IO_3@[IOP=(12)][IoId=(3)] : wristRollPin(0) (fixed)
-Analog Placement phase: Elapsed time ==> 0s.031ms
+Analog Placement phase: Elapsed time ==> 0s.020ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 Analog Routing phase: Elapsed time ==> 0s.000ms
@@ -5298,7 +5298,7 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.312ms
+Analog Code Generation phase: Elapsed time ==> 0s.295ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -5333,7 +5333,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.047ms
+Partitioning: Elapsed time ==> 0s.064ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -6815,47 +6815,7 @@ Intr container @ [IntrContainer=(0)]:
             is_nmi = 0
         }
 Drq container @ [DrqContainer=(0)]: empty
-Port 0 contains the following IO cells:
-[IoId=0]: 
-Pin : Name = builtInLED(0)
-    Attributes:
-        In Group/Port: True
-        In Sync Option: AUTO
-        Out Sync Option: NOSYNC
-        Interrupt generated: False
-        Interrupt mode: NONE
-        Drive mode: CMOS_OUT
-        VTrip: EITHER
-        Slew: FAST
-        Input Sync needed: False
-        Output Sync needed: False
-        SC shield enabled: False
-        POR State: ANY
-        LCD Mode: COMMON
-        Register Mode: RegComb
-        CaSense Mode: NEITHER
-        Treat as pin: True
-        Is OE Registered: False
-        Uses Analog: False
-        Can contain Digital: True
-        Is SIO: False
-        SIO Output Buf: NONREGULATED
-        SIO Input Buf: SINGLE_ENDED
-        SIO HiFreq: LOW
-        SIO Hyst: DISABLED
-        SIO Vtrip: MULTIPLIER_0_5
-        SIO Multiplier Index: 0
-        SIO RefSel: VCC_IO
-        Required Capabilitites: DIGITAL
-        Initial Value: 0
-        IO Voltage: 0
-    PORT MAP (
-        pa_out => builtInLED(0)__PA ,
-        pad => builtInLED(0)_PAD );
-    Properties:
-    {
-    }
-
+Port 0 is empty
 Port 1 contains the following IO cells:
 [IoId=7]: 
 Pin : Name = errorLED(0)
@@ -6898,6 +6858,46 @@ Pin : Name = errorLED(0)
     }
 
 Port 2 contains the following IO cells:
+[IoId=0]: 
+Pin : Name = lcdPwrPin(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => lcdPwrPin(0)__PA ,
+        pad => lcdPwrPin(0)_PAD );
+    Properties:
+    {
+    }
+
 [IoId=1]: 
 Pin : Name = \LCD:LCDPort(0)\
     Attributes:
@@ -7883,11 +7883,10 @@ Port Configuration report
      |     |       | Interrupt |                  |                     | 
 Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connections
 -----+-----+-------+-----------+------------------+---------------------+-------------------------
-   0 |   0 |     * |      NONE |         CMOS_OUT |       builtInLED(0) | 
------+-----+-------+-----------+------------------+---------------------+-------------------------
    1 |   7 |     * |      NONE |         CMOS_OUT |         errorLED(0) | 
 -----+-----+-------+-----------+------------------+---------------------+-------------------------
-   2 |   1 |     * |      NONE |         CMOS_OUT |    \LCD:LCDPort(0)\ | 
+   2 |   0 |     * |      NONE |         CMOS_OUT |        lcdPwrPin(0) | 
+     |   1 |     * |      NONE |         CMOS_OUT |    \LCD:LCDPort(0)\ | 
      |   2 |     * |      NONE |         CMOS_OUT |    \LCD:LCDPort(1)\ | 
      |   3 |     * |      NONE |         CMOS_OUT |    \LCD:LCDPort(2)\ | 
      |   4 |     * |      NONE |         CMOS_OUT |    \LCD:LCDPort(3)\ | 
@@ -7916,32 +7915,32 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.000ms
-Digital Placement phase: Elapsed time ==> 1s.671ms
+Digital component placer commit/Report: Elapsed time ==> 0s.003ms
+Digital Placement phase: Elapsed time ==> 1s.640ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 Routing successful.
-Digital Routing phase: Elapsed time ==> 1s.813ms
+Digital Routing phase: Elapsed time ==> 1s.976ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.217ms
+Bitstream Generation phase: Elapsed time ==> 0s.247ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.046ms
+Bitstream Verification phase: Elapsed time ==> 0s.043ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in FreeRTOS_Demo_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.515ms
+Static timing analysis phase: Elapsed time ==> 0s.463ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.218ms
+Design database save phase: Elapsed time ==> 0s.224ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 5s.078ms
+cydsfit: Elapsed time ==> 5s.151ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 5s.078ms
-API generation phase: Elapsed time ==> 1s.625ms
-Dependency generation phase: Elapsed time ==> 0s.030ms
-Cleanup phase: Elapsed time ==> 0s.000ms
+Fitter phase: Elapsed time ==> 5s.155ms
+API generation phase: Elapsed time ==> 1s.519ms
+Dependency generation phase: Elapsed time ==> 0s.043ms
+Cleanup phase: Elapsed time ==> 0s.019ms
