@@ -40,6 +40,7 @@ Changes Made   :
 #define WRIST_R_INIT SERVO_MID
 #define WRIST_P_INIT SERVO_MIN
 #define GRAB_INIT SERVO_MIN
+#define GRAB_MAX SERVO_MID
 
 /*-----------------------------------------------------------------------*/
 /* forward declare it cause im a good boy */
@@ -139,6 +140,7 @@ static uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
                 ( usNewValue < usServoPeriod ) 
             )
             { 
+                
                 /* update the arm position since it's within limits */
                 switch( xInputValue.xServo )
                 {
@@ -147,7 +149,13 @@ static uint16_t  ( *pusDirectionFunction ) ( uint16_t usLHS, uint16_t usRHS );
                     case WristRoll:     pxCurrentPosition->usWristRoll = usNewValue;      break;
                     case Elbow:         pxCurrentPosition->usElbow = usNewValue;          break;
                     case WristPitch:    pxCurrentPosition->usWristPitch = usNewValue;     break;
-                    case Grabber:       pxCurrentPosition->usGrabber = usNewValue;        break;
+                    case Grabber:    
+                        if( usNewValue >= GRAB_MAX )
+                        {
+                            pxCurrentPosition->usGrabber = usNewValue; 
+                        }
+                               
+                    break;
                     default: break;
                 } 
                 
