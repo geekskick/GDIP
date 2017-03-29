@@ -14,6 +14,7 @@ Changes Made   :
 
 /* Scheduler include files. */
 #include <stdlib.h>
+#include <stdbool.h>
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
@@ -62,6 +63,10 @@ static QueueHandle_t inputFromWPMQueue = NULL;
 static uint16_t usServoPeriod = 0;
 const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on each step, chosen through user experience with the device  */
 
+#define NUM_COEFFS 100
+const static float fSMOOTHING_COEFFS[NUM_COEFFS] = { -50.00, -49.98, -49.90, -49.78, -49.61, -49.38, -49.11, -48.80, -48.43, -48.01, -47.55, -47.04, -46.49, -45.89, -45.24, -44.55, -43.82, -43.04, -42.22, -41.35, -40.45, -39.51, -38.53, -37.51, -36.45, -35.36, -34.23, -33.07, -31.87, -30.65, -29.39, -28.10, -26.79, -25.45, -24.09, -22.70, -21.29, -19.86, -18.41, -16.94, -15.45, -13.95, -12.43, -10.91, -9.37, -7.82, -6.27, -4.71, -3.14, -1.57, 0.00, 1.57, 3.14, 4.71, 6.27, 7.82, 9.37, 10.91, 12.43, 13.95, 15.45, 16.94, 18.41, 19.86, 21.29, 22.70, 24.09, 25.45, 26.79, 28.10, 29.39, 30.65, 31.87, 33.07, 34.23, 35.36, 36.45, 37.51, 38.53, 39.51, 40.45, 41.35, 42.22, 43.04, 43.82, 44.55, 45.24, 45.89, 46.49, 47.04, 47.55, 48.01, 48.43, 48.80, 49.11, 49.38, 49.61, 49.78, 49.90, 49.98 };
+const static float fMULITPLIER = 31.83098862;
+
 /* function pointers to write compare */
 void ( *pvWriteCompareFunctions[END] ) ( uint16_t newValue );
 
@@ -76,30 +81,76 @@ void prvModeChange( xMode_t xNewMode )
     
 }
 
+uint16_t prvCalculateNewPosition( uint16_t iInitial, uint16_t iOffset, float diff, int i )
+{
+    return  iInitial - iOffset + ( diff * fSMOOTHING_COEFFS[i] );
+}
 /*-----------------------------------------------------------------------*/
 void prvAutoModeRx( xArmPosition_t *pxArmPos )
 {
 static xArmPosition_t xInputValue;             /* input from the queue */
+static xArmPosition_t xInitialValue;
+static xArmPosition_t xTempValue;
+static xArmPosition_t xOffSetValues;
+
+int i;
+float baseRdiff = 0.0,
+    baseEdiff = 0.0,
+    elbowDiff = 0.0,
+    wristPdiff = 0.0,
+    wristRdiff = 0.0,
+    grabDiff = 0.0;
+    
+
 
     // Must have no block time as it will cause the mode change to have no effect
     if( pdTRUE == xQueueReceive( inputFromWPMQueue, &xInputValue, ( TickType_t ) 0 ) )
     {
          /* save in the shared resource */
+        xInitialValue = *pxArmPos;
         *pxArmPos = xInputValue;
-        vSetCurrentArmPosition( *pxArmPos );
+        
+        // caluculate difference multiplier
+        baseRdiff = ((float)xInputValue.usBaseRotation - (float)pxArmPos->usBaseRotation) / NUM_COEFFS;
+        baseEdiff = ((float)xInputValue.usBaseElevation - (float)pxArmPos->usBaseElevation) / NUM_COEFFS;
+        elbowDiff = ((float)xInputValue.usElbow - (float)pxArmPos->usElbow) / NUM_COEFFS;
+        wristPdiff = ((float)xInputValue.usWristPitch - (float)pxArmPos->usWristPitch) / NUM_COEFFS;
+        wristRdiff = ((float)xInputValue.usWristRoll - (float)pxArmPos->usWristRoll) / NUM_COEFFS;
+        grabDiff = ((float)xInputValue.usGrabber - (float)pxArmPos->usGrabber) / NUM_COEFFS; 
                 
-        /* when using HW disable interurpts */
-        taskENTER_CRITICAL();
+        //calculate the offset values
+        xOffSetValues.usBaseElevation = fSMOOTHING_COEFFS[0] * baseEdiff;
+        xOffSetValues.usBaseRotation = fSMOOTHING_COEFFS[0] * baseRdiff;
+        xOffSetValues.usElbow = fSMOOTHING_COEFFS[0] * elbowDiff;
+        xOffSetValues.usWristPitch = fSMOOTHING_COEFFS[0] * wristPdiff;
+        xOffSetValues.usWristRoll = fSMOOTHING_COEFFS[0] * wristRdiff;
+        xOffSetValues.usGrabber = fSMOOTHING_COEFFS[0] * grabDiff;
         
-        pvWriteCompareFunctions[BaseElevation]( xInputValue.usBaseElevation );
-        pvWriteCompareFunctions[BaseRotation]( xInputValue.usBaseRotation );
-        pvWriteCompareFunctions[Elbow]( xInputValue.usElbow );
-        pvWriteCompareFunctions[WristPitch]( xInputValue.usWristPitch );
-        pvWriteCompareFunctions[WristRoll]( xInputValue.usWristRoll );
-        pvWriteCompareFunctions[Grabber]( xInputValue.usGrabber );
+        for( i = 0; i < NUM_COEFFS; i++ )
+        {
+	        xTempValue.usBaseElevation = prvCalculateNewPosition( xInitialValue.usBaseElevation, xOffSetValues.usBaseElevation, baseEdiff, i );
+            xTempValue.usBaseRotation = prvCalculateNewPosition( xInitialValue.usBaseRotation, xOffSetValues.usBaseRotation, baseRdiff, i );
+	        xTempValue.usElbow = prvCalculateNewPosition( xInitialValue.usElbow, xOffSetValues.usElbow, elbowDiff, i );
+            xTempValue.usWristPitch = prvCalculateNewPosition( xInitialValue.usWristPitch, xOffSetValues.usWristPitch, wristPdiff, i );
+            xTempValue.usWristRoll = prvCalculateNewPosition( xInitialValue.usWristRoll, xOffSetValues.usWristRoll, wristPdiff, i );
+            xTempValue.usGrabber = prvCalculateNewPosition( xInitialValue.usGrabber, xOffSetValues.usGrabber, grabDiff, i );
         
-        /* re-enable interrupts */
-        taskEXIT_CRITICAL();
+            /* when using HW disable interurpts */
+            taskENTER_CRITICAL();
+        
+            pvWriteCompareFunctions[BaseElevation]( xTempValue.usBaseElevation );
+            pvWriteCompareFunctions[BaseRotation]( xTempValue.usBaseRotation );
+            pvWriteCompareFunctions[Elbow]( xTempValue.usElbow );
+            pvWriteCompareFunctions[WristPitch]( xTempValue.usWristPitch );
+            pvWriteCompareFunctions[WristRoll]( xTempValue.usWristRoll );
+            pvWriteCompareFunctions[Grabber]( xTempValue.usGrabber );
+        
+            /* re-enable interrupts */
+            taskEXIT_CRITICAL();
+        }
+        
+        vSetCurrentArmPosition( *pxArmPos );
+       
     }
 }
 
