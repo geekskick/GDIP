@@ -29,11 +29,13 @@ Changes Made   :
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
+#include "semphr.h"
 
 #include "WPM.h"
 #include "Custom Tasks/Current Position Store/currentposition.h"
 #include "Custom Tasks/Error/ErrorMode.h"
 #include "Custom Tasks/Display/globaldisplay.h"
+#include "Custom Tasks/Servo/ServoQueueParams.h"
 
 // The number of positions the user can store and therefore the depth of the stack
 #define SAVED_POSITIONS_MAX 50
@@ -42,7 +44,7 @@ Changes Made   :
 This has been chosen as the servo speed is 0.14seconds per 60 degress.
 over 180 degrees this means a slowest time of 420 ms for the servo to move the whole distance. 
 rounded up to 500 so that there is a pause and to account for tolerances. */
-#define NOTIFY_WAIT_TIM_OUT ( TickType_t ) 420 
+#define NOTIFY_WAIT_TIM_OUT ( TickType_t ) 500
 
 
 /*-----------------------------------------------------------------------*/
@@ -160,8 +162,10 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
             iConvertIntToString( SAVED_POSITIONS_MAX - usNextFreeStackPosition, buff );
             vSendToDisplayQueue( buff, strlen( buff ), wpmPointsRemaining );
         } 
+        //it's just running through actions at this point
         else if( xNextAction == RUN )
         {
+            xSemaphoreTake( xRunCompleteSem, portMAX_DELAY ); //this might fail? test it!
         	prvActionRun( xActionPckg );
         }
         

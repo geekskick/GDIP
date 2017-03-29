@@ -51,6 +51,7 @@ void prvModeChange( xMode_t xNewMode );
 void ( *prvGetAndSend )( xArmPosition_t *pxArmPos );
 void prvAutoModeRx( xArmPosition_t *pxArmPos );
 void prvOtherModeRx( xArmPosition_t *pxArmPos );
+uint16_t prvCalculateNewPosition( uint16_t iInitial, uint16_t iOffset, float diff, int i );
 
 /* Each value can either be added to or subtract from */
 uint16_t prvAdd ( uint16_t usLHS, uint16_t usRHS );
@@ -66,6 +67,8 @@ const static uint16_t usSERVO_SPEED = 4;     /* how far to move the servos on ea
 #define NUM_COEFFS 100
 const static float fSMOOTHING_COEFFS[NUM_COEFFS] = { -50.00, -49.98, -49.90, -49.78, -49.61, -49.38, -49.11, -48.80, -48.43, -48.01, -47.55, -47.04, -46.49, -45.89, -45.24, -44.55, -43.82, -43.04, -42.22, -41.35, -40.45, -39.51, -38.53, -37.51, -36.45, -35.36, -34.23, -33.07, -31.87, -30.65, -29.39, -28.10, -26.79, -25.45, -24.09, -22.70, -21.29, -19.86, -18.41, -16.94, -15.45, -13.95, -12.43, -10.91, -9.37, -7.82, -6.27, -4.71, -3.14, -1.57, 0.00, 1.57, 3.14, 4.71, 6.27, 7.82, 9.37, 10.91, 12.43, 13.95, 15.45, 16.94, 18.41, 19.86, 21.29, 22.70, 24.09, 25.45, 26.79, 28.10, 29.39, 30.65, 31.87, 33.07, 34.23, 35.36, 36.45, 37.51, 38.53, 39.51, 40.45, 41.35, 42.22, 43.04, 43.82, 44.55, 45.24, 45.89, 46.49, 47.04, 47.55, 48.01, 48.43, 48.80, 49.11, 49.38, 49.61, 49.78, 49.90, 49.98 };
 const static float fMULITPLIER = 31.83098862;
+xTaskHandle prvTaskToNotify;
+xTaskHandle *pMainTaskAddr = NULL;
 
 /* function pointers to write compare */
 void ( *pvWriteCompareFunctions[END] ) ( uint16_t newValue );
@@ -150,6 +153,7 @@ float baseRdiff = 0.0,
         }
         
         vSetCurrentArmPosition( *pxArmPos );
+        xSemaphoreGive( xRunCompleteSem );
        
     }
 }
@@ -266,6 +270,8 @@ void vStartServoTasks( int priority, xServoInputQueues_t *pxOutput )
     
     prvGetAndSend = &prvOtherModeRx;
     vSubscribeToModeChange( &prvModeChange );
+    
+    xRunCompleteSem = xSemaphoreCreateBinary();
     
     xTaskCreate( vServoTask, "ServoMove", configMINIMAL_STACK_SIZE, ( void* ) NULL , priority, ( TaskHandle_t* ) NULL);
     

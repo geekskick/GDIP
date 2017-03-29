@@ -8,7 +8,8 @@ Changes Made   : Initial Issue
 #ifndef SERVOQUEUE_H
 #define SERVOQUEUE_H
     
-    #include "queue.h"
+#include "queue.h"
+#include "semphr.h"
   
 /* you can only add or substract from a servo value */
 typedef enum xServoDirection{ ADD, SUB } xServoDirection_t;
@@ -27,6 +28,7 @@ typedef struct xServoInputQueues
     QueueHandle_t *pxFromKeypad;
 } xServoInputQueues_t;
 
+SemaphoreHandle_t xRunCompleteSem;
 #endif
 
 /* [] END OF FILE */
