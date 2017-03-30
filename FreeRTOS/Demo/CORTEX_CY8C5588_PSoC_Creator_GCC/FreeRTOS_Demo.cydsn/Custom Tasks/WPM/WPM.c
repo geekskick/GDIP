@@ -92,6 +92,8 @@ static const char* prvMSG_ON_CLR = "Cleared";
 static const char* prvMSG_ON_STOP = "Stop";
 static const char* prvMSG_ON_RST = "Reset";
 
+bool bFirstTime;
+
 /*-----------------------------------------------------------------------*/
 /* the main function reads from the queue and sets the PWM duty  to the passed in value */
 static portTASK_FUNCTION( vWPMTask, pvParamaters )
@@ -113,7 +115,7 @@ xActionPckg.pxNextAction = &xNextAction;
 xActionPckg.pxCurrentDirection = &xDirection;
 xActionPckg.pusCurrentStackPosition = &usCurrentStackPosition;
 xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
-
+bFirstTime = false;
     /* the meat of the task */
     for (;;)
     {
@@ -139,6 +141,7 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         			break;
 
         		case WPM_NOTIFICATION_RESET:
+                    bFirstTime = true;
                     vSendToDisplayQueue( prvMSG_ON_RST, strlen( prvMSG_ON_RST ), wpmReset );
         			prvActionReset( xActionPckg );
         			break;
@@ -165,7 +168,10 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
         //it's just running through actions at this point
         else if( xNextAction == RUN )
         {
-            xSemaphoreTake( xRunCompleteSem, portMAX_DELAY ); //this might fail? test it!
+            if(!bFirstTime) 
+            {
+                xSemaphoreTake( xRunCompleteSem, portMAX_DELAY ); //this might fail? test it!
+            }
         	prvActionRun( xActionPckg );
         }
         
@@ -177,6 +183,7 @@ xActionPckg.pusNextFreeStackPosition = &usNextFreeStackPosition;
 void prvActionStop( struct xActionArgs args )
 {
 	*( args.pxNextAction ) = NONE;
+   
 }
 
 /*-----------------------------------------------------------------------*/
@@ -184,6 +191,7 @@ void prvActionReset( struct xActionArgs args )
 {
 	*( args.pxCurrentDirection ) = BACK;
 	*( args.pxNextAction ) = RUN;
+    //xSemaphoreGive( xRunCompleteSem );
 }
 
 /*-----------------------------------------------------------------------*/
@@ -261,7 +269,9 @@ void prvActionRun( struct xActionArgs args )
                 char buff[DISPLAY_MAX_MSG_LEN];
                 iConvertIntToString( *( args.pusCurrentStackPosition ), buff );
                 vSendToDisplayQueue( buff, strlen( buff ), wpmCurrentPoint );
+                bFirstTime = false;
             }
+            
         }
 		else 
         {

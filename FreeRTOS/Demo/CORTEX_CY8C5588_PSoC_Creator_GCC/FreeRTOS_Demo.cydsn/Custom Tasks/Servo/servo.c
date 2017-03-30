@@ -84,7 +84,7 @@ void prvModeChange( xMode_t xNewMode )
     
 }
 
-uint16_t prvCalculateNewPosition( uint16_t iInitial, uint16_t iOffset, float diff, int i )
+uint16_t prvCalculateNewPosition( const uint16_t iInitial, const uint16_t iOffset, const float diff, const int i )
 {
     return  iInitial - iOffset + ( diff * fSMOOTHING_COEFFS[i] );
 }
@@ -104,22 +104,20 @@ float baseRdiff = 0.0,
     wristRdiff = 0.0,
     grabDiff = 0.0;
     
-
-
     // Must have no block time as it will cause the mode change to have no effect
     if( pdTRUE == xQueueReceive( inputFromWPMQueue, &xInputValue, ( TickType_t ) 0 ) )
     {
          /* save in the shared resource */
         xInitialValue = *pxArmPos;
-        *pxArmPos = xInputValue;
+        //*pxArmPos = xInputValue;
         
         // caluculate difference multiplier
-        baseRdiff = ((float)xInputValue.usBaseRotation - (float)pxArmPos->usBaseRotation) / NUM_COEFFS;
-        baseEdiff = ((float)xInputValue.usBaseElevation - (float)pxArmPos->usBaseElevation) / NUM_COEFFS;
-        elbowDiff = ((float)xInputValue.usElbow - (float)pxArmPos->usElbow) / NUM_COEFFS;
-        wristPdiff = ((float)xInputValue.usWristPitch - (float)pxArmPos->usWristPitch) / NUM_COEFFS;
-        wristRdiff = ((float)xInputValue.usWristRoll - (float)pxArmPos->usWristRoll) / NUM_COEFFS;
-        grabDiff = ((float)xInputValue.usGrabber - (float)pxArmPos->usGrabber) / NUM_COEFFS; 
+        baseRdiff = ((float)xInputValue.usBaseRotation - (float)pxArmPos->usBaseRotation) / (float)NUM_COEFFS;
+        baseEdiff = ((float)xInputValue.usBaseElevation - (float)pxArmPos->usBaseElevation) / (float)NUM_COEFFS;
+        elbowDiff = ((float)xInputValue.usElbow - (float)pxArmPos->usElbow) / (float)NUM_COEFFS;
+        wristPdiff = ((float)xInputValue.usWristPitch - (float)pxArmPos->usWristPitch) / (float)NUM_COEFFS;
+        wristRdiff = ((float)xInputValue.usWristRoll - (float)pxArmPos->usWristRoll) / (float)NUM_COEFFS;
+        grabDiff = ((float)xInputValue.usGrabber - (float)pxArmPos->usGrabber) / (float)NUM_COEFFS; 
                 
         //calculate the offset values
         xOffSetValues.usBaseElevation = fSMOOTHING_COEFFS[0] * baseEdiff;
@@ -135,7 +133,7 @@ float baseRdiff = 0.0,
             xTempValue.usBaseRotation = prvCalculateNewPosition( xInitialValue.usBaseRotation, xOffSetValues.usBaseRotation, baseRdiff, i );
 	        xTempValue.usElbow = prvCalculateNewPosition( xInitialValue.usElbow, xOffSetValues.usElbow, elbowDiff, i );
             xTempValue.usWristPitch = prvCalculateNewPosition( xInitialValue.usWristPitch, xOffSetValues.usWristPitch, wristPdiff, i );
-            xTempValue.usWristRoll = prvCalculateNewPosition( xInitialValue.usWristRoll, xOffSetValues.usWristRoll, wristPdiff, i );
+            xTempValue.usWristRoll = prvCalculateNewPosition( xInitialValue.usWristRoll, xOffSetValues.usWristRoll, wristRdiff, i );
             xTempValue.usGrabber = prvCalculateNewPosition( xInitialValue.usGrabber, xOffSetValues.usGrabber, grabDiff, i );
         
             /* when using HW disable interurpts */
@@ -150,8 +148,12 @@ float baseRdiff = 0.0,
         
             /* re-enable interrupts */
             taskEXIT_CRITICAL();
+            
+            //delay
+            vTaskDelay(10);
         }
         
+        *pxArmPos = xInputValue;
         vSetCurrentArmPosition( *pxArmPos );
         xSemaphoreGive( xRunCompleteSem );
        

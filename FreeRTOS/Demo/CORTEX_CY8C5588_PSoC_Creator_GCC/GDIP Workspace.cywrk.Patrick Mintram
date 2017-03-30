@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GDIP Workspace\FreeRTOS_Demo\Header Files\FreeRTOSConfig.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="GDIP Workspace\FreeRTOS_Demo\Source Files\servo.c">
 <ExpandedNodeIds>
 <v>GDIP Workspace</v>
 <v>GDIP Workspace\FreeRTOS_Demo</v>
@@ -462,21 +462,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\FreeRTOS_Demo.cydsn\main.c" />
-<name v=".\FreeRTOS_Demo.cydsn\FreeRTOS_Demo.cydwr" />
 <name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\WPM\WPM.c" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Display\globaldisplay.c" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Input Decoder\decodertask.c" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Display\globaldisplay.h" />
-<name v=".\FreeRTOS_Demo.cydsn\ParTest.c" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Keypad\keypad.c" />
-<name v=".\FreeRTOS_Demo.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Servo\servo.c" />
-<name v=".\FreeRTOS_Demo.cydsn\Serial.c" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\WPM\WPM.h" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Servo\ServoQueueParams.h" />
-<name v=".\FreeRTOS_Demo.cydsn\Custom Tasks\Servo\servo.h" />
-<name v=".\FreeRTOS_Demo.cydsn\FreeRTOSConfig.h" />
+<name v=".\FreeRTOS_Demo.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -484,7 +472,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1139, 569" SelectedTabbedMdiWindow="1380a0cf-c223-43ce-bd49-b6b94b7c575c"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="71190f74-5309-48b8-ac34-223e299fe004" /><DocumentWindow Key="8f5287e0-8e72-44af-ad4a-6d84263666a8" Guid="5eb2ba58-a78e-4234-9736-94809c8d76d0" /><DocumentWindow Key="c6d2a27a-4985-4250-9a3e-7c1bbb905794" Guid="bc190c92-f613-4893-8f3c-87c94f66e9b7" /><DocumentWindow Key="cb7b2fc2-4a01-4fd6-9002-ff999542f9e9" Guid="1380a0cf-c223-43ce-bd49-b6b94b7c575c" /><DocumentWindow Key="790cdf39-4419-4328-8b7a-1822458d2409" Guid="2d509017-7121-476f-b723-d2434ac4be5f" /><DocumentWindow Key="52a56627-de69-4219-9172-fcdbf32c21e9" Guid="c2e05cb0-7093-44f7-94ff-792bbb2eb514" /><DocumentWindow Key="ac6cfe7e-e271-439c-8f7b-6e548dbd65b4" Guid="de2d4efe-2127-44c9-a1ca-c2a20132aaca" /><DocumentWindow Key="dc26abf1-38d1-410c-a25d-bde07322235b" Guid="48e1b3a3-3e9e-48ff-8c96-9855a0358585" /><DocumentWindow Key="8a9032e7-01c4-462a-a49f-27058cb8b6e6" Guid="730dff99-d660-4885-b44d-eb8289879d21" /><DocumentWindow Key="ce41a000-3165-4fe2-8ca0-f679633e636d" Guid="1f2678da-560f-485c-8200-53dd3974b229" /><DocumentWindow Key="4ea210fd-e478-4a34-b8f4-d645b1d42098" Guid="bd4f91cb-11a3-4ce7-a0f9-19e546378634" /><DocumentWindow Key="47c5cd15-6853-4b10-8136-e33b8d194df3" Guid="bc7a1a30-c844-45fe-9698-09fb64e5dbb6" /><DocumentWindow Key="67343231-1595-424d-99af-8ea0c1e86fed" Guid="1515bfad-5a7f-450a-bf71-7d2f21342735" /><DocumentWindow Key="5c499751-3163-4f70-8ea9-628665f83c91" Guid="2f38ce07-23f1-487b-8470-3f8b22c67dc4" /><DocumentWindow Key="7e7e5872-af55-4d49-a814-81ecc34ae67f" Guid="cb7acf62-3900-4b37-bd20-e4dc5c40236c" /><DocumentWindow Key="92296c31-e3ad-44fe-a808-d0bce9fae511" Guid="61772fa6-29cc-4916-8126-0409a9488370" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1139, 569" SelectedTabbedMdiWindow="7b6607d4-82e1-4b67-b747-ca1dc88ce134"><DocumentWindow Key="565af6c7-77b5-49c2-9e21-caae8025f97d" Guid="87e4decb-81b4-46ab-bdc8-4656e6bb5ce5" /><DocumentWindow Key="499091d0-edb3-4272-80cb-ae1d62c93f18" Guid="7b6607d4-82e1-4b67-b747-ca1dc88ce134" /><DocumentWindow Key="a83251ad-bcdd-4638-b841-295f4ebed77b" Guid="3faf4fca-6f1c-45a2-b42b-679d9bac8fa1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
